@@ -11,6 +11,8 @@ $inc="./";
 $static="./";
 $sessionname='SID';
 
+date_default_timezone_set('Asia/Shanghai');
+
 $path = explode("/", $_SERVER['PATH_INFO']);
 $controller=$path[1];
 $method=$path[2];
