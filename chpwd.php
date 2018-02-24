@@ -13,7 +13,17 @@ else {
 	$uname=$_SESSION['uname'];
 }
 ?>
-		  <main>
+		<section class="row">
+			<aside class="col-md-2">
+				<div class="list-group">
+				  <a href="#" class="list-group-item list-group-item-action">公告通知</a>
+				  <a href="#" class="list-group-item list-group-item-action">固定资产投资</a>
+				  <a href="<?= "$root/project" ?>" class="list-group-item list-group-item-action">重点项目进展</a>
+				  <a href="<?= "$root/setting/chpwd" ?>" class="list-group-item list-group-item-action active">设置</a>
+				</div>
+			</aside>
+
+		  <main class="col-md">
 		  <form method="post">
 		  <div class="input-group mb-3 col-sm-5 mx-auto">
 			  <div class="input-group-prepend">
@@ -42,6 +52,6 @@ else {
 		  <button type="submit" class="btn btn-success d-block mx-auto">提 交</button>
 		  </form>
 
-
 		  </main>
+		</section>
 		</div>
