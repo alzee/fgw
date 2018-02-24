@@ -37,6 +37,9 @@ body {
   #index.container {
     max-width: 46rem;
   }
+  .footer {
+    max-width: 46rem;
+  }
 }
 .container-narrow > hr {
   margin: 2rem 0;
