@@ -22,8 +22,8 @@ $rid == 3 ? $myproj_btn = 'btn-outline-secondary' : $myproj_btn = 'btn-primary';
 				<div class="list-group">
 				  <a href="#" class="list-group-item list-group-item-action">公告通知</a>
 				  <a href="#" class="list-group-item list-group-item-action">固定资产投资</a>
-				  <a href="project" class="list-group-item list-group-item-action active">重点项目进展</a>
-				  <a href="setting/chpwd" class="list-group-item list-group-item-action">设置</a>
+				  <a href="<?= "$root/project" ?>" class="list-group-item list-group-item-action active">重点项目进展</a>
+				  <a href="<?= "$root/setting/chpwd" ?>" class="list-group-item list-group-item-action">设置</a>
 				</div>
 			</aside>
 
