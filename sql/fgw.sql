@@ -90,10 +90,12 @@ CREATE TABLE `projects` (
   `finish` varchar(50) NOT NULL,
   `investby` varchar(50) NOT NULL,
   `o_incharge` varchar(50) NOT NULL COMMENT 'organization in charge. we actually use oid. keep it here just for xls import purpose',
+  `o_serve` varchar(50) NOT NULL COMMENT 'organization that provides services. keep it here for xls import purpose',
   `p_incharge` varchar(50) NOT NULL COMMENT 'people in charge',
   `oid` int(11) DEFAULT NULL,
   `implementor` varchar(50) DEFAULT NULL,
   `alert` int(11) DEFAULT NULL,
+  `type` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`pid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
