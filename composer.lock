@@ -16,7 +16,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/FortAwesome/Font-Awesome/a8386aae19e200ddb0f6845b5feeee5eb7013687.zip",
+                "url": "https://api.github.com/repos/FortAwesome/Font-Awesome/zipball/a8386aae19e200ddb0f6845b5feeee5eb7013687",
                 "reference": "a8386aae19e200ddb0f6845b5feeee5eb7013687",
                 "shasum": ""
             },
@@ -56,16 +56,16 @@
         },
         {
             "name": "phpoffice/phpspreadsheet",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPOffice/PhpSpreadsheet.git",
-                "reference": "691b68de9b87cf6e398df46482741a4f667a9391"
+                "reference": "a2771e562e3a17c0d512d2009e38fd628beece90"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/PHPOffice/PhpSpreadsheet/691b68de9b87cf6e398df46482741a4f667a9391.zip",
-                "reference": "691b68de9b87cf6e398df46482741a4f667a9391",
+                "url": "https://api.github.com/repos/PHPOffice/PhpSpreadsheet/zipball/a2771e562e3a17c0d512d2009e38fd628beece90",
+                "reference": "a2771e562e3a17c0d512d2009e38fd628beece90",
                 "shasum": ""
             },
             "require": {
@@ -86,7 +86,7 @@
             },
             "require-dev": {
                 "dompdf/dompdf": "^0.8.0",
-                "friendsofphp/php-cs-fixer": "^2.7",
+                "friendsofphp/php-cs-fixer": "@stable",
                 "jpgraph/jpgraph": "^4.0",
                 "mpdf/mpdf": "^7.0.0",
                 "phpunit/phpunit": "^5.7",
@@ -140,7 +140,7 @@
                 "xls",
                 "xlsx"
             ],
-            "time": "2017-12-25T01:53:53+00:00"
+            "time": "2018-01-28T12:37:15+00:00"
         },
         {
             "name": "psr/simple-cache",
@@ -152,7 +152,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/php-fig/simple-cache/753fa598e8f3b9966c886fe13f370baa45ef0e24.zip",
+                "url": "https://api.github.com/repos/php-fig/simple-cache/zipball/753fa598e8f3b9966c886fe13f370baa45ef0e24",
                 "reference": "753fa598e8f3b9966c886fe13f370baa45ef0e24",
                 "shasum": ""
             },
@@ -200,7 +200,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/symfony/polyfill-mbstring/78be803ce01e55d3491c1397cf1c64beb9c1b63b.zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/78be803ce01e55d3491c1397cf1c64beb9c1b63b",
                 "reference": "78be803ce01e55d3491c1397cf1c64beb9c1b63b",
                 "shasum": ""
             },
@@ -259,7 +259,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/symfony/translation/a9c4e4cc56f7eff0960c4f6c157da8f6b13211fc.zip",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/a9c4e4cc56f7eff0960c4f6c157da8f6b13211fc",
                 "reference": "a9c4e4cc56f7eff0960c4f6c157da8f6b13211fc",
                 "shasum": ""
             },
@@ -327,7 +327,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/symfony/validator/f1a020d3ea3ec23cfb666ee3169700b3fae14505.zip",
+                "url": "https://api.github.com/repos/symfony/validator/zipball/f1a020d3ea3ec23cfb666ee3169700b3fae14505",
                 "reference": "f1a020d3ea3ec23cfb666ee3169700b3fae14505",
                 "shasum": ""
             },
@@ -411,7 +411,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/twbs/bootstrap/0b9c4a4007c44201dce9a6cc1a38407005c26c86.zip",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/0b9c4a4007c44201dce9a6cc1a38407005c26c86",
                 "reference": "0b9c4a4007c44201dce9a6cc1a38407005c26c86",
                 "shasum": ""
             },
