@@ -34,10 +34,7 @@ body {
 
 /* Customize container */
 @media (min-width: 48em) {
-  #index.container {
-    max-width: 46rem;
-  }
-  .footer {
+  #index.container, .footer{
     max-width: 46rem;
   }
 }
