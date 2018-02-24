@@ -57,8 +57,7 @@ if($login){
 	}
 }
 else{
-	$controller = 'login';
-	require $inc . $controller . ".php";
+	require $inc . 'login.php';
 }
 
-require $inc . "footer.php";
+require $inc . 'footer.php';
