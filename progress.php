@@ -53,8 +53,8 @@ if($_POST && $dayleft > 0){
 		}
 		(new Db)->query($sql);
 		
-		//header("Location: $root/$controller/$method");
-		//exit;
+		header("Location: $root/$controller/$method");
+		exit;
 	}
 	
 }
