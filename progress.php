@@ -57,8 +57,14 @@ if($_POST && $dayleft > 0){
 }
 
 // prepare data
-$sql = "select projects.*,organization.oname from projects join organization on projects.oid=organization.oid where projects.pid='$pid'";
+$sql = "select * from projects where projects.pid='$pid'";
 $pj_row=(new Db)->query($sql);
+$sql = "select oname from projects join organization on projects.oid=organization.oid where projects.pid='$pid'";
+$row=(new Db)->query($sql);
+$pj_row['oname'] = $row['oname'];
+$sql = "select oname from projects join organization on projects.oid_serve=organization.oid where projects.pid='$pid'";
+$row=(new Db)->query($sql);
+$pj_row['oname_serve'] = $row['oname'];
 
 // we need data of last two months for rendering yellow td background purpose
 $sql = "select * from progress where pid='$pid' order by date DESC LIMIT 2";
@@ -181,7 +187,7 @@ else{
 						  </td>
 						  <th scope="row">服务单位</th>
 						  <td>
-							  <input placeholder="<?= $pj_row['o_serve'] ?>" type="text" class="form-control" disabled>
+							  <input placeholder="<?= $pj_row['oname_serve'] ?>" type="text" class="form-control" disabled>
 						  </td>
 						  <th scope="row">包联领导</th>
 						  <td>
