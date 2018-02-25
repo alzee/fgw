@@ -26,7 +26,11 @@ if($login){
 	session_start(['name'=>'SID']);
 	//var_dump($_SESSION);
 	// $controller ? : $controller='home';
-	$controller ? : $controller='project';
+	if(!isset($controller)){
+		$sql = "select value from setting where s_key='index'";
+		$row = (new Db)->query($sql);
+		$controller = $row['value'];
+	}
 
 	if($controller=='project' && is_numeric($method)){
 		$pid=$method;

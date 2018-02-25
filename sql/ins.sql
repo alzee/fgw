@@ -71,7 +71,8 @@ INSERT INTO `setting` (`sid`, `s_key`, `value`, `sname`) VALUES
 (1, 'lockday', '25', '锁定日期'),
 (2, 'sitename', '茅箭区投资项目直报平台', '网站名称'),
 (3, 'remind_days', '5', '提醒天数'),
-(4, 'pics', '5', '图片张数');
+(4, 'pics', '5', '图片张数'),
+(5, 'index', 'project', '默认首页');
 
 truncate role;
 INSERT INTO `role` (`rid`, `role`, `rname`) VALUES
