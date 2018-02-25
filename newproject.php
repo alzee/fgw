@@ -9,8 +9,17 @@
 					  <li class="breadcrumb-item active" aria-current="page">新增项目</li>
 				  </ol>
 		  </nav>
-		  <main>
+		<section class="row">
+			<aside class="col-md-2">
+				<div class="list-group">
+				  <a href="#" class="list-group-item list-group-item-action">公告通知</a>
+				  <a href="#" class="list-group-item list-group-item-action">固定资产投资</a>
+				  <a href="<?= "$root/project" ?>" class="list-group-item list-group-item-action active">重点项目进展</a>
+				  <a href="<?= "$root/setting/chpwd" ?>" class="list-group-item list-group-item-action">设置</a>
+				</div>
+			</aside>
 
+		  <main class="col-md">
 		  <form method="post">
 			  <table class="table table-bordered">
 				  <tbody>
@@ -126,6 +135,7 @@
 			  <button type="submit" class="btn btn-success" name="submit">提 交</button>
 		  </form>
 		  </main>
+		</section>
 
 <!-- click and popup image start-->
 			<div id="layer" class="d-none position-fixed w-100 h-100 fade show">
