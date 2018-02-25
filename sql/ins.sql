@@ -80,7 +80,6 @@ update projects SET type='美丽乡村' WHERE pid BETWEEN 84 and 100;
 --update projects set oid=9 where o_incharge like "%科技局%";
 --update projects set oid=10 where o_incharge like "%商务局%";
 --update projects set oid=1 where o_incharge like "%东城%";
---update projects set oid=2 where o_incharge like "%%";
 
 truncate progress;
 insert into progress (pid) select pid from projects;
