@@ -22,7 +22,7 @@ insert into users (uname, passwd, oid, rid) values
 	('tongji',		'202cb962ac59075b964b07152d234b70',12,1);
 
 truncate organization;
-insert into organization (uid,oname) values
+insert into organization (oid,oname) values
 	(1, '东城开发区'),
 	(2, '二堰街办'),
 	(3, '五堰街办'),
@@ -76,10 +76,6 @@ update projects SET type='工业' WHERE pid BETWEEN 1 and 42;
 update projects SET type='商贸' WHERE pid BETWEEN 43 and 55;
 update projects SET type='基建' WHERE pid BETWEEN 56 and 83;
 update projects SET type='美丽乡村' WHERE pid BETWEEN 84 and 100;
---update projects set oid=8 where o_incharge like "%经信局%";
---update projects set oid=9 where o_incharge like "%科技局%";
---update projects set oid=10 where o_incharge like "%商务局%";
---update projects set oid=1 where o_incharge like "%东城%";
 
 truncate progress;
 insert into progress (pid) select pid from projects;
