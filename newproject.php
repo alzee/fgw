@@ -4,7 +4,7 @@
 	  <div class="container" id="progress">
 		  <nav aria-label="breadcrumb" class="position-relative">
 				  <ol class="breadcrumb">
-				  <li class="breadcrumb-item"><a href="<?= $root ?>">首 页</a></li>
+				  <li class="breadcrumb-item"><a href="<?= "$root/home" ?>">首 页</a></li>
 				  <li class="breadcrumb-item"><a href="<?= $root . "/project" ?>">重点项目</a></li>
 					  <li class="breadcrumb-item active" aria-current="page">新增项目</li>
 				  </ol>

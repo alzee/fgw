@@ -25,7 +25,8 @@ $login=Sign::check();
 if($login){
 	session_start(['name'=>'SID']);
 	//var_dump($_SESSION);
-	$controller ? : $controller='home';
+	// $controller ? : $controller='home';
+	$controller ? : $controller='project';
 
 	if($controller=='project' && is_numeric($method)){
 		$pid=$method;
