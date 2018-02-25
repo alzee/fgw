@@ -12,7 +12,7 @@ $rid == 3 ? $myproj_btn = 'btn-outline-secondary' : $myproj_btn = 'btn-primary';
 		  <nav aria-label="breadcrumb" class="">
 			  <div class="">
 				  <ol class="breadcrumb">
-				  <li class="breadcrumb-item"><a href="<?= $root ?>">首 页</a></li>
+				  <li class="breadcrumb-item"><a href="<?= "$root/home" ?>">首 页</a></li>
 					  <li class="breadcrumb-item active" aria-current="page">重点项目</li>
 				  </ol>
 			  </div>

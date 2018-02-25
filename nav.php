@@ -4,7 +4,7 @@ $rid=$_SESSION['rid'];
 	  <div class="container" id="setting">
 		  <nav aria-label="breadcrumb" class="position-relative">
 			  <ol class="breadcrumb">
-			  <li class="breadcrumb-item"><a href="<?= $root ?>">首 页</a></li>
+			  <li class="breadcrumb-item"><a href="<?= "$root/home" ?>">首 页</a></li>
 				  <li class="breadcrumb-item active" aria-current="page">设 置</li>
 			  </ol>
 			  <div id="settings" class="btn-group btn-group-sm position-absolute" role="group" aria-label="">

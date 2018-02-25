@@ -81,7 +81,7 @@ else{
 	  <div class="container" id="progress">
 		  <nav aria-label="breadcrumb" class="position-relative">
 				  <ol class="breadcrumb">
-				  <li class="breadcrumb-item"><a href="<?= $root ?>">首 页</a></li>
+				  <li class="breadcrumb-item"><a href="<?= "$root/home" ?>">首 页</a></li>
 				  <li class="breadcrumb-item"><a href="<?= $root . "/project" ?>">重点项目</a></li>
 					  <li class="breadcrumb-item active" aria-current="page"><?= $pj_row['pname'] ?></li>
 				  </ol>
@@ -129,24 +129,21 @@ else{
 					  <tr>
 						  <th scope="row">建设内容</th>
 						  <td colspan="6">
-						  <textarea class="form-control" rows="5" placeholder="<?= $pj_row['intro'] ?>" disabled></textarea>
+							  <textarea class="form-control" rows="5" placeholder="<?= $pj_row['intro'] ?>" disabled></textarea>
 						  </td>
 					  </tr>
 					  <tr>
 						  <th scope="row">编 号</th>
 						  <td>
-						  <input id="pid" placeholder="<?= $pj_row['pid'] ?>" type="text" class="form-control" disabled>
+							  <input id="pid" placeholder="<?= $pj_row['pid'] ?>" type="text" class="form-control" disabled>
 						  </td>
 						  <th scope="row">项目名称</th>
 						  <td>
-						  <input placeholder="<?= $pj_row['pname'] ?>" type="text" class="form-control" disabled>
+							  <input placeholder="<?= $pj_row['pname'] ?>" type="text" class="form-control" disabled>
 						  </td>
 						  <th scope="row">建设性质</th>
 						  <td>
-							<select class="custom-select" disabled>
-								<option value="">新建</option>
-								<option value="">续建</option>
-							</select>
+							  <input placeholder="<?= $pj_row['property'] ?>" type="text" class="form-control" disabled>
 						  </td>
 					  </tr>
 					  <tr>
@@ -166,11 +163,7 @@ else{
 					  <tr>
 						  <th scope="row">投资主体</th>
 						  <td>
-						  <select class="custom-select" disabled>
-								<option value="">市级政府</option>
-								<option value="">区级政府</option>
-								<option value="">企业</option>
-							</select>
+							  <input placeholder="<?= $pj_row['investby'] ?>" type="text" class="form-control" disabled>
 						  </td>
 						  <th scope="row">今年计划投资</th>
 						  <td>
@@ -186,9 +179,9 @@ else{
 						  <td>
 							  <input placeholder="<?= $pj_row['oname'] ?>" type="text" class="form-control" disabled>
 						  </td>
-						  <th scope="row">实施单位</th>
+						  <th scope="row">服务单位</th>
 						  <td>
-							  <input placeholder="<?= $pj_row['z'] ?>" type="text" class="form-control" disabled>
+							  <input placeholder="<?= $pj_row['o_serve'] ?>" type="text" class="form-control" disabled>
 						  </td>
 						  <th scope="row">包联领导</th>
 						  <td>
@@ -198,12 +191,11 @@ else{
 					  <tr>
 						  <th scope="row">项目类型</th>
 						  <td>
-						  <select class="custom-select" disabled>
-								<option value="">基建</option>
-								<option value="">工业</option>
-								<option value="">商贸</option>
-								<option value="">美丽乡村</option>
-							</select>
+							  <input placeholder="<?= $pj_row['type'] ?>" type="text" class="form-control" disabled>
+						  </td>
+						  <th scope="row">实施单位</th>
+						  <td>
+							  <input placeholder="<?= $pj_row['implementor'] ?>" type="text" class="form-control" disabled>
 						  </td>
 						  <th scope="row">施工照片</th>
 						  <td colspan="3">
