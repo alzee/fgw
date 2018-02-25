@@ -30,7 +30,7 @@ class Db{
 	function query($sql, $multi=0){
 		if($res=$this->mysqli->query($sql)){
 			if(is_bool($res)){
-				return;
+				return $res;
 			}
 			else{
 				$numrows=$res->num_rows;

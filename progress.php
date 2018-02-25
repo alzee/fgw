@@ -20,10 +20,13 @@ if($_POST && $dayleft > 0){
 	$prog = (new Db)->query($sql);
 	// if NO data of this month yet, insert one
 	if(!$prog){
-		// we use 'order by date desc limt 1' instead of 'and where date like date('Y-m', strtotime('first day of last month'))%', because you don't know whether last month has data
-		$sql="insert into progress (pid,fill_state,phase,fillby,phone,progress,problem,invest_mon,limit_start,limit_end) select pid,fill_state,phase,fillby,phone,progress,problem,invest_mon,limit_start,limit_end from progress where pid='$pid' order by date desc limit 1";
-		// make a copy of previous month
+		$sql = "select id from progress where pid='$pid' limit 1";
+		// if there is any previous month
 		if((new Db)->query($sql)){
+			// we use 'order by date desc limt 1' instead of 'and where date like date('Y-m', strtotime('first day of last month'))%', because you don't know whether last month has data
+			$sql="insert into progress (pid,fill_state,phase,fillby,phone,progress,problem,invest_mon,limit_start,limit_end) select pid,fill_state,phase,fillby,phone,progress,problem,invest_mon,limit_start,limit_end from progress where pid='$pid' order by date desc limit 1";
+			// make a copy of previous month
+			(new Db)->query($sql);
 			// then set alert to 1
 			$sql="update projects set alert='1' where pid='$pid'";
 		}
@@ -50,8 +53,8 @@ if($_POST && $dayleft > 0){
 		}
 		(new Db)->query($sql);
 		
-		header("Location: $root/$controller/$method");
-		exit;
+		//header("Location: $root/$controller/$method");
+		//exit;
 	}
 	
 }
@@ -259,10 +262,10 @@ unset($imgs[0], $imgs[1]); // remove . and ..
 				  <tbody>
 					  <tr>
 <?php
-if($pg_rows[0]['phase']==$pg_rows[1]['phase'])
-	$tdclass='table-warning dup';
-else
-	$tdclass='';
+//if($pg_rows[0]['phase']==$pg_rows[1]['phase'])
+//	$tdclass='table-warning dup';
+//else
+//	$tdclass='';
 ?>
 						  <th class="<?= $tdclass ?>" scope="row">建设阶段</th>
 						  <td class="<?= $tdclass ?>">
@@ -273,20 +276,20 @@ else
 							</select>
 						  </td>
 <?php
-if($pg_rows[0]['fillby']==$pg_rows[1]['fillby'])
-	$tdclass='table-warning dup';
-else
-	$tdclass='';
+//if($pg_rows[0]['fillby']==$pg_rows[1]['fillby'])
+//	$tdclass='table-warning dup';
+//else
+//	$tdclass='';
 ?>
 						  <th class="<?= $tdclass ?>" scope="row">填报人</th>
 						  <td class="<?= $tdclass ?>">
 							  <input id="fillby" name="fillby" placeholder="<?= $pg_rows[0]['fillby'] ?>" type="text" class="form-control <?= $class ?>" <?= $disabled ?>>
 						  </td>
 <?php
-if($pg_rows[0]['phone']==$pg_rows[1]['phone'])
-	$tdclass='table-warning dup';
-else
-	$tdclass='';
+//if($pg_rows[0]['phone']==$pg_rows[1]['phone'])
+//	$tdclass='table-warning dup';
+//else
+//	$tdclass='';
 ?>
 						  <th class="<?= $tdclass ?>" scope="row">联系电话</th>
 						  <td class="<?= $tdclass ?>">
@@ -295,30 +298,30 @@ else
 					  </tr> 
 					  <tr>
 <?php
-if($pg_rows[0]['limit_start']==$pg_rows[1]['limit_start'])
-	$tdclass='table-warning dup';
-else
-	$tdclass='';
+//if($pg_rows[0]['limit_start']==$pg_rows[1]['limit_start'])
+//	$tdclass='table-warning dup';
+//else
+//	$tdclass='';
 ?>
 						  <th class="<?= $tdclass ?>" scope="row">实际建设期限</th>
 						  <td class="<?= $tdclass ?>">
 						  <input name="limit_start" placeholder="<?= $pg_rows[0]['limit_start'] ?>" type="text" class="form-control pickmonth <?= $class ?>" <?= $disabled ?>>
 						  </td>
 <?php
-if($pg_rows[0]['limit_end']==$pg_rows[1]['limit_end'])
-	$tdclass='table-warning dup';
-else
-	$tdclass='';
+//if($pg_rows[0]['limit_end']==$pg_rows[1]['limit_end'])
+//	$tdclass='table-warning dup';
+//else
+//	$tdclass='';
 ?>
 						  <th class="<?= $tdclass ?>" scope="row">至</th>
 						  <td class="<?= $tdclass ?>">
 							  <input name="limit_end" placeholder="<?= $pg_rows[0]['limit_end'] ?>" type="text" class="form-control pickmonth <?= $class ?>" <?= $disabled ?>>
 						  </td>
 <?php
-if($pg_rows[0]['invest_mon']==$pg_rows[1]['invest_mon'])
-	$tdclass='table-warning dup';
-else
-	$tdclass='';
+//if($pg_rows[0]['invest_mon']==$pg_rows[1]['invest_mon'])
+//	$tdclass='table-warning dup';
+//else
+//	$tdclass='';
 ?>
 						  <th class="<?= $tdclass ?>" scope="row">本月完成投资</th>
 						  <td class="<?= $tdclass ?>">
