@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS `organization`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `organization` (
   `oid` int(11) NOT NULL AUTO_INCREMENT,
-  `oname` varchar(20) NOT NULL,
+  `oname` varchar(100) NOT NULL,
   `uid` int(11) NOT NULL,
   PRIMARY KEY (`oid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -93,6 +93,7 @@ CREATE TABLE `projects` (
   `o_serve` varchar(50) NOT NULL COMMENT 'organization that provides services. keep it here for xls import purpose',
   `p_incharge` varchar(50) NOT NULL COMMENT 'people in charge',
   `oid` int(11) DEFAULT NULL,
+  `oid_serve` int(11) DEFAULT NULL,
   `implementor` varchar(50) DEFAULT NULL,
   `alert` int(11) DEFAULT NULL,
   `type` varchar(20) DEFAULT NULL,
@@ -194,4 +195,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-02-09 23:20:32
+-- Dump completed on 2018-02-25 16:26:54
