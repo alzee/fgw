@@ -6,7 +6,8 @@ for(var i=0;i<projects.length;i++){
 // click on projects entries to progress page
 function progressPage(){
 	var pid=this.querySelector('th').innerText;
-	var href=location.pathname.replace(/\/+$/, '') + "/" + pid;
+	//var href=location.pathname.replace(/\/+$/, '') + "/" + pid;
+	var href="/fgw/project/" + pid;
 	//console.log(href);
 	if(parent===window){
 		location.pathname = href;
