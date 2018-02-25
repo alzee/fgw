@@ -34,19 +34,19 @@ $mysqli->set_charset('utf8');
 
 for($i=5;$i<=21;$i++){
 	//echo $sheetData[$i]['D'];
-	$sql="insert into projects (pid,pname,property,intro,investment,invest_plan,start,finish,investby,o_incharge,p_incharge,o_serve,oid,oid_serve) values(
-		" . "\"" .  trim($sheetData[$i]['A']) ."\""  . ",
-		" . "\"" .  trim($sheetData[$i]['B']) ."\""  . ",
-		" . "\"" .  trim($sheetData[$i]['C']) ."\""  . ",
-		" . "\"" .  trim($sheetData[$i]['D']) ."\""  . ",
-		" . "\"" .  trim($sheetData[$i]['E']) ."\""  . ",
-		" . "\"" .  trim($sheetData[$i]['F']) ."\""  . ",
-		" . "\"" .  trim($sheetData[$i]['G']) ."\""  . ",
-		" . "\"" .  trim($sheetData[$i]['H']) ."\""  . ",
-		" . "\"" .  trim($sheetData[$i]['I']) ."\""  . ",
-		" . "\"" .  trim($sheetData[$i]['J']) ."\""  . ",
-		" . "\"" .  trim($sheetData[$i]['K']) ."\""  . ",
-		" . "\"" .  trim($sheetData[$i]['L']) ."\""  . ")";
+	$sql="insert into projects (pid,pname,property,intro,investment,invest_plan,start,finish,investby,p_incharge,oid,oid_serve) values(
+		'" .  trim($sheetData[$i]['A']) ."',
+		'" .  trim($sheetData[$i]['B']) ."',
+		'" .  trim($sheetData[$i]['C']) ."',
+		'" .  trim($sheetData[$i]['D']) ."',
+		'" .  trim($sheetData[$i]['E']) ."',
+		'" .  trim($sheetData[$i]['F']) ."',
+		'" .  trim($sheetData[$i]['G']) ."',
+		'" .  trim($sheetData[$i]['H']) ."',
+		'" .  trim($sheetData[$i]['I']) ."',
+		'" .  trim($sheetData[$i]['K']) ."',
+		(select oid from organization where oname='" . trim($sheetData[$i]['J']) . "'),
+		(select oid from organization where oname='" . trim($sheetData[$i]['L']) . "'))";
 
 	//echo $sql;
 
