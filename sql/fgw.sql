@@ -1,8 +1,8 @@
--- MySQL dump 10.16  Distrib 10.2.12-MariaDB, for Linux (x86_64)
+-- MySQL dump 10.16  Distrib 10.1.26-MariaDB, for Linux (x86_64)
 --
 -- Host: localhost    Database: fgw
 -- ------------------------------------------------------
--- Server version	10.2.12-MariaDB
+-- Server version	10.1.26-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -24,10 +24,9 @@ DROP TABLE IF EXISTS `organization`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `organization` (
   `oid` int(11) NOT NULL AUTO_INCREMENT,
-  `oname` varchar(100) NOT NULL,
-  `uid` int(11) NOT NULL,
+  `oname` varchar(20) NOT NULL,
   PRIMARY KEY (`oid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -36,6 +35,7 @@ CREATE TABLE `organization` (
 
 LOCK TABLES `organization` WRITE;
 /*!40000 ALTER TABLE `organization` DISABLE KEYS */;
+INSERT INTO `organization` VALUES (1,'东城开发区'),(2,'二堰街办'),(3,'五堰街办'),(4,'区交通局'),(5,'区人社局'),(6,'区住建局'),(7,'区农业局'),(8,'区南调办'),(9,'区卫计局'),(10,'区发改局'),(11,'区司法局'),(12,'区商务局'),(13,'区城投公司'),(14,'区安监局'),(15,'区审计局'),(16,'区扶贫办'),(17,'区教育局'),(18,'区文体新广局'),(19,'区旅游局'),(20,'区林业局'),(21,'区民政局'),(22,'区水利局'),(23,'区物价局'),(24,'区科技局'),(25,'区经信局'),(26,'区统计局'),(27,'区行政审批局'),(28,'区财政局'),(29,'区食品药品监督局'),(30,'大川镇'),(31,'朝北沟生态国土综合治理示范项目指挥部'),(32,'林荫大道二号线建设工程指挥部'),(33,'武当路复线等市政道路PPP项目建设拆迁协'),(34,'武当路街办'),(35,'武汉至十堰城际铁路茅箭段项目建设协调服务'),(36,'滨江新区至武当山玄岳门一级公路建设茅箭段'),(37,'火车站北广场项目协调服务指挥部'),(38,'环保茅箭分局'),(39,'百强世纪城项目协调服务指挥部'),(40,'茅塔乡'),(41,'许白路沿线环境整治指挥部'),(42,'赛曼控股集团（茅箭）投资项目协调服务指挥'),(43,'赛管局');
 /*!40000 ALTER TABLE `organization` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -49,7 +49,7 @@ DROP TABLE IF EXISTS `progress`;
 CREATE TABLE `progress` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `pid` int(11) NOT NULL,
-  `date` date NOT NULL DEFAULT current_timestamp(),
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `fill_state` varchar(50) DEFAULT NULL,
   `phase` varchar(50) DEFAULT NULL COMMENT 'phase of construction',
   `fillby` varchar(50) DEFAULT NULL COMMENT 'filled in by who',
@@ -89,8 +89,6 @@ CREATE TABLE `projects` (
   `start` varchar(50) NOT NULL,
   `finish` varchar(50) NOT NULL,
   `investby` varchar(50) NOT NULL,
-  `o_incharge` varchar(50) NOT NULL COMMENT 'organization in charge. we actually use oid. keep it here just for xls import purpose',
-  `o_serve` varchar(50) NOT NULL COMMENT 'organization that provides services. keep it here for xls import purpose',
   `p_incharge` varchar(50) NOT NULL COMMENT 'people in charge',
   `oid` int(11) DEFAULT NULL,
   `oid_serve` int(11) DEFAULT NULL,
@@ -170,7 +168,7 @@ CREATE TABLE `users` (
   `uid` int(11) NOT NULL AUTO_INCREMENT,
   `uname` varchar(20) NOT NULL,
   `passwd` varchar(50) NOT NULL,
-  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `oid` int(11) NOT NULL,
   `rid` int(11) NOT NULL,
   PRIMARY KEY (`uid`)
@@ -195,4 +193,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-02-25 16:26:54
+-- Dump completed on 2018-02-26  0:42:48
