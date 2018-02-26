@@ -50,8 +50,8 @@ if($_POST && $dayleft > 0){
 		
 		// if ..., set alert to 2, render red color on projects page;
 		if(2){
-			$sql="update projects set alert='2' where pid='$pid'";
-			(new Db)->query($sql);
+			// $sql="update projects set alert='2' where pid='$pid'";
+			// (new Db)->query($sql);
 		}
 		
 		header("Location: $root/$controller/$method");
@@ -118,8 +118,7 @@ else{
 			  </button>
 		  </div>
 <?php endif ?>
-
-<?php if($pj_row['alert']==1): ?>
+<?php if($pj_row['alert']==2): ?>
 		  <div class="alert bg-danger alert-dismissible fade show" role="alert">
 			  <strong>您上月的数据未提交！</strong> 
 			  <button type="button" class="close" data-dismiss="alert" aria-label="Close">

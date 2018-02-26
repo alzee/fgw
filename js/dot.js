@@ -131,7 +131,9 @@ function dropdownmenu(){
 					document.getElementById('phone').placeholder=x.phone;
 					document.getElementById('invest_mon').placeholder=x.invest_mon;
 					document.getElementById('problem').placeholder=x.problem;
+					document.getElementById('problem').innerText=x.problem;
 					document.getElementById('prog').placeholder=x.progress;
+					document.getElementById('prog').innerText=x.progress;
 					// hide alert 'don't have data of selected month'
 					nodata.classList.add('d-none');
 				}
@@ -146,10 +148,10 @@ function dropdownmenu(){
 					document.getElementById('phone').placeholder='';
 					document.getElementById('invest_mon').placeholder='';
 					document.getElementById('problem').placeholder='';
+					document.getElementById('problem').innerText='';
 					document.getElementById('prog').placeholder='';
+					document.getElementById('prog').innerText='';
 				}
-			}
-			else{
 			}
 		}
 
