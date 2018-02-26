@@ -102,7 +102,7 @@ truncate projects;
 --
 -- table `projects` inserted by uploading spreadsheet
 --
-source /home/dot/w/it/fgw/sql/projects.sql; -- or source this
+source sql/projects.sql; -- or source this
 update projects SET type='工业' WHERE pid BETWEEN 1 and 42;
 update projects SET type='商贸' WHERE pid BETWEEN 43 and 55;
 update projects SET type='基建' WHERE pid BETWEEN 56 and 83;
