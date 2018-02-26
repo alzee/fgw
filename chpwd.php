@@ -1,17 +1,40 @@
 <?php
 // hanlde form submission
-if($_POST){
-	echo 'you send some data';
-	var_dump($_POST);
-}
-
-// prepare data
+// var_dump($_SESSION);
+$uid = $_SESSION['uid'];
+$rid = $_SESSION['rid'];
 if($parameter){
 	$uname=$parameter;
 }
 else {
 	$uname=$_SESSION['uname'];
 }
+if($_POST){
+	// var_dump($_POST);
+	// if pass1 and pass2 match
+	if($rid == 3 && $uname == $parameter){
+		if($_POST['newpw1'] == $_POST['newpw2']){
+			$sql = "select passwd from users where uid=$uid";
+			$oldpw = (new Db)->query($sql);
+			// if oldpw is correct
+			if (md5($_POST['oldpw']) == $oldpw['passwd']){
+				$sql = "update users set passwd='" . md5($_POST['newpw1']) . "' where uid=$uid";
+				(new Db)->query($sql);
+
+				header("Location: $root/$controller/$method");
+				exit;
+			}
+			else{
+				$err='原密码错误';
+			}
+		}
+		else{
+			$err='新密码两次输入不一致';
+		}
+	}
+}
+
+// prepare data
 ?>
 		<section class="row">
 			<aside class="col-md-2">
@@ -33,6 +56,14 @@ else {
 			</aside>
 
 		  <main class="col-md">
+<?php if(isset($err)): ?>
+			<div class="alert alert-danger fade show col-sm-5 mx-auto">
+			<?= $err ?>
+			  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				  <span aria-hidden="true">&times;</span>
+			  </button>
+			</div>
+<?php endif ?>
 		  <form method="post">
 		  <div class="input-group mb-3 col-sm-5 mx-auto">
 			  <div class="input-group-prepend">
@@ -40,24 +71,28 @@ else {
 			  </div>
 			  <input class="form-control" type="text" placeholder="<?= $uname ?>" disabled name="uname">
 		  </div>
+<?php if($rid != 3 || $uname != $parameter): ?>
 		  <div class="input-group mb-3 col-sm-5 mx-auto">
 			  <div class="input-group-prepend">
 				  <span class="input-group-text">原密码</span>
 			  </div>
-			  <input type="password" class="form-control" name="oldpw">
+			  <input type="password" class="form-control" name="oldpw" required>
 		  </div>
+<?php endif ?>
 		  <div class="input-group mb-3 col-sm-5 mx-auto">
 			  <div class="input-group-prepend">
 				  <span class="input-group-text">新密码</span>
 			  </div>
-			  <input type="password" class="form-control" name="newpw1">
+			  <input type="password" class="form-control" name="newpw1" required>
 		  </div>
+<?php if($rid != 3 || $uname != $parameter): ?>
 		  <div class="input-group mb-3 col-sm-5 mx-auto">
 			  <div class="input-group-prepend">
 				  <span class="input-group-text">密码确认</span>
 			  </div>
-			  <input type="password" class="form-control" name="newpw2">
+			  <input type="password" class="form-control" name="newpw2" required>
 		  </div>
+<?php endif ?>
 		  <button type="submit" class="btn btn-success d-block mx-auto">提 交</button>
 		  </form>
 
