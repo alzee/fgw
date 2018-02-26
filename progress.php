@@ -261,70 +261,34 @@ unset($imgs[0], $imgs[1]); // remove . and ..
 				  </thead>
 				  <tbody>
 					  <tr>
-<?php
-//if($pg_rows[0]['phase']==$pg_rows[1]['phase'])
-//	$tdclass='table-warning dup';
-//else
-//	$tdclass='';
-?>
-						  <th class="<?= $tdclass ?>" scope="row">建设阶段</th>
-						  <td class="<?= $tdclass ?>">
+						  <th scope="row">建设阶段</th>
+						  <td>
 						  <select class="custom-select <?= $class ?>" name="phase" <?= $disabled ?>>
 								<option value="开工" <?php if($pg_rows[0]['phase']=='开工') echo 'selected' ?>>开工</option>
 								<option value="前期准备" <?php if($pg_rows[0]['phase']=='前期准备') echo 'selected' ?>>前期准备</option>
 								<option value="完工" <?php if($pg_rows[0]['phase']=='完工') echo 'selected' ?>>完工</option>
 							</select>
 						  </td>
-<?php
-//if($pg_rows[0]['fillby']==$pg_rows[1]['fillby'])
-//	$tdclass='table-warning dup';
-//else
-//	$tdclass='';
-?>
-						  <th class="<?= $tdclass ?>" scope="row">填报人</th>
-						  <td class="<?= $tdclass ?>">
+						  <th scope="row">填报人</th>
+						  <td>
 							  <input id="fillby" name="fillby" placeholder="<?= $pg_rows[0]['fillby'] ?>" type="text" class="form-control <?= $class ?>" <?= $disabled ?>>
 						  </td>
-<?php
-//if($pg_rows[0]['phone']==$pg_rows[1]['phone'])
-//	$tdclass='table-warning dup';
-//else
-//	$tdclass='';
-?>
-						  <th class="<?= $tdclass ?>" scope="row">联系电话</th>
-						  <td class="<?= $tdclass ?>">
+						  <th scope="row">联系电话</th>
+						  <td>
 							  <input id="phone" name="phone" placeholder="<?= $pg_rows[0]['phone'] ?>" type="text" class="form-control <?= $class ?>" <?= $disabled ?>>
 						  </td>
 					  </tr> 
 					  <tr>
-<?php
-//if($pg_rows[0]['limit_start']==$pg_rows[1]['limit_start'])
-//	$tdclass='table-warning dup';
-//else
-//	$tdclass='';
-?>
-						  <th class="<?= $tdclass ?>" scope="row">实际建设期限</th>
-						  <td class="<?= $tdclass ?>">
+						  <th scope="row">实际建设期限</th>
+						  <td>
 						  <input name="limit_start" placeholder="<?= $pg_rows[0]['limit_start'] ?>" type="text" class="form-control pickmonth <?= $class ?>" <?= $disabled ?>>
 						  </td>
-<?php
-//if($pg_rows[0]['limit_end']==$pg_rows[1]['limit_end'])
-//	$tdclass='table-warning dup';
-//else
-//	$tdclass='';
-?>
-						  <th class="<?= $tdclass ?>" scope="row">至</th>
-						  <td class="<?= $tdclass ?>">
+						  <th scope="row">至</th>
+						  <td>
 							  <input name="limit_end" placeholder="<?= $pg_rows[0]['limit_end'] ?>" type="text" class="form-control pickmonth <?= $class ?>" <?= $disabled ?>>
 						  </td>
-<?php
-//if($pg_rows[0]['invest_mon']==$pg_rows[1]['invest_mon'])
-//	$tdclass='table-warning dup';
-//else
-//	$tdclass='';
-?>
-						  <th class="<?= $tdclass ?>" scope="row">本月完成投资</th>
-						  <td class="<?= $tdclass ?>">
+						  <th scope="row">本月完成投资</th>
+						  <td>
 							  <input id="invest_mon" name="invest_mon" placeholder="<?= $pg_rows[0]['invest_mon'] ?>" type="text" class="form-control <?= $class ?>" <?= $disabled ?>>
 						  </td>
 					  </tr> 
