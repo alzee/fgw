@@ -1,6 +1,5 @@
 <?php
-$sql="select pid,projects.oid,pname,investment,oname,p_incharge,property,alert from projects join organization on projects.oid=organization.oid";
-// $sql="select pid,oid,pname,investment,o_incharge,p_incharge,property,alert from projects";
+$sql="select pid,p.oid,pname,investment,oname,p_incharge,property,alert from projects p join organization o on p.oid=o.oid";
 $p_rows=(new Db)->query($sql);
 
 $oid=$_SESSION['oid'];
