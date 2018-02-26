@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS `organization`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `organization` (
   `oid` int(11) NOT NULL AUTO_INCREMENT,
-  `oname` varchar(20) NOT NULL,
+  `oname` varchar(100) NOT NULL,
   PRIMARY KEY (`oid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
