@@ -33,7 +33,7 @@ $rid == 3 ? $myproj_btn = 'btn-outline-secondary' : $myproj_btn = 'btn-primary';
 				  <span class="badge badge-success">已完成</span>
 				  -->
 				  <span class="badge badge-warning">数据与上月雷同</span>
-				  <span class="badge badge-danger">上个月未提交</span>
+				  <span class="badge badge-danger">本月尚未提交</span>
 			  </div>
 <?php if($rid == 3): ?>
 			  <div class="col-auto col-sm-2">

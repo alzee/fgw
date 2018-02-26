@@ -48,6 +48,10 @@ if($_POST && $dayleft > 0){
 		$sql="update progress set $cols where pid='$pid' and date like '${month}%'";
 		(new Db)->query($sql);
 		
+		// clear alert;
+		$sql="update projects set alert='0' where pid='$pid'";
+		(new Db)->query($sql);
+		
 		// if ..., set alert to 2, render red color on projects page;
 		if(2){
 			// $sql="update projects set alert='2' where pid='$pid'";
@@ -120,7 +124,7 @@ else{
 <?php endif ?>
 <?php if($pj_row['alert']==2): ?>
 		  <div class="alert bg-danger alert-dismissible fade show" role="alert">
-			  <strong>您上月的数据未提交！</strong> 
+			  <strong>您本月数据尚未提交！</strong> 
 			  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 				  <span aria-hidden="true">&times;</span>
 			  </button>
@@ -319,11 +323,8 @@ else{
 // set alert to 1, render yellow color on projects page;
 if(isset($alert1)){
 	$sql="update projects set alert='1' where pid='$pid'";
+	(new Db)->query($sql);
 }
-else{
-	$sql="update projects set alert='0' where pid='$pid'";
-}
-(new Db)->query($sql);
 ?>
 					  <tr class="<?= $tdclass ?>">
 						  <th scope="row">存在的困难和问题以及下一步工作建议和安排</th>
