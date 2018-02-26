@@ -24,11 +24,11 @@ if($_POST){
 				exit;
 			}
 			else{
-				$err='原密码错误';
+				$err='原密码错误!';
 			}
 		}
 		else{
-			$err='新密码两次输入不一致';
+			$err='新密码两次输入不一致!';
 		}
 	}
 	// if I'm changing passwd for somebody else
