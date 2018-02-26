@@ -1,18 +1,17 @@
 <?php
 // hanlde form submission
-// var_dump($_SESSION);
 $uid = $_SESSION['uid'];
 $rid = $_SESSION['rid'];
-if($parameter){
-	$uname=$parameter;
+$uname=$_SESSION['uname'];
+$uname1=$parameter;
+if(empty($uname1)){
+	$uname1 = $uname;
 }
-else {
-	$uname=$_SESSION['uname'];
-}
+
 if($_POST){
-	// var_dump($_POST);
-	// if pass1 and pass2 match
-	if($rid == 3 && $uname == $parameter){
+	// if I'm changing passwd for myself
+	if($uname == $uname1){
+		// if pass1 and pass2 match
 		if($_POST['newpw1'] == $_POST['newpw2']){
 			$sql = "select passwd from users where uid=$uid";
 			$oldpw = (new Db)->query($sql);
@@ -31,6 +30,14 @@ if($_POST){
 		else{
 			$err='新密码两次输入不一致';
 		}
+	}
+	// if I'm changing passwd for somebody else
+	else if($rid == 3){ // if I'm an admin
+		$sql = "update users set passwd='" . md5($_POST['newpw1']) . "' where uname='$uname1'";
+		(new Db)->query($sql);
+	}
+	else{
+		$err='你不能改别人的密码哦！';
 	}
 }
 
@@ -69,9 +76,9 @@ if($_POST){
 			  <div class="input-group-prepend">
 				  <span class="input-group-text">用户名</span>
 			  </div>
-			  <input class="form-control" type="text" placeholder="<?= $uname ?>" disabled name="uname">
+			  <input class="form-control" type="text" placeholder="<?= $uname1 ?>" disabled name="uname">
 		  </div>
-<?php if($rid != 3 || $uname != $parameter): ?>
+<?php if($rid != 3 || $uname == $uname1): ?>
 		  <div class="input-group mb-3 col-sm-5 mx-auto">
 			  <div class="input-group-prepend">
 				  <span class="input-group-text">原密码</span>
@@ -85,7 +92,7 @@ if($_POST){
 			  </div>
 			  <input type="password" class="form-control" name="newpw1" required>
 		  </div>
-<?php if($rid != 3 || $uname != $parameter): ?>
+<?php if($rid != 3 || $uname == $uname1): ?>
 		  <div class="input-group mb-3 col-sm-5 mx-auto">
 			  <div class="input-group-prepend">
 				  <span class="input-group-text">密码确认</span>
