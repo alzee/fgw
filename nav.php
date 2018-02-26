@@ -12,7 +12,9 @@ $rid=$_SESSION['rid'];
 <?php if($rid==3): ?>
 				  <a role="button" href="<?= $root ?>/setting/users" class="btn btn-danger <?php if($method=='users') echo 'active'; ?>">用户管理</a>
 				  <a role="button" href="<?= $root ?>/setting/stat" class="btn btn-danger <?php if($method=='stat') echo 'active'; ?>">统计报表</a>
+<!--
 				  <a role="button" href="<?= $root ?>/setting/upload" class="btn btn-danger <?php if($method=='upload') echo 'active'; ?>">上传报表</a>
+-->
 				  <a role="button" href="<?= $root ?>/setting/misc" class="btn btn-danger <?php if($method=='misc') echo 'active'; ?>">更多设置</a>
 <?php endif ?>
 			  </div>
