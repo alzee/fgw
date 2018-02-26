@@ -1,5 +1,6 @@
 <?php
 $month = date('Y-m');
+$prev_month = date('Y-m', strtotime('first day of last month'));
 $year = date('Y');
 
 $sql="select value from setting where s_key='lockday' or s_key='remind_days'";
@@ -20,21 +21,25 @@ if($_POST && $dayleft > 0){
 	$prog = (new Db)->query($sql);
 	// if NO data of this month yet, insert one
 	if(!$prog){
-		$sql = "select id from progress where pid='$pid' limit 1";
+		$sql = "select * from progress where pid='$pid' order by date desc limit 1";
 		// if there is any previous month
-		if((new Db)->query($sql)){
+		if($lastprev_row = (new Db)->query($sql)){
 			// we use 'order by date desc limt 1' instead of 'and where date like date('Y-m', strtotime('first day of last month'))%', because you don't know whether last month has data
 			$sql="insert into progress (pid,fill_state,phase,fillby,phone,progress,problem,invest_mon,limit_start,limit_end) select pid,fill_state,phase,fillby,phone,progress,problem,invest_mon,limit_start,limit_end from progress where pid='$pid' order by date desc limit 1";
 			// make a copy of previous month
 			(new Db)->query($sql);
-			// then set alert to 1
-			$sql="update projects set alert='1' where pid='$pid'";
+			
+			// if the latest prev month is NOT last month, set alert to 2, render red color on projects page;
+			if(substr($lastprev_row['date'],0,7)!=$prev_month){
+				$sql="update projects set alert='2' where pid='$pid'";
+				(new Db)->query($sql);
+			}
 		}
 		// if there is NO previous month
 		else{
 			$sql="insert into progress (pid) values('$pid')";
+			(new Db)->query($sql);
 		}
-		(new Db)->query($sql);
 	}
 
 	// if any value is submitted
@@ -43,15 +48,11 @@ if($_POST && $dayleft > 0){
 		$sql="update progress set $cols where pid='$pid' and date like '${month}%'";
 		(new Db)->query($sql);
 		
-		// if same as previous month, set alert to 1, render yellow color;
-		if(1){
-			$sql="update projects set alert='1' where pid='$pid'";
-		}
-		// if ..., set alert to 2, render red color;
+		// if ..., set alert to 2, render red color on projects page;
 		if(2){
 			$sql="update projects set alert='2' where pid='$pid'";
+			(new Db)->query($sql);
 		}
-		(new Db)->query($sql);
 		
 		header("Location: $root/$controller/$method");
 		exit;
@@ -118,7 +119,7 @@ else{
 		  </div>
 <?php endif ?>
 
-<?php if(0): ?>
+<?php if($pj_row['alert']==1): ?>
 		  <div class="alert bg-danger alert-dismissible fade show" role="alert">
 			  <strong>您上月的数据未提交！</strong> 
 			  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -329,27 +330,42 @@ unset($imgs[0], $imgs[1]); // remove . and ..
 						  </td>
 					  </tr> 
 <?php
-if($pg_rows[0]['progress']==$pg_rows[1]['progress'])
+if($pg_rows[0]['progress']==$pg_rows[1]['progress']){
 	$tdclass='table-warning dup';
-else
+	$alert1=1;
+}
+else{
 	$tdclass='';
+}
 ?>
 					  <tr class="<?= $tdclass ?>">
 						  <th scope="row">本月进展</th>
 						  <td colspan="6">
-						  <textarea id="prog" class="form-control <?= $class ?>" name="progress" rows="3" placeholder="<?= $pg_rows[0]['progress'] ?>" <?= $disabled ?>></textarea>
+						  <textarea id="prog" class="form-control <?= $class ?>" name="progress" rows="3" placeholder="<?= $pg_rows[0]['progress'] ?>" <?= $disabled ?>><?= $pg_rows[0]['progress'] ?></textarea>
 						  </td>
 					  </tr>
 <?php
-if($pg_rows[0]['problem']==$pg_rows[1]['problem'])
+if($pg_rows[0]['problem']==$pg_rows[1]['problem']){
 	$tdclass='table-warning dup';
-else
+	$alert1=1;
+}
+else{
 	$tdclass='';
+}
+
+// set alert to 1, render yellow color on projects page;
+if(isset($alert1)){
+	$sql="update projects set alert='1' where pid='$pid'";
+}
+else{
+	$sql="update projects set alert='0' where pid='$pid'";
+}
+(new Db)->query($sql);
 ?>
 					  <tr class="<?= $tdclass ?>">
 						  <th scope="row">存在的困难和问题以及下一步工作建议和安排</th>
 						  <td colspan="6">
-						  <textarea id="problem" class="form-control <?= $class ?>" name="problem" rows="6" placeholder="<?= $pg_rows[0]['problem'] ?>" <?= $disabled ?>></textarea>
+						  <textarea id="problem" class="form-control <?= $class ?>" name="problem" rows="6" placeholder="<?= $pg_rows[0]['problem'] ?>" <?= $disabled ?>><?= $pg_rows[0]['problem'] ?></textarea>
 						  </td>
 					  </tr>
 <!-- data from table progress end-->
@@ -373,36 +389,4 @@ else
 			  </button>
 			</div>
 <!-- click and popup image end-->
-
-			<div class="d-none" id="monthpicker">
-				<div class="month">
-					<select class="custom-select">
-						<option>2015</option>
-						<option>2014</option>
-						<option selected>2013</option>
-						<option>2012</option>
-						<option>2011</option>
-					</select>
-				</div>
-				<table class="table border rounded mb-0 date">
-				  <tr>
-					<td>1</td>
-					<td>2</td>
-					<td>3</td>
-					<td>4</td>
-				  </tr>
-				  <tr>
-					<td class="bg-secondary">5</td>
-					<td>6</td>
-					<td>7</td>
-					<td>8</td>
-				  </tr>
-				  <tr>
-					<td>9</td>
-					<td>10</td>
-					<td>11</td>
-					<td>12</td>
-				  </tr>
-				</table>
-			</div>
 		  </div>
