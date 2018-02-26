@@ -32,7 +32,7 @@ if(!empty($_POST)){
       <form class="form-signin" method="post">
 	  	<h4 class="form-signin-heading text-muted"><?= $sitename ?></h4>
 <?php if($wrong): ?>
-		<div class="alert alert-danger">
+		<div class="alert alert-danger alert-dismissible fade show">
 			用户名或密码错误！
 			  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 				  <span aria-hidden="true">&times;</span>
