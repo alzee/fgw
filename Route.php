@@ -38,18 +38,29 @@ if($login){
 	}
 	else if($controller=='setting') {
 		require $inc . "nav.php";
+		switch($method){
+		case 'chpwd':
+			break;
+		case 'user':
+			break;
+		default:
+			;
+		}
 
 		if(empty($method) || $method == 'chpwd'){
-			require $inc . $method. ".php";
+			require $inc . "chpwd.php";
+		}
+		else if($method == 'user' && isset($parameter)){
+			require $inc . "moduser.php";
 		}
 		else if(is_readable($inc . $method. '.php')){
-				if($rid==3){
-					require $inc . $method. ".php";
-				}
-				else{
-					require $inc . '404.php';
-				}
+			if($rid==3){
+				require $inc . $method. ".php";
 			}
+			else{
+				require $inc . '404.php';
+			}
+		}
 		else{
 			require $inc . '404.php';
 		}
@@ -59,7 +70,7 @@ if($login){
 			require $inc . $controller . '.php';
 		}
 		else{
-		require $inc . "404.php";
+			require $inc . "404.php";
 		}
 	}
 }

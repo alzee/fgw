@@ -20,8 +20,15 @@ function progressPage(){
 // addEvnetListener to users list
 var projects=document.querySelectorAll('#setting tbody tr');
 for(var i=0;i<projects.length;i++){
-	projects[i].addEventListener("click", passwd);
+	projects[i].addEventListener("click", moduser);
 }
+// click on users entries to moduser page
+function moduser(){
+	var user=this.querySelector('td').innerText;
+	var href = '/fgw/setting/user/' + user;
+	location.pathname = href;
+}
+
 // click on users entries to passwd page
 function passwd(){
 	var user=this.querySelector('td').innerText;
