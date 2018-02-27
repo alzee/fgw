@@ -13,10 +13,10 @@ $sessionname='SID';
 
 date_default_timezone_set('Asia/Shanghai');
 
-$path = explode("/", $_SERVER['PATH_INFO']);
-$controller=$path[1];
-$method=$path[2];
-$parameter=$path[3];
+$path = explode("/", trim($_SERVER['PATH_INFO'], '/'));
+$controller=$path[0];
+$method=$path[1];
+$parameter=$path[2];
 
 require $inc . "header.php";
 
@@ -25,12 +25,11 @@ $login=Sign::check();
 if($login){
 	session_start(['name'=>'SID']);
 	//var_dump($_SESSION);
-	// $controller ? : $controller='home';
-	if(!isset($controller)){
-		require $inc .  'home.php';
-	}
 
 	switch($controller){
+	case '':;
+		require $inc .  'home.php';
+		break;
 	case 'project':
 		if(is_numeric($method)){
 			require $inc .  'progress.php';
