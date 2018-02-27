@@ -38,19 +38,11 @@ if($login){
 	}
 	else if($controller=='setting') {
 		require $inc . "nav.php";
-		switch($method){
-		case 'chpwd':
-			break;
-		case 'user':
-			break;
-		default:
-			;
-		}
 
 		if(empty($method) || $method == 'chpwd'){
 			require $inc . "chpwd.php";
 		}
-		else if($method == 'user' && isset($parameter)){
+		else if($method == 'user' && !empty($parameter)){
 			require $inc . "moduser.php";
 		}
 		else if(is_readable($inc . $method. '.php')){

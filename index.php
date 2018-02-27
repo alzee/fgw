@@ -9,4 +9,4 @@
 require 'vendor/autoload.php';
 require 'autoload.php';
 
-require 'Route.php';
+require 'route.php';
