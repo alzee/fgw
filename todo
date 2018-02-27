@@ -1,5 +1,4 @@
 实施单位 怎么设计
-调整(新增，删除)项目?
 报表
 导出报表
 sql in ajax.php
@@ -13,3 +12,5 @@ js md5
 
 锁定日期
 建设阶段细化
+
+admin modify/add/delete project
