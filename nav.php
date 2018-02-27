@@ -10,7 +10,7 @@ $rid=$_SESSION['rid'];
 			  <div id="settings" class="btn-group btn-group-sm position-absolute" role="group" aria-label="">
 				  <a role="button" href="<?= $root ?>/setting/chpwd" class="btn btn-danger <?php if($method=='chpwd' || $method == "") echo 'active'; ?>">修改密码</a>
 <?php if($rid==3): ?>
-				  <a role="button" href="<?= $root ?>/setting/users" class="btn btn-danger <?php if($method=='users') echo 'active'; ?>">用户管理</a>
+				  <a role="button" href="<?= $root ?>/setting/user" class="btn btn-danger <?php if($method=='user') echo 'active'; ?>">用户管理</a>
 				  <a role="button" href="<?= $root ?>/setting/stat" class="btn btn-danger <?php if($method=='stat') echo 'active'; ?>">统计报表</a>
 <!--
 				  <a role="button" href="<?= $root ?>/setting/upload" class="btn btn-danger <?php if($method=='upload') echo 'active'; ?>">上传报表</a>
