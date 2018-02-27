@@ -27,6 +27,11 @@ $s_rows=(new Db)->query($sql);
 			  <span class="input-group-text"><?= $row['sname'] ?></span>
 			  </div>
 			  <input type="text" placeholder="<?= $row['value'] ?>" class="form-control" name="<?= $row['s_key'] ?>">
+<!--
+				<div class="input-group-append">
+					<span class="input-group-text">天</span>
+				</div>
+-->
 		  </div>
 <?php endforeach ?>
 		  <button type="submit" class="btn btn-success d-block mx-auto">提 交</button>
