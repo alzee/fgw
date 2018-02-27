@@ -26,9 +26,11 @@ if($login){
 	session_start(['name'=>'SID']);
 	//var_dump($_SESSION);
 
+	// we put some special case in switch
 	switch($controller){
-	case '':;
-		require $inc .  'home.php';
+	case '':
+		// the default page
+		require $inc .  'project.php';
 		break;
 	case 'project':
 		if(is_numeric($method)){
