@@ -319,3 +319,7 @@ function callParent(){
 function chParentHref(path){
 	parent.postMessage(path, '*');
 }
+
+// addEvnetListener to btn in 404
+var backbtn = document.querySelector('#notfound button');
+backbtn.addEventListener("click", function(){history.back()});
