@@ -106,7 +106,7 @@ else{
 				  <a href="#" class="list-group-item list-group-item-action">公告通知</a>
 				  <a href="#" class="list-group-item list-group-item-action">固定资产投资</a>
 				  <a href="<?= "$root/project" ?>" class="list-group-item list-group-item-action active">重点项目进展</a>
-				  <a href="<?= "$root/setting/chpwd" ?>" class="list-group-item list-group-item-action">设置</a>
+				  <a href="<?= "$root/admin/chpwd" ?>" class="list-group-item list-group-item-action">设置</a>
 				</div>
 			</aside>
 

@@ -41,7 +41,7 @@ if($login){
 			require $inc .  'project.php';
 		}
 		break;
-	case 'setting':
+	case 'admin':
 		require $inc .  'nav.php';
 		if(empty($method) || $method == 'chpwd'){
 			require $inc .  'chpwd.php';
