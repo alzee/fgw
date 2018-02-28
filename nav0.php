@@ -2,13 +2,12 @@
 $rid=$_SESSION['rid'];
 ?>
 	  <div class="container" id="admin">
-		  <nav class="row mx-0 mb-3" id="nav">
-			  <ol class="breadcrumb col mb-0">
+		  <nav aria-label="breadcrumb" class="position-relative">
+			  <ol class="breadcrumb">
 			  <li class="breadcrumb-item"><a href="<?= "$root/home" ?>">首 页</a></li>
 				  <li class="breadcrumb-item active" aria-current="page">设 置</li>
 			  </ol>
-			  <div class="col-auto">
-			  <div class="btn-group btn-group-sm mb-2 my-md-2" role="group">
+			  <div id="adminbtn" class="btn-group btn-group-sm position-absolute" role="group" aria-label="">
 				  <a role="button" href="<?= $root ?>/admin/chpwd" class="btn btn-danger <?php if($method=='chpwd' || $method == "") echo 'active'; ?>">修改密码</a>
 <?php if($rid==3): ?>
 				  <a role="button" href="<?= $root ?>/admin/user" class="btn btn-danger <?php if($method=='user') echo 'active'; ?>">用户管理</a>
@@ -16,8 +15,7 @@ $rid=$_SESSION['rid'];
 <!--
 				  <a role="button" href="<?= $root ?>/admin/upload" class="btn btn-danger <?php if($method=='upload') echo 'active'; ?>">上传报表</a>
 -->
-				  <a role="button" href="<?= $root ?>/admin/setting" class="btn btn-danger <?php if($method=='setting') echo 'active'; ?>">更多设置</a>
+				  <a role="button" href="<?= $root ?>/admin/misc" class="btn btn-danger <?php if($method=='misc') echo 'active'; ?>">更多设置</a>
 <?php endif ?>
-			  </div>
 			  </div>
 		  </nav>

@@ -99,12 +99,12 @@ tbody th{
 	font-size: 0.8rem;
 }
 
+#nav{
+	background-color: #e9ecef;
+	border-radius: .25rem;
+}
 #progress #dates{
 	top: 10px;
-	right: 2%;
-}
-#admin #adminbtn{
-	top: 18%;
 	right: 2%;
 }
 #admin main .input-group-prepend{
@@ -167,7 +167,6 @@ tbody th{
 	top:0;
 	left:0;
 	background-color: rgba(0, 0, 0, 0.3);
-	
 }
 #index .intro{
 	height: 70px;
