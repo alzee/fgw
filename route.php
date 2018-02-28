@@ -46,30 +46,44 @@ if($login){
 		if(empty($method) || $method == 'chpwd'){
 			require $inc .  'chpwd.php';
 		}
-		else if(is_readable($inc . $method . '.php')){
-			if($rid == 3){
-				if($method == 'user'){
+		else if($rid == 3){
+				switch($method){
+				case 'user':
 					if(empty($parameter)){
 						require $inc .  'user.php';
 					}
 					else{
 						require $inc .  'moduser.php';
 					}
-				}
-				else{
-					require $inc .  "$method.php";
+					break;
+				case 'report':
+					if(empty($parameter)){
+						require $inc . 'stat.php';
+					}
+					else{
+						if(is_readable($inc . "$parameter.php")){
+							require $inc .  "$parameter.php";
+						}
+						else{
+							require $inc .  '404.php';
+						}
+					}
+					break;
+				default:
+					if(is_readable($inc . "$method.php")){
+						require $inc .  "$method.php";
+					}
+					else{
+						require $inc .  '404.php';
+					}
 				}
 			}
 			else{
 				require $inc .  '404.php';
 			}
-		}
-		else{
-			require $inc .  '404.php';
-		}
 		break;
 	default:
-		if(is_readable($inc . $controller. '.php')){
+		if(is_readable($inc . "$controller.php")){
 			require $inc .  "$controller.php";
 		}
 		else{
