@@ -103,14 +103,14 @@ tbody th{
 	top: 10px;
 	right: 2%;
 }
-#setting #settings{
+#admin #adminbtn{
 	top: 18%;
 	right: 2%;
 }
-#setting main .input-group-prepend{
+#admin main .input-group-prepend{
 	width:33%;
 }
-#setting main .input-group-text{
+#admin main .input-group-text{
 	width:100%;
 }
 #progress tbody th{

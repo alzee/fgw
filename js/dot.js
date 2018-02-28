@@ -25,7 +25,7 @@ for(var i=0;i<projects.length;i++){
 // click on users entries to moduser page
 function moduser(){
 	var user=this.querySelector('td').innerText;
-	var href = '/fgw/setting/user/' + user;
+	var href = '/fgw/admin/user/' + user;
 	location.pathname = href;
 }
 
