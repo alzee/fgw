@@ -52,6 +52,11 @@ $f=(new Db)->query($sql);
 						<td><?= $v['count']/$count*100 . '%' ?></td>
 					</tr>
 <?php endforeach ?>
+					<tr class="font-weight-bold">
+						<td>合 计</td>
+						<td><?= $count ?></td>
+						<td></td>
+					</tr>
 				</tbody>
 			</table>
 
@@ -94,6 +99,11 @@ $f=(new Db)->query($sql);
 						<td><?= $f['count'] ?></td>
 						<td><?= $f['count']/$count*100 . '%' ?></td>
 					</tr>
+					<tr class="font-weight-bold">
+						<td>合 计</td>
+						<td><?= $count ?></td>
+						<td></td>
+					</tr>
 				</tbody>
 			</table>
 
@@ -113,6 +123,11 @@ $f=(new Db)->query($sql);
 						<td><?= $v['count']/$count*100 . '%' ?></td>
 					</tr>
 <?php endforeach ?>
+					<tr class="font-weight-bold">
+						<td>合 计</td>
+						<td><?= $count ?></td>
+						<td></td>
+					</tr>
 				</tbody>
 			</table>
 
