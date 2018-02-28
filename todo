@@ -16,5 +16,4 @@ js md5
 admin modify/add/delete project
 admin modify user orga and role
 
-chpwd
-moduser
+the lock alert shouldn't showout if this is not my proj
