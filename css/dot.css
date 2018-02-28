@@ -61,7 +61,7 @@ body {
 #projects tbody tr{
 	cursor: pointer;
 }
-#setting tbody tr{
+#userlist tbody tr{
 	cursor: pointer;
 }
 .dropdown-menu{

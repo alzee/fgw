@@ -18,7 +18,7 @@ function progressPage(){
 }
 
 // addEvnetListener to users list
-var projects=document.querySelectorAll('#setting tbody tr');
+var projects=document.querySelectorAll('#userlist tbody tr');
 for(var i=0;i<projects.length;i++){
 	projects[i].addEventListener("click", moduser);
 }
