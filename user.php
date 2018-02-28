@@ -103,8 +103,8 @@ $u_rows=(new Db)->query($sql);
 				  <input class="form-control" id="search" type="text" placeholder="搜索用户" aria-label="Search">
 			  </div>
 		  </div>
-		  <table class="table table-striped table-hover">
-			  <thead>
+		  <table class="table table-hover">
+			  <thead class="thead-light">
 				  <tr>
 					  <th scope="col">#</th>
 					  <th scope="col">用户名</th>
