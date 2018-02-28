@@ -5,8 +5,8 @@ $rows=(new Db)->query($sql);
 ?>
 		  <div class="row">
 		  <div class="btn-group col">
-		    <a role="button" class="btn btn-danger text-white" href="">统计汇总</a>
-		    <a role="button" class="btn btn-danger text-white active" href="">进度月报</a>
+			<a role="button" class="btn btn-danger text-white" href="<?= "$root/$controller/$method/stat" ?>">统计汇总</a>
+		    <a role="button" class="btn btn-danger text-white active" href="<?= "$root/$controller/$method/allprog" ?>">进度月报</a>
 		  </div>
 		  <div class="col-auto">
 			<div class="dropdown" id="dates">
