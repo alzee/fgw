@@ -26,7 +26,7 @@ $rid == 3 ? $myproj_btn = 'btn-outline-secondary' : $myproj_btn = 'btn-primary';
 				</div>
 			</aside>
 
-		  <main class="col-md">
+		  <main class="col-md mt-2">
 		  <div class="row mb-3">
 			  <div class="col-sm">
 				  <!--

@@ -37,7 +37,7 @@ if($_POST){
 				</div>
 			</aside>
 
-		  <main class="col-md">
+		  <main class="col-md mt-2">
 <?php if(isset($err)): ?>
 			<div class="alert alert-danger fade show col-sm-5 mx-auto">
 			<?= $err ?>
