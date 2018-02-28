@@ -10,7 +10,28 @@ if($_POST){
 $sql ="select * from projects j join progress g on j.pid=g.pid where date like '2018-02%' order by j.pid";
 $rows=(new Db)->query($sql);
 ?>
-		  <main>
+		  <div class="row">
+		  <div class="btn-group col">
+		    <a role="button" class="btn btn-danger text-white" href="">统计汇总</a>
+		    <a role="button" class="btn btn-danger text-white active" href="">进度月报</a>
+		  </div>
+		  <div class="col-auto">
+			<div class="dropdown" id="dates">
+					  <button class="btn btn-info dropdown-toggle" type="button">
+						  <?= date('Y-m') ?>
+					  </button>
+					  <div class="dropdown-menu">
+<?php for($i=date('n'); date('n') - $i < 12; $i--): ?>
+						<a class="dropdown-item <?php if(date('n') == $i) echo 'active' ?>" href="#"><?= date('Y-m', mktime(0,0,0,$i,1)) ?></a>
+<?php endfor ?>
+					  </div>
+			</div>
+		  </div>
+		  <div class="col-auto">
+		    <button type="button" class="btn btn-info">导出报表</button>
+		  </div>
+		  </div>
+		  <main class="mt-2" id="stat">
 			<table class="table table-responsive table-sm table-striped table-bordered">
 				<thead class="thead-light">
 					<tr>
@@ -43,28 +64,28 @@ $rows=(new Db)->query($sql);
 <?php foreach($rows as $v): ?>
 					<tr>
 						<td><?= $v['pid'] ?></td>
-						<td><?= $v['pid'] ?></td>
-						<td><?= $v['pid'] ?></td>
-						<td><?= $v['pid'] ?></td>
-						<td><?= $v['pid'] ?></td>
-						<td><?= $v['pid'] ?></td>
-						<td><?= $v['pid'] ?></td>
-						<td><?= $v['pid'] ?></td>
-						<td><?= $v['pid'] ?></td>
-						<td><?= $v['pid'] ?></td>
-						<td><?= $v['pid'] ?></td>
-						<td><?= $v['pid'] ?></td>
-						<td><?= $v['pid'] ?></td>
-						<td><?= $v['pid'] ?></td>
-						<td><?= $v['pid'] ?></td>
-						<td><?= $v['pid'] ?></td>
-						<td><?= $v['pid'] ?></td>
-						<td><?= $v['pid'] ?></td>
-						<td><?= $v['pid'] ?></td>
-						<td><?= $v['pid'] ?></td>
-						<td><?= $v['pid'] ?></td>
-						<td><?= $v['pid'] ?></td>
-						<td><?= $v['pid'] ?></td>
+						<td><?= $v['pname'] ?></td>
+						<td><?= $v['property'] ?></td>
+						<td><?= $v['intro'] ?></td>
+						<td><?= $v['investment'] ?></td>
+						<td><?= $v['invest_plan'] ?></td>
+						<td><?= $v['start'] ?></td>
+						<td><?= $v['finish'] ?></td>
+						<td><?= $v['investby'] ?></td>
+						<td><?= $v['p_incharge]'] ?></td>
+						<td><?= $v['oid'] ?></td>
+						<td><?= $v['oid_serve'] ?></td>
+						<td><?= $v['implementor'] ?></td>
+						<td><?= $v['type'] ?></td>
+						<td><?= $v['date'] ?></td>
+						<td><?= $v['phase'] ?></td>
+						<td><?= $v['fillby'] ?></td>
+						<td><?= $v['phone'] ?></td>
+						<td><?= $v['progress'] ?></td>
+						<td><?= $v['problem'] ?></td>
+						<td><?= $v['invest_mon'] ?></td>
+						<td><?= $v['limit_start'] ?></td>
+						<td><?= $v['limit_end'] ?></td>
 					</tr>
 <?php endforeach ?>
 				</tbody>

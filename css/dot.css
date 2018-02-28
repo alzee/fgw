@@ -99,10 +99,6 @@ tbody th{
 	font-size: 0.8rem;
 }
 
-#progress #dates0{
-	top: 18%;
-	right: 2%;
-}
 #progress #dates{
 	top: 10px;
 	right: 2%;
@@ -175,4 +171,12 @@ tbody th{
 }
 #index .intro{
 	height: 70px;
+}
+#stat th{
+	width: 50%;
+	overflow: hidden;
+}
+#stat td{
+	width: 50%;
+	overflow: hidden;
 }
