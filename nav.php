@@ -1,7 +1,7 @@
 <?php
 $rid=$_SESSION['rid'];
 ?>
-	  <div class="container" id="admin">
+	  <div class="container" id="<?= $controller ?>">
 		  <nav class="row mx-0 mb-3" id="nav">
 			  <ol class="breadcrumb col mb-0">
 			  <li class="breadcrumb-item"><a href="<?= "$root/home" ?>">首 页</a></li>
