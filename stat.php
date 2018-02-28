@@ -59,7 +59,8 @@ $f=(new Db)->query($sql);
 					</tr>
 				</thead>
 				<tbody>
-<?php foreach($t_rows as $v): ?>
+<?php $count1=0;foreach($t_rows as $v): ?>
+<?php $count1+=$v['count']; ?>
 					<tr>
 						<td><?= $v['type'] ?></td>
 						<td><?= $v['count'] ?></td>
@@ -68,7 +69,7 @@ $f=(new Db)->query($sql);
 <?php endforeach ?>
 					<tr class="font-weight-bold">
 						<td>合 计</td>
-						<td><?= $count ?></td>
+						<td><?= $count1 ?></td>
 						<td></td>
 					</tr>
 				</tbody>
@@ -83,7 +84,8 @@ $f=(new Db)->query($sql);
 					</tr>
 				</thead>
 				<tbody>
-<?php foreach($p_rows as $v): ?>
+<?php $count1=0;foreach($p_rows as $v): ?>
+<?php $count1+=$v['count']; ?>
 					<tr>
 						<td><?= $v['property'] ?></td>
 						<td><?= $v['count'] ?></td>
@@ -92,7 +94,7 @@ $f=(new Db)->query($sql);
 <?php endforeach ?>
 					<tr class="font-weight-bold">
 						<td>合 计</td>
-						<td><?= $count ?></td>
+						<td><?= $count1 ?></td>
 						<td></td>
 					</tr>
 				</tbody>
@@ -107,7 +109,8 @@ $f=(new Db)->query($sql);
 					</tr>
 				</thead>
 				<tbody>
-<?php foreach($o_rows as $v): ?>
+<?php $count1=0;foreach($o_rows as $v): ?>
+<?php $count1+=$v['count']; ?>
 					<tr>
 						<td><?= $v['oname'] ?></td>
 						<td><?= $v['count'] ?></td>
@@ -116,7 +119,7 @@ $f=(new Db)->query($sql);
 <?php endforeach ?>
 					<tr class="font-weight-bold">
 						<td>合 计</td>
-						<td><?= $count ?></td>
+						<td><?= $count1 ?></td>
 						<td></td>
 					</tr>
 				</tbody>
@@ -131,7 +134,8 @@ $f=(new Db)->query($sql);
 					</tr>
 				</thead>
 				<tbody>
-<?php foreach($s_rows as $v): ?>
+<?php $count1=0;foreach($s_rows as $v): ?>
+<?php $count1+=$v['count']; ?>
 					<tr>
 						<td><?= $v['oname'] ?></td>
 						<td><?= $v['count'] ?></td>
@@ -140,7 +144,7 @@ $f=(new Db)->query($sql);
 <?php endforeach ?>
 					<tr class="font-weight-bold">
 						<td>合 计</td>
-						<td><?= $count ?></td>
+						<td><?= $count1 ?></td>
 						<td></td>
 					</tr>
 				</tbody>
@@ -155,7 +159,8 @@ $f=(new Db)->query($sql);
 					</tr>
 				</thead>
 				<tbody>
-<?php foreach($i_rows as $v): ?>
+<?php $count1=0;foreach($i_rows as $v): ?>
+<?php $count1+=$v['count']; ?>
 					<tr>
 						<td><?= $v['investby'] ?></td>
 						<td><?= $v['count'] ?></td>
@@ -164,7 +169,7 @@ $f=(new Db)->query($sql);
 <?php endforeach ?>
 					<tr class="font-weight-bold">
 						<td>合 计</td>
-						<td><?= $count ?></td>
+						<td><?= $count1 ?></td>
 						<td></td>
 					</tr>
 				</tbody>
@@ -211,7 +216,7 @@ $f=(new Db)->query($sql);
 					</tr>
 					<tr class="font-weight-bold">
 						<td>合 计</td>
-						<td><?= $count ?></td>
+						<td><?= $a['count'] + $b['count'] + $c['count'] + $d['count'] + $e['count'] + $f['count'] ?></td>
 						<td></td>
 					</tr>
 				</tbody>
