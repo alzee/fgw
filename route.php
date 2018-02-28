@@ -34,6 +34,7 @@ if($login){
 		break;
 	case 'project':
 		if(is_numeric($method)){
+			$pid=$method;
 			require $inc .  'progress.php';
 		}
 		else{
