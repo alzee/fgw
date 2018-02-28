@@ -7,12 +7,14 @@ if($_POST){
 }
 
 // prepare data
+$sql ="select * from projects j join progress g on j.pid=g.pid where date like '2018-02%' order by j.pid";
+$rows=(new Db)->query($sql);
 ?>
 		  <main class="col-md">
-			<table class="table talbe-responsive table-sm table-striped table-bordered">
+			<table class="table tabl-responsive table-sm table-striped table-bordered">
 				<thead class="thead-light">
 					<tr>
-						<th scope="col">#</th>
+						<th scope="col">项目编号</th>
 						<th scope="col">项目名称</th>
 						<th scope="col">建设性质</th>
 						<th scope="col">建设内容</th>
@@ -26,15 +28,45 @@ if($_POST){
 						<th scope="col">服务单位</th>
 						<th scope="col">施工单位</th>
 						<th scope="col">项目类型</th>
+						<th scope="col">更新日期</th>
+						<th scope="col">建设阶段</th>
+						<th scope="col">填报人</th>
+						<th scope="col">联系电话</th>
+						<th scope="col">本月进展</th>
+						<th scope="col">问题和建议</th>
+						<th scope="col">本月完成投资</th>
+						<th scope="col">实际建设期限开始</th>
+						<th scope="col">实际建设期限结束</th>
 					</tr>
 				</thead>
 				<tbody>
+<?php foreach($rows as $v): ?>
 					<tr>
-						<td>Mark</td>
-						<td>Mark</td>
-						<td>Otto</td>
-						<td>@mdo</td>
+						<td><?= $v['pid'] ?></td>
+						<td><?= $v['pid'] ?></td>
+						<td><?= $v['pid'] ?></td>
+						<td><?= $v['pid'] ?></td>
+						<td><?= $v['pid'] ?></td>
+						<td><?= $v['pid'] ?></td>
+						<td><?= $v['pid'] ?></td>
+						<td><?= $v['pid'] ?></td>
+						<td><?= $v['pid'] ?></td>
+						<td><?= $v['pid'] ?></td>
+						<td><?= $v['pid'] ?></td>
+						<td><?= $v['pid'] ?></td>
+						<td><?= $v['pid'] ?></td>
+						<td><?= $v['pid'] ?></td>
+						<td><?= $v['pid'] ?></td>
+						<td><?= $v['pid'] ?></td>
+						<td><?= $v['pid'] ?></td>
+						<td><?= $v['pid'] ?></td>
+						<td><?= $v['pid'] ?></td>
+						<td><?= $v['pid'] ?></td>
+						<td><?= $v['pid'] ?></td>
+						<td><?= $v['pid'] ?></td>
+						<td><?= $v['pid'] ?></td>
 					</tr>
+<?php endforeach ?>
 				</tbody>
 			</table>
 		  </main>
