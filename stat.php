@@ -10,8 +10,8 @@ if($_POST){
 $sql ="select * from projects j join progress g on j.pid=g.pid where date like '2018-02%' order by j.pid";
 $rows=(new Db)->query($sql);
 ?>
-		  <main class="col-md">
-			<table class="table tabl-responsive table-sm table-striped table-bordered">
+		  <main>
+			<table class="table table-responsive table-sm table-striped table-bordered">
 				<thead class="thead-light">
 					<tr>
 						<th scope="col">项目编号</th>
