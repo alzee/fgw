@@ -110,7 +110,7 @@ else{
 				</div>
 			</aside>
 
-		  <main class="col-md">
+		  <main class="col-md mt-2">
 		  <div class="alert alert-warning alert-dismissible fade show" role="alert">
 			  默认显示前一次提交的数据，以供参考。内容与上月相同的单元格以黄色背景提醒。
 		 </div>
