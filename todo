@@ -14,7 +14,6 @@ js md5
 建设阶段细化
 
 admin modify/add/delete project
-admin modify user orga and role
 
 the lock alert shouldn't showout if this is not my proj
 rid 2(view) should can not submit
