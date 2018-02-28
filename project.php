@@ -27,7 +27,7 @@ $rid == 3 ? $myproj_btn = 'btn-outline-secondary' : $myproj_btn = 'btn-primary';
 			</aside>
 
 		  <main class="col-md mt-2">
-		  <div class="row mb-3">
+		  <div class="row mb-2">
 			  <div class="col-sm">
 				  <!--
 				  <span class="badge badge-success">已完成</span>
@@ -36,11 +36,11 @@ $rid == 3 ? $myproj_btn = 'btn-outline-secondary' : $myproj_btn = 'btn-primary';
 				  <span class="badge badge-danger">本月尚未提交</span>
 			  </div>
 <?php if($rid == 3): ?>
-			  <div class="col-auto col-sm-2">
+			  <div class="col-auto col-sm-auto pr-0">
 				  <a id="newproject" role="button" class="btn btn-success" href="<?= $root ?>/newproject">新增项目</a>
 			  </div>
 <?php endif ?>
-			  <div class="col-auto col-sm-2">
+			  <div class="col-auto col-sm-auto pr-0">
 				  <button id="myproject" type="button" class="btn <?= $myproj_btn ?>" data-oid="<?= $oid ?>">我的项目</button>
 			  </div>
 			  <div class="col col-sm-3">
