@@ -74,27 +74,27 @@ $u_rows=(new Db)->query($sql);
 
 		  <div class="row mb-3">
 			  <form class="form-row col-sm" method="post">
-				  <div class="col-sm pr-0">
+				  <div class="col-sm pr-0 mb-1">
 					  <input type="text" class="form-control" name="uname" placeholder="用户名" required>
 				  </div>
-				  <div class="col-sm pr-0">
+				  <div class="col-sm pr-0 mb-1">
 					  <input type="password" class="form-control" name="passwd" placeholder="密 码" required>
 				  </div>
-				  <div class="col-sm pr-0">
+				  <div class="col-sm pr-0 mb-1">
 					  <select class="form-control" name="oid">
 <?php foreach($o_rows as $row): ?>
 <option value="<?= $row['oid'] ?>"><?= $row['oname'] ?></option>
 <?php endforeach ?>
 					  </select>
 				  </div>
-				  <div class="col-sm pr-0">
+				  <div class="col-sm pr-0 mb-1">
 					  <select class="form-control" name="rid">
 <?php foreach($r_rows as $row): ?>
 <option value="<?= $row['rid'] ?>"><?= $row['rname'] ?></option>
 <?php endforeach ?>
 					  </select>
 				  </div>
-				  <div class="col-auto">
+				  <div class="col-auto mb-1">
 					  <button type="submit" class="btn btn-success">添加用户</button>
 				  </div>
 			  </form>
