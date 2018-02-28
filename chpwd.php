@@ -3,41 +3,25 @@
 $uid = $_SESSION['uid'];
 $rid = $_SESSION['rid'];
 $uname=$_SESSION['uname'];
-$uname1=$parameter;
-if(empty($uname1)){
-	$uname1 = $uname;
-}
-
 if($_POST){
-	// if I'm changing passwd for myself
-	if($uname == $uname1){
-		// if pass1 and pass2 match
-		if($_POST['newpw1'] == $_POST['newpw2']){
-			$sql = "select passwd from users where uid=$uid";
-			$oldpw = (new Db)->query($sql);
-			// if oldpw is correct
-			if (md5($_POST['oldpw']) == $oldpw['passwd']){
-				$sql = "update users set passwd='" . md5($_POST['newpw1']) . "' where uid=$uid";
-				(new Db)->query($sql);
+	// if pass1 and pass2 match
+	if($_POST['newpw1'] == $_POST['newpw2']){
+		$sql = "select passwd from users where uid=$uid";
+		$oldpw = (new Db)->query($sql);
+		// if oldpw is correct
+		if (md5($_POST['oldpw']) == $oldpw['passwd']){
+			$sql = "update users set passwd='" . md5($_POST['newpw1']) . "' where uid=$uid";
+			(new Db)->query($sql);
 
-				header("Location: $root/$controller/$method");
-				exit;
-			}
-			else{
-				$err='原密码错误!';
-			}
+			header("Location: $root/$controller/$method");
+			exit;
 		}
 		else{
-			$err='新密码两次输入不一致!';
+			$err='原密码错误!';
 		}
 	}
-	// if I'm changing passwd for somebody else
-	else if($rid == 3){ // if I'm an admin
-		$sql = "update users set passwd='" . md5($_POST['newpw1']) . "' where uname='$uname1'";
-		(new Db)->query($sql);
-	}
 	else{
-		$err='你不能改别人的密码哦！';
+		$err='新密码两次输入不一致!';
 	}
 }
 
@@ -67,30 +51,26 @@ if($_POST){
 			  <div class="input-group-prepend">
 				  <span class="input-group-text">用户名</span>
 			  </div>
-			  <input class="form-control" type="text" placeholder="<?= $uname1 ?>" disabled name="uname">
+			  <input class="form-control" type="text" placeholder="<?= $uname ?>" disabled name="uname">
 		  </div>
-<?php if($rid != 3 || $uname == $uname1): ?>
 		  <div class="input-group mb-3 col-sm-5 mx-auto">
 			  <div class="input-group-prepend">
 				  <span class="input-group-text">原密码</span>
 			  </div>
 			  <input type="password" class="form-control" name="oldpw" required>
 		  </div>
-<?php endif ?>
 		  <div class="input-group mb-3 col-sm-5 mx-auto">
 			  <div class="input-group-prepend">
 				  <span class="input-group-text">新密码</span>
 			  </div>
 			  <input type="password" class="form-control" name="newpw1" required>
 		  </div>
-<?php if($rid != 3 || $uname == $uname1): ?>
 		  <div class="input-group mb-3 col-sm-5 mx-auto">
 			  <div class="input-group-prepend">
 				  <span class="input-group-text">密码确认</span>
 			  </div>
 			  <input type="password" class="form-control" name="newpw2" required>
 		  </div>
-<?php endif ?>
 		  <button type="submit" class="btn btn-success d-block mx-auto">提 交</button>
 		  </form>
 
