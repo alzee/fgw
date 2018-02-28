@@ -19,7 +19,7 @@
 				</div>
 			</aside>
 
-		  <main class="col-md">
+		  <main class="col-md mt-2">
 		  <form method="post">
 			  <table class="table table-bordered">
 				  <tbody>
