@@ -160,11 +160,11 @@ else{
 						  </td>
 					  </tr>
 					  <tr>
-						  <th scope="row">实际开工时间</th>
+						  <th scope="row">计划开工时间</th>
 						  <td>
 							  <input placeholder="<?= $pj_row['start'] ?>" type="text" class="form-control" disabled>
 						  </td>
-						  <th scope="row">拟竣工时间</th>
+						  <th scope="row">计划竣工时间</th>
 						  <td>
 							  <input placeholder="<?= $pj_row['finish'] ?>" type="text" class="form-control" disabled>
 						  </td>
@@ -283,11 +283,11 @@ unset($imgs[0], $imgs[1]); // remove . and ..
 						  </td>
 					  </tr> 
 					  <tr>
-						  <th scope="row">实际建设期限</th>
+						  <th scope="row">实际开工时间</th>
 						  <td>
 						  <input name="limit_start" placeholder="<?= $pg_rows[0]['limit_start'] ?>" type="text" class="form-control pickmonth <?= $class ?>" <?= $disabled ?>>
 						  </td>
-						  <th scope="row">至</th>
+						  <th scope="row">实际竣工时间</th>
 						  <td>
 							  <input name="limit_end" placeholder="<?= $pg_rows[0]['limit_end'] ?>" type="text" class="form-control pickmonth <?= $class ?>" <?= $disabled ?>>
 						  </td>
