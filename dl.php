@@ -6,15 +6,16 @@
  * @todo
  */
 echo 'haha';
+var_dump($a);
 if($_POST){
 	// echo 1;
-	$file = 'fgw.xls';
+	$file = 'text.xlsx';
 	if(file_exists($file)){
 		// header("Content-Description: File Transfer");
 		// header("Content-Type: application/octet-stream");
-		header("Content-Transfer-Encoding: Binary");
+		//header("Content-Transfer-Encoding: Binary");
 		header("Content-Disposition: attachment; filename='haha.xls'");
-		header('Content-Length: ' . filesize($file));
+		//header('Content-Length: ' . filesize($file));
 		readfile($file);
 		exit;
 	}

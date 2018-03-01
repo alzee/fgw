@@ -24,7 +24,7 @@ $s_rows=(new Db)->query($sql);
 
 // group by investby
 $sql = "select investby,count(pid) count from projects group by investby";
-$i_rows=(new Db)->query($sql);
+$ib_rows=(new Db)->query($sql);
 
 // group by investment
 $sql = "select count(investment) count from projects where investment < 10000";
@@ -39,13 +39,29 @@ $sql = "select count(investment) count from projects where investment between 20
 $e=(new Db)->query($sql);
 $sql = "select count(investment) count from projects where investment >= 500000";
 $f=(new Db)->query($sql);
+
+/*
+ * generate xls files if they're not exist
+ */
+if(!file_exists('xls/t.xls')){
+}
+if(!file_exists('xls/p.xls')){
+}
+if(!file_exists('xls/o.xls')){
+}
+if(!file_exists('xls/s.xls')){
+}
+if(!file_exists('xls/ib.xls')){
+}
+if(!file_exists('xls/i.xls')){
+}
 ?>
 		  <div class="row">
 		  <div class="btn-group col">
 			<a role="button" class="btn btn-danger text-white active" href="<?= "$root/$controller/$method/stat" ?>">统计汇总</a>
 		    <a role="button" class="btn btn-danger text-white" href="<?= "$root/$controller/$method/allprog" ?>">进度月报</a>
 		  </div>
-		<form method="post" action="<?= "$root/dl" ?>">
+		<form method="post" actio="<?= "$root/dl" ?>">
 		  <div class="col-auto">
 		    <button type="sumbit" class="btn btn-info" name="submit" value="1">导出报表</button>
 		  </div>
@@ -161,7 +177,7 @@ $f=(new Db)->query($sql);
 					</tr>
 				</thead>
 				<tbody>
-<?php $count1=0;foreach($i_rows as $v): ?>
+<?php $count1=0;foreach($ib_rows as $v): ?>
 <?php $count1+=$v['count']; ?>
 					<tr>
 						<td><?= $v['investby'] ?></td>
