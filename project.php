@@ -48,7 +48,7 @@ $rid == 3 ? $myproj_btn = 'btn-outline-secondary' : $myproj_btn = 'btn-primary';
 			  </div>
 		  </div>
 		  <table class="table table-hover">
-			  <thead class="thead-light">
+			  <thead>
 				  <tr>
 					  <th scope="col">#</th>
 					  <th scope="col">项目名称</th>
