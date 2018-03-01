@@ -1,5 +1,5 @@
 <?php
-$sql="select pid,p.oid,pname,investment,oname,p_incharge,property,alert from projects p join organization o on p.oid=o.oid";
+$sql="select pid,p.oid,pname,investment,o1.oname,p_incharge,o2.oname oname_serve,alert from projects p join (organization o1, organization o2) on (p.oid=o1.oid and p.oid_serve=o2.oid)";
 $p_rows=(new Db)->query($sql);
 
 $oid=$_SESSION['oid'];
@@ -55,7 +55,7 @@ $rid == 3 ? $myproj_btn = 'btn-outline-secondary' : $myproj_btn = 'btn-primary';
 					  <th scope="col">总投资</th>
 					  <th scope="col">责任单位</th>
 					  <th scope="col">包联领导</th>
-					  <th scope="col">建设性质</th>
+					  <th scope="col">代办单位</th>
 				  </tr>
 			  </thead>
 			  <tbody>
@@ -84,7 +84,7 @@ case 2:
 					  <td><?= $row['investment'] ?></td>
 					  <td><?= $row['oname'] ?></td>
 					  <td><?= $row['p_incharge'] ?></td>
-					  <td><?= $row['property'] ?></td>
+					  <td><?= $row['oname_serve'] ?></td>
 				  </tr>
 <?php endforeach; ?>
 			  </tbody>
