@@ -45,9 +45,11 @@ $f=(new Db)->query($sql);
 			<a role="button" class="btn btn-danger text-white active" href="<?= "$root/$controller/$method/stat" ?>">统计汇总</a>
 		    <a role="button" class="btn btn-danger text-white" href="<?= "$root/$controller/$method/allprog" ?>">进度月报</a>
 		  </div>
+		<form method="post" action="<?= "$root/dl" ?>">
 		  <div class="col-auto">
-		    <button type="button" class="btn btn-info">导出报表</button>
+		    <button type="sumbit" class="btn btn-info" name="submit" value="1">导出报表</button>
 		  </div>
+		</form>
 		  </div>
 		  <main class="mt-2" id="stat1">
 			<table class="table table-sm table-striped table-bordered">
