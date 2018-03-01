@@ -41,9 +41,12 @@ $rid == 3 ? $myproj_btn = 'btn-outline-secondary' : $myproj_btn = 'btn-primary';
 			  </div>
 <?php endif ?>
 			  <div class="col-auto col-sm-auto pr-0">
+				  <a role="button" class="btn btn-info text-white" href="<?= "$root/admin/report" ?>">统计报表</a>
+			  </div>
+			  <div class="col-auto col-sm-auto pr-0">
 				  <button id="myproject" type="button" class="btn <?= $myproj_btn ?>" data-oid="<?= $oid ?>">我的项目</button>
 			  </div>
-			  <div class="col col-sm-3">
+			  <div class="col-sm-3 mt-1 mt-sm-0">
 				  <input class="form-control" id="search" type="text" placeholder="搜索项目" aria-label="Search">
 			  </div>
 		  </div>
