@@ -21,3 +21,4 @@ rid 2(view) should can not submit
 报表到新增项目旁边
 建设性质 换成 代办单位
 每个单位可以生成自己的进度月报表
+#progress td 的字相同宽度
