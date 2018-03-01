@@ -101,7 +101,7 @@ else{
 				  </ol>
 		  </nav>
 		<section class="row">
-			<aside class="col-md-2">
+			<aside class="col-md-auto">
 				<div class="list-group">
 				  <a href="#" class="list-group-item list-group-item-action">公告通知</a>
 				  <a href="#" class="list-group-item list-group-item-action">固定资产投资</a>
