@@ -3,12 +3,12 @@ $rid=$_SESSION['rid'];
 ?>
 	  <div class="container" id="<?= $controller ?>">
 		  <nav class="row mx-0 mb-3" id="nav">
-			  <ol class="breadcrumb col mb-0">
+			  <ol class="breadcrumb col-auto col-sm mb-0">
 			  <li class="breadcrumb-item"><a href="<?= "$root/home" ?>">首 页</a></li>
 				  <li class="breadcrumb-item active" aria-current="page">设 置</li>
 			  </ol>
 			  <div class="col-auto">
-			  <div class="btn-group btn-group-sm mb-2 my-md-2" role="group">
+			  <div class="btn-group btn-group-sm mb-2 my-2" role="group">
 				  <a role="button" href="<?= $root ?>/admin/chpwd" class="btn btn-danger <?php if($method=='chpwd' || $method == "") echo 'active'; ?>">修改密码</a>
 <?php if($rid==3): ?>
 				  <a role="button" href="<?= $root ?>/admin/user" class="btn btn-danger <?php if($method=='user') echo 'active'; ?>">用户管理</a>
