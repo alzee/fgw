@@ -2,7 +2,7 @@
 $rid=$_SESSION['rid'];
 ?>
 	  <div class="container" id="<?= $controller ?>">
-		  <nav class="mx-0 mb-3 d-flex justify-content-between flex-wrap" id="nav">
+		  <nav class="mx-0 mb-3 row justify-content-between" id="nav">
 			  <ol class="breadcrumb mb-0">
 			  <li class="breadcrumb-item"><a href="<?= "$root/home" ?>">首 页</a></li>
 				  <li class="breadcrumb-item active" aria-current="page">设 置</li>
