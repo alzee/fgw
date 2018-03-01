@@ -83,9 +83,6 @@ case 2:
 					  <td><?= $row['pname'] ?></td>
 					  <td><?= $row['investment'] ?></td>
 					  <td><?= $row['oname'] ?></td>
-<!--
-					  <td><?= $row['o_incharge'] ?></td>
--->
 					  <td><?= $row['p_incharge'] ?></td>
 					  <td><?= $row['property'] ?></td>
 				  </tr>
