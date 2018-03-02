@@ -3,9 +3,22 @@
 $sql ="select * from projects j join progress g on j.pid=g.pid where date like '2018-02%' order by j.pid";
 $rows=(new Db)->query($sql);
 ?>
+	  <div class="container" id="">
+		  <nav>
+			  <div>
+				  <ol class="breadcrumb">
+				  <li class="breadcrumb-item"><a href="<?= "$root/home" ?>">首 页</a></li>
+				  <li class="breadcrumb-item"><a href="<?= "$root/project" ?>">重点项目</a></li>
+				  <li class="breadcrumb-item active">统计报表</li>
+				  </ol>
+			  </div>
+		  </nav>
+
 		  <div class="row">
 		  <div class="btn-group col">
+<?php if($rid ==3): ?>
 			<a role="button" class="btn btn-danger text-white" href="<?= "$root/$controller/$method/stat" ?>">统计汇总</a>
+<?php endif ?>
 		    <a role="button" class="btn btn-danger text-white active" href="<?= "$root/$controller/$method/allprog" ?>">进度月报</a>
 		  </div>
 		  <div class="col-auto">

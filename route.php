@@ -24,6 +24,7 @@ $login=Sign::check();
 
 if($login){
 	session_start(['name'=>'SID']);
+	$rid=$_SESSION['rid'];
 	//var_dump($_SESSION);
 
 	// we put some special case in switch
@@ -36,6 +37,30 @@ if($login){
 		if(is_numeric($method)){
 			$pid=$method;
 			require $inc .  'progress.php';
+		}
+		else if($method == 'report'){
+			if(empty($parameter)){
+				if($rid == 3){
+					require $inc . 'stat.php';
+				}
+				else{
+					require $inc . 'allprog.php';
+				}
+			}
+			else if($parameter == 'stat'){
+				if($rid == 3){
+					require $inc . 'stat.php';
+				}
+				else{
+					require $inc . '404.php';
+				}
+			}
+			else if(is_readable($inc . "$parameter.php")){
+				require $inc .  "$parameter.php";
+			}
+			else{
+				require $inc .  '404.php';
+			}
 		}
 		else{
 			require $inc .  'project.php';

@@ -56,17 +56,28 @@ if(!file_exists('xls/ib.xls')){
 if(!file_exists('xls/i.xls')){
 }
 ?>
-		  <div class="row">
-		  <div class="btn-group col">
+	  <div class="container" id="">
+		  <nav>
+			  <div>
+				  <ol class="breadcrumb">
+				  <li class="breadcrumb-item"><a href="<?= "$root/home" ?>">首 页</a></li>
+				  <li class="breadcrumb-item"><a href="<?= "$root/project" ?>">重点项目</a></li>
+				  <li class="breadcrumb-item active">统计报表</li>
+				  </ol>
+			  </div>
+		  </nav>
+
+	  <div class="row">
+		<div class="btn-group col">
 			<a role="button" class="btn btn-danger text-white active" href="<?= "$root/$controller/$method/stat" ?>">统计汇总</a>
 		    <a role="button" class="btn btn-danger text-white" href="<?= "$root/$controller/$method/allprog" ?>">进度月报</a>
-		  </div>
+		</div>
 		<form method="post" actio="<?= "$root/dl" ?>">
 		  <div class="col-auto">
 		    <button type="sumbit" class="btn btn-info" name="submit" value="1">导出报表</button>
 		  </div>
 		</form>
-		  </div>
+	  </div>
 		  <main class="mt-2" id="stat1">
 			<table class="table table-sm table-striped table-bordered">
 				<thead class="thead-light">
