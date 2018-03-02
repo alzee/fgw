@@ -1,6 +1,3 @@
-<?php
-$rid=$_SESSION['rid'];
-?>
 	  <div class="container" id="<?= $controller ?>">
 		  <nav class="mx-0 mb-3 row justify-content-between" id="nav">
 			  <ol class="breadcrumb mb-0">
