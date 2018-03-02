@@ -12,7 +12,6 @@ $rid=$_SESSION['rid'];
 				  <a role="button" href="<?= $root ?>/admin/chpwd" class="btn btn-danger <?php if($method=='chpwd' || $method == "") echo 'active'; ?>">修改密码</a>
 <?php if($rid==3): ?>
 				  <a role="button" href="<?= $root ?>/admin/user" class="btn btn-danger <?php if($method=='user') echo 'active'; ?>">用户管理</a>
-				  <a role="button" href="<?= $root ?>/admin/report" class="btn btn-danger <?php if($method=='report') echo 'active'; ?>">统计报表</a>
 <!--
 				  <a role="button" href="<?= $root ?>/admin/upload" class="btn btn-danger <?php if($method=='upload') echo 'active'; ?>">上传报表</a>
 -->
