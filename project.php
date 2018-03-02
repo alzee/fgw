@@ -3,7 +3,6 @@ $sql="select pid,p.oid,pname,investment,o1.oname,p_incharge,o2.oname oname_serve
 $p_rows=(new Db)->query($sql);
 
 $oid=$_SESSION['oid'];
-$rid=$_SESSION['rid'];
 $rid == 3 ? $myproj_btn = 'btn-outline-secondary' : $myproj_btn = 'btn-primary';
 ?>
 
