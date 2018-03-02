@@ -81,19 +81,6 @@ if($login){
 						require $inc .  'moduser.php';
 					}
 					break;
-				case 'report':
-					if(empty($parameter)){
-						require $inc . 'stat.php';
-					}
-					else{
-						if(is_readable($inc . "$parameter.php")){
-							require $inc .  "$parameter.php";
-						}
-						else{
-							require $inc .  '404.php';
-						}
-					}
-					break;
 				default:
 					if(is_readable($inc . "$method.php")){
 						require $inc .  "$method.php";
