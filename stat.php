@@ -45,18 +45,8 @@ $f=(new Db)->query($sql);
  */
 if(!file_exists('xls/t.xls')){
 }
-if(!file_exists('xls/p.xls')){
-}
-if(!file_exists('xls/o.xls')){
-}
-if(!file_exists('xls/s.xls')){
-}
-if(!file_exists('xls/ib.xls')){
-}
-if(!file_exists('xls/i.xls')){
-}
 
-// require 'e.php';
+require 'xlsx1.php';
 ?>
 	  <div class="container" id="">
 		  <nav>
