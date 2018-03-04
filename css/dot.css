@@ -180,7 +180,7 @@ tbody th{
 	overflow: hidden;
 }
 @media (max-width: 525px){
-	input.form-control{
+	#progress input.form-control{
 		width: 5rem;
 	}
 }
