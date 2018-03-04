@@ -49,7 +49,7 @@ $rid == 3 ? $myproj_btn = 'btn-outline-secondary' : $myproj_btn = 'btn-primary';
 				  <input class="form-control" id="search" type="text" placeholder="搜索项目" aria-label="Search">
 			  </div>
 		  </div>
-		  <table class="table table-hover">
+		  <table class="table table-hover table-responsive">
 			  <thead>
 				  <tr>
 					  <th scope="col">#</th>
