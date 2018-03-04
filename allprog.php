@@ -38,7 +38,7 @@ require 'e.php';
 					  </div>
 			</div>
 		  </div>
-		<form method="post" actio="<?= "$root/dl" ?>">
+		<form method="post" action="<?= "$root/dl" ?>">
 		  <div class="col-auto">
 		    <button type="sumbit" class="btn btn-info" name="submit" value="1">导出报表</button>
 		  </div>

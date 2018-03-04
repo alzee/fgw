@@ -5,11 +5,9 @@
  * @version
  * @todo
  */
-echo 'haha';
-var_dump($a);
+// var_dump($_POST);
 if($_POST){
-	// echo 1;
-	$file = 'text.xlsx';
+	$file = 'test.xlsx';
 	if(file_exists($file)){
 		// header("Content-Description: File Transfer");
 		// header("Content-Type: application/octet-stream");
