@@ -7,7 +7,7 @@
  */
 // var_dump($_POST);
 if($_POST){
-	$file = 'test.xlsx';
+	$file = 'xls/test.xlsx';
 	if(file_exists($file)){
 		// header("Content-Description: File Transfer");
 		// header("Content-Type: application/octet-stream");

@@ -23,4 +23,4 @@ $sheet=$spreadsheet->getActiveSheet();
 $sheet->fromArray($rows, NULL ,'A2');
 
 $writer = new Xlsx($spreadsheet);
-$writer->save('test.xlsx');
+$writer->save('xls/test.xlsx');
