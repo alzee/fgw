@@ -3,8 +3,10 @@
 $month = date('Y-m');
 $prev_month = date('Y-m', strtotime('first day of last month'));
 
-$sql ="select g.*,j.*,o1.oname,o2.oname oname_serve from projects j left join ((select * from progress where date like '$prev_month%') g, organization o1, organization o2) on (j.pid=g.pid and j.oid=o1.oid and j.oid_serve=o2.oid) order by j.pid";
+$sql ="select j.pid,pname,property,intro,investment,invest_plan,start,finish,investby,p_incharge,o1.oname,o2.oname oname_serve,implementor,type,date,phase,fillby,phone,progress,problem,invest_mon,limit_start,limit_end from projects j left join ((select * from progress where date like '$prev_month%') g, organization o1, organization o2) on (j.pid=g.pid and j.oid=o1.oid and j.oid_serve=o2.oid) order by j.pid";
 $rows=(new Db)->query($sql);
+
+require 'e.php';
 ?>
 	  <div class="container">
 		  <nav>
@@ -72,29 +74,9 @@ $rows=(new Db)->query($sql);
 				<tbody>
 <?php foreach($rows as $v): ?>
 					<tr>
-						<td><?= $v['pid'] ?></td>
-						<td><?= $v['pname'] ?></td>
-						<td><?= $v['property'] ?></td>
-						<td><?= $v['intro'] ?></td>
-						<td><?= $v['investment'] ?></td>
-						<td><?= $v['invest_plan'] ?></td>
-						<td><?= $v['start'] ?></td>
-						<td><?= $v['finish'] ?></td>
-						<td><?= $v['investby'] ?></td>
-						<td><?= $v['p_incharge'] ?></td>
-						<td><?= $v['oname'] ?></td>
-						<td><?= $v['oname_serve'] ?></td>
-						<td><?= $v['implementor'] ?></td>
-						<td><?= $v['type'] ?></td>
-						<td><?= $v['date'] ?></td>
-						<td><?= $v['phase'] ?></td>
-						<td><?= $v['fillby'] ?></td>
-						<td><?= $v['phone'] ?></td>
-						<td><?= $v['progress'] ?></td>
-						<td><?= $v['problem'] ?></td>
-						<td><?= $v['invest_mon'] ?></td>
-						<td><?= $v['limit_start'] ?></td>
-						<td><?= $v['limit_end'] ?></td>
+<?php foreach($v as $vv): ?>
+						<td><?= $vv ?></td>
+<?php endforeach ?>
 					</tr>
 <?php endforeach ?>
 				</tbody>
