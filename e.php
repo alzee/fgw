@@ -11,8 +11,16 @@ use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 $spreadsheet = new Spreadsheet();
-$writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
-$writer0 = new Xlsx($spreadsheet);
-$writer->save('test.xlsx');
+// $writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
 // if($writer == $writer0){ echo 1;}
-var_dump($writer);
+$sheet=$spreadsheet->getActiveSheet();
+// var_dump($sheet);
+//foreach($t_rows as $v){
+//	$i=1;
+//	$sheet->setCellValue('A1',$v['']);
+//	$sheet->setCellValue('A1','fuck you');
+//}
+$sheet->fromArray($rows, NULL ,'A2');
+
+$writer = new Xlsx($spreadsheet);
+$writer->save('test.xlsx');
