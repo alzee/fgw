@@ -1,7 +1,9 @@
 <?php
 // prepare data
-$sql ="select * from projects j join progress g on j.pid=g.pid where date like '2018-02%' order by j.pid";
+// $sql ="select j.*,g.* from projects j join progress g on j.pid=g.pid where date like '2018-02%' order by j.pid";
+$sql ="select j.*,g.*,o1.oname,o2.oname oname_serve from projects j join (progress g, organization o1, organization o2) on (j.pid=g.pid and j.oid=o1.oid and j.oid_serve=o2.oid) where date like '2018-02%' order by j.pid";
 $rows=(new Db)->query($sql);
+// var_dump($rows);
 ?>
 	  <div class="container" id="">
 		  <nav>
@@ -78,9 +80,9 @@ $rows=(new Db)->query($sql);
 						<td><?= $v['start'] ?></td>
 						<td><?= $v['finish'] ?></td>
 						<td><?= $v['investby'] ?></td>
-						<td><?= $v['p_incharge]'] ?></td>
-						<td><?= $v['oid'] ?></td>
-						<td><?= $v['oid_serve'] ?></td>
+						<td><?= $v['p_incharge'] ?></td>
+						<td><?= $v['oname'] ?></td>
+						<td><?= $v['oname_serve'] ?></td>
 						<td><?= $v['implementor'] ?></td>
 						<td><?= $v['type'] ?></td>
 						<td><?= $v['date'] ?></td>
