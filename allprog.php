@@ -38,9 +38,11 @@ require 'e.php';
 					  </div>
 			</div>
 		  </div>
+		<form method="post" actio="<?= "$root/dl" ?>">
 		  <div class="col-auto">
-		    <button type="button" class="btn btn-info">导出报表</button>
+		    <button type="sumbit" class="btn btn-info" name="submit" value="1">导出报表</button>
 		  </div>
+		</form>
 		  </div>
 		  <main class="mt-2" id="stat">
 			<table class="table table-responsive table-sm table-striped table-bordered">

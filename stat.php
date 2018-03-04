@@ -56,7 +56,7 @@ if(!file_exists('xls/ib.xls')){
 if(!file_exists('xls/i.xls')){
 }
 
-require 'e.php';
+// require 'e.php';
 ?>
 	  <div class="container" id="">
 		  <nav>
