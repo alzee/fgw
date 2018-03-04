@@ -179,3 +179,8 @@ tbody th{
 	width: 50%;
 	overflow: hidden;
 }
+@media (max-width: 525px){
+	input.form-control{
+		width: 5rem;
+	}
+}
