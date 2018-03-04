@@ -1,7 +1,9 @@
 <?php
 // prepare data
-// $sql ="select j.*,g.* from projects j join progress g on j.pid=g.pid where date like '2018-02%' order by j.pid";
-$sql ="select j.*,g.*,o1.oname,o2.oname oname_serve from projects j join (progress g, organization o1, organization o2) on (j.pid=g.pid and j.oid=o1.oid and j.oid_serve=o2.oid) where date like '2018-02%' order by j.pid";
+$month = date('Y-m');
+$prev_month = date('Y-m', strtotime('first day of last month'));
+
+$sql ="select g.*,j.*,o1.oname,o2.oname oname_serve from projects j left join ((select * from progress where date like '$prev_month%') g, organization o1, organization o2) on (j.pid=g.pid and j.oid=o1.oid and j.oid_serve=o2.oid) order by j.pid";
 $rows=(new Db)->query($sql);
 // var_dump($rows);
 ?>
