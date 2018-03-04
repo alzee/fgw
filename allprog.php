@@ -3,10 +3,12 @@
 $month = date('Y-m');
 $prev_month = date('Y-m', strtotime('first day of last month'));
 
+$thead= ['项目编号','项目名称','建设性质','建设内容','总投资','今年计划投资','计划开工时间','计划竣工时间','投资主体','包联领导','责任单位','服务单位','施工单位','项目类型','更新时间','建设阶段','填报人','联系电话','本月进展','问题和建议','本月完成投资','实际开工时间','实际竣工时间'];
+
 $sql ="select j.pid,pname,property,intro,investment,invest_plan,start,finish,investby,p_incharge,o1.oname,o2.oname oname_serve,implementor,type,date,phase,fillby,phone,progress,problem,invest_mon,limit_start,limit_end from projects j left join ((select * from progress where date like '$prev_month%') g, organization o1, organization o2) on (j.pid=g.pid and j.oid=o1.oid and j.oid_serve=o2.oid) order by j.pid";
 $rows=(new Db)->query($sql);
 
-require 'e.php';
+require 'xlsx.php';
 ?>
 	  <div class="container">
 		  <nav>
@@ -48,29 +50,9 @@ require 'e.php';
 			<table class="table table-responsive table-sm table-striped table-bordered">
 				<thead class="thead-light">
 					<tr>
-						<th scope="col">项目编号</th>
-						<th scope="col">项目名称</th>
-						<th scope="col">建设性质</th>
-						<th scope="col">建设内容</th>
-						<th scope="col">总投资</th>
-						<th scope="col">今年计划投资</th>
-						<th scope="col">实际开工时间</th>
-						<th scope="col">实际竣工时间</th>
-						<th scope="col">投资主体</th>
-						<th scope="col">包联领导</th>
-						<th scope="col">责任单位</th>
-						<th scope="col">服务单位</th>
-						<th scope="col">施工单位</th>
-						<th scope="col">项目类型</th>
-						<th scope="col">更新时间</th>
-						<th scope="col">建设阶段</th>
-						<th scope="col">填报人</th>
-						<th scope="col">联系电话</th>
-						<th scope="col">本月进展</th>
-						<th scope="col">问题和建议</th>
-						<th scope="col">本月完成投资</th>
-						<th scope="col">实际建设期限开始</th>
-						<th scope="col">实际建设期限结束</th>
+<?php foreach($thead as $v): ?>
+						<th scope="col"><?= $v ?></th>
+<?php endforeach ?>
 					</tr>
 				</thead>
 				<tbody>
