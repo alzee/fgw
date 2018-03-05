@@ -329,7 +329,7 @@ if(isset($alert1)){
 <!-- data from table progress end-->
 				  </tbody>
 			  </table>
-<?php if($oid == $pj_row['oid'] && $dayleft > 0): ?>
+<?php if($oid == $pj_row['oid'] && $dayleft > 0 && $rid !=2): ?>
 			  <button type="submit" class="btn btn-success" name="submit">提 交</button>
 <?php endif ?>
 		  </form>
