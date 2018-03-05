@@ -132,7 +132,7 @@ else{
 <?php endif ?>
 
 <!-- data from table projects start-->
-			  <table class="table table-bordered table-responsive">
+			  <table class="table table-bordered table-responsive-sm">
 				  <thead>
 					<tr>
 					  <th scope="col" colspan="6">项目信息</th>
@@ -257,7 +257,7 @@ unset($imgs[0], $imgs[1]); // remove . and ..
 <?php endfor ?>
 					  </div>
 			</div>
-			  <table class="table table-bordered table-responsive">
+			  <table class="table table-bordered table-responsive-sm">
 				  <thead>
 					<tr>
 					  <th scope="col" colspan="6">项目进度</th>
