@@ -52,12 +52,6 @@ if($_POST && $dayleft > 0){
 		$sql="update projects set alert='0' where pid='$pid'";
 		(new Db)->query($sql);
 		
-		// if ..., set alert to 2, render red color on projects page;
-		if(2){
-			// $sql="update projects set alert='2' where pid='$pid'";
-			// (new Db)->query($sql);
-		}
-		
 		header("Location: $root/$controller/$method");
 		exit;
 	}
