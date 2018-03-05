@@ -76,7 +76,7 @@ $sql = "select sum(invest_mon) as sum from progress where pid='$pid' and date li
 $sum_row = (new Db)->query($sql);
 
 $oid=$_SESSION['oid'];
-if($oid == $pj_row['oid'] && $dayleft > 0){
+if($oid == $pj_row['oid'] && $dayleft > 0 && $rid != 2){
 	$disabled="";
 	$class='writable';
 }
