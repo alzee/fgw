@@ -8,7 +8,7 @@
 // var_dump($_POST);
 if(1){
 	//echo 1;
-	$file = 'xls/test.xlsx';
+	$file = 'xlsx/stat.xlsx';
 	if(file_exists($file)){
 		//echo 2;
 		 header("Content-Description: File Transfer");

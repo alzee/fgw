@@ -6,7 +6,6 @@
  * @todo
  */
 
-require 'vendor/autoload.php';
 require 'autoload.php';
 
 require 'route.php';
