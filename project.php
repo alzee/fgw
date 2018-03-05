@@ -3,7 +3,13 @@ $sql="select pid,p.oid,pname,investment,o1.oname,p_incharge,o2.oname oname_serve
 $p_rows=(new Db)->query($sql);
 
 $oid=$_SESSION['oid'];
-$rid == 3 ? $myproj_btn = 'btn-outline-secondary' : $myproj_btn = 'btn-primary';
+if($rid == 3 || $rid == 2){
+	$myproj_btn = 'btn-outline-secondary';
+}
+else{
+	$myproj_btn = 'btn-primary';
+}
+// $rid == 3 ? $myproj_btn = 'btn-outline-secondary' : $myproj_btn = 'btn-primary';
 ?>
 
 	  <div class="container" id="projects">
@@ -64,7 +70,7 @@ $rid == 3 ? $myproj_btn = 'btn-outline-secondary' : $myproj_btn = 'btn-primary';
 
 <?php foreach($p_rows as $row): ?>
 <?php
-if($row['oid'] == $oid || $rid == 3){
+if($row['oid'] == $oid || $rid == 3 || $rid == 2){
 	$class="searchable";
 }
 else{
