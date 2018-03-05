@@ -14,7 +14,7 @@ if(1){
 		 header("Content-Description: File Transfer");
 		  header("Content-Type: application/octet-stream");
 		 header("Content-Transfer-Encoding: Binary");
-		header("Content-Disposition: attachment; filename='haha.xls'");
+		header("Content-Disposition: attachment; filename='report.xls'");
 		//header('Content-Length: ' . filesize($file));
 		 readfile($file);
 		// exit;
