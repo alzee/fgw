@@ -18,4 +18,4 @@ $sheet->fromArray($rows, NULL ,'A2');
 
 // $writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
 $writer = new Xlsx($spreadsheet);
-$writer->save('xls/allprog.xlsx');
+$writer->save('xlsx/allprog.xlsx');

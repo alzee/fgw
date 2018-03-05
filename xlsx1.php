@@ -54,4 +54,4 @@ $sheet->fromArray($f, NULL ,'A7');
 
 // $writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
 $writer = new Xlsx($spreadsheet);
-$writer->save('xls/stat.xlsx');
+$writer->save('xlsx/stat.xlsx');
