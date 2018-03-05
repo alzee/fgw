@@ -66,7 +66,10 @@ require 'xlsx1.php';
 		</div>
 		<form method="post" actio="<?= "$root/dl" ?>">
 		  <div class="col-auto">
+<!--
 		    <button type="sumbit" class="btn btn-info" name="submit" value="1">导出报表</button>
+-->
+			<a class="btn btn-info" href="<?= "$root/xlsx/stat.xlsx" ?>">导出报表</a>
 		  </div>
 		</form>
 	  </div>

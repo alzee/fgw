@@ -42,7 +42,10 @@ require 'xlsx.php';
 		  </div>
 		<form method="post" action="<?= "$root/dl" ?>">
 		  <div class="col-auto">
+<!--
 		    <button type="sumbit" class="btn btn-info" name="submit" value="1">导出报表</button>
+-->
+			<a class="btn btn-info" href="<?= "$root/xlsx/allprog.xlsx" ?>">导出报表</a>
 		  </div>
 		</form>
 		  </div>
