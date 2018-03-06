@@ -167,12 +167,18 @@ function dropdownmenu(){
 
 // addEvnetListener to search
 var s=document.querySelector('#search');
+var c=document.getElementById('clearsearch');
 if(s) s.addEventListener('keyup', search);
 // search
 function search(){
 	// value of input
 	//var v=s.firstElementChild.value;
 	var v=s.value;
+	if(v){c.classList.remove('d-none');
+	}
+	else{
+		c.classList.add('d-none');
+	}
 
 	var tr=document.querySelectorAll('.searchable');
 
@@ -188,6 +194,13 @@ function search(){
 		}
 		if(j!==1) tr[i].classList.add('d-none');
 	}
+}
+
+// addEvnetListener to clearsearch
+if(c) c.addEventListener('click', clearsearch);
+function clearsearch(){
+	s.value="";
+	search();
 }
 
 // addEvnetListener to #myproject
