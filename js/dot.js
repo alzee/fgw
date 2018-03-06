@@ -166,7 +166,7 @@ function dropdownmenu(){
 }
 
 // addEvnetListener to search
-var s=document.querySelector('#search');
+var s=document.getElementById('search');
 var c=document.getElementById('clearsearch');
 if(s) s.addEventListener('keyup', search);
 // search
@@ -174,6 +174,7 @@ function search(){
 	// value of input
 	//var v=s.firstElementChild.value;
 	var v=s.value;
+	// if v is not empty, show clear icon
 	if(v){c.classList.remove('d-none');
 	}
 	else{
@@ -186,6 +187,7 @@ function search(){
 	for(var i=0;i<tr.length;i++){
 		// search v in every td
 		for(var j=tr[i].firstElementChild;j;j=j.nextElementSibling){
+			// if v is not in j.innerText. NOTE: indexOf(v) returns 0 if v is empty
 			if(j.innerText.indexOf(v) !== -1){
 				tr[i].classList.remove('d-none');
 				j=1; // if find any, j is no longer useful, so we can use it as a switch
