@@ -101,6 +101,7 @@ $u_rows=(new Db)->query($sql);
 
 			  <div class="col-sm-3">
 				  <input class="form-control" id="search" type="text" placeholder="搜索用户" aria-label="Search">
+				  <span class="position-absolute d-none" id="clearsearch">×</span>
 			  </div>
 		  </div>
 		  <table class="table table-hover">
