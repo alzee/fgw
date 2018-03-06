@@ -12,7 +12,7 @@ $dayleft=$lockday - date('d');
 // handle form submission
 if($_POST && $dayleft > 0){
 	foreach($_POST as $k => $v){
-		if($_POST[$k]){
+		if(!empty($_POST[$k] || $_POST[$k] == '0')){
 			$cols .= "$k='$v',";
 		}
 	}
