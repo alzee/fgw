@@ -51,7 +51,7 @@ else{
 			  <div class="col-auto col-sm-auto pr-0">
 				  <button id="myproject" type="button" class="btn <?= $myproj_btn ?>" data-oid="<?= $oid ?>">我的项目</button>
 			  </div>
-			  <div class="col-sm-3 mt-1 mt-sm-0 position-relative">
+			  <div class="col-sm-3 mt-1 mt-sm-0">
 				  <input class="form-control" id="search" type="text" placeholder="搜索项目" aria-label="Search">
 				  <span class="position-absolute d-none" id="clearsearch">×</span>
 			  </div>
