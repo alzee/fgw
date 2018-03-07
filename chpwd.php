@@ -1,4 +1,5 @@
 <?php
+use App\Db;
 // hanlde form submission
 $uid = $_SESSION['uid'];
 $rid = $_SESSION['rid'];

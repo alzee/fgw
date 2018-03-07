@@ -1,4 +1,5 @@
 <?php
+use App\Db;
 $sql="select value from setting where s_key='sitename'";
 $s_row=(new Db)->query($sql);
 $sitename = $s_row['value'];

@@ -1,4 +1,5 @@
 <?php
+use App\Db;
 if(!empty($_POST)){
 	//var_dump($_POST);
 	foreach($_POST as $k=>$v){

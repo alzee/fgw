@@ -5,6 +5,7 @@
  * @version
  * @todo
  */
+namespace App;
 
 class Sign{
 	private $a;

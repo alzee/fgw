@@ -1,4 +1,5 @@
 <?php
+use App\Db;
 $sql="select pid,p.oid,pname,investment,o1.oname,p_incharge,o2.oname oname_serve,alert from projects p join (organization o1, organization o2) on (p.oid=o1.oid and p.oid_serve=o2.oid)";
 $p_rows=(new Db)->query($sql);
 

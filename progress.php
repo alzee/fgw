@@ -1,4 +1,5 @@
 <?php
+use App\Db;
 $month = date('Y-m');
 $prev_month = date('Y-m', strtotime('first day of last month'));
 $year = date('Y');

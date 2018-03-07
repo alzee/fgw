@@ -5,6 +5,8 @@
  * @version
  * @todo
  */
+use App\Db;
+use App\Sign;
 
 $root="/fgw";
 $inc="./";

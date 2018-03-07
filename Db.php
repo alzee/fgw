@@ -6,6 +6,8 @@
  * @todo
  */
 
+namespace App;
+
 class Db{
 	private $host="localhost";
 	private $user="root";
@@ -14,7 +16,7 @@ class Db{
 	private $mysqli;
 
 	function __construct(){
-		$this->mysqli=new mysqli($this->host,$this->user, $this->pass, $this->db);
+		$this->mysqli=new \mysqli($this->host,$this->user, $this->pass, $this->db);
 		if($this->mysqli->connect_errno){
 			echo $this->mysqli->connect_errno. "\n";
 			echo $this->mysqli->connect_error. "\n";

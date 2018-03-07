@@ -12,7 +12,7 @@ $month=$_POST['month'];
 $pid=$_POST['pid'];
 $sql = "select * from projects join progress on progress.pid=projects.pid where projects.pid='$pid' and date like '${month}%'";
 
-$row=(new Db)->query($sql);
+$row=(new App\Db)->query($sql);
 
 //var_dump($row);
 
