@@ -205,9 +205,9 @@ else{
 						  <td>
 							  <input placeholder="<?= $pj_row['type'] ?>" type="text" class="form-control" disabled>
 						  </td>
-						  <th scope="row">实施单位</th>
+						  <th scope="row">项目分类</th>
 						  <td>
-							  <input placeholder="<?= $pj_row['implementor'] ?>" type="text" class="form-control" disabled>
+							  <input placeholder="<?= $pj_row['level'] ?>" type="text" class="form-control" disabled>
 						  </td>
 						  <th scope="row">施工照片</th>
 						  <td colspan="3">
