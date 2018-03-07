@@ -18,10 +18,6 @@ $p_rows=(new Db)->query($sql);
 $sql = "select oname,count(pid) count from projects p join organization o on o.oid=p.oid group by p.oid";
 $o_rows=(new Db)->query($sql);
 
-// group by oname_serve
-$sql = "select oname,count(pid) count from projects p join organization o on o.oid=p.oid_serve group by p.oid_serve";
-$s_rows=(new Db)->query($sql);
-
 // group by investby
 $sql = "select investby,count(pid) count from projects group by investby";
 $ib_rows=(new Db)->query($sql);
@@ -134,31 +130,6 @@ require 'xlsx1.php';
 				</thead>
 				<tbody>
 <?php $count1=0;foreach($o_rows as $v): ?>
-<?php $count1+=$v['count']; ?>
-					<tr>
-						<td><?= $v['oname'] ?></td>
-						<td><?= $v['count'] ?></td>
-						<td><?= $v['count']/$count*100 . '%' ?></td>
-					</tr>
-<?php endforeach ?>
-					<tr class="font-weight-bold">
-						<td>合 计</td>
-						<td><?= $count1 ?></td>
-						<td></td>
-					</tr>
-				</tbody>
-			</table>
-
-			<table class="table table-sm table-striped table-bordered">
-				<thead class="thead-light">
-					<tr>
-						<th class="w-25" scope="col">服务单位</th>
-						<th class="w-25" scope="col">项目个数</th>
-						<th class="w-25" scope="col">占 比</th>
-					</tr>
-				</thead>
-				<tbody>
-<?php $count1=0;foreach($s_rows as $v): ?>
 <?php $count1+=$v['count']; ?>
 					<tr>
 						<td><?= $v['oname'] ?></td>

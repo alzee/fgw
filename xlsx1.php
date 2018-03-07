@@ -31,18 +31,12 @@ $sheet->fromArray($o_rows, NULL ,'A2');
 
 $spreadsheet->createSheet();
 $sheet=$spreadsheet->getSheet(3);
-$sheet->setTitle('服务单位');
-$sheet->fromArray(['服务单位','项目个数','占12 比'], NULL);
-$sheet->fromArray($s_rows, NULL ,'A2');
-
-$spreadsheet->createSheet();
-$sheet=$spreadsheet->getSheet(4);
 $sheet->setTitle('投资主体');
 $sheet->fromArray(['投资主体','项目个数','占12 比'], NULL);
 $sheet->fromArray($ib_rows, NULL ,'A2');
 
 $spreadsheet->createSheet();
-$sheet=$spreadsheet->getSheet(5);
+$sheet=$spreadsheet->getSheet(3);
 $sheet->setTitle('总投资');
 $sheet->fromArray(['总投资','项目个数','占12 比'], NULL);
 $sheet->fromArray($a, NULL ,'A2');
