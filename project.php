@@ -50,6 +50,12 @@ else{
 				  <a class="btn btn-sm btn-info text-white" href="<?= "$root/project/report" ?>">统计报表</a>
 			  </div>
 
+			  <div class="col-auto col-sm-auto pr-0">
+				  <button id="myproject" type="button" class="btn btn-sm <?= $myproj_btn ?>" data-oid="<?= $oid ?>">
+					我的项目 <span class="badge badge-danger" id="count_my"></span>
+				  </button>
+			  </div>
+
 			<div class="col-auto pr-0 dropdown">
 			  <button class="btn btn-dark btn-sm dropdown-toggle" type="button">
 				所有类型 <span class="badge badge-danger">100</span>
@@ -62,12 +68,6 @@ else{
 				<a class="dropdown-item" href="#">乡村振兴 <span class="badge badge-danger">17</span></a>
 			  </div>
 			</div>
-
-			  <div class="col-auto col-sm-auto pr-0">
-				  <button id="myproject" type="button" class="btn btn-sm <?= $myproj_btn ?>" data-oid="<?= $oid ?>">
-					我的项目 <span class="badge badge-danger" id="count_my"></span>
-				  </button>
-			  </div>
 			  <div class="col-sm-3 mt-1 mt-sm-0">
 				  <input class="form-control form-control-sm" id="search" type="text" placeholder="搜索项目" aria-label="Search">
 				  <span class="position-absolute d-none" id="clearsearch">×</span>
