@@ -62,7 +62,7 @@ var dropdownbtn=document.querySelectorAll('.dropdown button');
 for(var i=0;i<dropdownbtn.length;i++){
 	dropdownbtn[i].addEventListener("click", dropdown);
 	//dropdownbtn[i].addEventListener("focusout", dropdown);
-	dropdownbtn[i].addEventListener("blur", dropdown);
+	dropdownbtn[i].addEventListener("blur", dropdownHide);
 }
 // toggle dropdown menu
 function dropdown(){
@@ -73,6 +73,12 @@ function dropdown(){
 	// change aria-expanded value to true
 	//console.log(this.getAttribute('aria-expanded'));
 	//this.getAttribute('aria-expanded')=='true' ? this.setAttribute('aria-expanded', 'false') : this.setAttribute('aria-expanded', 'true');
+}
+function dropdownHide(){
+	// add class show to .dropdown
+	this.parentElement.classList.remove('show');
+	// add class show to .dropdown-menu
+	this.nextElementSibling.classList.remove('show');
 }
 
 // addEvnetListener to dropdown-item
