@@ -55,11 +55,11 @@ else{
 				所有类型 <span class="badge badge-danger">12</span>
 			  </button>
 			  <div class="dropdown-menu">
-				<a class="dropdown-item" href="#">所有类型 <span class="badge badge-danger">12</span></a>
-				<a class="dropdown-item" href="#">工 业 <span class="badge badge-danger">12</span></a>
-				<a class="dropdown-item" href="#">基 建 <span class="badge badge-danger">12</span></a>
-				<a class="dropdown-item" href="#">商 贸 <span class="badge badge-danger">12</span></a>
-				<a class="dropdown-item" href="#">乡村振兴 <span class="badge badge-danger">12</span></a>
+				<a class="dropdown-item" href="#">所有类型 <span class="badge badge-danger">100</span></a>
+				<a class="dropdown-item" href="#">工 业 <span class="badge badge-danger">42</span></a>
+				<a class="dropdown-item" href="#">基 建 <span class="badge badge-danger">28</span></a>
+				<a class="dropdown-item" href="#">商 贸 <span class="badge badge-danger">13</span></a>
+				<a class="dropdown-item" href="#">乡村振兴 <span class="badge badge-danger">17</span></a>
 			  </div>
 			</div>
 
