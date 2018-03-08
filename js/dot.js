@@ -82,8 +82,6 @@ for(var i=0;i<dropdownitem.length;i++){
 }
 // dropdown menu
 function dropdownmenu(){
-	console.log(this);
-	console.log(this.innerHTML);
 	for(var i=0;i<dropdownitem.length;i++){
 		dropdownitem[i].classList.remove('active');
 	}
