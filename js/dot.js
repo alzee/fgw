@@ -72,7 +72,7 @@ function dropdown(){
 	this.nextElementSibling.classList.toggle('show');
 	// change aria-expanded value to true
 	//console.log(this.getAttribute('aria-expanded'));
-	this.getAttribute('aria-expanded')=='true' ? this.setAttribute('aria-expanded', 'false') : this.setAttribute('aria-expanded', 'true');
+	//this.getAttribute('aria-expanded')=='true' ? this.setAttribute('aria-expanded', 'false') : this.setAttribute('aria-expanded', 'true');
 }
 
 // addEvnetListener to dropdown-item
