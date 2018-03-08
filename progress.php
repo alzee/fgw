@@ -181,11 +181,21 @@ else{
 						  </td>
 						  <th scope="row">今年计划投资</th>
 						  <td>
-							  <input placeholder="<?= $pj_row['invest_plan'] ?>" type="text" class="form-control" disabled>
+							  <div class="input-group">
+								  <input placeholder="<?= $pj_row['invest_plan'] ?>" type="text" class="form-control" disabled>
+								  <div class="input-group-append">
+									  <span class="input-group-text text-muted">万元</span>
+								  </div>
+							  </div>
 						  </td>
 						  <th scope="row">今年累计完成投资</th>
 						  <td>
-							  <input placeholder="<?= $pg_rows[0]['sum_year'] ?>" type="text" class="form-control" disabled>
+							  <div class="input-group">
+								  <input placeholder="<?= $pg_rows[0]['sum_year'] ?>" type="text" class="form-control" disabled>
+								  <div class="input-group-append">
+									  <span class="input-group-text text-muted">万元</span>
+								  </div>
+							  </div>
 						  </td>
 					  </tr>
 					  <tr>
