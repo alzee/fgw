@@ -65,7 +65,7 @@ else{
 
 			  <div class="col-auto col-sm-auto pr-0">
 				  <button id="myproject" type="button" class="btn btn-sm <?= $myproj_btn ?>" data-oid="<?= $oid ?>">
-					我的项目 <span class="badge badge-secondary" id="count_my"></span>
+					我的项目 <span class="badge badge-danger" id="count_my"></span>
 				  </button>
 			  </div>
 			  <div class="col-sm-3 mt-1 mt-sm-0">
