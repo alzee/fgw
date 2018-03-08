@@ -26,7 +26,7 @@ if($_POST && $dayleft > 0){
 		// if there is any previous month
 		if($lastprev_row = (new Db)->query($sql)){
 			// we use 'order by date desc limt 1' instead of 'and where date like date('Y-m', strtotime('first day of last month'))%', because you don't know whether last month has data
-			$sql="insert into progress (pid,fill_state,phase,fillby,phone,progress,problem,invest_mon,limit_start,limit_end) select pid,fill_state,phase,fillby,phone,progress,problem,invest_mon,limit_start,limit_end from progress where pid='$pid' order by date desc limit 1";
+			$sql="insert into progress (pid,fill_state,phase,fillby,phone,progress,problem,invest_mon,actual_start,actual_finish) select pid,fill_state,phase,fillby,phone,progress,problem,invest_mon,actual_start,actual_finish from progress where pid='$pid' order by date desc limit 1";
 			// make a copy of previous month
 			(new Db)->query($sql);
 			
@@ -285,11 +285,11 @@ unset($imgs[0], $imgs[1]); // remove . and ..
 					  <tr>
 						  <th scope="row">实际开工时间</th>
 						  <td>
-						  <input name="limit_start" placeholder="<?= $pg_rows[0]['limit_start'] ?>" type="text" class="form-control pickmonth <?= $class ?>" <?= $disabled ?>>
+						  <input name="actual_start" placeholder="<?= $pg_rows[0]['actual_start'] ?>" type="text" class="form-control pickmonth <?= $class ?>" <?= $disabled ?>>
 						  </td>
 						  <th scope="row">实际竣工时间</th>
 						  <td>
-							  <input name="limit_end" placeholder="<?= $pg_rows[0]['limit_end'] ?>" type="text" class="form-control pickmonth <?= $class ?>" <?= $disabled ?>>
+							  <input name="actual_finish" placeholder="<?= $pg_rows[0]['actual_finish'] ?>" type="text" class="form-control pickmonth <?= $class ?>" <?= $disabled ?>>
 						  </td>
 						  <th scope="row">本月完成投资</th>
 						  <td>

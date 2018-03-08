@@ -57,8 +57,8 @@ CREATE TABLE `progress` (
   `progress` varchar(1000) DEFAULT NULL,
   `problem` varchar(1000) DEFAULT NULL,
   `invest_mon` varchar(50) DEFAULT NULL,
-  `limit_start` varchar(50) DEFAULT NULL,
-  `limit_end` varchar(50) DEFAULT NULL,
+  `actual_start` varchar(50) DEFAULT NULL,
+  `actual_finish` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
