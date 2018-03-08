@@ -82,11 +82,13 @@ for(var i=0;i<dropdownitem.length;i++){
 }
 // dropdown menu
 function dropdownmenu(){
+	console.log(this);
+	console.log(this.innerHTML);
 	for(var i=0;i<dropdownitem.length;i++){
 		dropdownitem[i].classList.remove('active');
 	}
 	this.classList.add('active');
-	this.parentElement.previousElementSibling.innerText=this.innerText;
+	this.parentElement.previousElementSibling.innerHTML=this.innerHTML;
 }
 
 // addEvnetListener to dropdown-item
@@ -333,12 +335,12 @@ $('.pickmonth').datepicker({
 	autoclose: true
 });
 
-var a = document.getElementsByTagName('a');
-for(var i=0; i<a.length; i++){
-	if(a[i].href!==0){
-		//a[i].addEventListener('click', callParent);
-	}
-}
+//var a = document.getElementsByTagName('a');
+//for(var i=0; i<a.length; i++){
+//	if(a[i].href!==0){
+//		//a[i].addEventListener('click', callParent);
+//	}
+//}
 
 function callParent(){
 	//parent.postMessage(location.pathname, '*');
