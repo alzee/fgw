@@ -248,10 +248,10 @@ unset($imgs[0], $imgs[1]); // remove . and ..
 <!-- data from table progress start-->
 		  <form method="post" class="position-relative">
 			<div class="dropdown position-absolute" id="dates">
-					  <button class="btn btn-danger btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					  <button class="btn btn-danger btn-sm dropdown-toggle" type="button">
 						  <?= date('Y-m') ?>
 					  </button>
-					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					  <div class="dropdown-menu">
 <?php for($i=date('n'); date('n') - $i < 12; $i--): ?>
 						<a class="dropdown-item <?php if(date('n') == $i) echo 'active' ?>" href="#"><?= date('Y-m', mktime(0,0,0,$i,1)) ?></a>
 <?php endfor ?>

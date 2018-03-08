@@ -87,6 +87,16 @@ function dropdownmenu(){
 	}
 	this.classList.add('active');
 	this.parentElement.previousElementSibling.innerText=this.innerText;
+}
+
+// addEvnetListener to dropdown-item
+var datesDropdownitem=document.querySelectorAll('#dates .dropdown-menu .dropdown-item');
+for(var i=0;i<datesDropdownitem.length;i++){
+	datesDropdownitem[i].addEventListener("mousedown", toggleWritable);
+}
+
+// toggle input wirtable and submit btn visibility in progress page
+function toggleWritable(){
 	var input=document.querySelectorAll('.writable');
 	var submit=document.querySelector('button[type=submit]');
 	var yellow=document.getElementsByClassName('dup');
