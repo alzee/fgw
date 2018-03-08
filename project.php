@@ -1,6 +1,6 @@
 <?php
 use App\Db;
-$sql="select pid,p.oid,pname,investment,o1.oname,p_incharge,o2.oname oname_serve,alert from projects p join (organization o1, organization o2) on (p.oid=o1.oid and p.oid_serve=o2.oid)";
+$sql="select pid,p.oid,pname,investment,o1.oname,p_incharge,o2.oname oname_serve,alert,type from projects p join (organization o1, organization o2) on (p.oid=o1.oid and p.oid_serve=o2.oid)";
 $p_rows=(new Db)->query($sql);
 
 $oid=$_SESSION['oid'];
@@ -11,26 +11,6 @@ else{
 	$myproj_btn = 'btn-primary';
 }
 // $rid == 3 ? $myproj_btn = 'btn-outline-secondary' : $myproj_btn = 'btn-primary';
-
-// count of my projs
-$sql = "select count(pid) count from projects where oid=$oid";
-$count_row = (new Db)->query($sql);
-
-// count of type a projs
-$sql = "select count(pid) count from projects where type='工业'";
-$a_count_row = (new Db)->query($sql);
-
-// count of type a projs
-$sql = "select count(pid) count from projects where type='基建'";
-$b_count_row = (new Db)->query($sql);
-
-// count of type c projs
-$sql = "select count(pid) count from projects where type='商贸'";
-$c_count_row = (new Db)->query($sql);
-
-// count of type d projs
-$sql = "select count(pid) count from projects where type='乡村振兴'";
-$d_count_row = (new Db)->query($sql);
 ?>
 
 	  <div class="container" id="projects">
@@ -71,7 +51,7 @@ $d_count_row = (new Db)->query($sql);
 			  </div>
 			  <div class="col-auto col-sm-auto pr-0">
 				  <button id="myproject" type="button" class="btn btn-sm <?= $myproj_btn ?>" data-oid="<?= $oid ?>">
-					我的项目 <span class="badge badge-secondary"><?= $count_row['count'] ?></span>
+					我的项目 <span class="badge badge-secondary" id="count_my"></span>
 				  </button>
 			  </div>
 			  <div class="col-sm-3 mt-1 mt-sm-0">
@@ -110,7 +90,7 @@ case 2:
 	break;
 }
 ?>
-	<tr class="<?= $class ?>" data-oid="<?= $row['oid'] ?>">
+	<tr class="<?= $class ?>" data-oid="<?= $row['oid'] ?>" data-type="<?= $row['type'] ?>">
 				  <th scope="row"><?= $row['pid'] ?></th>
 					  <td><?= $row['pname'] ?></td>
 					  <td><?= $row['investment'] ?></td>

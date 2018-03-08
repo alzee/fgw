@@ -205,18 +205,24 @@ function clearsearch(){
 	search();
 }
 
-// addEvnetListener to #myproject
-var m=document.getElementById('myproject');
-if(m) m.addEventListener('click', searchmy);
+var myProj=document.getElementById('myproject');
+if(myProj){
+	var myOid=myProj.getAttribute('data-oid');
+	// count my projs;
+	countMy = document.querySelectorAll('tr[data-oid="' + myOid + '"]').length;
+	document.getElementById('count_my').innerText = countMy;
+	
+	// addEvnetListener to #myproject
+	myProj.addEventListener('click', searchmy);
+}
 // searchmy
 function searchmy(){
 	this.classList.toggle('btn-outline-secondary');
 	this.classList.toggle('btn-primary');
 
-	var oid=this.getAttribute('data-oid');
 
-	// tr(s) that "data-oid" attribute NOT equal to oid
-	var selector='table tbody tr:not([data-oid="' + oid + '"])';
+	// tr(s) that "data-oid" attribute NOT equal to myOid
+	var selector='table tbody tr:not([data-oid="' + myOid + '"])';
 	var tr=document.querySelectorAll(selector);
 	//console.log(tr);
 
