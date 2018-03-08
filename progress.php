@@ -50,7 +50,7 @@ if($_POST && $dayleft > 0){
 		(new Db)->query($sql);
 		
 		// update sum_year anyway
-		$sql="update projects set alert='0' where pid='$pid'";
+		$sql="update progress p1, (select sum(invest_mon) sum from progress where pid='$pid' and date like '$year%') p2 set sum_year=sum where pid='$pid' and date like '${month}%'";
 		(new Db)->query($sql);
 		
 		// clear alert;
@@ -76,9 +76,6 @@ $pj_row['oname_serve'] = $row['oname'];
 // we need data of last two months for rendering yellow td background purpose
 $sql = "select * from progress where pid='$pid' order by date DESC LIMIT 2";
 $pg_rows=(new Db)->query($sql, 1);
-
-$sql = "select sum(invest_mon) as sum from progress where pid='$pid' and date like '$year%'";
-$sum_row = (new Db)->query($sql);
 
 $oid=$_SESSION['oid'];
 if($oid == $pj_row['oid'] && $dayleft > 0 && $rid != 2){
@@ -188,7 +185,7 @@ else{
 						  </td>
 						  <th scope="row">今年累计完成投资</th>
 						  <td>
-							  <input placeholder="<?= $sum_row['sum'] ?>" type="text" class="form-control" disabled>
+							  <input placeholder="<?= $pg_rows[0]['sum_year'] ?>" type="text" class="form-control" disabled>
 						  </td>
 					  </tr>
 					  <tr>

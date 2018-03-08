@@ -57,6 +57,7 @@ CREATE TABLE `progress` (
   `progress` varchar(1000) DEFAULT NULL,
   `problem` varchar(1000) DEFAULT NULL,
   `invest_mon` varchar(50) DEFAULT NULL,
+  `sum_year` varchar(50) DEFAULT NULL,
   `actual_start` varchar(50) DEFAULT NULL,
   `actual_finish` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
