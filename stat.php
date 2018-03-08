@@ -57,10 +57,13 @@ require 'xlsx1.php';
 		  </nav>
 
 	  <div class="row">
-		<div class="btn-group col">
+		<div class="btn-group col-auto">
 			<a role="button" class="btn btn-danger text-white active" href="<?= "$root/$controller/$method/stat" ?>">统计汇总</a>
 		    <a role="button" class="btn btn-danger text-white" href="<?= "$root/$controller/$method/allprog" ?>">进度月报</a>
 		</div>
+		  <div class="col align-self-center">
+			<span class="badge badge-warning">单位：万元</span>
+		  </div>
 		<form method="post" actio="<?= "$root/dl" ?>">
 		  <div class="col-auto">
 <!--
