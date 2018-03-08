@@ -1,4 +1,5 @@
 <?php
+use App\Db;
 if(!empty($_POST)){
 	$uname=$_POST['uname'];
 	$passwd=md5($_POST['passwd']);
