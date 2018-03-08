@@ -11,6 +11,26 @@ else{
 	$myproj_btn = 'btn-primary';
 }
 // $rid == 3 ? $myproj_btn = 'btn-outline-secondary' : $myproj_btn = 'btn-primary';
+
+// count of my projs
+$sql = "select count(pid) count from projects where oid=$oid";
+$count_row = (new Db)->query($sql);
+
+// count of type a projs
+$sql = "select count(pid) count from projects where type='工业'";
+$a_count_row = (new Db)->query($sql);
+
+// count of type a projs
+$sql = "select count(pid) count from projects where type='基建'";
+$b_count_row = (new Db)->query($sql);
+
+// count of type c projs
+$sql = "select count(pid) count from projects where type='商贸'";
+$c_count_row = (new Db)->query($sql);
+
+// count of type d projs
+$sql = "select count(pid) count from projects where type='乡村振兴'";
+$d_count_row = (new Db)->query($sql);
 ?>
 
 	  <div class="container" id="projects">
@@ -43,17 +63,19 @@ else{
 			  </div>
 <?php if($rid == 3): ?>
 			  <div class="col-auto col-sm-auto pr-0">
-				  <a id="newproject" role="button" class="btn btn-success" href="<?= $root ?>/newproject">新增项目</a>
+				  <a id="newproject" class="btn btn-sm btn-success" href="<?= $root ?>/newproject">新增项目</a>
 			  </div>
 <?php endif ?>
 			  <div class="col-auto col-sm-auto pr-0">
-				  <a role="button" class="btn btn-info text-white" href="<?= "$root/project/report" ?>">统计报表</a>
+				  <a class="btn btn-sm btn-info text-white" href="<?= "$root/project/report" ?>">统计报表</a>
 			  </div>
 			  <div class="col-auto col-sm-auto pr-0">
-				  <button id="myproject" type="button" class="btn <?= $myproj_btn ?>" data-oid="<?= $oid ?>">我的项目</button>
+				  <button id="myproject" type="button" class="btn btn-sm <?= $myproj_btn ?>" data-oid="<?= $oid ?>">
+					我的项目 <span class="badge badge-secondary"><?= $count_row['count'] ?></span>
+				  </button>
 			  </div>
 			  <div class="col-sm-3 mt-1 mt-sm-0">
-				  <input class="form-control" id="search" type="text" placeholder="搜索项目" aria-label="Search">
+				  <input class="form-control form-control-sm" id="search" type="text" placeholder="搜索项目" aria-label="Search">
 				  <span class="position-absolute d-none" id="clearsearch">×</span>
 			  </div>
 		  </div>
