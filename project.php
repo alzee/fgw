@@ -42,21 +42,21 @@ else{
 				  <span class="badge badge-danger">本月尚未提交</span>
 			  </div>
 <?php if($rid == 3): ?>
-			  <div class="col-auto col-sm-auto pr-0">
+			  <div class="col-auto col-sm-auto pr-0 mt-1 mt-sm-0">
 				  <a id="newproject" class="btn btn-sm btn-success" href="<?= $root ?>/newproject">新增项目</a>
 			  </div>
 <?php endif ?>
-			  <div class="col-auto col-sm-auto pr-0">
+			  <div class="col-auto col-sm-auto pr-0 mt-1 mt-sm-0">
 				  <a class="btn btn-sm btn-info text-white" href="<?= "$root/project/report" ?>">统计报表</a>
 			  </div>
 
-			  <div class="col-auto col-sm-auto pr-0">
+			  <div class="col-auto col-sm-auto pr-0 mt-1 mt-sm-0">
 				  <button id="myproject" type="button" class="btn btn-sm <?= $myproj_btn ?>" data-oid="<?= $oid ?>">
 					我的项目 <span class="badge badge-danger" id="count_my"></span>
 				  </button>
 			  </div>
 
-			<div class="col-auto pr-0 dropdown">
+			<div class="col-auto pr-0 dropdown mt-1 mt-sm-0">
 			  <button class="btn btn-dark btn-sm dropdown-toggle" type="button">
 				所有类型 <span class="badge badge-danger">100</span>
 			  </button>
