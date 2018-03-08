@@ -218,15 +218,28 @@ function search(){
 if(c) c.addEventListener('click', clearsearch);
 function clearsearch(){
 	s.value="";
+	s.focus();
 	search();
 }
 
 var myProj=document.getElementById('myproject');
 if(myProj){
-	var myOid=myProj.getAttribute('data-oid');
 	// count my projs;
+	var myOid=myProj.getAttribute('data-oid');
 	countMy = document.querySelectorAll('tr[data-oid="' + myOid + '"]').length;
 	document.getElementById('count_my').innerText = countMy;
+	// count type
+	count_all = document.getElementsByClassName('count_all')[0];
+	count_type_a= document.getElementsByClassName('count_type_a')[0];
+	count_type_b= document.getElementsByClassName('count_type_b')[0];
+	count_type_c= document.getElementsByClassName('count_type_c')[0];
+	count_type_d= document.getElementsByClassName('count_type_d')[0];
+	
+	//count_all.innerText = '';
+	//count_type_a.innerText = '';
+	//count_type_b.innerText = '';
+	//count_type_c.innerText = '';
+	//count_type_d.innerText = '';
 	
 	// addEvnetListener to #myproject
 	myProj.addEventListener('click', searchmy);
