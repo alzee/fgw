@@ -92,7 +92,7 @@ CREATE TABLE `projects` (
   `p_incharge` varchar(50) NOT NULL COMMENT 'people in charge',
   `oid` int(11) DEFAULT NULL,
   `oid_serve` int(11) DEFAULT NULL,
-  `implementor` varchar(50) DEFAULT NULL,
+  `level` varchar(50) DEFAULT NULL,
   `alert` int(11) DEFAULT NULL,
   `type` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`pid`)

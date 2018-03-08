@@ -84,9 +84,9 @@
 						  <td>
 							  <input type="text" class="form-control" name="oname">
 						  </td>
-						  <th scope="row">实施单位</th>
+						  <th scope="row">项目分类</th>
 						  <td>
-							  <input type="text" class="form-control" name="implementor">
+							  <input type="text" class="form-control" name="level">
 						  </td>
 						  <th scope="row">包联领导</th>
 						  <td>

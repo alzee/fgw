@@ -49,6 +49,10 @@ if($_POST && $dayleft > 0){
 		$sql="update progress set $cols where pid='$pid' and date like '${month}%'";
 		(new Db)->query($sql);
 		
+		// update sum_year anyway
+		$sql="update projects set alert='0' where pid='$pid'";
+		(new Db)->query($sql);
+		
 		// clear alert;
 		$sql="update projects set alert='0' where pid='$pid'";
 		(new Db)->query($sql);
