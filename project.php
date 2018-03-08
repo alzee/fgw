@@ -52,7 +52,7 @@ else{
 
 			<div class="col-auto pr-0 dropdown">
 			  <button class="btn btn-dark btn-sm dropdown-toggle" type="button">
-				所有类型 <span class="badge badge-danger">12</span>
+				所有类型 <span class="badge badge-danger">100</span>
 			  </button>
 			  <div class="dropdown-menu">
 				<a class="dropdown-item" href="#">所有类型 <span class="badge badge-danger">100</span></a>
