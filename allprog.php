@@ -4,9 +4,9 @@ use App\Db;
 $month = date('Y-m');
 $prev_month = date('Y-m', strtotime('first day of last month'));
 
-$thead= ['项目编号','项目名称','建设性质','建设内容','总投资','今年计划投资','计划开工时间','计划竣工时间','包联领导','责任单位','服务单位','项目类型','建设阶段','本月进展','问题和建议','本月完成投资'];
+$thead= ['项目编号','项目名称','建设性质','建设内容','总投资','今年计划投资','今年累计完成投资','计划开工时间','计划竣工时间','包联领导','责任单位','服务单位','项目类型','建设阶段','本月进展','问题和建议','本月完成投资'];
 
-$sql ="select j.pid,pname,property,intro,investment,invest_plan,start,finish,p_incharge,o1.oname,o2.oname oname_serve,type,phase,progress,problem,invest_mon from projects j left join ((select * from progress where date like '$prev_month%') g, organization o1, organization o2) on (j.pid=g.pid and j.oid=o1.oid and j.oid_serve=o2.oid) order by j.pid";
+$sql ="select j.pid,pname,property,intro,investment,invest_plan,sum_year,start,finish,p_incharge,o1.oname,o2.oname oname_serve,type,phase,progress,problem,invest_mon from projects j left join ((select * from progress where date like '$month%') g, organization o1, organization o2) on (j.pid=g.pid and j.oid=o1.oid and j.oid_serve=o2.oid) order by j.pid";
 $rows=(new Db)->query($sql);
 
 require 'xlsx.php';
@@ -33,7 +33,7 @@ require 'xlsx.php';
 			<span class="badge badge-warning">单位：万元</span>
 		  </div>
 		  <div class="col-auto">
-			<div class="dropdown" id="dates">
+			<div class="dropdown" id="dates_report">
 					  <button class="btn btn-info dropdown-toggle" type="button">
 						  <?= date('Y-m') ?>
 					  </button>
