@@ -23,3 +23,5 @@ the lock alert shouldn't show out if this is not my proj
 每个单位可以生成自己的进度月报表
 
 investment,invest_mon,invest_plan,sum_year sql int(11)?
+
+cron to 'update projects set alert=2'
