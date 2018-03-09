@@ -3,16 +3,16 @@ use App\Db;
 /*
  * prepare data
  */
-$level="where level='一类'";
-$level="";
+$level="'一类'";
+// $level="'一类','二类','三类'";
 $month = date('Y-m');
 
 // get count, sum_invest_plan, accumulate group by type
-$sql = "select type,count(pid) count,sum(invest_plan) sum_plan, sum(invest_accum) sum_accum from projects $level group by type";
+$sql = "select type,count(pid) count,sum(invest_plan) sum_plan, sum(invest_accum) sum_accum from projects where level in($level) group by type";
 $t_rows=(new Db)->query($sql);
 foreach($t_rows as $k=>$v){
 	// count for WIP projs and assign to the array
-	$sql = "select count(pj.pid) count_wip from projects pj join progress pg on pj.pid=pg.pid where type='{$v['type']}' and phase='开工' and date like '$month%'";
+	$sql = "select count(pj.pid) count_wip from projects pj join progress pg on pj.pid=pg.pid where level in($level) and type='{$v['type']}' and phase='开工' and date like '$month%'";
 	$a = (new Db)->query($sql);
 	$t_rows[$k]['count_wip'] = $a['count_wip'];
 	// calaculate wip ratio and assign to the array
@@ -23,15 +23,15 @@ foreach($t_rows as $k=>$v){
 // var_dump($t_rows);
 
 // group by property
-$sql = "select property,count(pid) count from projects $level group by property";
+$sql = "select property,count(pid) count from projects where level in($level) group by property";
 $p_rows=(new Db)->query($sql);
 
 // group by oname
-$sql = "select oname,count(pid) count from projects p join organization o on o.oid=p.oid $level group by p.oid";
+$sql = "select oname,count(pid) count from projects p join organization o on o.oid=p.oid where level in($level) group by p.oid";
 $o_rows=(new Db)->query($sql);
 
 // group by investby
-$sql = "select investby,count(pid) count from projects $level group by investby";
+$sql = "select investby,count(pid) count from projects where level in($level) group by investby";
 $ib_rows=(new Db)->query($sql);
 
 // group by investment
