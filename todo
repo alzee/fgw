@@ -1,3 +1,5 @@
+alter table projects add invest_accum int(11) not null default 0 after invest_plan;
+
 type on project page
 stat 项目类型 项目个数 开工项目个数 开工率 今年计划投资 今年累计完成投资 投资进度
 and stat only count level 1

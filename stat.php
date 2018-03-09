@@ -4,13 +4,22 @@ use App\Db;
  * prepare data
  */
 $level="where level='一类'";
-$sql = "select count(pid) a from projects $level";
-$count = (new Db)->query($sql)['a'];
+$level="";
 
-// group by type
-// $sql = "select type,count(pid) count,count(pid)/(select count(pid) from projects) ratio from projects group by type";
-$sql = "select type,count(pid) count from projects $level group by type";
+// get count, sum_invest_plan, accumulate group by type
+$sql = "select type,count(pid) count,sum(invest_plan) sum_plan, sum(invest_accum) sum_accum from projects $level group by type";
 $t_rows=(new Db)->query($sql);
+foreach($t_rows as $k=>$v){
+	// count for WIP projs and assign to the array
+	$sql = "select count(pj.pid) count_wip from projects pj join progress pg on pj.pid=pg.pid where type='{$v['type']}' and phase='开工' and date like '2018-02%'";
+	$a = (new Db)->query($sql);
+	$t_rows[$k]['count_wip'] = $a['count_wip'];
+	// calaculate wip ratio and assign to the array
+	$t_rows[$k]['r_wip'] = round($t_rows[$k]['count_wip'] / $v['count'] * 100) . '%';
+	// calaculate invest ratio and assign to the array
+	$t_rows[$k]['r_invest'] = round($v['sum_accum'] / $v['sum_plan'] * 100) . '%';
+}
+// var_dump($t_rows);
 
 // group by property
 $sql = "select property,count(pid) count from projects $level group by property";
@@ -91,26 +100,27 @@ require 'xlsx1.php';
 					</tr>
 				</thead>
 				<tbody>
-<?php $count1=0;foreach($t_rows as $v): ?>
-<?php $count1+=$v['count']; ?>
+<?php $count=['合计',0,0,'',0,0,''];foreach($t_rows as $v): ?>
+<?php $count[1]+=$v['count']; ?>
+<?php $count[2]+=$v['count_wip']; ?>
+<?php $count[4]+=$v['sum_plan']; ?>
+<?php $count[5]+=$v['sum_accum']; ?>
 					<tr>
 						<td><?= $v['type'] ?></td>
 						<td><?= $v['count'] ?></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
+						<td><?= $v['count_wip'] ?></td>
+						<td><?= $v['r_wip'] ?></td>
+						<td><?= $v['sum_plan'] ?></td>
+						<td><?= $v['sum_accum'] ?></td>
+						<td><?= $v['r_invest'] ?></td>
 					</tr>
 <?php endforeach ?>
+<?php $count[3] = round($count[2] / $count[1] * 100) . '%' ?>
+<?php $count[6] = round($count[5] / $count[4] * 100) . '%' ?>
 					<tr class="font-weight-bold">
-						<td>合 计</td>
-						<td><?= $count1 ?></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
+<?php foreach($count as $v): ?>
+						<td><?= $v ?></td>
+<?php endforeach ?>
 					</tr>
 				</tbody>
 			</table>
