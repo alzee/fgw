@@ -5,13 +5,14 @@ use App\Db;
  */
 $level="where level='一类'";
 $level="";
+$month = date('Y-m');
 
 // get count, sum_invest_plan, accumulate group by type
 $sql = "select type,count(pid) count,sum(invest_plan) sum_plan, sum(invest_accum) sum_accum from projects $level group by type";
 $t_rows=(new Db)->query($sql);
 foreach($t_rows as $k=>$v){
 	// count for WIP projs and assign to the array
-	$sql = "select count(pj.pid) count_wip from projects pj join progress pg on pj.pid=pg.pid where type='{$v['type']}' and phase='开工' and date like '2018-02%'";
+	$sql = "select count(pj.pid) count_wip from projects pj join progress pg on pj.pid=pg.pid where type='{$v['type']}' and phase='开工' and date like '$month%'";
 	$a = (new Db)->query($sql);
 	$t_rows[$k]['count_wip'] = $a['count_wip'];
 	// calaculate wip ratio and assign to the array
