@@ -49,8 +49,8 @@ if($_POST && $dayleft > 0){
 		$sql="update progress set $cols where pid='$pid' and date like '${month}%'";
 		(new Db)->query($sql);
 		
-		// update sum_year anyway
-		$sql="update progress p1, (select sum(invest_mon) sum from progress where pid='$pid' and date like '$year%') p2 set sum_year=sum where pid='$pid' and date like '${month}%'";
+		// update invest_accum anyway
+		$sql = "update projects j,(select sum(invest_mon) sum from progress where pid='$pid' and date like '$year%') g set invest_accum=sum where pid='$pid'";
 		(new Db)->query($sql);
 		
 		// clear alert;
@@ -185,7 +185,7 @@ else{
 						  <th scope="row">今年累计完成投资</th>
 						  <td>
 							  <div class="input-group">
-								  <input placeholder="<?= $pg_rows[0]['sum_year'] ?>" type="text" class="form-control" disabled>
+								  <input placeholder="<?= $pj_row['invest_accum'] ?>" type="text" class="form-control" disabled>
 								  <div class="input-group-append">
 									  <span class="input-group-text text-muted">万元</span>
 								  </div>
