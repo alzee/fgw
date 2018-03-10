@@ -57,15 +57,14 @@ else{
 			  </div>
 
 			<div class="col-auto pr-0 dropdown mt-1 mt-sm-0">
-			  <button class="btn btn-dark btn-sm dropdown-toggle count_all" id="type_btn" type="button">
-				所有类型 <span class="badge badge-danger">0</span>
+			  <button class="btn btn-dark btn-sm dropdown-toggle" id="type_btn" type="button">所有类型 <span class="badge badge-danger count_all">0</span>
 			  </button>
 			  <div class="dropdown-menu">
-				<a class="dropdown-item active count_all" href="#">所有类型 <span class="badge badge-danger">0</span></a>
-				<a class="dropdown-item count" href="#">工 业 <span class="badge badge-danger">0</span></a>
-				<a class="dropdown-item count" href="#">基 建 <span class="badge badge-danger">0</span></a>
-				<a class="dropdown-item count" href="#">商 贸 <span class="badge badge-danger">0</span></a>
-				<a class="dropdown-item count" href="#">乡村振兴 <span class="badge badge-danger">0</span></a>
+				<a class="dropdown-item active" href="#">所有类型 <span class="badge badge-danger count_all">0</span></a>
+				<a class="dropdown-item" href="#">工 业 <span class="badge badge-danger count">0</span></a>
+				<a class="dropdown-item" href="#">基 建 <span class="badge badge-danger count">0</span></a>
+				<a class="dropdown-item" href="#">商 贸 <span class="badge badge-danger count">0</span></a>
+				<a class="dropdown-item" href="#">乡村振兴 <span class="badge badge-danger count">0</span></a>
 			  </div>
 			</div>
 			  <div class="col-sm-3 mt-1 mt-sm-0">

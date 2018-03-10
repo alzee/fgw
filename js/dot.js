@@ -95,7 +95,7 @@ function dropdownmenu(){
 	this.parentElement.previousElementSibling.innerHTML=this.innerHTML;
 }
 
-// addEvnetListener to dropdown-item
+// addEvnetListener to #dates .dropdown-item
 var datesDropdownitem=document.querySelectorAll('#dates .dropdown-menu .dropdown-item');
 for(var i=0;i<datesDropdownitem.length;i++){
 	datesDropdownitem[i].addEventListener("mousedown", toggleWritable);
@@ -197,7 +197,7 @@ function search(){
 		c.classList.add('d-none');
 	}
 
-	var tr=document.querySelectorAll('.searchable');
+	var tr=document.getElementsByClassName('searchable');
 
 	// search v in every tr
 	for(var i=0;i<tr.length;i++){
@@ -222,17 +222,43 @@ function clearsearch(){
 	search();
 }
 
+// addEvnetListener to #projects .dropdown-item
+var pjDropdownitem=document.querySelectorAll('#projects .dropdown-menu .dropdown-item');
+for(var i=0;i<pjDropdownitem.length;i++){
+	pjDropdownitem[i].addEventListener("mousedown", searchType);
+}
+
+function searchType(i){
+	var tr=document.getElementsByClassName('searchable');
+	if(i==1){
+		i=document.getElementById('type_btn');
+	}
+	else{
+		i=this;
+	}
+	console.log(type);
+	var type=i.firstChild.textContent.replace(/ /g,'');
+	for(var i=0;i<tr.length;i++){
+		if(type == tr[i].getAttribute('data-type') || type == '所有类型'){
+			tr[i].classList.remove('d-none');
+		}
+		else{
+			tr[i].classList.add('d-none');
+		}
+	}
+}
+
 function count(){
-	var tr=document.querySelectorAll('.searchable');
+	var tr=document.getElementsByClassName('searchable');
 	var type=document.getElementsByClassName('count');
 	// every type
 	for(var i=0;i<type.length;i++){
-		type[i].firstElementChild.innerText = document.querySelectorAll(".searchable[data-type='" + type[i].firstChild.textContent.replace(/ /g,'') + "']").length;
+		type[i].innerText = document.querySelectorAll(".searchable[data-type='" + type[i].previousSibling.textContent.replace(/ /g,'') + "']").length;
 	}
 	// all types
 	allType = document.getElementsByClassName('count_all');
 	for(var i=0;i<allType.length;i++){
-		allType[i].firstElementChild.innerText = tr.length;
+		allType[i].innerText = tr.length;
 	}
 }
 
@@ -257,10 +283,10 @@ if(myProj){
 	
 	count();
 	// addEvnetListener to #myproject
-	myProj.addEventListener('click', searchmy);
+	myProj.addEventListener('click', toggleMy);
 }
-// searchmy
-function searchmy(){
+// toggle my projects
+function toggleMy(){
 	this.classList.toggle('btn-outline-secondary');
 	this.classList.toggle('btn-primary');
 
@@ -283,6 +309,7 @@ function searchmy(){
 		}
 	}
 	count();
+	searchType(1);
 }
 
 // addEvnetListener to upload
