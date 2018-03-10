@@ -64,14 +64,8 @@ if($_POST && $dayleft > 0){
 }
 
 // prepare data
-$sql = "select * from projects where projects.pid='$pid'";
+$sql = "select j.*,o1.oname,o2.oname oname_serve from projects j left join (organization o1, organization o2) on (o1.oid=j.oid and o2.oid=j.oid_serve) where pid='$pid'";
 $pj_row=(new Db)->query($sql);
-$sql = "select oname from projects join organization on projects.oid=organization.oid where projects.pid='$pid'";
-$row=(new Db)->query($sql);
-$pj_row['oname'] = $row['oname'];
-$sql = "select oname from projects join organization on projects.oid_serve=organization.oid where projects.pid='$pid'";
-$row=(new Db)->query($sql);
-$pj_row['oname_serve'] = $row['oname'];
 
 // we need data of last two months for rendering yellow td background purpose
 $sql = "select * from progress where pid='$pid' order by date DESC LIMIT 2";
