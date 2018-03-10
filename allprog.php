@@ -6,7 +6,7 @@ $prev_month = date('Y-m', strtotime('first day of last month'));
 
 $thead= ['项目编号','项目名称','建设性质','建设内容','总投资','今年计划投资','本月完成投资','今年累计完成投资','计划开工时间','计划竣工时间','包联领导','责任单位','服务单位','项目类型','建设阶段','本月进展','问题和建议'];
 
-$sql ="select j.pid,pname,property,intro,investment,invest_plan,invest_mon,invest_accum,start,finish,p_incharge,o1.oname,o2.oname oname_serve,type,phase,progress,problem from projects j left join ((select * from progress where date like '$month%') g, organization o1, organization o2) on (j.pid=g.pid and j.oid=o1.oid and j.oid_serve=o2.oid) order by j.pid";
+$sql ="select j.pid,pname,property,intro,investment,invest_plan,invest_mon,invest_accum,start,finish,p_incharge,o1.oname,o2.oname oname_serve,type,g.phase,progress,problem from projects j left join ((select * from progress where date like '$month%') g, organization o1, organization o2) on (j.pid=g.pid and j.oid=o1.oid and j.oid_serve=o2.oid) order by j.pid";
 $rows=(new Db)->query($sql);
 
 require 'xlsx.php';
