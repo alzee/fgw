@@ -1,4 +1,5 @@
-type on project page
+search on proj page is still global, need to be limited in type
+
 导出报表
 
 sql in ajax.php
