@@ -222,6 +222,20 @@ function clearsearch(){
 	search();
 }
 
+function count(){
+	var tr=document.querySelectorAll('.searchable');
+	var type=document.getElementsByClassName('count');
+	// every type
+	for(var i=0;i<type.length;i++){
+		type[i].firstElementChild.innerText = document.querySelectorAll(".searchable[data-type='" + type[i].firstChild.textContent.replace(/ /g,'') + "']").length;
+	}
+	// all types
+	allType = document.getElementsByClassName('count_all');
+	for(var i=0;i<allType.length;i++){
+		allType[i].firstElementChild.innerText = tr.length;
+	}
+}
+
 var myProj=document.getElementById('myproject');
 if(myProj){
 	// count my projs;
@@ -241,6 +255,7 @@ if(myProj){
 	//count_type_c.innerText = '';
 	//count_type_d.innerText = '';
 	
+	count();
 	// addEvnetListener to #myproject
 	myProj.addEventListener('click', searchmy);
 }
@@ -267,6 +282,7 @@ function searchmy(){
 			search(); // to filter
 		}
 	}
+	count();
 }
 
 // addEvnetListener to upload
