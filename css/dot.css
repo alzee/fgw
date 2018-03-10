@@ -171,13 +171,8 @@ tbody th{
 #index .intro{
 	height: 70px;
 }
-#stat th{
-	width: 50%;
-	overflow: hidden;
-}
-#stat td{
-	width: 50%;
-	overflow: hidden;
+#stat1 th{
+	width: 14.3%;
 }
 #clearsearch{
 	top: 0;
