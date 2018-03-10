@@ -5,7 +5,7 @@ use App\Db;
  */
 $level="'一类'";
 // $level="'一类','二类','三类'";
-$thead = ['项目个数','开工项目个数','开工率','今年计划投资','今年累计完成投资','投资进度'];
+$thead = ['','项目个数','开工项目个数','开工率','今年计划投资','今年累计完成投资','投资进度'];
 $tables =[
 	['type','项目类型'],
 	['property','建设性质'],
@@ -53,6 +53,8 @@ foreach($tables[4][2] as &$v){
 	$v['r_wip'] = round($v['count_wip'] / $v['count'] * 100) . '%';
 	// calaculate invest ratio and assign to the array
 	$v['r_invest'] = round($v['sum_accum'] / $v['sum_plan'] * 100) . '%';
+	// clear talbe[4][2][i][0] since they are not useful after 'where investment between' clause;
+	unset($v[0]);
 }
 unset($v);
 
@@ -62,7 +64,7 @@ unset($v);
 if(!file_exists('xls/t.xls')){
 }
 
-// require 'xlsx1.php';
+require 'xlsx1.php';
 ?>
 	  <div class="container" id="">
 		  <nav>
@@ -100,8 +102,7 @@ if(!file_exists('xls/t.xls')){
 			<table class="table table-sm table-striped table-bordered">
 				<thead class="thead-light">
 					<tr>
-						<th scope="col"><?= $table[1] ?></th>
-<?php foreach($thead as $v): ?>
+<?php $thead[0] = $table[1]; foreach($thead as $v): ?>
 						<th scope="col"><?= $v ?></th>
 <?php endforeach ?>
 					</tr>
