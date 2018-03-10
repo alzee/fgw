@@ -5,48 +5,56 @@ use App\Db;
  */
 $level="'一类'";
 // $level="'一类','二类','三类'";
-$month = date('Y-m');
+$thead = ['项目个数','开工项目个数','开工率','今年计划投资','今年累计完成投资','投资进度'];
+$tables =[
+	['type','项目类型'],
+	['property','建设性质'],
+	['oname','责任单位'],
+	['investby','投资主体'],
+];
 
-// get count, sum_invest_plan, accumulate group by type
-$sql = "select type,count(pid) count,sum(invest_plan) sum_plan, sum(invest_accum) sum_accum from projects where level in($level) group by type";
-$t_rows=(new Db)->query($sql);
-foreach($t_rows as $k=>$v){
-	// count for WIP projs and assign to the array
-	$sql = "select count(pj.pid) count_wip from projects pj join progress pg on pj.pid=pg.pid where level in($level) and type='{$v['type']}' and phase='开工' and date like '$month%'";
-	$a = (new Db)->query($sql);
-	$t_rows[$k]['count_wip'] = $a['count_wip'];
-	// calaculate wip ratio and assign to the array
-	$t_rows[$k]['r_wip'] = round($t_rows[$k]['count_wip'] / $v['count'] * 100) . '%';
-	// calaculate invest ratio and assign to the array
-	$t_rows[$k]['r_invest'] = round($v['sum_accum'] / $v['sum_plan'] * 100) . '%';
+foreach($tables as &$table){
+	// get count, sum_invest_plan, accumulate group by $table[0]
+	$sql = "select $table[0],count(pid) count,sum(invest_plan) sum_plan, sum(invest_accum) sum_accum from projects j left join organization o on o.oid=j.oid where level in($level) group by $table[0]";
+	$table[2]=(new Db)->query($sql);
+	foreach($table[2] as &$v){
+		// count for WIP projs and assign to the array
+		$sql = "select count(j.pid) count_wip from projects j left join organization o on j.oid=o.oid where level in($level) and $table[0]='{$v["$table[0]"]}' and phase='开工'";
+		$a = (new Db)->query($sql);
+		$v['count_wip'] = $a['count_wip'];
+		// calaculate wip ratio and assign to the array
+		$v['r_wip'] = round($v['count_wip'] / $v['count'] * 100) . '%';
+		// calaculate invest ratio and assign to the array
+		$v['r_invest'] = round($v['sum_accum'] / $v['sum_plan'] * 100) . '%';
+	}
+	unset($v);
 }
-// var_dump($t_rows);
+unset($table);
 
-// group by property
-$sql = "select property,count(pid) count from projects where level in($level) group by property";
-$p_rows=(new Db)->query($sql);
-
-// group by oname
-$sql = "select oname,count(pid) count from projects p join organization o on o.oid=p.oid where level in($level) group by p.oid";
-$o_rows=(new Db)->query($sql);
-
-// group by investby
-$sql = "select investby,count(pid) count from projects where level in($level) group by investby";
-$ib_rows=(new Db)->query($sql);
-
-// group by investment
-$sql = "select count(investment) count from projects where investment < 10000";
-$a=(new Db)->query($sql);
-$sql = "select count(investment) count from projects where investment between 10000 and 49999";
-$b=(new Db)->query($sql);
-$sql = "select count(investment) count from projects where investment between 50000 and 99999";
-$c=(new Db)->query($sql);
-$sql = "select count(investment) count from projects where investment between 100000 and 199999";
-$d=(new Db)->query($sql);
-$sql = "select count(investment) count from projects where investment between 200000 and 499999";
-$e=(new Db)->query($sql);
-$sql = "select count(investment) count from projects where investment >= 500000";
-$f=(new Db)->query($sql);
+// now for investment group;
+$tables[4]=['invest', '总投资',[
+	['invest' => '1亿以下', '0 and 9999'],
+	['invest' => '1亿至5亿', '10000 and 49999'],
+	['invest' => '5亿至10亿', '50000 and 99999'],
+	['invest' => '10亿至20亿', '100000 and 199999'],
+	['invest' => '20亿至50亿', '200000 and 499999'],
+	['invest' => '50亿以上', '500000 and 999999999']
+]
+];
+foreach($tables[4][2] as &$v){
+	$sql = "select count(investment) count,sum(invest_plan) sum_plan,sum(invest_accum) sum_accum from projects where investment between $v[0] and level in($level)";
+	$a = (new Db)->query($sql);
+	$v = array_merge($v, $a);
+	// count for WIP projs and assign to the array
+	$sql = "select count(pid) count_wip from projects where investment between $v[0] and level in($level) and phase='开工'";
+	$a = (new Db)->query($sql);
+	$v['count_wip'] = $a['count_wip'];
+	// calaculate wip ratio and assign to the array
+	$v['r_wip'] = round($v['count_wip'] / $v['count'] * 100) . '%';
+	// calaculate invest ratio and assign to the array
+	$v['r_invest'] = round($v['sum_accum'] / $v['sum_plan'] * 100) . '%';
+}
+unset($v);
 
 /*
  * generate xls files if they're not exist
@@ -54,7 +62,7 @@ $f=(new Db)->query($sql);
 if(!file_exists('xls/t.xls')){
 }
 
-require 'xlsx1.php';
+// require 'xlsx1.php';
 ?>
 	  <div class="container" id="">
 		  <nav>
@@ -88,26 +96,24 @@ require 'xlsx1.php';
 		</form>
 	  </div>
 		  <main class="mt-2" id="stat1">
+<?php foreach($tables as $table): ?>
 			<table class="table table-sm table-striped table-bordered">
 				<thead class="thead-light">
 					<tr>
-						<th class="" scope="col">项目类型</th>
-						<th class="" scope="col">项目个数</th>
-						<th class="" scope="col">开工项目个数</th>
-						<th class="" scope="col">开工率</th>
-						<th class="" scope="col">今年计划投资</th>
-						<th class="" scope="col">今年累计完成投资</th>
-						<th class="" scope="col">投资进度</th>
+						<th scope="col"><?= $table[1] ?></th>
+<?php foreach($thead as $v): ?>
+						<th scope="col"><?= $v ?></th>
+<?php endforeach ?>
 					</tr>
 				</thead>
 				<tbody>
-<?php $count=['合计',0,0,'',0,0,''];foreach($t_rows as $v): ?>
+<?php $count=['合计',0,0,'',0,0,''];foreach($table[2] as $v): ?>
 <?php $count[1]+=$v['count']; ?>
 <?php $count[2]+=$v['count_wip']; ?>
 <?php $count[4]+=$v['sum_plan']; ?>
 <?php $count[5]+=$v['sum_accum']; ?>
 					<tr>
-						<td><?= $v['type'] ?></td>
+						<td><?= $v["$table[0]"] ?></td>
 						<td><?= $v['count'] ?></td>
 						<td><?= $v['count_wip'] ?></td>
 						<td><?= $v['r_wip'] ?></td>
@@ -125,195 +131,7 @@ require 'xlsx1.php';
 					</tr>
 				</tbody>
 			</table>
-
-			<table class="table table-sm table-striped table-bordered">
-				<thead class="thead-light">
-					<tr>
-						<th class="" scope="col">建设性质</th>
-						<th class="" scope="col">项目个数</th>
-						<th class="" scope="col">开工项目个数</th>
-						<th class="" scope="col">开工率</th>
-						<th class="" scope="col">今年计划投资</th>
-						<th class="" scope="col">今年累计完成投资</th>
-						<th class="" scope="col">投资进度</th>
-					</tr>
-				</thead>
-				<tbody>
-<?php $count1=0;foreach($p_rows as $v): ?>
-<?php $count1+=$v['count']; ?>
-					<tr>
-						<td><?= $v['property'] ?></td>
-						<td><?= $v['count'] ?></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
 <?php endforeach ?>
-					<tr class="font-weight-bold">
-						<td>合 计</td>
-						<td><?= $count1 ?></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-				</tbody>
-			</table>
 
-			<table class="table table-sm table-striped table-bordered">
-				<thead class="thead-light">
-					<tr>
-						<th class="" scope="col">责任单位</th>
-						<th class="" scope="col">项目个数</th>
-						<th class="" scope="col">开工项目个数</th>
-						<th class="" scope="col">开工率</th>
-						<th class="" scope="col">今年计划投资</th>
-						<th class="" scope="col">今年累计完成投资</th>
-						<th class="" scope="col">投资进度</th>
-					</tr>
-				</thead>
-				<tbody>
-<?php $count1=0;foreach($o_rows as $v): ?>
-<?php $count1+=$v['count']; ?>
-					<tr>
-						<td><?= $v['oname'] ?></td>
-						<td><?= $v['count'] ?></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-<?php endforeach ?>
-					<tr class="font-weight-bold">
-						<td>合 计</td>
-						<td><?= $count1 ?></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-				</tbody>
-			</table>
-
-			<table class="table table-sm table-striped table-bordered">
-				<thead class="thead-light">
-					<tr>
-						<th class="w-25" scope="col">投资主体</th>
-						<th class="w-25" scope="col">项目个数</th>
-						<th class="" scope="col">开工项目个数</th>
-						<th class="" scope="col">开工率</th>
-						<th class="" scope="col">今年计划投资</th>
-						<th class="" scope="col">今年累计完成投资</th>
-						<th class="" scope="col">投资进度</th>
-					</tr>
-				</thead>
-				<tbody>
-<?php $count1=0;foreach($ib_rows as $v): ?>
-<?php $count1+=$v['count']; ?>
-					<tr>
-						<td><?= $v['investby'] ?></td>
-						<td><?= $v['count'] ?></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-<?php endforeach ?>
-					<tr class="font-weight-bold">
-						<td>合 计</td>
-						<td><?= $count1 ?></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-				</tbody>
-			</table>
-
-			<table class="table table-sm table-striped table-bordered">
-				<thead class="thead-light">
-					<tr>
-						<th class="" scope="col">总投资</th>
-						<th class="" scope="col">项目个数</th>
-						<th class="" scope="col">开工项目个数</th>
-						<th class="" scope="col">开工率</th>
-						<th class="" scope="col">今年计划投资</th>
-						<th class="" scope="col">今年累计完成投资</th>
-						<th class="" scope="col">投资进度</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>1亿以下</td>
-						<td><?= $a['count'] ?></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>1亿至5亿</td>
-						<td><?= $b['count'] ?></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>5亿至10亿</td>
-						<td><?= $c['count'] ?></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>10亿至20亿</td>
-						<td><?= $d['count'] ?></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>20亿至50亿</td>
-						<td><?= $e['count'] ?></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>50亿以上</td>
-						<td><?= $f['count'] ?></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr class="font-weight-bold">
-						<td>合 计</td>
-						<td><?= $a['count'] + $b['count'] + $c['count'] + $d['count'] + $e['count'] + $f['count'] ?></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-				</tbody>
-			</table>
 		  </main>
 		</div>

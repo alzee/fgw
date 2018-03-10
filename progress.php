@@ -53,6 +53,10 @@ if($_POST && $dayleft > 0){
 		$sql = "update projects j,(select sum(invest_mon) sum from progress where pid='$pid' and date like '$year%') g set invest_accum=sum where pid='$pid'";
 		(new Db)->query($sql);
 		
+		// update projects.phase anyway
+		$sql = "update projects set phase='{$_POST['phase']}' where pid='$pid'";
+		(new Db)->query($sql);
+		
 		// clear alert;
 		$sql="update projects set alert='0' where pid='$pid'";
 		(new Db)->query($sql);
