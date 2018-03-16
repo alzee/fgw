@@ -57,7 +57,7 @@ $u_rows=(new Db)->query($sql);
 //var_dump($_SESSION);
 ?>
 		  <main id="userlist">
-<?php if($_SESSION['alert']): ?>
+<?php if (isset($_SESSION['alert'])): ?>
 		  <div class="alert alert-danger alert-dismissible fade show" role="alert">
 <?php if($_SESSION['alert'] == 1): ?>
 		  用户名由字母和数字组成，不能包含特殊字符，长度3至10位。第一位不能是数字！

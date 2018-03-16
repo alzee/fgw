@@ -5,7 +5,9 @@
  * @version
  * @todo
  */
+use App\route;
 
 require 'vendor/autoload.php';
 
 require 'route.php';
+

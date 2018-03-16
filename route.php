@@ -15,10 +15,12 @@ $sessionname='SID';
 
 date_default_timezone_set('Asia/Shanghai');
 
-$path = explode("/", trim($_SERVER['PATH_INFO'], '/'));
-$controller=$path[0];
-$method=$path[1];
-$parameter=$path[2];
+if (isset($_SERVER['PATH_INFO'])){
+	$path = explode("/", trim($_SERVER['PATH_INFO'], '/'));
+}
+$controller=$path[0] ?? 'project';	// the default page
+$method=$path[1] ?? '';
+$parameter=$path[2] ?? '';
 
 require $inc . "header.php";
 
@@ -27,14 +29,10 @@ $login=Sign::check();
 if($login){
 	session_start(['name'=>'SID']);
 	$rid=$_SESSION['rid'];
-	//var_dump($_SESSION);
+	// var_dump($_SESSION);
 
 	// we put some special case in switch
 	switch($controller){
-	case '':
-		// the default page
-		require $inc .  'project.php';
-		break;
 	case 'project':
 		if(is_numeric($method)){
 			$pid=$method;
