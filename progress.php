@@ -224,12 +224,11 @@ else{
 <?php
 //$imgdir="pic/thumb/$pid";
 $imgdir="pic/$pid";
-$imgs=scandir($imgdir);
-if(!$imgs[2]){ // if we don't find any image of this project
+if (! is_dir($imgdir)){
 	//$imgdir='pic/thumb/0';
 	$imgdir='pic/0';
-	$imgs=scandir($imgdir);
 }
+$imgs=scandir($imgdir);
 unset($imgs[0], $imgs[1]); // remove . and ..
 ?>
 <?php foreach($imgs as $img): ?>
