@@ -81,7 +81,7 @@ if($oid == $pj_row['oid'] && $dayleft > 0 && $rid != 2){
 	$class='writable';
 }
 else{
-	$disabled='disabled';
+	$disabled='readonly';
 	$class='';
 }
 ?>
