@@ -5,9 +5,11 @@
  * @version
  * @todo
  */
-use App\route;
+use App\Route;
 
 require 'vendor/autoload.php';
 
-require 'route.php';
+// require 'route.php';
+
+Route::go();
 
