@@ -77,11 +77,13 @@ $pg_rows=(new Db)->query($sql, 1);
 
 $oid=$_SESSION['oid'];
 if($oid == $pj_row['oid'] && $dayleft > 0 && $rid != 2){
-	$disabled="";
+	$disabled = '';
+	$readonly = '';
 	$class='writable';
 }
 else{
-	$disabled='readonly';
+	$disabled ='disabled';
+	$readonly = 'readonly';
 	$class='';
 }
 ?>
@@ -321,7 +323,7 @@ else{
 					  <tr class="<?= $tdclass ?>">
 						  <th scope="row">本月进展及手续办理情况</th>
 						  <td colspan="6">
-						  <textarea id="prog" class="form-control <?= $class ?>" name="progress" rows="3" placeholder="<?= $pg_rows[0]['progress'] ?>" <?= $disabled ?>><?= $pg_rows[0]['progress'] ?></textarea>
+						  <textarea id="prog" class="form-control <?= $class ?>" name="progress" rows="3" placeholder="<?= $pg_rows[0]['progress'] ?>" <?= $readonly ?>><?= $pg_rows[0]['progress'] ?></textarea>
 						  </td>
 					  </tr>
 <?php
@@ -342,7 +344,7 @@ if(isset($alert1)){
 					  <tr class="<?= $tdclass ?>">
 						  <th scope="row">存在的困难和问题以及下一步工作建议和安排</th>
 						  <td colspan="6">
-						  <textarea id="problem" class="form-control <?= $class ?>" name="problem" rows="6" placeholder="<?= $pg_rows[0]['problem'] ?>" <?= $disabled ?>><?= $pg_rows[0]['problem'] ?></textarea>
+						  <textarea id="problem" class="form-control <?= $class ?>" name="problem" rows="6" placeholder="<?= $pg_rows[0]['problem'] ?>" <?= $readonly ?>><?= $pg_rows[0]['problem'] ?></textarea>
 						  </td>
 					  </tr>
 <!-- data from table progress end-->
