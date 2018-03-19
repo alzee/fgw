@@ -186,6 +186,9 @@ tbody th{
 }
 @media (max-width: 525px){
 	#progress input.form-control{
-		width: 5rem;
+		width: 8rem;
 	}
+}
+.input-group-append.position-absolute{
+	right: 0;
 }

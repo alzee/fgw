@@ -166,9 +166,9 @@ else{
 						  </td>
 						  <th scope="row">总投资</th>
 						  <td>
-							  <div class="input-group">
-								  <input placeholder="<?= $pj_row['investment'] ?>" type="text" class="form-control" disabled>
-								  <div class="input-group-append">
+							  <div class="input-group position-relative">
+								  <input placeholder="<?= $pj_row['investment'] ?>" type="text" class="form-control rounded-right" disabled>
+								  <div class="input-group-append position-absolute">
 									  <span class="input-group-text text-muted">万元</span>
 								  </div>
 							  </div>
@@ -181,18 +181,18 @@ else{
 						  </td>
 						  <th scope="row">今年计划投资</th>
 						  <td>
-							  <div class="input-group">
-								  <input placeholder="<?= $pj_row['invest_plan'] ?>" type="text" class="form-control" disabled>
-								  <div class="input-group-append">
+							  <div class="input-group position-relative">
+								  <input placeholder="<?= $pj_row['invest_plan'] ?>" type="text" class="form-control rounded-right" disabled>
+								  <div class="input-group-append position-absolute">
 									  <span class="input-group-text text-muted">万元</span>
 								  </div>
 							  </div>
 						  </td>
 						  <th scope="row">今年累计完成投资</th>
 						  <td>
-							  <div class="input-group">
-								  <input placeholder="<?= $pj_row['invest_accum'] ?>" type="text" class="form-control" disabled>
-								  <div class="input-group-append">
+							  <div class="input-group position-relative">
+								  <input placeholder="<?= $pj_row['invest_accum'] ?>" type="text" class="form-control rounded-right" disabled>
+								  <div class="input-group-append position-absolute">
 									  <span class="input-group-text text-muted">万元</span>
 								  </div>
 							  </div>
@@ -303,9 +303,9 @@ unset($imgs[0], $imgs[1]); // remove . and ..
 						  </td>
 						  <th scope="row">本月完成投资</th>
 						  <td>
-							  <div class="input-group">
-								  <input id="invest_mon" name="invest_mon" placeholder="<?= $pg_rows[0]['invest_mon'] ?>" type="number" class="form-control <?= $class ?>" <?= $disabled ?>>
-								  <div class="input-group-append">
+							  <div class="input-group position-relative">
+								  <input id="invest_mon" name="invest_mon" placeholder="<?= $pg_rows[0]['invest_mon'] ?>" type="number" class="form-control rounded-right <?= $class ?>" <?= $disabled ?>>
+								  <div class="input-group-append position-absolute">
 									  <span class="input-group-text text-muted">万元</span>
 								  </div>
 							  </div>
