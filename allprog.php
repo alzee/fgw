@@ -32,6 +32,7 @@ require 'xlsx.php';
 		  <div class="col align-self-center">
 			<span class="badge badge-warning">单位：万元</span>
 		  </div>
+<!--
 		  <div class="col-auto">
 			<div class="dropdown" id="dates_report">
 					  <button class="btn btn-info dropdown-toggle" type="button">
@@ -44,6 +45,7 @@ require 'xlsx.php';
 					  </div>
 			</div>
 		  </div>
+-->
 		<form method="post" action="<?= "$root/dl" ?>">
 		  <div class="col-auto">
 <!--
