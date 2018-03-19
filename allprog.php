@@ -23,7 +23,7 @@ require 'xlsx.php';
 		  </nav>
 
 		  <div class="row">
-		  <div class="btn-group col-auto">
+		  <div class="btn-group btn-group-sm col-auto">
 <?php if($rid ==3): ?>
 			<a role="button" class="btn btn-danger text-white" href="<?= "$root/$controller/$method/stat" ?>">统计汇总</a>
 <?php endif ?>
@@ -46,12 +46,30 @@ require 'xlsx.php';
 			</div>
 		  </div>
 -->
+			  <div class="col-auto col-sm-auto pr-0 mt-1 mt-sm-0">
+				  <button id="myproject" type="button" class="btn btn-sm btn-outline-secondary" data-oid="<?= $oid ?>">
+					我的项目
+				  </button>
+			  </div>
+
+			<div class="col-auto pr-0 dropdown mt-1 mt-sm-0">
+			  <button class="btn btn-dark btn-sm dropdown-toggle" id="type_btn" type="button">所有类型 
+			  </button>
+			  <div class="dropdown-menu">
+				<a class="dropdown-item active" href="#">所有类型 </a>
+				<a class="dropdown-item" href="#">工 业 </a>
+				<a class="dropdown-item" href="#">基 建 </a>
+				<a class="dropdown-item" href="#">商 贸 </a>
+				<a class="dropdown-item" href="#">乡村振兴 </a>
+			  </div>
+			</div>
+
 		<form method="post" action="<?= "$root/dl" ?>">
 		  <div class="col-auto">
 <!--
 		    <button type="sumbit" class="btn btn-info" name="submit" value="1">导出报表</button>
 -->
-			<a class="btn btn-info" href="<?= "$root/xlsx/allprog.xlsx" ?>">导出报表</a>
+			<a class="btn btn-sm btn-info" href="<?= "$root/xlsx/allprog.xlsx" ?>">导出报表</a>
 		  </div>
 		</form>
 		  </div>
