@@ -78,7 +78,7 @@ require 'xlsx1.php';
 		  </nav>
 
 	  <div class="row">
-		<div class="btn-group col-12 col-sm-auto">
+		<div class="btn-group btn-group-sm col-12 col-sm-auto">
 			<a role="button" class="btn btn-danger text-white active" href="<?= "$root/$controller/$method/stat" ?>">统计汇总</a>
 		    <a role="button" class="btn btn-danger text-white" href="<?= "$root/$controller/$method/allprog" ?>">进度月报</a>
 		</div>
@@ -93,7 +93,7 @@ require 'xlsx1.php';
 <!--
 		    <button type="sumbit" class="btn btn-info" name="submit" value="1">导出报表</button>
 -->
-			<a class="btn btn-info" href="<?= "$root/xlsx/stat.xlsx" ?>">导出报表</a>
+			<a class="btn btn-sm btn-info" href="<?= "$root/xlsx/stat.xlsx" ?>">导出报表</a>
 		  </div>
 		</form>
 	  </div>
