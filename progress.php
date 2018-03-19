@@ -228,7 +228,7 @@ else{
 $imgdir="pic/$pid";
 if (! is_dir($imgdir)){
 	//$imgdir='pic/thumb/0';
-	$imgdir='pic/0';
+	//$imgdir='pic/0';
 }
 $imgs=scandir($imgdir);
 unset($imgs[0], $imgs[1]); // remove . and ..
