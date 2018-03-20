@@ -1,3 +1,5 @@
+up/
+server/php/files/
 vendor/
 *.xlsx
 # Object files
