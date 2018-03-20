@@ -226,16 +226,16 @@ else{
 <?php
 //$imgdir="pic/thumb/$pid";
 $imgdir="pic/$pid";
-if (! is_dir($imgdir)){
-	//$imgdir='pic/thumb/0';
-	//$imgdir='pic/0';
-}
-$imgs=scandir($imgdir);
-unset($imgs[0], $imgs[1]); // remove . and ..
+if (is_dir($imgdir)){
+	$imgs=scandir($imgdir);
+	unset($imgs[0], $imgs[1]); // remove . and ..
+	foreach($imgs as $img){
 ?>
-<?php foreach($imgs as $img): ?>
 							<img src="<?= "$root/$imgdir/$img" ?>" class="img-fluid rounded float-left mr-1" alt="...">
-<?php endforeach ?>
+<?php
+	}
+}
+?>
 								<i class="fa fa-2x fa-plus-circle float-left text-muted addpic" aria-hidden="true"></i>
 <!--
 							<button type="button" class="btn btn-outline-primary btn-sm">
