@@ -238,11 +238,12 @@ if (is_dir($imgdir)){
 }
 ?>
 <!--
-								<i class="fa fa-2x fa-plus-circle float-left text-muted addpic" aria-hidden="true"></i>
+							<span class="btn btn-sm btn-success fileinput-button">
+								<i class="fa fa-plus"></i>
+								<span>添 加</span>
+								<input type="file" name="files[]" multiple="">
+							</span>
 -->
-							<button type="button" class="btn btn-outline-primary btn-sm">
-添加
-							</button>
 						  </td>
 					  </tr> 
 				  </tbody>
