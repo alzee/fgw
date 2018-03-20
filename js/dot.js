@@ -320,7 +320,7 @@ function chname(){
 }
 
 // addEvnetListener to monthpicker
-var m=document.querySelectorAll('.pickmonth');
+var m=document.getElementsByClassName('pickmonth');
 for(var i=0;i<m.length;i++){
 	//m[i].addEventListener("click", pickmonth);
 	//m[i].addEventListener("blur", function(){ pickmonth(1, m[i]); });
@@ -388,12 +388,14 @@ function closelayer(){
 }
 
 // some jquery
-$('.pickmonth').datepicker({
-	format: 'yyyy-mm',
-    minViewMode: 1,
-    language: "zh-CN",
-	autoclose: true
-});
+if(m.length > 0){
+	$('.pickmonth').datepicker({
+		format: 'yyyy-mm',
+		minViewMode: 1,
+		language: "zh-CN",
+		autoclose: true
+	});
+}
 
 //var a = document.getElementsByTagName('a');
 //for(var i=0; i<a.length; i++){
