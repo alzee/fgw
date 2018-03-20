@@ -434,7 +434,7 @@ if(isset($alert1)){
 {% } %}
 </script>
 <!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
-<script src="<?= $root ?>/js/vendor/jquery.ui.widget.js"></script>
+<script src="<?= $root ?>/js/jquery.ui.widget.js"></script>
 <!-- The Templates plugin is included to render the upload/download listings -->
 <script src="https://blueimp.github.io/JavaScript-Templates/js/tmpl.min.js"></script>
 <!-- The Load Image plugin is included for the preview images and image resizing functionality -->
