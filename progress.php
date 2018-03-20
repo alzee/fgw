@@ -128,6 +128,7 @@ else{
 <?php endif ?>
 
 <!-- data from table projects start-->
+<div id="fileupload">
 			  <table class="table table-bordered table-responsive-sm">
 				  <thead>
 					<tr>
@@ -231,9 +232,7 @@ if (is_dir($imgdir)){
 	unset($imgs[0], $imgs[1]); // remove . and ..
 	foreach($imgs as $img){
 ?>
-<!--
 							<img src="<?= "$root/$imgdir/$img" ?>" class="img-fluid rounded float-left mr-1" alt="...">
--->
 <?php
 	}
 }
@@ -248,6 +247,7 @@ if (is_dir($imgdir)){
 					  </tr> 
 				  </tbody>
 			  </table>
+</div>
 <!-- data from table projects end-->
 
 		  <div id="nodata" class="alert alert-danger alert-dismissible fade show d-none" role="alert">
@@ -258,7 +258,7 @@ if (is_dir($imgdir)){
 		  </div>
 
 <!-- data from table progress start-->
-		  <form method="post" class="position-relative">
+		  <form method="post" class="position-relative" id="">
 			<div class="dropdown position-absolute" id="dates">
 					  <button class="btn btn-danger btn-sm dropdown-toggle" type="button">
 						  <?= date('Y-m') ?>
@@ -371,3 +371,99 @@ if(isset($alert1)){
 			</div>
 <!-- click and popup image end-->
 		  </div>
+	  <script src="<?= $root ?>/js/jquery.min.js"></script>
+	  <script src="<?= $root ?>/js/bootstrap-datepicker.min.js"></script>
+	  <script src="<?= $root ?>/js/bootstrap-datepicker.zh-CN.min.js"></script>
+
+
+
+
+
+
+
+<!-- The blueimp Gallery widget -->
+<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls" data-filter=":even">
+    <div class="slides"></div>
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+</div>
+<!-- The template to display files available for upload -->
+<script id="template-upload" type="text/x-tmpl">
+{% for (var i=0, file; file=o.files[i]; i++) { %}
+    <tr class="template-upload fade">
+        <td>
+            <span class="preview"></span>
+        </td>
+        <td>
+            <p class="name">{%=file.name%}</p>
+            <strong class="error text-danger"></strong>
+        </td>
+        <td>
+            <p class="size">Processing...</p>
+            <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="progress-bar progress-bar-success" style="width:0%;"></div></div>
+        </td>
+        <td>
+            {% if (!i && !o.options.autoUpload) { %}
+                <button class="btn btn-primary start" disabled>
+                    <i class="glyphicon glyphicon-upload"></i>
+                    <span>上 传</span>
+                </button>
+            {% } %}
+            {% if (!i) { %}
+                <button class="btn btn-warning cancel">
+                    <i class="glyphicon glyphicon-ban-circle"></i>
+                    <span>取 消</span>
+                </button>
+            {% } %}
+        </td>
+    </tr>
+{% } %}
+</script>
+<!-- The template to display files available for download -->
+<script id="template-download" type="text/x-tmpl">
+{% for (var i=0, file; file=o.files[i]; i++) { %}
+            <span class="preview">
+                {% if (file.thumbnailUrl) { %}
+                    <a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}" data-gallery><img src="{%=file.thumbnailUrl%}"></a>
+                {% } %}
+            </span>
+{% } %}
+</script>
+<!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
+<script src="<?= $root ?>/js/vendor/jquery.ui.widget.js"></script>
+<!-- The Templates plugin is included to render the upload/download listings -->
+<script src="https://blueimp.github.io/JavaScript-Templates/js/tmpl.min.js"></script>
+<!-- The Load Image plugin is included for the preview images and image resizing functionality -->
+<script src="https://blueimp.github.io/JavaScript-Load-Image/js/load-image.all.min.js"></script>
+<!-- The Canvas to Blob plugin is included for image resizing functionality -->
+<script src="https://blueimp.github.io/JavaScript-Canvas-to-Blob/js/canvas-to-blob.min.js"></script>
+<!-- Bootstrap JS is not required, but included for the responsive demo navigation -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- blueimp Gallery script -->
+<script src="https://blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+<script src="<?= $root ?>/js/jquery.iframe-transport.js"></script>
+<!-- The basic File Upload plugin -->
+<script src="<?= $root ?>/js/jquery.fileupload.js"></script>
+<!-- The File Upload processing plugin -->
+<script src="<?= $root ?>/js/jquery.fileupload-process.js"></script>
+<!-- The File Upload image preview & resize plugin -->
+<script src="<?= $root ?>/js/jquery.fileupload-image.js"></script>
+<!-- The File Upload audio preview plugin -->
+<script src="<?= $root ?>/js/jquery.fileupload-audio.js"></script>
+<!-- The File Upload video preview plugin -->
+<script src="<?= $root ?>/js/jquery.fileupload-video.js"></script>
+<!-- The File Upload validation plugin -->
+<script src="<?= $root ?>/js/jquery.fileupload-validate.js"></script>
+<!-- The File Upload user interface plugin -->
+<script src="<?= $root ?>/js/jquery.fileupload-ui.js"></script>
+<!-- The main application script -->
+<script src="<?= $root ?>/js/main.js"></script>
+<!-- The XDomainRequest Transport is included for cross-domain file deletion for IE 8 and IE 9 -->
+<!--[if (gte IE 8)&(lt IE 10)]>
+<script src="js/cors/jquery.xdr-transport.js"></script>
+<![endif]-->
