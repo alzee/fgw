@@ -222,7 +222,7 @@ else{
 							  <input placeholder="<?= $pj_row['level'] ?>" type="text" class="form-control" disabled>
 						  </td>
 						  <th scope="row">施工照片</th>
-						  <td colspan="3">
+						  <td class="files" colspan="3">
 <?php
 //$imgdir="pic/thumb/$pid";
 $imgdir="pic/$pid";
@@ -231,7 +231,9 @@ if (is_dir($imgdir)){
 	unset($imgs[0], $imgs[1]); // remove . and ..
 	foreach($imgs as $img){
 ?>
+<!--
 							<img src="<?= "$root/$imgdir/$img" ?>" class="img-fluid rounded float-left mr-1" alt="...">
+-->
 <?php
 	}
 }
