@@ -236,12 +236,12 @@ if (is_dir($imgdir)){
 	}
 }
 ?>
-								<i class="fa fa-2x fa-plus-circle float-left text-muted addpic" aria-hidden="true"></i>
 <!--
-							<button type="button" class="btn btn-outline-primary btn-sm">
-								<i class="fa fa-cloud-upload" aria-hidden="true"></i>
-							</button>
+								<i class="fa fa-2x fa-plus-circle float-left text-muted addpic" aria-hidden="true"></i>
 -->
+							<button type="button" class="btn btn-outline-primary btn-sm">
+添加
+							</button>
 						  </td>
 					  </tr> 
 				  </tbody>
