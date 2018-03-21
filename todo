@@ -30,4 +30,4 @@ js limit type
 php limit size
 php limit type
 
-omit long text in table td, mousecover shows 
+omit(clip) long text in table td with ellipsis, mousecover shows 
