@@ -93,7 +93,7 @@ require 'xlsx1.php';
 <!--
 		    <button type="sumbit" class="btn btn-info" name="submit" value="1">导出报表</button>
 -->
-			<a class="btn btn-sm btn-info" href="<?= "$root/xlsx/stat.xlsx" ?>">导出报表</a>
+			<a class="btn btn-sm btn-info" href="<?= "$root/xlsx/统计汇总.xlsx" ?>">导出报表</a>
 		  </div>
 		</form>
 	  </div>
