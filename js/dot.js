@@ -442,9 +442,7 @@ if(expbtn) expbtn.addEventListener("click", xlsx);
 
 function xlsx(){
 	var t = document.getElementById('allprog');
-	//var wb = XLSX.utils.table_to_book(t, {sheet:"进度月报"});
-	var wb = XLSX.utils.table_to_book(t);
-	//XLSX.writeFile(wb, '进度月报.xlsx' ,{bookType: "xlsx"});
-	console.log(wb);
-	XLSX.writeFile(wb, 'test.xlsx' ,{bookType: "ods"});
+	var wb = XLSX.utils.table_to_book(t, {sheet:"进度月报"});
+	//console.log(wb);
+	XLSX.writeFile(wb, '进度月报.xlsx' ,{bookType: "xlsx"});
 }
