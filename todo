@@ -29,3 +29,5 @@ js limit size
 js limit type
 php limit size
 php limit type
+
+omit long text in table td, mousecover shows 
