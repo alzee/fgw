@@ -446,5 +446,8 @@ function xlsx(){
 	var t = document.getElementById('allprog');
 	var wb = XLSX.utils.table_to_book(t, {sheet:"进度月报"});
 	//console.log(wb);
+	// var a = '我的';
+	// var b = ['工业类', '商贸类', '基建类', '乡村振兴类'];
+	// filename = a + b[i] + '进度月报' + date + '.xlsx';
 	XLSX.writeFile(wb, '进度月报.xlsx' ,{bookType: "xlsx"});
 }
