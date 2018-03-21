@@ -20,6 +20,7 @@ class Fuck extends UploadHandler
 	protected function get_user_id() {
 		@session_start(['name' => 'SID']);
 		return $_SESSION['oid'];
+		// return $pid;
 		// return 10;
 	}
 }
