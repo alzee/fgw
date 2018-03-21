@@ -58,8 +58,8 @@ require 'xlsx.php';
 			  <div class="dropdown-menu">
 				<a class="dropdown-item active" href="#">所有类型 </a>
 				<a class="dropdown-item" href="#">工 业 </a>
-				<a class="dropdown-item" href="#">基 建 </a>
 				<a class="dropdown-item" href="#">商 贸 </a>
+				<a class="dropdown-item" href="#">基 建 </a>
 				<a class="dropdown-item" href="#">乡村振兴 </a>
 			  </div>
 			</div>
