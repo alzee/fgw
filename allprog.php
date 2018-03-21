@@ -47,7 +47,7 @@ require 'xlsx.php';
 		  </div>
 -->
 			  <div class="col-auto col-sm-auto pr-0 mt-1 mt-sm-0">
-				  <button id="myproject" type="button" class="btn btn-sm btn-outline-secondary" data-oid="<?= $oid ?>">
+				  <button id="" type="button" class="btn btn-sm btn-outline-secondary" data-oid="<?= $oid ?>">
 					我的项目
 				  </button>
 			  </div>
