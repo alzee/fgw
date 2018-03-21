@@ -1,12 +1,14 @@
 <?php
 use App\Db;
+
+$oid = $_SESSION['oid'];
 // prepare data
 $month = date('Y-m');
 $prev_month = date('Y-m', strtotime('first day of last month'));
 
 $thead= ['项目编号','项目名称','建设性质','建设内容','总投资','今年计划投资','本月完成投资','今年累计完成投资','计划开工时间','计划竣工时间','包联领导','责任单位','服务单位','项目类型','建设阶段','本月进展','问题和建议'];
 
-$sql ="select j.pid,pname,property,intro,investment,invest_plan,invest_mon,invest_accum,start,finish,p_incharge,o1.oname,o2.oname oname_serve,type,g.phase,progress,problem from projects j left join ((select * from progress where date like '$month%') g, organization o1, organization o2) on (j.pid=g.pid and j.oid=o1.oid and j.oid_serve=o2.oid) order by j.pid";
+$sql ="select j.pid,pname,property,intro,investment,invest_plan,invest_mon,invest_accum,start,finish,p_incharge,o1.oname,o2.oname oname_serve,type,g.phase,progress,problem,j.oid from projects j left join ((select * from progress where date like '$month%') g, organization o1, organization o2) on (j.pid=g.pid and j.oid=o1.oid and j.oid_serve=o2.oid) order by j.pid";
 $rows=(new Db)->query($sql);
 
 //require 'xlsx.php';
@@ -47,20 +49,20 @@ $rows=(new Db)->query($sql);
 		  </div>
 -->
 			  <div class="col-auto col-sm-auto pr-0 mt-1 mt-sm-0">
-				  <button id="" type="button" class="btn btn-sm btn-outline-secondary" data-oid="<?= $oid ?>">
-					我的项目
+				  <button id="myproject" type="button" class="btn btn-sm btn-outline-secondary" data-oid="<?= $oid ?>">
+					我的项目 <span class="badge badge-danger" id="count_my"></span>
 				  </button>
 			  </div>
 
 			<div class="col-auto pr-0 dropdown mt-1 mt-sm-0">
-			  <button class="btn btn-dark btn-sm dropdown-toggle" id="type_btn" type="button">所有类型 
+			  <button class="btn btn-dark btn-sm dropdown-toggle" id="type_btn" type="button">所有类型 <span class="badge badge-danger count_all">0</span>
 			  </button>
-			  <div class="dropdown-menu">
-				<a class="dropdown-item active" href="#">所有类型 </a>
-				<a class="dropdown-item" href="#">工 业 </a>
-				<a class="dropdown-item" href="#">商 贸 </a>
-				<a class="dropdown-item" href="#">基 建 </a>
-				<a class="dropdown-item" href="#">乡村振兴 </a>
+			  <div class="dropdown-menu" id="type_menu">
+				<a class="dropdown-item active" href="#">所有类型 <span class="badge badge-danger count_all">0</span></a>
+				<a class="dropdown-item" href="#">工 业 <span class="badge badge-danger count">0</span></a>
+				<a class="dropdown-item" href="#">商 贸 <span class="badge badge-danger count">0</span></a>
+				<a class="dropdown-item" href="#">基 建 <span class="badge badge-danger count">0</span></a>
+				<a class="dropdown-item" href="#">乡村振兴 <span class="badge badge-danger count">0</span></a>
 			  </div>
 			</div>
 
@@ -78,10 +80,21 @@ $rows=(new Db)->query($sql);
 					</tr>
 				</thead>
 				<tbody>
-<?php foreach($rows as $v): ?>
-					<tr>
-<?php foreach($v as $vv): ?>
-						<td><?= $vv ?></td>
+<?php foreach($rows as $row): ?>
+<?php if ($oid == $row['oid']) {
+	$class = 'searchable myprog';
+}
+else {
+	$class = 'searchable';
+}
+?>
+					<tr class="<?= $class ?>" data-type="<?= $row['type'] ?>" data-oid="<?= $row['oid'] ?>">
+<?php
+// remove col oid so it won't be output as a td;
+unset($row['oid']);
+?>
+<?php foreach($row as $v): ?>
+						<td><?= $v ?></td>
 <?php endforeach ?>
 					</tr>
 <?php endforeach ?>

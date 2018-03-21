@@ -187,14 +187,16 @@ var c=document.getElementById('clearsearch');
 if(s) s.addEventListener('keyup', search);
 // search
 function search(){
-	// value of input
-	//var v=s.firstElementChild.value;
-	var v=s.value;
-	// if v is not empty, show clear icon
-	if(v){c.classList.remove('d-none');
-	}
-	else{
-		c.classList.add('d-none');
+	if(s){
+		// value of input
+		//var v=s.firstElementChild.value;
+		var v=s.value;
+		// if v is not empty, show clear icon
+		if(v){c.classList.remove('d-none');
+		}
+		else{
+			c.classList.add('d-none');
+		}
 	}
 
 	var tr=document.getElementsByClassName('searchable');
@@ -223,7 +225,7 @@ function clearsearch(){
 }
 
 // addEvnetListener to #projects .dropdown-item
-var pjDropdownitem=document.querySelectorAll('#projects .dropdown-menu .dropdown-item');
+var pjDropdownitem=document.querySelectorAll('#type_menu .dropdown-item');
 for(var i=0;i<pjDropdownitem.length;i++){
 	pjDropdownitem[i].addEventListener("mousedown", searchType);
 }
@@ -236,8 +238,8 @@ function searchType(i){
 	else{
 		i=this;
 	}
-	console.log(type);
 	var type=i.firstChild.textContent.replace(/ /g,'');
+	// console.log(type);
 	for(var i=0;i<tr.length;i++){
 		if(type == tr[i].getAttribute('data-type') || type == '所有类型'){
 			tr[i].classList.remove('d-none');
@@ -248,7 +250,7 @@ function searchType(i){
 	}
 }
 
-function count(){
+function countType(){
 	var tr=document.getElementsByClassName('searchable');
 	var type=document.getElementsByClassName('count');
 	// every type
@@ -269,11 +271,11 @@ if(myProj){
 	countMy = document.querySelectorAll('tr[data-oid="' + myOid + '"]').length;
 	document.getElementById('count_my').innerText = countMy;
 	// count type
-	count_all = document.getElementsByClassName('count_all')[0];
-	count_type_a= document.getElementsByClassName('count_type_a')[0];
-	count_type_b= document.getElementsByClassName('count_type_b')[0];
-	count_type_c= document.getElementsByClassName('count_type_c')[0];
-	count_type_d= document.getElementsByClassName('count_type_d')[0];
+	//count_all = document.getElementsByClassName('count_all')[0];
+	//count_type_a= document.getElementsByClassName('count_type_a')[0];
+	//count_type_b= document.getElementsByClassName('count_type_b')[0];
+	//count_type_c= document.getElementsByClassName('count_type_c')[0];
+	//count_type_d= document.getElementsByClassName('count_type_d')[0];
 	
 	//count_all.innerText = '';
 	//count_type_a.innerText = '';
@@ -281,7 +283,7 @@ if(myProj){
 	//count_type_c.innerText = '';
 	//count_type_d.innerText = '';
 	
-	count();
+	countType();
 	// addEvnetListener to #myproject
 	myProj.addEventListener('click', toggleMy);
 }
@@ -308,7 +310,7 @@ function toggleMy(){
 			search(); // to filter
 		}
 	}
-	count();
+	countType();
 	searchType(1);
 }
 

@@ -59,7 +59,7 @@ else{
 			<div class="col-auto pr-0 dropdown mt-1 mt-sm-0">
 			  <button class="btn btn-dark btn-sm dropdown-toggle" id="type_btn" type="button">所有类型 <span class="badge badge-danger count_all">0</span>
 			  </button>
-			  <div class="dropdown-menu">
+			  <div class="dropdown-menu" id="type_menu">
 				<a class="dropdown-item active" href="#">所有类型 <span class="badge badge-danger count_all">0</span></a>
 				<a class="dropdown-item" href="#">工 业 <span class="badge badge-danger count">0</span></a>
 				<a class="dropdown-item" href="#">商 贸 <span class="badge badge-danger count">0</span></a>
