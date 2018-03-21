@@ -18,9 +18,9 @@ require('UploadHandler.php');
 class Fuck extends UploadHandler
 {
 	protected function get_user_id() {
-		//session_start();
-		//return $_SESSION['oid'];
-		return 10;
+		@session_start(['name' => 'SID']);
+		return $_SESSION['oid'];
+		// return 10;
 	}
 }
 
