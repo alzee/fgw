@@ -33,3 +33,5 @@ php limit type
 omit(clip) long text in table td with ellipsis, mousecover shows 
 
 create view in db
+
+IE not support xhr type 'json'
