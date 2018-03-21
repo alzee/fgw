@@ -436,3 +436,12 @@ function tdToObject(){
 		}
 	}
 }
+// addEvnetListener to #exportbtn
+var expbtn = document.getElementById('exportbtn');
+if(expbtn) expbtn.addEventListener("click", xlsx);
+
+function xlsx(){
+	var t = document.getElementById('allprog');
+	var wb = XLSX.utils.table_to_book(t, {sheet:"进度月报"});
+	XLSX.writeFile(wb, '进度月报.xlsx');
+}

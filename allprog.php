@@ -9,7 +9,7 @@ $thead= ['项目编号','项目名称','建设性质','建设内容','总投资'
 $sql ="select j.pid,pname,property,intro,investment,invest_plan,invest_mon,invest_accum,start,finish,p_incharge,o1.oname,o2.oname oname_serve,type,g.phase,progress,problem from projects j left join ((select * from progress where date like '$month%') g, organization o1, organization o2) on (j.pid=g.pid and j.oid=o1.oid and j.oid_serve=o2.oid) order by j.pid";
 $rows=(new Db)->query($sql);
 
-require 'xlsx.php';
+//require 'xlsx.php';
 ?>
 	  <div class="container">
 		  <nav>
@@ -64,17 +64,12 @@ require 'xlsx.php';
 			  </div>
 			</div>
 
-		<form method="post" action="<?= "$root/dl" ?>">
 		  <div class="col-auto">
-<!--
-		    <button type="sumbit" class="btn btn-info" name="submit" value="1">导出报表</button>
--->
-			<a class="btn btn-sm btn-info" href="<?= "$root/xlsx/allprog.xlsx" ?>">导出报表</a>
+			<button class="btn btn-sm btn-info" id="exportbtn">导出报表</button>
 		  </div>
-		</form>
 		  </div>
 		  <main class="mt-2" id="stat">
-			<table class="table table-responsive table-sm table-striped table-bordered">
+			<table class="table table-responsive table-sm table-striped table-bordered" id="allprog">
 				<thead class="thead-light">
 					<tr>
 <?php foreach($thead as $v): ?>
@@ -94,3 +89,4 @@ require 'xlsx.php';
 			</table>
 		  </main>
 		</div>
+		<script src="<?= $root ?>/js/xlsx.full.min.js"></script>
