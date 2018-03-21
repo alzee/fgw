@@ -28,3 +28,7 @@ cron to 'update projects set alert=2'
 pic download path
 pic upload path
 append upload ui to right place
+js limit size
+js limit type
+php limit size
+php limit type
