@@ -25,7 +25,9 @@ class Fuck extends UploadHandler
 }
 
 $upload_handler = new Fuck(
-	['user_dirs' => true],
-	['upload_dir' => '/fgw/img/upload'],
-	['upload_url' => '/fgw/img/upload']
+	[
+		'user_dirs' => true,
+		'upload_dir' => $_SERVER['DOCUMENT_ROOT'] . '/fgw/img/upload/',
+		'upload_url' => 'https://it/fgw/img/upload/'
+	]
 );
