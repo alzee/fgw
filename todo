@@ -1,13 +1,12 @@
 search on proj page is still global, need to be limited in type
 
+proj list page js need to be re-design
+
 导出报表
 
 sql in ajax.php
 
 date pick bug
-
-pic
-upload pic
 
 js md5
 
@@ -21,7 +20,7 @@ the lock alert shouldn't show out if this is not my proj
 
 每个单位可以生成自己的进度月报表
 
-investment,invest_mon,invest_plan,sum_year sql int(11)?
+should I change investment,invest_mon,invest_plan,sum_year to int(11)?
 
 cron to 'update projects set alert=2'
 
