@@ -307,11 +307,13 @@ function toggleMy(){
 		else{
 			tr[i].classList.remove('d-none');
 			tr[i].classList.add('searchable');
-			search(); // to filter
 		}
 	}
 	countType();
 	searchType(1);
+	if (s && s.value) {
+		search(); // to filter
+	}
 }
 
 // addEvnetListener to upload
