@@ -5,7 +5,6 @@
  * @version
  * @todo
  */
-//require 'vendor/autoload.php';
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
@@ -13,7 +12,6 @@ use PhpOffice\PhpSpreadsheet\Style\Alignment;
 use PhpOffice\PhpSpreadsheet\Style\Border;
 use PhpOffice\PhpSpreadsheet\Style\NumberFormat;
 
-// print_r($tables);
 $spreadsheet = new Spreadsheet();
 
 foreach ($tables as $k => $table) {
@@ -44,7 +42,8 @@ foreach ($tables as $k => $table) {
 	$sheet->setCellValueByColumnAndRow(5, $i, "=SUM(E2:E{$ii})");
 	$sheet->setCellValueByColumnAndRow(6, $i, "=SUM(F2:F{$ii})");
 	$sheet->setCellValueByColumnAndRow(7, $i, "=F{$i}/E{$i}");
-	//style;
+	
+	// style;
 	// thead and tfoot bold;
 	$sheet->getStyle('A1:G1')->applyFromArray(['font'=>['bold'=>true]]);
 	$sheet->getStyle("A{$i}:G{$i}")->applyFromArray(['font'=>['bold'=>true]]);
