@@ -418,3 +418,21 @@ function chParentHref(path){
 // addEvnetListener to btn in 404
 var backbtn = document.querySelector('#notfound button');
 if(backbtn) backbtn.addEventListener("click", function(){history.back()});
+
+function tdToObject(){
+	var a = document.getElementsByTagName('tr');
+	o={};
+	for (var i=0; i<a.length; i++) {
+		o[i]=[];
+		if (i == 0) {
+			var b = a[i].getElementsByTagName('th');
+		}
+		else {
+			var b = a[i].getElementsByTagName('td');
+		}
+		for (var j=0; j<b.length; j++){
+			o[i][j] = b[j].innerText;
+
+		}
+	}
+}
