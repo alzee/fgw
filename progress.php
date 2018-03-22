@@ -315,7 +315,7 @@ if (is_dir($imgdir)){
 						  </td>
 					  </tr> 
 <?php
-if($pg_rows[0]['progress']==$pg_rows[1]['progress']){
+if(isset($pg_rows[1]) && $pg_rows[0]['progress']==$pg_rows[1]['progress']){
 	$tdclass='table-warning dup';
 	$alert1=1;
 }
@@ -330,7 +330,7 @@ else{
 						  </td>
 					  </tr>
 <?php
-if($pg_rows[0]['problem']==$pg_rows[1]['problem']){
+if(isset($pg_rows[1]) && $pg_rows[0]['problem']==$pg_rows[1]['problem']){
 	$tdclass='table-warning dup';
 	$alert1=1;
 }
