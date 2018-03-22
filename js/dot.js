@@ -446,7 +446,13 @@ if(expbtn) expbtn.addEventListener("click", xlsx);
 
 function xlsx(){
 	var t = document.getElementById('allprog');
-	var wb = XLSX.utils.table_to_book(t, {sheet:"进度月报"});
+	var tt = t.cloneNode(true);
+	var tr = tt.getElementsByClassName('d-none');
+	var l = tr.length;
+	for (var i=0; i < l; i++){
+		if (tr[0]) tr[0].remove();
+	}
+	var wb = XLSX.utils.table_to_book(tt, {sheet:"进度月报"});
 	//console.log(wb);
 	// var a = '我的';
 	// var b = ['工业类', '商贸类', '基建类', '乡村振兴类'];
