@@ -192,5 +192,9 @@ tbody th{
 .input-group-append.position-absolute{
 	right: 0;
 }
-.intro{
+td.intro{
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	max-width: 80px;
 }
