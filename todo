@@ -1,3 +1,11 @@
+omit(clip) long text in table td with ellipsis, mousecover shows 
+IE not support xhr type 'json'
+append upload ui to right place
+js limit size
+js limit type
+php limit size
+php limit type
+
 search on proj page is still global, need to be limited in type
 
 proj list page js need to be re-design
@@ -20,14 +28,5 @@ should I change investment,invest_mon,invest_plan,sum_year to int(11)?
 
 cron to 'update projects set alert=2'
 
-append upload ui to right place
-js limit size
-js limit type
-php limit size
-php limit type
-
-omit(clip) long text in table td with ellipsis, mousecover shows 
-
 create view in db
 
-IE not support xhr type 'json'
