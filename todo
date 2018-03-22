@@ -16,8 +16,6 @@ admin delete user?
 
 the lock alert shouldn't show out if this is not my proj
 
-每个单位可以生成自己的进度月报表
-
 should I change investment,invest_mon,invest_plan,sum_year to int(11)?
 
 cron to 'update projects set alert=2'
