@@ -13,7 +13,7 @@ $dayleft=$lockday - date('d');
 // handle form submission
 if($_POST && $dayleft > 0){
 	foreach($_POST as $k => $v){
-		if(!empty($_POST[$k] || $_POST[$k] == '0')){
+		if(!empty($_POST[$k] || $_POST[$k] == '0' || $k == 'actual_start' || $k == 'actual_finish')){
 			$cols .= "$k='$v',";
 		}
 	}
@@ -298,11 +298,11 @@ if (is_dir($imgdir)){
 					  <tr>
 						  <th scope="row">实际开工时间</th>
 						  <td>
-						  <input name="actual_start" placeholder="<?= $pg_rows[0]['actual_start'] ?>" type="text" class="form-control pickmonth <?= $class ?>" <?= $disabled ?>>
+						  <input name="actual_start" placeholder="<?= $pg_rows[0]['actual_start'] ?>" type="text" class="form-control pickmonth <?= $class ?>" <?= $disabled ?> value="<?= $pg_rows[0]['actual_start'] ?>">
 						  </td>
 						  <th scope="row">实际竣工时间</th>
 						  <td>
-							  <input name="actual_finish" placeholder="<?= $pg_rows[0]['actual_finish'] ?>" type="text" class="form-control pickmonth <?= $class ?>" <?= $disabled ?>>
+							  <input name="actual_finish" placeholder="<?= $pg_rows[0]['actual_finish'] ?>" type="text" class="form-control pickmonth <?= $class ?>" <?= $disabled ?> value="<?= $pg_rows[0]['actual_finish'] ?>">
 						  </td>
 						  <th scope="row">本月完成投资</th>
 						  <td>
