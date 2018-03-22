@@ -99,8 +99,8 @@ else {
 // remove col oid so it won't be output as a td;
 unset($row['oid']);
 ?>
-<?php foreach($row as $v): ?>
-						<td><?= $v ?></td>
+<?php foreach($row as $k => $v): ?>
+						<td <?php if ($k == 'intro') echo 'class="intro"' ?>><?= $v ?></td>
 <?php endforeach ?>
 					</tr>
 <?php endforeach ?>

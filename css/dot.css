@@ -168,7 +168,7 @@ tbody th{
 	left:0;
 	background-color: rgba(0, 0, 0, 0.3);
 }
-#index .intro{
+#index .card-text{
 	height: 70px;
 }
 #stat1 th{
@@ -191,4 +191,6 @@ tbody th{
 }
 .input-group-append.position-absolute{
 	right: 0;
+}
+.intro{
 }
