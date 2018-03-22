@@ -457,5 +457,16 @@ function xlsx(){
 	// var a = '我的';
 	// var b = ['工业类', '商贸类', '基建类', '乡村振兴类'];
 	// filename = a + b[i] + '进度月报' + date + '.xlsx';
-	XLSX.writeFile(wb, '进度月报.xlsx' ,{bookType: "xlsx"});
+	filename = '';
+	var b1 = document.getElementById('myproject');
+	if (b1.classList.contains('btn-primary')) {
+		filename = '我的';
+	}
+	var b2 = document.getElementById('type_btn');
+	if (b2.firstElementChild.classList.contains('count')) {
+		filename += b2.firstChild.textContent.replace(/ /g, '') + '类';
+	}
+	date = '';
+	filename += '进度月报' + date + '.xlsx' ;
+	XLSX.writeFile(wb, filename ,{bookType: "xlsx"});
 }
