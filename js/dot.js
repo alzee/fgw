@@ -466,7 +466,14 @@ function xlsx(){
 	if (b2.firstElementChild.classList.contains('count')) {
 		filename += b2.firstChild.textContent.replace(/ /g, '') + '类';
 	}
-	date = '';
-	filename += '进度月报' + date + '.xlsx' ;
+	var t = new Date();
+	var date = '';
+	date += t.getFullYear()
+		+ ('0' + (t.getMonth() + 1)).slice(-2)
+		+ ('0' + t.getDate()).slice(-2)
+		+ ('0' + t.getHours()).slice(-2)
+		+ ('0' + t.getMinutes()).slice(-2)
+		+ ('0' + t.getSeconds()).slice(-2);
+	filename += '进度月报_' + date + '.xlsx' ;
 	XLSX.writeFile(wb, filename ,{bookType: "xlsx"});
 }
