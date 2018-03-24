@@ -79,14 +79,14 @@ require 'xlsx1.php';
 
 	  <div class="row">
 		<div class="btn-group btn-group-sm col-12 col-sm-auto">
-			<a role="button" class="btn btn-danger text-white active" href="<?= "$root/$controller/$method/stat" ?>">统计汇总</a>
-		    <a role="button" class="btn btn-danger text-white" href="<?= "$root/$controller/$method/allprog" ?>">进度月报</a>
+			<a role="button" class="btn btn-info text-white active" href="<?= "$root/$controller/$method/stat" ?>">统计汇总</a>
+		    <a role="button" class="btn btn-info text-white" href="<?= "$root/$controller/$method/allprog" ?>">进度月报</a>
 		</div>
 		  <div class="col-auto align-self-center pr-0">
-			<span class="badge badge-warning">仅一类</span>
+			<span class="badge badge-info">仅一类</span>
 		  </div>
 		  <div class="col align-self-center">
-			<span class="badge badge-warning">单位：万元</span>
+			<span class="badge badge-info">单位：万元</span>
 		  </div>
 		<form method="post" actio="<?= "$root/dl" ?>">
 		  <div class="col-auto">

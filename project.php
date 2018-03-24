@@ -43,11 +43,11 @@ else{
 			  </div>
 <?php if($rid == 3): ?>
 			  <div class="col-auto col-sm-auto pr-0 mt-1 mt-sm-0">
-				  <a id="newproject" class="btn btn-sm btn-success" href="<?= $root ?>/newproject">新增项目</a>
+				  <a id="newproject" class="btn btn-sm btn-info" href="<?= $root ?>/newproject">新增项目</a>
 			  </div>
 <?php endif ?>
 			  <div class="col-auto col-sm-auto pr-0 mt-1 mt-sm-0">
-				  <a class="btn btn-sm btn-info text-white" href="<?= "$root/project/report" ?>">统计报表</a>
+				  <a class="btn btn-sm btn-info" href="<?= "$root/project/report" ?>">统计报表</a>
 			  </div>
 
 			  <div class="col-auto col-sm-auto pr-0 mt-1 mt-sm-0">

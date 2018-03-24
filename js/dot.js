@@ -290,7 +290,7 @@ if(myProj){
 // toggle my projects
 function toggleMy(){
 	this.classList.toggle('btn-outline-secondary');
-	this.classList.toggle('btn-primary');
+	this.classList.toggle('btn-dark');
 
 
 	// tr(s) that "data-oid" attribute NOT equal to myOid
@@ -300,7 +300,7 @@ function toggleMy(){
 
 	// search oid in every tr's data-oid
 	for(var i=0;i<tr.length;i++){
-		if(this.classList.contains('btn-primary')){
+		if(this.classList.contains('btn-dark')){
 			tr[i].classList.add('d-none');
 			tr[i].classList.remove('searchable');
 		}
@@ -459,7 +459,7 @@ function xlsx(){
 	// filename = a + b[i] + '进度月报' + date + '.xlsx';
 	filename = '';
 	var b1 = document.getElementById('myproject');
-	if (b1.classList.contains('btn-primary')) {
+	if (b1.classList.contains('btn-dark')) {
 		filename = '我的';
 	}
 	var b2 = document.getElementById('type_btn');
