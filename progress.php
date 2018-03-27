@@ -112,7 +112,7 @@ else{
 		 </div>
 <?php if($dayleft < $remind_days && $dayleft > 0): ?>
 		  <div class="alert alert-danger alert-dismissible fade show" role="alert">
-		  <strong>即将锁定！</strong> 请及时完善本月数据！每月<?= $lockday ?>日锁定，届时将无法再修改。
+		  <strong>即将锁定！</strong> 请及时完善本月数据！每月月底锁定，数据将无法再修改。
 			  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 				  <span aria-hidden="true">&times;</span>
 			  </button>
