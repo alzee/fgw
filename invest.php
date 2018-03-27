@@ -16,7 +16,7 @@
 			</aside>
 
 		  <main class="col-md mt-2">
-	<table class="table table-bordered">
+	<table class="table table-bordered table-responsive">
 		<thead>
 			<th colspan="10">
 				茅箭区2018年1-2月固定资产投资完成情况
@@ -53,7 +53,7 @@
 				<td>15.2</td>
 				<td>16.1</td>
 				<td>9.4</td>
-				<td>-</td>
+				<td>−</td>
 				<td>2500</td>
 				<td>136.4</td>
 			</tr>
@@ -61,13 +61,13 @@
 				<th scope="row" rowspan="3">施工项目个数</th>
 				<td>本月</td>
 				<td>2</td>
-				<td>-</td>
-				<td>-</td>
+				<td>−</td>
+				<td>−</td>
 				<td>1</td>
 				<td>1</td>
-				<td>-</td>
-				<td>-</td>
-				<td>-</td>
+				<td>−</td>
+				<td>−</td>
+				<td>−</td>
 			</tr>
 			<tr>
 				<td>累计</td>
