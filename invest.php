@@ -16,7 +16,7 @@
 			</aside>
 
 		  <main class="col-md mt-2">
-	<table class="table table-bordered table-responsive">
+	<table class="table table-bordered table-responsive-sm">
 		<thead>
 			<th colspan="10">
 				茅箭区2018年1-2月固定资产投资完成情况
