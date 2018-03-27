@@ -1,4 +1,4 @@
-	  <div class="container" id="">
+	  <div class="container" id="invest">
 		  <nav aria-label="breadcrumb" class="position-relative">
 				  <ol class="breadcrumb">
 				  <li class="breadcrumb-item"><a href="<?= "$root/home" ?>">首 页</a></li>
@@ -47,7 +47,7 @@
 				<td>3900</td>
 			</tr>
 			<tr>
-				<th scope="row">增幅%</th>
+				<td>增幅%</td>
 				<td>15.3</td>
 				<td>16</td>
 				<td>15.2</td>
