@@ -35,7 +35,7 @@ $uname=$_SESSION['uname'];
 					  <h5 class="card-title">固定资产投资</h5>
 					  <p class="card-text">默认显示前一次提交的数据，以供参考。内容与上月相同的单元格以黄色背景提醒。</p>
 				  </div>
-				  <div class="card-footer"><a class="btn btn-outline-light btn-block" href="">查看进展</a></div>
+				  <div class="card-footer"><a class="btn btn-outline-light btn-block" href="invest">查看进展</a></div>
 			  </div>
 		  </div>
 	  </div>
