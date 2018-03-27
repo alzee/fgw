@@ -198,3 +198,6 @@ td.intro{
 	overflow: hidden;
 	max-width: 80px;
 }
+#invest tbody th{
+	width: 5em;
+}
