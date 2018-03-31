@@ -9,9 +9,10 @@ $s_row=(new Db)->query($sql);
 $lockday=$s_row[0]['value'];
 $remind_days=$s_row[1]['value'];
 $dayleft=$lockday - date('d');
+$date = date('d');
 
 // handle form submission
-if($_POST && $dayleft > 0){
+if($_POST && $date >= 20){
 	foreach($_POST as $k => $v){
 		if(!empty($_POST[$k] || $_POST[$k] == '0' || $k == 'actual_start' || $k == 'actual_finish')){
 			$cols .= "$k='$v',";
@@ -76,7 +77,7 @@ $sql = "select * from progress where pid='$pid' order by date DESC LIMIT 2";
 $pg_rows=(new Db)->query($sql, 1);
 
 $oid=$_SESSION['oid'];
-if($oid == $pj_row['oid'] && $dayleft > 0 && $rid != 2){
+if($oid == $pj_row['oid'] && $date >= 20 && $rid != 2){
 	$disabled = '';
 	$readonly = '';
 	$class='writable';
@@ -110,7 +111,7 @@ else{
 		  <div class="alert alert-warning alert-dismissible fade show" role="alert">
 			  默认显示前一次提交的数据，以供参考。内容与上月相同的单元格以黄色背景提醒。
 		 </div>
-<?php if($dayleft < $remind_days && $dayleft > 0): ?>
+<?php if($dayleft < $remind_days && $date >= 20): ?>
 		  <div class="alert alert-danger alert-dismissible fade show" role="alert">
 		  <strong>即将锁定！</strong> 请及时完善本月数据！每月月底锁定，数据将无法再修改。
 			  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -353,7 +354,7 @@ if(isset($alert1)){
 <!-- data from table progress end-->
 				  </tbody>
 			  </table>
-<?php if($oid == $pj_row['oid'] && $dayleft > 0 && $rid !=2): ?>
+<?php if($oid == $pj_row['oid'] && $date >= 20 && $rid !=2): ?>
 			  <button type="submit" class="btn btn-success" name="submit">提 交</button>
 <?php endif ?>
 		  </form>
