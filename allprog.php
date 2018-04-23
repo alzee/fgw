@@ -40,10 +40,10 @@ $rows=(new Db)->query($sql);
 		  <div class="col-6 col-sm align-self-center">
 			<span class="badge badge-info">单位：万元</span>
 		  </div>
-<!--
+
 		  <div class="col-auto">
 			<div class="dropdown" id="dates_report">
-					  <button class="btn btn-info dropdown-toggle" type="button">
+					  <button class="btn btn-info btn-sm dropdown-toggle" type="button">
 						  <?= date('Y-m') ?>
 					  </button>
 					  <div class="dropdown-menu">
@@ -53,7 +53,7 @@ $rows=(new Db)->query($sql);
 					  </div>
 			</div>
 		  </div>
--->
+
 			  <div class="col-auto col-sm-auto pr-0 mt-1 mt-sm-0">
 				  <button id="myproject" type="button" class="btn btn-sm btn-outline-info" data-oid="<?= $oid ?>">
 					我的项目 <span class="badge badge-danger" id="count_my"></span>

@@ -88,6 +88,20 @@ require 'xlsx1.php';
 		  <div class="col align-self-center">
 			<span class="badge badge-info">单位：万元</span>
 		  </div>
+
+		  <div class="col-auto">
+			<div class="dropdown" id="dates_report">
+					  <button class="btn btn-info btn-sm dropdown-toggle" type="button">
+						  <?= date('Y-m') ?>
+					  </button>
+					  <div class="dropdown-menu">
+<?php for($i=date('n'); date('n') - $i < 12; $i--): ?>
+						<a class="dropdown-item <?php if(date('n') == $i) echo 'active' ?>" href="#"><?= date('Y-m', mktime(0,0,0,$i,1)) ?></a>
+<?php endfor ?>
+					  </div>
+			</div>
+		  </div>
+
 		<form method="post" actio="<?= "$root/dl" ?>">
 		  <div class="col-auto">
 <!--
