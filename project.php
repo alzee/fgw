@@ -5,10 +5,10 @@ $p_rows=(new Db)->query($sql);
 
 $oid=$_SESSION['oid'];
 if($rid == 3 || $rid == 2){
-	$myproj_btn = 'btn-outline-secondary';
+	$myproj_btn = 'btn-outline-info';
 }
 else{
-	$myproj_btn = 'btn-primary';
+	$myproj_btn = 'btn-info';
 }
 // $rid == 3 ? $myproj_btn = 'btn-outline-secondary' : $myproj_btn = 'btn-primary';
 ?>
@@ -57,7 +57,7 @@ else{
 			  </div>
 
 			<div class="col-auto pr-0 dropdown mt-1 mt-sm-0">
-			  <button class="btn btn-dark btn-sm dropdown-toggle" id="type_btn" type="button">所有类型 <span class="badge badge-danger count_all">0</span>
+			  <button class="btn btn-info btn-sm dropdown-toggle" id="type_btn" type="button">所有类型 <span class="badge badge-danger count_all">0</span>
 			  </button>
 			  <div class="dropdown-menu" id="type_menu">
 				<a class="dropdown-item active" href="#">所有类型 <span class="badge badge-danger count_all">0</span></a>

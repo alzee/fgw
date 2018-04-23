@@ -55,13 +55,13 @@ $rows=(new Db)->query($sql);
 		  </div>
 -->
 			  <div class="col-auto col-sm-auto pr-0 mt-1 mt-sm-0">
-				  <button id="myproject" type="button" class="btn btn-sm btn-outline-secondary" data-oid="<?= $oid ?>">
+				  <button id="myproject" type="button" class="btn btn-sm btn-outline-info" data-oid="<?= $oid ?>">
 					我的项目 <span class="badge badge-danger" id="count_my"></span>
 				  </button>
 			  </div>
 
 			<div class="col-auto pr-0 dropdown mt-1 mt-sm-0">
-			  <button class="btn btn-dark btn-sm dropdown-toggle" id="type_btn" type="button">所有类型 <span class="badge badge-danger count_all">0</span>
+			  <button class="btn btn-info btn-sm dropdown-toggle" id="type_btn" type="button">所有类型 <span class="badge badge-danger count_all">0</span>
 			  </button>
 			  <div class="dropdown-menu" id="type_menu">
 				<a class="dropdown-item active" href="#">所有类型 <span class="badge badge-danger count_all">0</span></a>
