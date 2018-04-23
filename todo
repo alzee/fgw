@@ -29,5 +29,3 @@ should I change investment,invest_mon,invest_plan,sum_year to int(11)?
 cron to 'update projects set alert=2'
 
 create view in db
-
-8,29 武当路街办
