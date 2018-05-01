@@ -64,7 +64,7 @@ unset($v);
 if(!file_exists('xls/t.xls')){
 }
 
-require 'xlsx1.php';
+//require 'xlsx1.php';
 ?>
 	  <div class="container" id="">
 		  <nav>
