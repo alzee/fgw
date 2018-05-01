@@ -31,3 +31,4 @@ cron to 'update projects set alert=2'
 create view in db
 
 alter table projects add notes varchar(50);
+update projects set notes="noyellow" where pid between 33 and 42 or pid between 53 and 55;
