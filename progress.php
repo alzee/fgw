@@ -71,6 +71,7 @@ if($_POST && $date >= 20){
 // prepare data
 $sql = "select j.*,o1.oname,o2.oname oname_serve from projects j left join (organization o1, organization o2) on (o1.oid=j.oid and o2.oid=j.oid_serve) where pid='$pid'";
 $pj_row=(new Db)->query($sql);
+// var_dump($pj_row);
 
 // we need data of last two months for rendering yellow td background purpose
 $sql = "select * from progress where pid='$pid' order by date DESC LIMIT 2";
@@ -316,7 +317,7 @@ if (is_dir($imgdir)){
 						  </td>
 					  </tr> 
 <?php
-if(isset($pg_rows[1]) && $pg_rows[0]['progress']==$pg_rows[1]['progress']){
+if(isset($pg_rows[1]) && $pg_rows[0]['progress'] == $pg_rows[1]['progress']){
 	$tdclass='table-warning dup';
 	$alert1=1;
 }
@@ -331,7 +332,7 @@ else{
 						  </td>
 					  </tr>
 <?php
-if(isset($pg_rows[1]) && $pg_rows[0]['problem']==$pg_rows[1]['problem']){
+if(isset($pg_rows[1]) && $pg_rows[0]['problem'] == $pg_rows[1]['problem']){
 	$tdclass='table-warning dup';
 	$alert1=1;
 }
