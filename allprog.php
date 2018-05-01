@@ -3,7 +3,12 @@ use App\Db;
 
 $oid = $_SESSION['oid'];
 // prepare data
-$month = date('Y-m');
+if (empty($pp)){
+	$month = date('Y-m');
+}
+else {
+	$month = $pp;
+}
 $prev_month = date('Y-m', strtotime('first day of last month'));
 
 $thead= ['项目编号','项目名称','建设性质','建设内容','总投资','今年计划投资','本月完成投资','今年累计完成投资','计划开工时间','计划竣工时间','包联领导','责任单位','服务单位','项目类型','建设阶段','本月进展','问题和建议'];
@@ -41,12 +46,12 @@ $rows=(new Db)->query($sql);
 
 		  <div class="col-auto">
 			<div class="dropdown" id="dates_report">
-					  <button class="btn btn-info btn-sm dropdown-toggle" type="button">
-						  <?= date('Y-m') ?>
+					  <button class="btn btn-info btn-sm dropdown-toggle dropdown-link" type="button">
+						  <?= $month ?>
 					  </button>
 					  <div class="dropdown-menu">
 <?php for($i=date('n'); date('n') - $i < 12; $i--): ?>
-						<a class="dropdown-item <?php if(date('n') == $i) echo 'active' ?>" href="#"><?= date('Y-m', mktime(0,0,0,$i,1)) ?></a>
+						<a class="dropdown-item <?php if(date('Y-m', mktime(0,0,0,$i,1)) == $month) echo 'active' ?>" href="<?= "$root/$controller/$method/allprog/" . date('Y-m', mktime(0,0,0,$i,1)) ?>"><?= date('Y-m', mktime(0,0,0,$i,1)) ?></a>
 <?php endfor ?>
 					  </div>
 			</div>

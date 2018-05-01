@@ -64,6 +64,11 @@ for(var i=0;i<dropdownbtn.length;i++){
 	//dropdownbtn[i].addEventListener("focusout", dropdown);
 	dropdownbtn[i].addEventListener("blur", dropdownHide);
 }
+var dropdownlink=document.getElementsByClassName('dropdown-link');
+for(var i=0;i<dropdownlink.length;i++){
+	dropdownlink[i].removeEventListener('blur', dropdownHide);
+}
+
 // toggle dropdown menu
 function dropdown(){
 	// add class show to .dropdown
