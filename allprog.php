@@ -46,7 +46,7 @@ $rows=(new Db)->query($sql);
 
 		  <div class="col-auto">
 			<div class="dropdown" id="dates_report">
-					  <button class="btn btn-info btn-sm dropdown-toggle dropdown-link" type="button">
+					  <button class="btn btn-info btn-sm dropdown-toggle dropdown-link" id="month" type="button">
 						  <?= $month ?>
 					  </button>
 					  <div class="dropdown-menu">
