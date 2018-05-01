@@ -61,8 +61,8 @@ unset($v);
 /*
  * generate xls files if they're not exist
  */
-if(!file_exists('xls/t.xls')){
-}
+// if(!file_exists('xls/t.xls')){
+// }
 
 //require 'xlsx1.php';
 ?>
