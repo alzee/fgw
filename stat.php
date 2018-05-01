@@ -57,14 +57,6 @@ foreach($tables[4][2] as &$v){
 	unset($v[0]);
 }
 unset($v);
-
-/*
- * generate xls files if they're not exist
- */
-// if(!file_exists('xls/t.xls')){
-// }
-
-//require 'xlsx1.php';
 ?>
 	  <div class="container" id="">
 		  <nav>

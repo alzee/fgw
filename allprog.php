@@ -16,8 +16,6 @@ $sql = "select j.pid,pname,property,intro,investment,invest_plan,g.invest_mon,in
 	left join 
 	(select * from progress where date like '$month%') g on j.pid=g.pid order by j.pid";
 $rows=(new Db)->query($sql);
-
-//require 'xlsx.php';
 ?>
 	  <div class="container">
 		  <nav>
