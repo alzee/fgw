@@ -1,9 +1,7 @@
 {
     "require": {
-        "phpoffice/phpspreadsheet": "^1.0",
         "twbs/bootstrap": "^3.3",
-        "fortawesome/font-awesome": "^4.7",
-        "symfony/validator": "^4.0"
+        "fortawesome/font-awesome": "^4.7"
     },
 	"autoload": {
 		"psr-4": {
