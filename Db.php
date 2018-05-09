@@ -9,13 +9,16 @@
 namespace App;
 
 class Db{
-	private $host="localhost";
+	private $host;
 	private $user="root";
-	private $pass="dot";
+	private $pass;
 	private $db="fgw";
 	private $mysqli;
 
 	function __construct(){
+		require '.env';
+		$this->host=$db;
+		$this->pass=$pw;
 		$this->mysqli=new \mysqli($this->host,$this->user, $this->pass, $this->db);
 		if($this->mysqli->connect_errno){
 			echo $this->mysqli->connect_errno. "\n";
