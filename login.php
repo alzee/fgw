@@ -9,7 +9,7 @@ if(!empty($_POST)){
 	$user_row = (new Db)->query($sql);
 	if($user_row){
 		// session 
-		session_id(session_create_id());
+		#session_id(session_create_id());
 		session_start(['name' => 'SID', 'cookie_lifetime' => $cookielife, 'cookie_path' => $root]);
 		// register to $_SESSION elements;
 		foreach($user_row as $k => $v){
