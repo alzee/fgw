@@ -109,6 +109,19 @@ else{
 			</aside>
 
 		  <main class="col-md mt-2">
+
+		<!-- tab -->
+			<nav>
+			  <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
+				<a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">项目实施情况</a>
+				<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">手续代办情况</a>
+				<a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">项目路线图</a>
+			  </div>
+			</nav>
+
+		<!-- tab 项目实施情况 -->
+		<div class="tab-content" id="nav-tabContent">
+		 <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
 		  <div class="alert alert-warning alert-dismissible fade show" role="alert">
 			  默认显示前一次提交的数据，以供参考。内容与上月相同的单元格以黄色背景提醒。
 		 </div>
@@ -359,7 +372,19 @@ if(isset($alert1)){
 			  <button type="submit" class="btn btn-success" name="submit">提 交</button>
 <?php endif ?>
 		  </form>
-		  </main>
+		</div>
+
+		<!-- tab 手续办理情况 -->
+		<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+		<p>fuck</p>
+		</div>
+
+		<!-- tab 项目路线图 -->
+		<div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+		</div>
+
+		</div>
+		</main>
 		</section>
 
 <!-- click and popup image start-->
