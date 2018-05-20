@@ -108,13 +108,13 @@ else{
 				</div>
 			</aside>
 
-		  <main class="col-md mt-2">
+		  <main class="col-md">
 
 		<!-- tab -->
 			<nav>
 			  <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
 				<a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">项目实施情况</a>
-				<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">手续代办情况</a>
+				<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">手续办理情况</a>
 				<a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">项目路线图</a>
 			  </div>
 			</nav>
@@ -376,11 +376,12 @@ if(isset($alert1)){
 
 		<!-- tab 手续办理情况 -->
 		<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-		<p>fuck</p>
+<?php require('a.php') ?>
 		</div>
 
 		<!-- tab 项目路线图 -->
 		<div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+<?php require('b.php') ?>
 		</div>
 
 		</div>
