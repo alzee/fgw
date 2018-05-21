@@ -1,23 +1,23 @@
-drop table `proc`;
+drop table `procedure`;
 
-create table `proc` (
+create table `procedure` (
 	`id` int(11) NOT NULL AUTO_INCREMENT,
 	`level` int(11) NOT NULL,
 	`parent` varchar(10) NOT NULL,
-	`code` varchar(10) NOT NULL,
-	`code1` varchar(20) NOT NULL,
+	`num` int(11) NOT NULL,
+	`code` varchar(20) NOT NULL,
 	`name` varchar(100) NOT NULL,
 	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
-insert into `proc` (`level`, `parent`, `code`, `code1`, `name`) values
-('1','0','a','a','立项环节'),
-('1','0','b','b','征地报批环节'),
-('1','0','c','c','划拨出让阶段'),
-('1','0','d','d','报建环节'),
-('1','0','e','e','施工许可环节'),
-('1','0','f','f','竣工验收环节'),
-('1','0','g','g','办证环节'),
+insert into `procedure` (`level`, `parent`, `num`, `code`, `name`) values
+('1','a','0','a','立项环节'),
+('1','b','0','b','征地报批环节'),
+('1','c','0','c','划拨出让阶段'),
+('1','d','0','d','报建环节'),
+('1','e','0','e','施工许可环节'),
+('1','f','0','f','竣工验收环节'),
+('1','g','0','g','办证环节'),
 ('2','a','1','a-1', '企业投资项目备案'),
 ('2','a','2','a-2', '建设项目选址意见书 [商贸（安置区）]'),
 ('2','a','3','a-3', '建设项目用地预审'),
