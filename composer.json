@@ -1,7 +1,7 @@
 {
     "require": {
-        "twbs/bootstrap": "^3.3",
-        "fortawesome/font-awesome": "^4.7"
+        "fortawesome/font-awesome": "^4.7",
+        "twbs/bootstrap": "^4.1"
     },
 	"autoload": {
 		"psr-4": {
