@@ -483,3 +483,20 @@ function xlsx(){
 	filename += '进度月报_' + date + '.xlsx' ;
 	XLSX.writeFile(wb, filename ,{bookType: "xlsx"});
 }
+
+// addEvnetListener to #nav-tab .nav-item
+var navitems = document.getElementsByClassName('nav-item');
+if(navitems) {
+	for (var i=0;i<navitems.length; i++) navitems[i].addEventListener("click", shownavitem);
+}
+
+function shownavitem(){
+	//console.log('fuck');
+	//active tab;
+	for (var i=0;i<navitems.length; i++) navitems[i].classList.remove('active');
+	this.classList.add('active');
+	//console.log(this.id.replace('-tab', ''));
+	
+	//active tab content
+	//var tabcon = document.getElementById(this.id.replace('-tab', ''));
+}

@@ -375,12 +375,12 @@ if(isset($alert1)){
 		</div>
 
 		<!-- tab 手续办理情况 -->
-		<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+		<div class="tab-pane fade show" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
 <?php include('proc.php') ?>
 		</div>
 
 		<!-- tab 项目路线图 -->
-		<div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+		<div class="tab-pane fade show" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
 <?php include('path.php') ?>
 		</div>
 
