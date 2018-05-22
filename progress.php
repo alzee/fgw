@@ -380,6 +380,9 @@ if(isset($alert1)){
 // why can't put next 2 lines into proc.php?
 $sql = "select parent,num,code,name from `procedure`";
 $allprocs = (new Db)->query($sql);
+
+$sql = "select * from pproc where pid=$pid";
+$proc = (new Db)->query($sql);
 include('procedure.php');
 ?>
 		</div>
