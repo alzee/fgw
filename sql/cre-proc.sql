@@ -1,4 +1,4 @@
-drop table `procedure`;
+drop table IF EXISTS `procedure`;
 
 create table `procedure` (
 	`id` int(11) NOT NULL AUTO_INCREMENT,
