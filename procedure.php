@@ -51,10 +51,11 @@ $check1='';
 $check0='';
 
 // if i'm not o_serve, disable all radios
-if (0) {
+if ($oid != $pj_row['oid_serve']) {
 	$dis = 'disabled';
 }
 else $dis = '';
+
 switch ($proc[$v['code']]){
 case NULL:
 	break;
