@@ -1,6 +1,8 @@
 <?php
-// $sql = "select code,name from proc where parent='0'";
-// $r = (new Db)->query($sql);
+use App\Db;
+
+$sql = "select parent,num,code,name from `procedure`";
+$allprocs = (new Db)->query($sql);
 
 $son = $allprocs;
 // $pra = $allprocs;
@@ -21,8 +23,8 @@ foreach ($allprocs as $k => $v){
 
 
 // prepare data
-// $sql = "select * from pproc";
-// $haha = (new Db)->query($sql);
+$sql = "select * from pproc where pid=$pid";
+$proc = (new Db)->query($sql);
 // var_dump($proc);
 ?>
 
