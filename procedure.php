@@ -28,7 +28,7 @@ $proc = (new Db)->query($sql);
 // var_dump($proc);
 ?>
 
-<table class="table table-bordered">
+<table class="table table-bordered table-responsive-sm">
 	<tbody>
 <?php foreach ($son as $v): ?>
 		<tr>
