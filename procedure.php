@@ -49,6 +49,12 @@ $check3='';
 $check2='';
 $check1='';
 $check0='';
+
+// if i'm not o_serve, disable all radios
+if (0) {
+	$dis = 'disabled';
+}
+else $dis = '';
 switch ($proc[$v['code']]){
 case NULL:
 	break;
@@ -67,19 +73,19 @@ case 0:
 }
 ?>
 				<div class="custom-control custom-radio custom-control-inline procradio">
-					<input type="radio" id="<?= $v['code'] . '-3' ?>" name="<?= $v['code'] ?>" class="custom-control-input" <?= $check3 ?>>
+					<input type="radio" id="<?= $v['code'] . '-3' ?>" name="<?= $v['code'] ?>" class="custom-control-input" <?= $check3 . ' ' . $dis ?>>
 					<label class="custom-control-label" for="<?= $v['code'] . '-3' ?>">已办结</label>
 				</div>
 				<div class="custom-control custom-radio custom-control-inline procradio">
-					<input type="radio" id="<?= $v['code'] . '-2' ?>" name="<?= $v['code'] ?>" class="custom-control-input" <?= $check2 ?>>
+					<input type="radio" id="<?= $v['code'] . '-2' ?>" name="<?= $v['code'] ?>" class="custom-control-input" <?= $check2 . ' ' . $dis ?>>
 					<label class="custom-control-label" for="<?= $v['code'] . '-2' ?>">办理中</label>
 				</div>
 				<div class="custom-control custom-radio custom-control-inline procradio">
-					<input type="radio" id="<?= $v['code'] . '-1' ?>" name="<?= $v['code'] ?>" class="custom-control-input" <?= $check1 ?>>
+					<input type="radio" id="<?= $v['code'] . '-1' ?>" name="<?= $v['code'] ?>" class="custom-control-input" <?= $check1 . ' ' . $dis ?>>
 					<label class="custom-control-label" for="<?= $v['code'] . '-1' ?>">未办理</label>
 				</div>
 				<div class="custom-control custom-radio custom-control-inline procradio">
-					<input type="radio" id="<?= $v['code'] . '-0' ?>" name="<?= $v['code'] ?>" class="custom-control-input" <?= $check0 ?>>
+					<input type="radio" id="<?= $v['code'] . '-0' ?>" name="<?= $v['code'] ?>" class="custom-control-input" <?= $check0 . ' ' . $dis ?>>
 					<label class="custom-control-label" for="<?= $v['code'] . '-0' ?>">无办理项</label>
 				</div>
 			</td>
