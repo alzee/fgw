@@ -143,7 +143,7 @@ function toggleWritable(){
 	// ajax data of selected month
 	var xhr =new XMLHttpRequest();
 	xhr.onreadystatechange = updateform;
-	xhr.open('POST', '/fgw/ajax.php');
+	xhr.open('POST', '/fgw/ajax/getform.php');
 	xhr.responseType='json';
 	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 	xhr.send("month=" + this.innerText + "&pid=" + document.getElementById('pid').placeholder);
@@ -499,4 +499,24 @@ function shownavitem(){
 	
 	//active tab content
 	//var tabcon = document.getElementById(this.id.replace('-tab', ''));
+}
+
+
+// addEvnetListener to .procradio
+var radioProc = document.getElementsByClassName('procradio');
+if(radioProc) {
+	for (var i=0;i<radioProc.length; i++) radioProc[i].addEventListener("click", updateProc);
+}
+
+function updateProc(){
+	// var pid;
+	var code = this.firstElementChild.getAttribute('name');
+	var v = this.firstElementChild.id.replace(code + '-', '');
+	var xhr = new XMLHttpRequest();
+	// xhr.onreadystatechange = updateform;
+	xhr.open('POST', '/fgw/ajax/updateproc.php');
+	xhr.responseType='json';
+	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	xhr.send("v=" + v + "&code=" + code + "&pid=" + document.getElementById('pid').placeholder);
+	// console.log("v=" + v + "&code=" + code + "&pid=" + document.getElementById('pid').placeholder);
 }

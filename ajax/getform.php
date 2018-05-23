@@ -6,7 +6,7 @@
  * @todo
  */
 
-require 'Db.php';
+require '../Db.php';
 
 $month=$_POST['month'];
 $pid=$_POST['pid'];

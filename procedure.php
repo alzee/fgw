@@ -66,19 +66,19 @@ case 0:
 	break;
 }
 ?>
-				<div class="custom-control custom-radio custom-control-inline">
+				<div class="custom-control custom-radio custom-control-inline procradio">
 					<input type="radio" id="<?= $v['code'] . '-3' ?>" name="<?= $v['code'] ?>" class="custom-control-input" <?= $check3 ?>>
 					<label class="custom-control-label" for="<?= $v['code'] . '-3' ?>">已办结</label>
 				</div>
-				<div class="custom-control custom-radio custom-control-inline">
+				<div class="custom-control custom-radio custom-control-inline procradio">
 					<input type="radio" id="<?= $v['code'] . '-2' ?>" name="<?= $v['code'] ?>" class="custom-control-input" <?= $check2 ?>>
 					<label class="custom-control-label" for="<?= $v['code'] . '-2' ?>">办理中</label>
 				</div>
-				<div class="custom-control custom-radio custom-control-inline">
+				<div class="custom-control custom-radio custom-control-inline procradio">
 					<input type="radio" id="<?= $v['code'] . '-1' ?>" name="<?= $v['code'] ?>" class="custom-control-input" <?= $check1 ?>>
 					<label class="custom-control-label" for="<?= $v['code'] . '-1' ?>">未办理</label>
 				</div>
-				<div class="custom-control custom-radio custom-control-inline">
+				<div class="custom-control custom-radio custom-control-inline procradio">
 					<input type="radio" id="<?= $v['code'] . '-0' ?>" name="<?= $v['code'] ?>" class="custom-control-input" <?= $check0 ?>>
 					<label class="custom-control-label" for="<?= $v['code'] . '-0' ?>">无办理项</label>
 				</div>
