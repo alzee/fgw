@@ -81,7 +81,7 @@ $rows=(new Db)->query($sql);
 		  </div>
 		  </div>
 		  <main class="mt-2" id="stat">
-			<table class="table table-responsive table-sm table-striped table-bordered" id="allprog">
+			<table class="table table-responsive table-sm table-striped table-bordered" id="report_table">
 				<thead class="thead-light">
 					<tr>
 <?php foreach($thead as $v): ?>

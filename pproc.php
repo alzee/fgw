@@ -3,8 +3,6 @@ use App\Db;
 
 $oid = $_SESSION['oid'];
 // prepare data
-$sql = "select name from `procedure` where level=2";
-$procedures = (new Db)->query($sql);
 
 $sql = "select parent,num,code,name from `procedure`";
 $allprocs = (new Db)->query($sql);
@@ -26,6 +24,13 @@ foreach ($allprocs as $k => $v){
 // var_dump($son);
 // var_dump($allprocs);
 // var_dump($pra);
+
+// prepare data
+$sql = "select pproc.*, pname from pproc join projects on pproc.pid=projects.pid";
+$proc = (new Db)->query($sql);
+// var_dump($proc);
+
+$desc = ['无办理项', '未办理', '办理中', '已办结'];
 ?>
 	  <div class="container">
 		  <nav>
@@ -52,24 +57,10 @@ foreach ($allprocs as $k => $v){
 		  </div>
 		  </div>
 		  <main class="mt-2" id="stat">
-<!--
-			<table class="table table-responsive table-sm table-striped table-bordered">
-				<thead class="thead-light">
-					<tr>
-						<th scope="col">项目编号</th>
-						<th scope="col">项目名称</th>
-<?php foreach($procedures as $v): ?>
-						<th scope="col"><?= $v['name'] ?></th>
-<?php endforeach ?>
-					</tr>
-				</thead>
-				<tbody>
-				</tbody>
-			</table>
--->
 
-		<table class="table table-bordered table-responsive">
+		<table class="table table-bordered table-responsive" id="report_table">
 			<tbody>
+<!-- -->
 				<tr>
 						<th scope="col" rowspan="2">项目编号</th>
 						<th scope="col" rowspan="2">项目名称</th>
@@ -77,11 +68,26 @@ foreach ($allprocs as $k => $v){
 		<th scope="col" colspan="<?= $itemc ?>"><?= $v['name'] ?></th>
 		<?php endforeach ?>
 				</tr>
+
+<!-- -->
 				<tr>
 		<?php foreach ($son as $v): ?>
 		<th scope="col"><?= $v['name'] ?></th>
 		<?php endforeach ?>
 				</tr>
+
+<!-- -->
+<?php foreach ($proc as $v): ?>
+				<tr>
+<td><?= $v['pid'] ?></td>
+<td><?= $v['pname'] ?></td>
+<?php array_shift($v) ?>
+<?php array_pop($v) ?>
+<?php foreach ($v as $vv): ?>
+<td><?= $desc[$vv] ?></td>
+<?php endforeach ?>
+				</tr>
+<?php endforeach ?>
 			</tbody>
 		</table>
 

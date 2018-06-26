@@ -450,7 +450,7 @@ var expbtn = document.getElementById('exportbtn');
 if(expbtn) expbtn.addEventListener("click", xlsx);
 
 function xlsx(){
-	var t = document.getElementById('allprog');
+	var t = document.getElementById('report_table');
 	var tt = t.cloneNode(true);
 	var tr = tt.getElementsByClassName('d-none');
 	var l = tr.length;
