@@ -44,7 +44,7 @@ $desc = ['无办理项', '未办理', '办理中', '已办结'];
 		  </nav>
 
 		  <div class="row">
-		  <div class="btn-group btn-group-sm col-6 col-sm-auto">
+		  <div class="btn-group btn-group-sm col-6 col-sm-auto" id="reportbtn">
 <?php if($rid ==3): ?>
 			<a role="button" class="btn btn-info text-white" href="<?= "$root/$controller/$method/stat" ?>">统计汇总</a>
 <?php endif ?>

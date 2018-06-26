@@ -34,13 +34,14 @@ $rows=(new Db)->query($sql);
 		  </nav>
 
 		  <div class="row">
-		  <div class="btn-group btn-group-sm col-6 col-sm-auto">
+		  <div class="btn-group btn-group-sm col-6 col-sm-auto" id="reportbtn">
 <?php if($rid ==3): ?>
 			<a role="button" class="btn btn-info text-white" href="<?= "$root/$controller/$method/stat" ?>">统计汇总</a>
 <?php endif ?>
 		    <a role="button" class="btn btn-info text-white active" href="<?= "$root/$controller/$method/allprog" ?>">进度月报</a>
 		    <a role="button" class="btn btn-info text-white" href="<?= "$root/$controller/$method/pproc" ?>">手续代办</a>
 		  </div>
+
 		  <div class="col-6 col-sm align-self-center">
 			<span class="badge badge-info">单位：万元</span>
 		  </div>

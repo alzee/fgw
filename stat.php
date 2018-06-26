@@ -58,7 +58,7 @@ foreach($tables[4][2] as &$v){
 }
 unset($v);
 ?>
-	  <div class="container" id="">
+	  <div class="container">
 		  <nav>
 			  <div>
 				  <ol class="breadcrumb">
@@ -70,10 +70,12 @@ unset($v);
 		  </nav>
 
 	  <div class="row">
-		<div class="btn-group btn-group-sm col-12 col-sm-auto">
+		<div class="btn-group btn-group-sm col-12 col-sm-auto" id="reportbtn">
 			<a role="button" class="btn btn-info text-white active" href="<?= "$root/$controller/$method/stat" ?>">统计汇总</a>
 		    <a role="button" class="btn btn-info text-white" href="<?= "$root/$controller/$method/allprog" ?>">进度月报</a>
+		    <a role="button" class="btn btn-info text-white" href="<?= "$root/$controller/$method/pproc" ?>">手续代办</a>
 		</div>
+
 		  <div class="col-auto align-self-center pr-0">
 			<span class="badge badge-info">仅一类</span>
 		  </div>

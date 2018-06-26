@@ -452,35 +452,46 @@ if(expbtn) expbtn.addEventListener("click", xlsx);
 function xlsx(){
 	var t = document.getElementById('report_table');
 	var tt = t.cloneNode(true);
-	var tr = tt.getElementsByClassName('d-none');
-	var l = tr.length;
-	for (var i=0; i < l; i++){
-		if (tr[0]) tr[0].remove();
+	var btn = document.getElementById('reportbtn');
+	var a = btn.getElementsByClassName('active');
+	var sheetname = a[0].innerText;
+	
+	if (sheetname == '进度月报') {
+		var tr = tt.getElementsByClassName('d-none');
+		var l = tr.length;
+		for (var i=0; i < l; i++){
+			if (tr[0]) tr[0].remove();
+		}
+
+		var month = document.getElementById('month').innerText.trim();
+		filename = month;
+		var b1 = document.getElementById('myproject');
+		if (b1.classList.contains('btn-info')) {
+			filename += '我的';
+		}
+		var b2 = document.getElementById('type_btn');
+		if (b2.firstElementChild.classList.contains('count')) {
+			filename += b2.firstChild.textContent.replace(/ /g, '') + '类';
+		}
+		var t = new Date();
+		var date = '';
+		date += t.getFullYear()
+			+ ('0' + (t.getMonth() + 1)).slice(-2)
+			+ ('0' + t.getDate()).slice(-2)
+			+ ('0' + t.getHours()).slice(-2)
+			+ ('0' + t.getMinutes()).slice(-2)
+			+ ('0' + t.getSeconds()).slice(-2);
+		filename += '进度月报_' + date + '.xlsx' ;
 	}
-	var wb = XLSX.utils.table_to_book(tt, {sheet:"进度月报"});
+	else {
+		filename = sheetname + '.xlsx' ;
+	}
+	
+	var wb = XLSX.utils.table_to_book(tt, {sheet: sheetname});
 	//console.log(wb);
 	// var a = '我的';
 	// var b = ['工业类', '商贸类', '基建类', '乡村振兴类'];
 	// filename = a + b[i] + '进度月报' + date + '.xlsx';
-	var month = document.getElementById('month').innerText.trim();
-	filename = month;
-	var b1 = document.getElementById('myproject');
-	if (b1.classList.contains('btn-info')) {
-		filename += '我的';
-	}
-	var b2 = document.getElementById('type_btn');
-	if (b2.firstElementChild.classList.contains('count')) {
-		filename += b2.firstChild.textContent.replace(/ /g, '') + '类';
-	}
-	var t = new Date();
-	var date = '';
-	date += t.getFullYear()
-		+ ('0' + (t.getMonth() + 1)).slice(-2)
-		+ ('0' + t.getDate()).slice(-2)
-		+ ('0' + t.getHours()).slice(-2)
-		+ ('0' + t.getMinutes()).slice(-2)
-		+ ('0' + t.getSeconds()).slice(-2);
-	filename += '进度月报_' + date + '.xlsx' ;
 	XLSX.writeFile(wb, filename ,{bookType: "xlsx"});
 }
 
