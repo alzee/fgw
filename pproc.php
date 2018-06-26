@@ -52,6 +52,9 @@ $desc = ['无办理项', '未办理', '办理中', '已办结'];
 		    <a role="button" class="btn btn-info text-white active" href="<?= "$root/$controller/$method/pproc" ?>">手续代办</a>
 		  </div>
 
+		  <div class="col mt-1 mt-sm-0">
+		  </div>
+
 		  <div class="col-auto mt-1 mt-sm-0">
 			<button class="btn btn-sm btn-info" id="exportbtn">导出报表</button>
 		  </div>
