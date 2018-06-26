@@ -47,23 +47,23 @@ require $inc . 'report_header.php';
 
 		<table class="table table-bordered table-responsive" id="report_table">
 			<tbody>
-<!-- -->
+<!-- thead row 1 -->
 				<tr>
 						<th scope="col" rowspan="2">项目编号</th>
 						<th scope="col" rowspan="2">项目名称</th>
 		<?php foreach ($pra as $v): ?>
-		<th scope="col" colspan="<?= $itemc ?>"><?= $v['name'] ?></th>
+		<th scope="col" colspan="<?= count($v['son']) ?>"><?= $v['name'] ?></th>
 		<?php endforeach ?>
 				</tr>
 
-<!-- -->
+<!-- thead row 2 -->
 				<tr>
 		<?php foreach ($son as $v): ?>
 		<th scope="col"><?= $v['name'] ?></th>
 		<?php endforeach ?>
 				</tr>
 
-<!-- -->
+<!-- td -->
 <?php foreach ($proc as $v): ?>
 				<tr>
 <td><?= $v['pid'] ?></td>
