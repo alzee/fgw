@@ -34,6 +34,8 @@ $procedures = (new Db)->query($sql);
 			<table class="table table-responsive table-sm table-striped table-bordered">
 				<thead class="thead-light">
 					<tr>
+						<th scope="col">#</th>
+						<th scope="col">项目名称</th>
 <?php foreach($procedures as $v): ?>
 						<th scope="col"><?= $v['name'] ?></th>
 <?php endforeach ?>
