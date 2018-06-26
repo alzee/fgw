@@ -57,24 +57,10 @@ foreach($tables[4][2] as &$v){
 	unset($v[0]);
 }
 unset($v);
-?>
-	  <div class="container">
-		  <nav>
-			  <div>
-				  <ol class="breadcrumb">
-				  <li class="breadcrumb-item"><a href="<?= "$root/home" ?>">首 页</a></li>
-				  <li class="breadcrumb-item"><a href="<?= "$root/project" ?>">重点项目</a></li>
-				  <li class="breadcrumb-item active">统计报表</li>
-				  </ol>
-			  </div>
-		  </nav>
 
-	  <div class="row">
-		<div class="btn-group btn-group-sm col-12 col-sm-auto" id="reportbtn">
-			<a role="button" class="btn btn-info text-white active" href="<?= "$root/$controller/$method/stat" ?>">统计汇总</a>
-		    <a role="button" class="btn btn-info text-white" href="<?= "$root/$controller/$method/allprog" ?>">进度月报</a>
-		    <a role="button" class="btn btn-info text-white" href="<?= "$root/$controller/$method/pproc" ?>">手续代办</a>
-		</div>
+$a_stat = 'active';
+require $inc . 'report_header.php';
+?>
 
 		  <div class="col-auto align-self-center pr-0">
 			<span class="badge badge-info">仅一类</span>

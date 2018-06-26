@@ -21,27 +21,10 @@ $sql = "select j.pid,pname,property,intro,investment,invest_plan,g.invest_mon,in
 	left join 
 	(select * from progress where date like '$month%') g on j.pid=g.pid order by j.pid";
 $rows=(new Db)->query($sql);
+
+$a_allp = 'active';
+require $inc . 'report_header.php';
 ?>
-	  <div class="container">
-		  <nav>
-			  <div>
-				  <ol class="breadcrumb">
-				  <li class="breadcrumb-item"><a href="<?= "$root/home" ?>">首 页</a></li>
-				  <li class="breadcrumb-item"><a href="<?= "$root/project" ?>">重点项目</a></li>
-				  <li class="breadcrumb-item active">统计报表</li>
-				  </ol>
-			  </div>
-		  </nav>
-
-		  <div class="row">
-		  <div class="btn-group btn-group-sm col-6 col-sm-auto" id="reportbtn">
-<?php if($rid ==3): ?>
-			<a role="button" class="btn btn-info text-white" href="<?= "$root/$controller/$method/stat" ?>">统计汇总</a>
-<?php endif ?>
-		    <a role="button" class="btn btn-info text-white active" href="<?= "$root/$controller/$method/allprog" ?>">进度月报</a>
-		    <a role="button" class="btn btn-info text-white" href="<?= "$root/$controller/$method/pproc" ?>">手续代办</a>
-		  </div>
-
 		  <div class="col-6 col-sm align-self-center">
 			<span class="badge badge-info">单位：万元</span>
 		  </div>
