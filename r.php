@@ -6,13 +6,15 @@ use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Reader\Xls;
 use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 
-$type='Xls';
+$type='Xlsx';
 //$inputFileName = __DIR__ . '/fgw.xls';
+$file = 'path.xlsx';
 $inputFileName = $file;
-$sheetname='工业 ';
-$sheetname='商贸';
-$sheetname='基建';
-$sheetname='美丽乡村';
+//$sheetname='工业 ';
+//$sheetname='商贸';
+//$sheetname='基建';
+//$sheetname='美丽乡村';
+$sheetname = 'path';
 
 $reader = IOFactory::createReader($type);
 $reader->setLoadSheetsOnly($sheetname);
@@ -22,7 +24,11 @@ $sheetData = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
 //echo $spreadsheet->getSheetCount();
 $loadedSheetNames = $spreadsheet->getSheetNames();
 //var_dump($loadedSheetNames);
-//var_dump($sheetData);
+var_dump($sheetData);
+
+exit;
+
+echo 'fuck';
 
 // database;
 $mysqli=new mysqli('localhost','root','dot','fgw');
