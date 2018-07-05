@@ -25,11 +25,8 @@ $sheetData = $spreadsheet->getActiveSheet()->rangeToArray('A3:K102', null, true,
 //echo $spreadsheet->getSheetCount();
 $loadedSheetNames = $spreadsheet->getSheetNames();
 // var_dump($loadedSheetNames);
-var_dump($sheetData);
+// var_dump($sheetData);
 
-exit;
-
-echo 'fuck';
 
 // database;
 $mysqli=new mysqli('localhost','root','dot','fgw');
@@ -39,27 +36,22 @@ $mysqli=new mysqli('localhost','root','dot','fgw');
 $mysqli->set_charset('utf8');
 //echo $mysqli->character_set_name();
 
-for($i=5;$i<=21;$i++){
-	//echo $sheetData[$i]['D'];
-	$sql="insert into projects (pid,pname,property,intro,investment,invest_plan,start,finish,investby,p_incharge,oid,oid_serve) values(
-		'" .  trim($sheetData[$i]['A']) ."',
-		'" .  trim($sheetData[$i]['B']) ."',
-		'" .  trim($sheetData[$i]['C']) ."',
-		'" .  trim($sheetData[$i]['D']) ."',
-		'" .  trim($sheetData[$i]['E']) ."',
-		'" .  trim($sheetData[$i]['F']) ."',
-		'" .  trim($sheetData[$i]['G']) ."',
-		'" .  trim($sheetData[$i]['H']) ."',
-		'" .  trim($sheetData[$i]['I']) ."',
-		'" .  trim($sheetData[$i]['K']) ."',
-		(select oid from organization where oname='" . trim($sheetData[$i]['J']) . "'),
-		(select oid from organization where oname='" . trim($sheetData[$i]['L']) . "'))";
-
-	//echo $sql;
-
+foreach ($sheetData as $k=>$v){
+	$sql="insert into path values(
+		'" .  trim($sheetData[$k]['A']) ."',
+		'" .  trim($sheetData[$k]['B']) ."',
+		'" .  trim($sheetData[$k]['C']) ."',
+		'" .  trim($sheetData[$k]['D']) ."',
+		'" .  trim($sheetData[$k]['E']) ."',
+		'" .  trim($sheetData[$k]['F']) ."',
+		'" .  trim($sheetData[$k]['G']) ."',
+		'" .  trim($sheetData[$k]['H']) ."',
+		'" .  trim($sheetData[$k]['I']) ."',
+		'" .  trim($sheetData[$k]['J']) ."',
+		'" .  trim($sheetData[$k]['K']) ."')";
+	echo $sql;
 	if(! $mysqli->query($sql)){
 		echo $mysqli->errno;
 		echo $mysqli->error;
 	};
 }
-//
