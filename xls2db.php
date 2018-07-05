@@ -20,10 +20,11 @@ $reader = IOFactory::createReader($type);
 $reader->setLoadSheetsOnly($sheetname);
 $spreadsheet = $reader->load($inputFileName);
 
-$sheetData = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
+//$sheetData = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
+$sheetData = $spreadsheet->getActiveSheet()->rangeToArray('A3:K102', null, true, true, true);
 //echo $spreadsheet->getSheetCount();
 $loadedSheetNames = $spreadsheet->getSheetNames();
-//var_dump($loadedSheetNames);
+// var_dump($loadedSheetNames);
 var_dump($sheetData);
 
 exit;
