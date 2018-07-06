@@ -70,6 +70,7 @@ require $inc . 'report_header.php';
 		  </div>
 
 		  <div class="col-auto">
+<!--
 			<div class="dropdown" id="dates_report">
 					  <button class="btn btn-info btn-sm dropdown-toggle" type="button">
 						  <?= date('Y-m') ?>
@@ -80,20 +81,19 @@ require $inc . 'report_header.php';
 <?php endfor ?>
 					  </div>
 			</div>
+-->
 		  </div>
 
-		<form method="post" actio="<?= "$root/dl" ?>">
 		  <div class="col-auto">
 <!--
 		    <button type="sumbit" class="btn btn-info" name="submit" value="1">导出报表</button>
 -->
-			<a class="btn btn-sm btn-info" href="<?= "$root/xlsx/统计汇总.xlsx" ?>">导出报表</a>
+			<button class="btn btn-sm btn-info" id="exportbtn">导出报表</button>
 		  </div>
-		</form>
 	  </div>
 		  <main class="mt-2" id="stat1">
 <?php foreach($tables as $table): ?>
-			<table class="table table-sm table-striped table-bordered">
+			<table class="table table-sm table-striped table-bordered" id="report_table">
 				<thead class="thead-light">
 					<tr>
 <?php $thead[0] = $table[1]; foreach($thead as $v): ?>
@@ -130,3 +130,4 @@ require $inc . 'report_header.php';
 
 		  </main>
 		</div>
+		<script src="<?= $root ?>/js/xlsx.full.min.js"></script>
