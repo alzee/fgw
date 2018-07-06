@@ -451,10 +451,9 @@ if(expbtn) expbtn.addEventListener("click", tbl2xlsx);
 
 function tbl2xlsx(){
 	var tbl = document.getElementById('report_table');
-	var sheetname= document.getElementById('reportbtn').getElementsByClassName('active')[0].innerText;
-	var filename = sheetname + '.xlsx' ;
+	var filename= document.getElementById('reportbtn').getElementsByClassName('active')[0].innerText;
 	
-	if (sheetname == '进度月报') {
+	if (filename == '进度月报') {
 		tbl = tbl.cloneNode(true);
 		var tr = tbl.getElementsByClassName('d-none');
 		var l = tr.length;
@@ -472,24 +471,16 @@ function tbl2xlsx(){
 		if (b2.firstElementChild.classList.contains('count')) {
 			filename += b2.firstChild.textContent.replace(/ /g, '') + '类';
 		}
-		var t = new Date();
-		var date = '';
-		date += t.getFullYear()
-			+ ('0' + (t.getMonth() + 1)).slice(-2)
-			+ ('0' + t.getDate()).slice(-2)
-			+ ('0' + t.getHours()).slice(-2)
-			+ ('0' + t.getMinutes()).slice(-2)
-			+ ('0' + t.getSeconds()).slice(-2);
-		filename += '进度月报_' + date + '.xlsx' ;
+		filename += '进度月报';
 	}
 	
 	// write workbook
 	//var wb = XLSX.utils.table_to_book(tbl, {sheet: sheetname});
-	wb = XLSX.utils.table_to_book(tbl);
+	var wb = XLSX.utils.table_to_book(tbl);
 	
-	if (sheetname == '统计汇总') {
+	if (filename == '统计汇总') {
 		// rename first sheet's name. don't know how to rename, so clone a new element
-		sheetname = tbl.firstElementChild.firstElementChild.firstElementChild.innerText;
+		var sheetname = tbl.firstElementChild.firstElementChild.firstElementChild.innerText;
 		wb.Sheets[sheetname] = wb.Sheets[wb.SheetNames[0]];
 		wb.SheetNames[0] = sheetname;
 		
@@ -504,11 +495,17 @@ function tbl2xlsx(){
 			}
 		}
 	}
+	
+	var t = new Date();
+	var date = '';
+	date += t.getFullYear()
+		+ ('0' + (t.getMonth() + 1)).slice(-2)
+		+ ('0' + t.getDate()).slice(-2)
+		+ ('0' + t.getHours()).slice(-2)
+		+ ('0' + t.getMinutes()).slice(-2)
+		+ ('0' + t.getSeconds()).slice(-2);
+	filename += '_' + date + '.xlsx' ;
 
-	//console.log(wb);
-	// var a = '我的';
-	// var b = ['工业类', '商贸类', '基建类', '乡村振兴类'];
-	// filename = a + b[i] + '进度月报' + date + '.xlsx';
 	XLSX.writeFile(wb, filename ,{bookType: "xlsx"});
 }
 
