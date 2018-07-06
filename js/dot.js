@@ -485,19 +485,25 @@ function tbl2xlsx(){
 	
 	// write workbook
 	//var wb = XLSX.utils.table_to_book(tbl, {sheet: sheetname});
-	var wb = XLSX.utils.table_to_book(tbl);
+	wb = XLSX.utils.table_to_book(tbl);
 	
 	if (sheetname == '统计汇总') {
+		// rename first sheet's name. don't know how to rename, so clone a new element
+		sheetname = tbl.firstElementChild.firstElementChild.firstElementChild.innerText;
+		wb.Sheets[sheetname] = wb.Sheets[wb.SheetNames[0]];
+		wb.SheetNames[0] = sheetname;
+		
 		while (tbl){
 			tbl.id="";
 			tbl = document.getElementById('report_table');
-			// append a sheet to workbook
-			var ws = XLSX.utils.table_to_sheet(tbl);
-			XLSX.utils.book_append_sheet(wb, ws, 'fuck');
+			if (tbl){
+				// append a sheet to workbook
+				var ws = XLSX.utils.table_to_sheet(tbl);
+				sheetname = tbl.firstElementChild.firstElementChild.firstElementChild.innerText;
+				XLSX.utils.book_append_sheet(wb, ws, sheetname);
+			}
 		}
 	}
-
-
 
 	//console.log(wb);
 	// var a = '我的';
