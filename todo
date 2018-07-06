@@ -7,7 +7,6 @@ php limit size
 php limit type
 
 search on proj page is still global, need to be limited in type
-
 proj list page js need to be re-design
 
 sql in ajax.php
@@ -31,7 +30,6 @@ cron to 'update projects set alert=2'
 create view in db?
 
 button theme
-stat report xlsx use js instead of php
 
 sql injection
 
