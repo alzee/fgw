@@ -12,7 +12,7 @@ unset($path['location']);
 $theads = '';
 ?>
 
-<table class="table table-bordered table-responsive-sm">
+<table class="table table-bordered table-responsive-sm" id="path_table">
 <thead>
 <tr>
 <th rowspan="2">年度建设任务</th>

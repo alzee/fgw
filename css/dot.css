@@ -205,3 +205,7 @@ td.intro{
 .procname2{
 	width: 14rem;
 }
+
+#path_table th{
+	width: 4rem;
+}
