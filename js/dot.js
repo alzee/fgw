@@ -447,17 +447,16 @@ function tdToObject(){
 }
 // addEvnetListener to #exportbtn
 var expbtn = document.getElementById('exportbtn');
-if(expbtn) expbtn.addEventListener("click", xlsx);
+if(expbtn) expbtn.addEventListener("click", tbl2xlsx);
 
-function xlsx(){
-	var t = document.getElementById('report_table');
-	var tt = t.cloneNode(true);
-	var btn = document.getElementById('reportbtn');
-	var a = btn.getElementsByClassName('active');
-	var sheetname = a[0].innerText;
+function tbl2xlsx(){
+	var tbl = document.getElementById('report_table');
+	var sheetname= document.getElementById('reportbtn').getElementsByClassName('active')[0].innerText;
+	var filename = sheetname + '.xlsx' ;
 	
 	if (sheetname == '进度月报') {
-		var tr = tt.getElementsByClassName('d-none');
+		tbl = tbl.cloneNode(true);
+		var tr = tbl.getElementsByClassName('d-none');
 		var l = tr.length;
 		for (var i=0; i < l; i++){
 			if (tr[0]) tr[0].remove();
@@ -483,11 +482,23 @@ function xlsx(){
 			+ ('0' + t.getSeconds()).slice(-2);
 		filename += '进度月报_' + date + '.xlsx' ;
 	}
-	else {
-		filename = sheetname + '.xlsx' ;
-	}
 	
-	var wb = XLSX.utils.table_to_book(tt, {sheet: sheetname});
+	// write workbook
+	//var wb = XLSX.utils.table_to_book(tbl, {sheet: sheetname});
+	var wb = XLSX.utils.table_to_book(tbl);
+	
+	if (sheetname == '统计汇总') {
+		while (tbl){
+			tbl.id="";
+			tbl = document.getElementById('report_table');
+			// append a sheet to workbook
+			var ws = XLSX.utils.table_to_sheet(tbl);
+			XLSX.utils.book_append_sheet(wb, ws, 'fuck');
+		}
+	}
+
+
+
 	//console.log(wb);
 	// var a = '我的';
 	// var b = ['工业类', '商贸类', '基建类', '乡村振兴类'];
@@ -507,7 +518,7 @@ function shownavitem(){
 	for (var i=0;i<navitems.length; i++) navitems[i].classList.remove('active');
 	this.classList.add('active');
 	//console.log(this.id.replace('-tab', ''));
-	
+
 	//active tab content
 	//var tabcon = document.getElementById(this.id.replace('-tab', ''));
 }
