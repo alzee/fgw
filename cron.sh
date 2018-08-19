@@ -1,4 +1,5 @@
 #!/bin/bash
+# 0 0 20 * * /home/dot/w/itove/fgw/cron.sh
 
 i=$(cat db_passwd)
 h=${i%%:*}
