@@ -4,6 +4,7 @@ server/php/files/
 vendor/
 .env
 *.xlsx
+db_passwd
 # Object files
 *.o
 *.ko
