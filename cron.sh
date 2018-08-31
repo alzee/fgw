@@ -14,6 +14,8 @@ if [ "$date" -eq 20 ]; then
 fi
 
 cd $d
+
+echo $u $p $h
 mysqldump -u$u -p$p -h $h fgw > sql/fgw.sql
 git add .
 git commit -m "mysqldump"
