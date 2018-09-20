@@ -12,7 +12,7 @@ p=${c#*:}
 date=$(date +%d)
 
 if [ "$date" -eq 20 ]; then
-	mysql-u$u -p$p -h $h fgw -e "update projects set alert=2"
+	mysql -u$u -p$p -h $h fgw -e "update projects set alert=2"
 fi
 
 mysqldump -u$u -p$p -h $h fgw > sql/fgw.sql
