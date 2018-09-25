@@ -9,3 +9,7 @@ update projects set investment=11000 where pid = 64;
 update projects set p_incharge='曾强' where pid = 70;
 update projects set intro='恒大路：北京路至上海路连接线起点九龙太阳城小区，终点至恒大售楼部，道路长度926米，宽度20米。坡沟巷：一中巷至东山路段道路位于五堰坡沟巷，经坡沟巷小区、东山苑小区，接至东山路,道路全长430米，宽7.0米。', investment=1600, invest_plan=1200, investby = '企业投资' where pid = 77;
 update projects set intro='位于天津路片区位于天津路徐家沟村，主要建设内容：修建地下管网8500米，铺设道路全长5500米，安装路灯120盏，增加小区绿化面积32000平方米。修建3个利民便民的休闲场所，整体布局车位1200个。小区更换、维修或增设安装摄像头350个。各种管线全部入地，并配套其他道路附属设施。', investment=5000, invest_plan=5000 where pid = 80;
+
+update projects set p_incharge='顾衍波 刘明华' where pid in (58,64);
+update projects set p_incharge='明怀宇' where pid = 18;
+update projects set p_incharge='顾衍波 许波' where pid = 71;
