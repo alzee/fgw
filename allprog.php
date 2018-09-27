@@ -19,7 +19,7 @@ $sql = "select j.pid,pname,property,intro,investment,invest_plan,g.invest_mon,in
    	from 
 	(select j.*,o1.oname,o2.oname oname_serve from projects j left join (organization o1, organization o2) on (j.oid=o1.oid and j.oid_serve=o2.oid)) j 
 	left join 
-	(select * from progress where date like '$month%') g on j.pid=g.pid order by j.pid";
+	(select * from progress where date like '$month%') g on j.pid=g.pid where online = 1 order by j.pid";
 $rows=(new Db)->query($sql);
 
 $a_allp = 'active';
