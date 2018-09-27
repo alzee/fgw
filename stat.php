@@ -15,11 +15,11 @@ $tables =[
 
 foreach($tables as &$table){
 	// get count, sum_invest_plan, accumulate group by $table[0]
-	$sql = "select $table[0],count(pid) count,sum(invest_plan) sum_plan, sum(invest_accum) sum_accum from projects j left join organization o on o.oid=j.oid where level in($level) group by $table[0]";
+	$sql = "select $table[0],count(pid) count,sum(invest_plan) sum_plan, sum(invest_accum) sum_accum from projects j left join organization o on o.oid=j.oid where level in($level) and online = 1 group by $table[0]";
 	$table[2]=(new Db)->query($sql);
 	foreach($table[2] as &$v){
 		// count for WIP projs and assign to the array
-		$sql = "select count(j.pid) count_wip from projects j left join organization o on j.oid=o.oid where level in($level) and $table[0]='{$v["$table[0]"]}' and phase='开工'";
+		$sql = "select count(j.pid) count_wip from projects j left join organization o on j.oid=o.oid where online = 1 and level in($level) and $table[0]='{$v["$table[0]"]}' and phase='开工'";
 		$a = (new Db)->query($sql);
 		$v['count_wip'] = $a['count_wip'];
 		// calaculate wip ratio and assign to the array
@@ -42,11 +42,11 @@ $tables[4]=['invest', '总投资',[
 ]
 ];
 foreach($tables[4][2] as &$v){
-	$sql = "select count(investment) count,sum(invest_plan) sum_plan,sum(invest_accum) sum_accum from projects where investment between $v[0] and level in($level)";
+	$sql = "select count(investment) count,sum(invest_plan) sum_plan,sum(invest_accum) sum_accum from projects where investment between $v[0] and online = 1 and level in($level)";
 	$a = (new Db)->query($sql);
 	$v = array_merge($v, $a);
 	// count for WIP projs and assign to the array
-	$sql = "select count(pid) count_wip from projects where investment between $v[0] and level in($level) and phase='开工'";
+	$sql = "select count(pid) count_wip from projects where investment between $v[0] and online = 1 and level in($level) and phase='开工'";
 	$a = (new Db)->query($sql);
 	$v['count_wip'] = $a['count_wip'];
 	// calaculate wip ratio and assign to the array
