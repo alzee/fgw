@@ -4,7 +4,7 @@
 d=~/w/itove/fgw/sql/backup
 cd $d
 
-i=$(cat db_passwd)
+i=$(cat ../../db_passwd)
 h=${i%%:*}
 c=${i#*:}
 u=${c%:*}
