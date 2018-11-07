@@ -29,6 +29,7 @@ for i in $a
 do
 	let j++
 	mysql -h$host -u$user -p$pw fgw -e "update projects set pid = $j where pid = $i"
+	mysql -h$host -u$user -p$pw fgw -e "update progress set pid = $j where pid = $i"
 done
 
 ### change pid and temporarily set to 500+ to avoid duplication
@@ -75,5 +76,6 @@ a=$(mysql -h$host -u$user -p$pw fgw -N -e "select pid from projects where pid be
 for i in $a
 do
 	mysql -h$host -u$user -p$pw fgw -e "update projects set pid = $((i-500)) where pid = $i"
+	mysql -h$host -u$user -p$pw fgw -e "update progress set pid = $((i-500)) where pid = $i"
 done
 
