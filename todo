@@ -34,6 +34,3 @@ button theme
 sql injection
 
 month picker click on allprog
-
-composer remove fortawesome/font-awesome
-composer remove twbs/bootstrap
