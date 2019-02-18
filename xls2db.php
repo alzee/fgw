@@ -8,13 +8,13 @@ use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 
 $type='Xlsx';
 //$inputFileName = __DIR__ . '/fgw.xls';
-$file = 'path.xlsx';
+$file = 'proj_2019.xlsx';
 $inputFileName = $file;
-//$sheetname='工业 ';
-//$sheetname='商贸';
-//$sheetname='基建';
-//$sheetname='美丽乡村';
-$sheetname = 'path';
+$sheetname='工业项目';
+//$sheetname='商贸项目';
+//$sheetname='基础设施';
+//$sheetname='乡村振兴';
+//$sheetname='招商项目';
 
 $reader = IOFactory::createReader($type);
 $reader->setLoadSheetsOnly($sheetname);
@@ -36,8 +36,9 @@ $mysqli=new mysqli('localhost','root','dot','fgw');
 $mysqli->set_charset('utf8');
 //echo $mysqli->character_set_name();
 
+$table = 'projects';
 foreach ($sheetData as $k=>$v){
-	$sql="insert into path values(
+	$sql="insert into $table values(
 		'" .  trim($sheetData[$k]['A']) ."',
 		'" .  trim($sheetData[$k]['B']) ."',
 		'" .  trim($sheetData[$k]['C']) ."',
