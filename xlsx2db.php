@@ -21,7 +21,7 @@ $reader->setLoadSheetsOnly($sheetname);
 $spreadsheet = $reader->load($inputFileName);
 
 //$sheetData = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
-$sheetData = $spreadsheet->getActiveSheet()->rangeToArray('A3:K102', null, true, true, true);
+$sheetData = $spreadsheet->getActiveSheet()->rangeToArray('A5:M29', null, true, true, true);
 //echo $spreadsheet->getSheetCount();
 $loadedSheetNames = $spreadsheet->getSheetNames();
 // var_dump($loadedSheetNames);
@@ -38,7 +38,7 @@ $mysqli->set_charset('utf8');
 
 $table = 'projects';
 foreach ($sheetData as $k=>$v){
-	$sql="insert into $table values(
+	$sql="insert into $table (pid,pname,property,intro,investment,invest_plan,start,finish,investby,p_incharge,oid,oid_serve) values(
 		'" .  trim($sheetData[$k]['A']) ."',
 		'" .  trim($sheetData[$k]['B']) ."',
 		'" .  trim($sheetData[$k]['C']) ."',
@@ -47,9 +47,10 @@ foreach ($sheetData as $k=>$v){
 		'" .  trim($sheetData[$k]['F']) ."',
 		'" .  trim($sheetData[$k]['G']) ."',
 		'" .  trim($sheetData[$k]['H']) ."',
-		'" .  trim($sheetData[$k]['I']) ."',
+		'NULL',
 		'" .  trim($sheetData[$k]['J']) ."',
-		'" .  trim($sheetData[$k]['K']) ."')";
+		'" .  trim($sheetData[$k]['L']) ."',
+		'" .  trim($sheetData[$k]['M']) ."')";
 	echo $sql;
 	if(! $mysqli->query($sql)){
 		echo $mysqli->errno;
