@@ -20,7 +20,7 @@ $uname=$_SESSION['uname'];
 	  <div class="row">
 		  <div class="col-sm-6">
 			  <div class="card text-white bg-info mb-3">
-				  <div class="card-header"><i class="fa fa-bell-o" aria-hidden="true"></i></div>
+				  <div class="card-header"><i class="far fa-bell" aria-hidden="true"></i></div>
 				  <div class="card-body">
 					  <h5 class="card-title">公告通知</h5>
 					  <p class="card-text">默认显示前一次提交的数据，以供参考。内容与上月相同的单元格以黄色背景提醒。</p>
@@ -30,7 +30,7 @@ $uname=$_SESSION['uname'];
 		  </div>
 		  <div class="col-sm-6">
 			  <div class="card text-white bg-success mb-3">
-				  <div class="card-header"><i class="fa fa-sun-o" aria-hidden="true"></i></div>
+				  <div class="card-header"><i class="far fa-sun" aria-hidden="true"></i></div>
 				  <div class="card-body">
 					  <h5 class="card-title">固定资产投资</h5>
 					  <p class="card-text">默认显示前一次提交的数据，以供参考。内容与上月相同的单元格以黄色背景提醒。</p>
@@ -43,7 +43,7 @@ $uname=$_SESSION['uname'];
 	  <div class="row">
 		  <div class="col-sm-6">
 			  <div class="card text-white bg-danger mb-3">
-				  <div class="card-header"><i class="fa fa-cubes" aria-hidden="true"></i></div>
+				  <div class="card-header"><i class="fas fa-cubes" aria-hidden="true"></i></div>
 				  <div class="card-body">
 					  <h5 class="card-title">重点项目进度</h5>
 					  <p class="card-text">默认显示前一次提交的数据，以供参考。内容与上月相同的单元格以黄色背景提醒。</p>
@@ -53,7 +53,7 @@ $uname=$_SESSION['uname'];
 		  </div>
 		  <div class="col-sm-6">
 			  <div class="card text-white bg-secondary mb-3">
-				  <div class="card-header"><i class="fa fa-cube" aria-hidden="true"></i></div>
+				  <div class="card-header"><i class="fas fa-cube"></i></div>
 				  <div class="card-body">
 					  <h5 class="card-title">项目两库建设</h5>
 					  <p class="card-text">默认显示前一次提交的数据，以供参考。内容与上月相同的单元格以黄色背景提醒。</p>
