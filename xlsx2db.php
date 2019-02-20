@@ -47,7 +47,7 @@ foreach ($sheetData as $k=>$v){
 		'" .  trim($sheetData[$k]['F']) ."',
 		'" .  trim($sheetData[$k]['G']) ."',
 		'" .  trim($sheetData[$k]['H']) ."',
-		'NULL',
+		'',
 		'" .  $sheetname ."',
 		'一类',
 		'" .  trim($sheetData[$k]['J']) ."',
