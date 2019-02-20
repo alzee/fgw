@@ -10,11 +10,11 @@ $type='Xlsx';
 //$inputFileName = __DIR__ . '/fgw.xls';
 $file = 'proj_2019.xlsx';
 $inputFileName = $file;
-$sheetname='工业项目';
+// $sheetname='工业项目';
 // $sheetname='商贸项目';
 // $sheetname='基础设施';
 // $sheetname='乡村振兴';
-//$sheetname='招商项目';
+$sheetname='招商项目';
 
 $reader = IOFactory::createReader($type);
 $reader->setLoadSheetsOnly($sheetname);
@@ -41,17 +41,17 @@ foreach ($sheetData as $k=>$v){
 	$sql="insert into $table (pid,pname,property,intro,investment,invest_plan,start,finish,investby,type,p_incharge,oid,oid_serve) values(
 		'" .  trim($sheetData[$k]['A']) ."',
 		'" .  trim($sheetData[$k]['B']) ."',
+		'新建',
 		'" .  trim($sheetData[$k]['C']) ."',
+		'0',
+		'0',
+		'2019',
+		'2019',
 		'" .  trim($sheetData[$k]['D']) ."',
-		'" .  trim($sheetData[$k]['E']) ."',
-		'" .  trim($sheetData[$k]['F']) ."',
-		'" .  trim($sheetData[$k]['G']) ."',
-		'" .  trim($sheetData[$k]['H']) ."',
-		'NULL',
 		'" .  $sheetname ."',
-		'" .  trim($sheetData[$k]['J']) ."',
-		'" .  trim($sheetData[$k]['L']) ."',
-		'" .  trim($sheetData[$k]['M']) ."')";
+		'',
+		'" .  trim($sheetData[$k]['F']) ."',
+		'" .  trim($sheetData[$k]['F']) ."')";
 	echo $sql;
 	if(! $mysqli->query($sql)){
 		echo $mysqli->errno;
