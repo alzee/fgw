@@ -38,7 +38,7 @@ $mysqli->set_charset('utf8');
 
 $table = 'projects';
 foreach ($sheetData as $k=>$v){
-	$sql="insert into $table (pid,pname,property,intro,investment,invest_plan,start,finish,investby,type,p_incharge,oid,oid_serve) values(
+	$sql="insert into $table (pid,pname,property,intro,investment,invest_plan,start,finish,investby,type,level,p_incharge,oid,oid_serve) values(
 		'" .  trim($sheetData[$k]['A']) ."',
 		'" .  trim($sheetData[$k]['B']) ."',
 		'" .  trim($sheetData[$k]['C']) ."',
@@ -49,6 +49,7 @@ foreach ($sheetData as $k=>$v){
 		'" .  trim($sheetData[$k]['H']) ."',
 		'NULL',
 		'" .  $sheetname ."',
+		'一类',
 		'" .  trim($sheetData[$k]['J']) ."',
 		'" .  trim($sheetData[$k]['L']) ."',
 		'" .  trim($sheetData[$k]['M']) ."')";
