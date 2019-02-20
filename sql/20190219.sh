@@ -24,6 +24,8 @@ pw=${c#*:}
 #do
 #	mysql -h$host -u$user -p$pw fgw -e "update projects set pid = $((i+180000)) where pid = $i"
 #	mysql -h$host -u$user -p$pw fgw -e "update progress set pid = $((i+180000)) where pid = $i"
+#	mysql -h$host -u$user -p$pw fgw -e "update path set pid = $((i+180000)) where pid = $i"
+#	mysql -h$host -u$user -p$pw fgw -e "update pproc set pid = $((i+180000)) where pid = $i"
 #done
 #
 #
