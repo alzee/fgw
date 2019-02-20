@@ -65,7 +65,6 @@ else{
 				<a class="dropdown-item" href="#">商贸项目 <span class="badge badge-danger count">0</span></a>
 				<a class="dropdown-item" href="#">基础设施 <span class="badge badge-danger count">0</span></a>
 				<a class="dropdown-item" href="#">乡村振兴 <span class="badge badge-danger count">0</span></a>
-				<a class="dropdown-item" href="#">招商项目 <span class="badge badge-danger count">0</span></a>
 			  </div>
 			</div>
 			  <div class="col-sm-3 mt-1 mt-sm-0">
