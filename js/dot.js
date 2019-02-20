@@ -510,18 +510,19 @@ function tbl2xlsx(){
 }
 
 // addEvnetListener to #nav-tab .nav-item
-var navitems = document.getElementsByClassName('nav-item');
-var navpanes = document.getElementsByClassName('nav-pane');
-if(navitems) {
-	for (var i=0;i<navitems.length; i++) navitems[i].addEventListener("click", shownavitem);
-}
+//var navitems = document.getElementsByClassName('nav-item');
+//var tabpanes = document.getElementsByClassName('tab-pane');
+//if(navitems) {
+	//for (var i=0;i<navitems.length; i++) navitems[i].addEventListener("click", shownavitem);
+//}
 
+// bootstrap.js will do this shit
 function shownavitem(){
 	//console.log('fuck');
 	//active tab;
 	for (var i=0;i<navitems.length; i++){
 		navitems[i].classList.remove('active');
-		navpanes[i].classList.remove('active');
+		tabpanes[i].classList.remove('active');
 	}
 	this.classList.add('active');
 	//active tab pane
