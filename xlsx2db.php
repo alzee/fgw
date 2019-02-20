@@ -10,10 +10,10 @@ $type='Xlsx';
 //$inputFileName = __DIR__ . '/fgw.xls';
 $file = 'proj_2019.xlsx';
 $inputFileName = $file;
-// $sheetname='工业项目';
+$sheetname='工业项目';
 // $sheetname='商贸项目';
 // $sheetname='基础设施';
-$sheetname='乡村振兴';
+// $sheetname='乡村振兴';
 //$sheetname='招商项目';
 
 $reader = IOFactory::createReader($type);
@@ -21,7 +21,7 @@ $reader->setLoadSheetsOnly($sheetname);
 $spreadsheet = $reader->load($inputFileName);
 
 //$sheetData = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
-$sheetData = $spreadsheet->getActiveSheet()->rangeToArray('A5:M16', null, true, true, true);
+$sheetData = $spreadsheet->getActiveSheet()->rangeToArray('A5:M50', null, true, true, true);
 //echo $spreadsheet->getSheetCount();
 $loadedSheetNames = $spreadsheet->getSheetNames();
 // var_dump($loadedSheetNames);
