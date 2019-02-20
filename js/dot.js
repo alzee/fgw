@@ -511,6 +511,7 @@ function tbl2xlsx(){
 
 // addEvnetListener to #nav-tab .nav-item
 var navitems = document.getElementsByClassName('nav-item');
+var navpanes = document.getElementsByClassName('nav-pane');
 if(navitems) {
 	for (var i=0;i<navitems.length; i++) navitems[i].addEventListener("click", shownavitem);
 }
@@ -518,12 +519,14 @@ if(navitems) {
 function shownavitem(){
 	//console.log('fuck');
 	//active tab;
-	for (var i=0;i<navitems.length; i++) navitems[i].classList.remove('active');
+	for (var i=0;i<navitems.length; i++){
+		navitems[i].classList.remove('active');
+		navpanes[i].classList.remove('active');
+	}
 	this.classList.add('active');
-	//console.log(this.id.replace('-tab', ''));
-
-	//active tab content
-	//var tabcon = document.getElementById(this.id.replace('-tab', ''));
+	//active tab pane
+	var tabpane = document.getElementById(this.id.replace('-tab', ''));
+	tabpane.classList.add('active');
 }
 
 
