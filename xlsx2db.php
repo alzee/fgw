@@ -8,20 +8,37 @@ use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 
 $type='Xlsx';
 //$inputFileName = __DIR__ . '/fgw.xls';
-$file = 'proj_2019.xlsx';
+$file = 'proj_2019_1.xlsx';
 $inputFileName = $file;
-$sheetname='工业项目';
+// $sheetname='工业项目';
 // $sheetname='商贸项目';
 // $sheetname='基础设施';
-// $sheetname='乡村振兴';
+$sheetname='乡村振兴';
 // $sheetname='招商项目';
 
 $reader = IOFactory::createReader($type);
 $reader->setLoadSheetsOnly($sheetname);
 $spreadsheet = $reader->load($inputFileName);
 
+switch ($sheetname) {
+    case '工业项目':
+        $range = 'A6:N29';
+        break;
+    case '商贸项目':
+        $range = 'A5:N22';
+        break;
+    case '基础设施':
+        $range = 'A5:N51';
+        break;
+    case '乡村振兴':
+        $range = 'A5:N16';
+        break;
+    case '招商项目':
+        $range = 'A4:N13';
+        break;
+}
 //$sheetData = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
-$sheetData = $spreadsheet->getActiveSheet()->rangeToArray('A5:M50', null, true, true, true);
+$sheetData = $spreadsheet->getActiveSheet()->rangeToArray($range, null, true, true, true);
 //echo $spreadsheet->getSheetCount();
 $loadedSheetNames = $spreadsheet->getSheetNames();
 // var_dump($loadedSheetNames);
@@ -51,8 +68,8 @@ foreach ($sheetData as $k=>$v){
 		'" .  $sheetname ."',
 		'一类',
 		'" .  trim($sheetData[$k]['J']) ."',
-		'" .  trim($sheetData[$k]['L']) ."',
-		'" .  trim($sheetData[$k]['M']) ."')";
+		'" .  trim($sheetData[$k]['M']) ."',
+		'" .  trim($sheetData[$k]['N']) ."')";
 	echo $sql;
 	if(! $mysqli->query($sql)){
 		echo $mysqli->errno;
