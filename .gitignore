@@ -1,5 +1,6 @@
 node_modules/
 up/
+xlsx/
 server/php/files/
 vendor/
 .env
