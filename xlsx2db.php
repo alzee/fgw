@@ -5,15 +5,14 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Reader\Xls;
 use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
+use App\Db;
 
-$type='Xlsx';
-//$inputFileName = __DIR__ . '/fgw.xls';
-$file = 'proj_2019_1.xlsx';
-$inputFileName = $file;
-// $sheetname='工业项目';
-// $sheetname='商贸项目';
-// $sheetname='基础设施';
-$sheetname='乡村振兴';
+$type='Xls';
+$inputFileName = 'xlsx/projects_2020.xls';
+// $sheetname='工业制造业';
+// $sheetname='商贸服务业';
+$sheetname='基础设施';
+// $sheetname='乡村振兴';
 // $sheetname='招商项目';
 
 $reader = IOFactory::createReader($type);
@@ -21,20 +20,20 @@ $reader->setLoadSheetsOnly($sheetname);
 $spreadsheet = $reader->load($inputFileName);
 
 switch ($sheetname) {
-    case '工业项目':
-        $range = 'A6:N29';
+    case '工业制造业':
+        $range = 'A6:K28';
         break;
-    case '商贸项目':
-        $range = 'A5:N22';
+    case '商贸服务业':
+        $range = 'A5:K33';
         break;
     case '基础设施':
-        $range = 'A5:N51';
+        $range = 'A5:K49';
         break;
     case '乡村振兴':
-        $range = 'A5:N16';
+        $range = 'A5:K15';
         break;
     case '招商项目':
-        $range = 'A4:N13';
+        $range = 'A4:K13';
         break;
 }
 //$sheetData = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
@@ -45,33 +44,58 @@ $loadedSheetNames = $spreadsheet->getSheetNames();
 // var_dump($sheetData);
 
 
-// database;
-$mysqli=new mysqli('localhost','root','dot','fgw');
-//echo $mysqli->character_set_name();
-//$mysqli->query("set names utf8");
-//echo $mysqli->character_set_name();
-$mysqli->set_charset('utf8');
-//echo $mysqli->character_set_name();
+$sql = 'select * from organization';
+$rows = (new Db)->query($sql);
 
 $table = 'projects';
 foreach ($sheetData as $k=>$v){
+    $pid = $sheetData[$k]['A'];
+    $pname = $sheetData[$k]['B'];
+    $property = $sheetData[$k]['C'];
+    $intro = $sheetData[$k]['D'];
+    $investment = $sheetData[$k]['E'];
+    $invest_plan = $sheetData[$k]['F'];
+    $start = $sheetData[$k]['G'];
+    $finish = $sheetData[$k]['H'];
+    $investby = '';
+    $type = $sheetname;
+    $level = '一类';
+    $p_incharge = str_replace("\n", ',', $sheetData[$k]['J']);
+    $p_incharge = str_replace(" ", '', $p_incharge);
+    $oname = preg_replace('/\s+/', '', $sheetData[$k]['I']);
+    $oname_serve = preg_replace('/\s+/', '', $sheetData[$k]['K']);
+    foreach ($rows as $vv) {
+        // what if not found?
+        if ($oname == $vv['oname']) {
+            $oid = $vv['oid'];
+        }
+        if ($oname_serve == $vv['oname']) {
+            $oid_serve = $vv['oid'];
+        }
+    }
+    //echo $p_incharge;
+    //echo ' | ';
+    //echo $oname . ' ' . $oid;
+    //echo ' | ';
+    //echo $oname_serve . ' ' . $oid_serve;
+    //echo PHP_EOL;
 	$sql="insert into $table (pid,pname,property,intro,investment,invest_plan,start,finish,investby,type,level,p_incharge,oid,oid_serve) values(
-		'" .  trim($sheetData[$k]['A']) ."',
-		'" .  trim($sheetData[$k]['B']) ."',
-		'" .  trim($sheetData[$k]['C']) ."',
-		'" .  trim($sheetData[$k]['D']) ."',
-		'" .  trim($sheetData[$k]['E']) ."',
-		'" .  trim($sheetData[$k]['F']) ."',
-		'" .  trim($sheetData[$k]['G']) ."',
-		'" .  trim($sheetData[$k]['H']) ."',
-		'',
+		'" .  $pid ."',
+		'" .  $pname ."',
+		'" .  $property ."',
+		'" .  $intro ."',
+		'" .  $investment ."',
+		'" .  $invest_plan ."',
+		'" .  $start ."',
+		'" .  $finish ."',
+		'" .  $investby ."',
 		'" .  $sheetname ."',
-		'一类',
-		'" .  trim($sheetData[$k]['J']) ."',
-		'" .  trim($sheetData[$k]['M']) ."',
-		'" .  trim($sheetData[$k]['N']) ."')";
-	echo $sql;
-	if(! $mysqli->query($sql)){
+		'" .  $level ."',
+		'" .  $p_incharge ."',
+		'" .  $oid ."',
+		'" .  $oid_serve ."')";
+	 echo $sql;
+	if(! (new Db)->query($sql)){
 		echo $mysqli->errno;
 		echo $mysqli->error;
 	};
