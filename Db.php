@@ -21,7 +21,6 @@ class Db{
 	private $mysqli;
 
 	function __construct(){
-		#require '.env';
 		$this->host=$_ENV['host'];
 		$this->user=$_ENV['user'];
 		$this->pass=$_ENV['pw'];
