@@ -8,11 +8,11 @@ use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 use App\Db;
 
 $type='Xls';
-$inputFileName = 'xlsx/projects_2020.xls';
+$inputFileName = 'xlsx/projects_2020_1.xls';
 // $sheetname='工业制造业';
 // $sheetname='商贸服务业';
-$sheetname='基础设施';
-// $sheetname='乡村振兴';
+// $sheetname='基础设施';
+$sheetname='乡村振兴';
 // $sheetname='招商项目';
 
 $reader = IOFactory::createReader($type);
@@ -94,7 +94,7 @@ foreach ($sheetData as $k=>$v){
 		'" .  $p_incharge ."',
 		'" .  $oid ."',
 		'" .  $oid_serve ."')";
-	 echo $sql;
+	 // echo $sql;
 	if(! (new Db)->query($sql)){
 		echo $mysqli->errno;
 		echo $mysqli->error;

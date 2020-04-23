@@ -4,17 +4,13 @@
 d=~/w/itove/fgw/sql/backup
 cd $d
 
-i=$(cat ../../.env)
-h=${i%%:*}
-c=${i#*:}
-u=${c%:*}
-p=${c#*:}
+. ../../.env
 date=$(date +%d)
 
 if [ "$date" -eq 20 ]; then
 	mysql -u$u -p$p -h $h fgw -e "update projects set alert=2"
 fi
 
-mysqldump --skip-extended-insert -u$u -p$p -h $h fgw > fgw.sql
+mysqldump --skip-extended-insert -u$user -p$pw -h $host $db > fgw.sql
 git add .
 git commit -m "mysqldump"
