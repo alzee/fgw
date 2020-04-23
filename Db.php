@@ -8,6 +8,11 @@
 
 namespace App;
 
+use Symfony\Component\Dotenv\Dotenv;
+
+$dotenv = new Dotenv();
+$dotenv->load(__DIR__.'/.env');
+
 class Db{
 	private $host;
 	private $user;
@@ -16,11 +21,11 @@ class Db{
 	private $mysqli;
 
 	function __construct(){
-		require '.env';
-		$this->host=$host;
-		$this->user=$user;
-		$this->pass=$pw;
-		$this->db=$db;
+		#require '.env';
+		$this->host=$_ENV['host'];
+		$this->user=$_ENV['user'];
+		$this->pass=$_ENV['pw'];
+		$this->db=$_ENV['db'];
 		$this->mysqli=new \mysqli($this->host,$this->user, $this->pass, $this->db);
 		if($this->mysqli->connect_errno){
 			echo $this->mysqli->connect_errno. "\n";
