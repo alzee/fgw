@@ -1,5 +1,5 @@
 #!/bin/bash
-# 0 0 * * * /home/dot/w/itove/fgw/cron.sh
+# 5 5 * * * /home/al/w/itove/fgw/cron.sh
 
 d=~/w/itove/fgw/sql/backup
 cd $d
