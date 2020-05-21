@@ -360,7 +360,13 @@ if(isset($alert1)){
 }
 ?>
 					  <tr class="<?= $tdclass ?>">
-						  <th scope="row">存在的困难和问题以及下一步工作建议和安排</th>
+						  <th scope="row">下月计划</th>
+						  <td colspan="6">
+						  <textarea id="next_step" class="form-control <?= $class ?>" name="next_step" rows="6" placeholder="<?= $pg_rows[0]['next_step'] ?>" <?= $readonly ?>><?= $pg_rows[0]['next_step'] ?></textarea>
+						  </td>
+					  </tr>
+					  <tr class="<?= $tdclass ?>">
+						  <th scope="row">存在的困难和问题</th>
 						  <td colspan="6">
 						  <textarea id="problem" class="form-control <?= $class ?>" name="problem" rows="6" placeholder="<?= $pg_rows[0]['problem'] ?>" <?= $readonly ?>><?= $pg_rows[0]['problem'] ?></textarea>
 						  </td>
