@@ -26,10 +26,23 @@ foreach ($allprocs as $k => $v){
 $sql = "select * from pproc where pid=$pid";
 $proc = (new Db)->query($sql);
 // var_dump($proc);
+
+// if i'm not o_serve, disable all radios
+if ($oid != $pj_row['oid_serve']) {
+	$dis = 'disabled';
+}
+else $dis = '';
+
 ?>
 
 <table class="table table-bordered table-responsive-sm">
 	<tbody>
+<tr>
+<th colspan="2">本月手续代办及服务情况</th>
+<td>
+<textarea id="proxy_status" class="form-control" name="proxy_status" placeholder="<?= $pg_rows[0]['proxy_status'] ?>" rows="6" <?= $dis ?>><?= $pg_rows[0]['proxy_status'] ?></textarea>
+</td>
+</tr>
 <?php foreach ($son as $v): ?>
 		<tr>
 <?php if ($v['num'] == 1): ?>
@@ -49,12 +62,6 @@ $check3='';
 $check2='';
 $check1='';
 $check0='';
-
-// if i'm not o_serve, disable all radios
-if ($oid != $pj_row['oid_serve']) {
-	$dis = 'disabled';
-}
-else $dis = '';
 
 switch ($proc[$v['code']]){
 case NULL:

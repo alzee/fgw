@@ -1,3 +1,16 @@
+// addEvnetListener to proxy_status textarea
+var proxy_status=document.querySelector('#progress #proxy_status');
+if(proxy_status) proxy_status.addEventListener("blur", post_proxy_status);
+
+function post_proxy_status() {
+	var v = this.value;
+	var xhr = new XMLHttpRequest();
+	xhr.open('POST', '/fgw/ajax/update_proxy_status.php');
+	xhr.responseType='json';
+	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	xhr.send("proxy_status=" + v + "&pid=" + document.getElementById('pid').placeholder);
+}
+
 // addEvnetListener to projects list
 var projects=document.querySelectorAll('#projects tbody tr');
 for(var i=0;i<projects.length;i++){
@@ -518,7 +531,6 @@ function tbl2xlsx(){
 
 // bootstrap.js will do this shit
 function shownavitem(){
-	//console.log('fuck');
 	//active tab;
 	for (var i=0;i<navitems.length; i++){
 		navitems[i].classList.remove('active');
