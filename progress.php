@@ -339,7 +339,7 @@ else{
 }
 ?>
 					  <tr class="<?= $tdclass ?>">
-						  <th scope="row">本月进展及手续办理情况</th>
+						  <th scope="row">本月进展</th>
 						  <td colspan="6">
 						  <textarea id="prog" class="form-control <?= $class ?>" name="progress" rows="3" placeholder="<?= $pg_rows[0]['progress'] ?>" <?= $readonly ?>><?= $pg_rows[0]['progress'] ?></textarea>
 						  </td>
