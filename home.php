@@ -105,5 +105,5 @@ $uname=$_SESSION['uname'];
 	</div>
 
 	  <footer class="footer container">
-		  <p>&copy; 团团网络 2018</p>
+		  <p>&copy; ITOVE 2020</p>
 	  </footer>

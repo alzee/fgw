@@ -1,4 +1,8 @@
 <?php
+/*
+ *  手续办理情况
+ */
+
 use App\Db;
 
 $sql = "select parent,num,code,name from `procedure`";
