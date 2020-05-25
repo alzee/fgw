@@ -76,17 +76,19 @@ $pj_row=(new Db)->query($sql);
 // we need data of last two months for rendering yellow td background purpose
 $sql = "select * from progress where pid='$pid' order by date DESC LIMIT 2";
 $pg_rows=(new Db)->query($sql, 1);
-
 $oid=$_SESSION['oid'];
-if($oid == $pj_row['oid'] && $date >= 20 && $rid != 2){
+
+if(($oid == $pj_row['oid'] || $oid == $pj_row['oid_1']) && $date >= 20 && $rid != 2){
 	$disabled = '';
 	$readonly = '';
 	$class='writable';
+    $ICanSubmitProgress = true;
 }
 else{
 	$disabled ='disabled';
 	$readonly = 'readonly';
 	$class='';
+    $ICanSubmitProgress = false;
 }
 ?>
 
@@ -374,7 +376,7 @@ if(isset($alert1)){
 <!-- data from table progress end-->
 				  </tbody>
 			  </table>
-<?php if($oid == $pj_row['oid'] && $date >= 20 && $rid !=2): ?>
+<?php if($ICanSubmitProgress): ?>
 			  <button type="submit" class="btn btn-success" name="submit">提 交</button>
 <?php endif ?>
 		  </form>

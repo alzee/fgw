@@ -32,10 +32,15 @@ $proc = (new Db)->query($sql);
 // var_dump($proc);
 
 // if i'm not o_serve, disable all radios
-if ($oid != $pj_row['oid_serve']) {
+if ($oid != $pj_row['oid_serve'] && $oid != $pj_row['oid_serve_1']) {
 	$dis = 'disabled';
+    $ICanSubmitPrecedure = false;
 }
-else $dis = '';
+else {
+    $dis = '';
+    $ICanSubmitPrecedure = true;
+}
+
 
 ?>
 

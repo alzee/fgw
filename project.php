@@ -1,6 +1,6 @@
 <?php
 use App\Db;
-$sql="select pid,p.oid,pname,investment,o1.oname,p_incharge,o2.oname oname_serve,alert,type from projects p join (organization o1, organization o2) on (p.oid=o1.oid and p.oid_serve=o2.oid) where p.online=1";
+$sql="select pid,p.oid,oid_1,pname,investment,o1.oname,p_incharge,o2.oname oname_serve,alert,type from projects p join (organization o1, organization o2) on (p.oid=o1.oid and p.oid_serve=o2.oid) where p.online=1";
 $p_rows=(new Db)->query($sql);
 
 $oid=$_SESSION['oid'];
@@ -87,7 +87,7 @@ else{
 
 <?php foreach($p_rows as $row): ?>
 <?php
-if($row['oid'] == $oid || $rid == 3 || $rid == 2){
+if($row['oid'] == $oid || $row['oid_1'] == $oid || $rid == 3 || $rid == 2){
 	$class="searchable";
 }
 else{

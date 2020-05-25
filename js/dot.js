@@ -546,7 +546,12 @@ function shownavitem(){
 // addEvnetListener to .procradio
 var radioProc = document.getElementsByClassName('procradio');
 if(radioProc) {
-	for (var i=0;i<radioProc.length; i++) radioProc[i].addEventListener("click", updateProc);
+	for (var i=0;i<radioProc.length; i++) {
+		// if is disabled, don't attach listener, otherwise a click will submit data even it looks like disabled
+		if(radioProc[i].firstElementChild.disabled == false){
+			radioProc[i].addEventListener("click", updateProc);
+		}
+	}
 }
 
 function updateProc(){
