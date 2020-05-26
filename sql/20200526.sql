@@ -1,6 +1,9 @@
 alter table projects add oid_1 int(11) after oid;
 alter table projects add oid_serve_1 int(11) after oid_serve;
 
+-- 7号项目代办单位增加 东城开发区(1)
+update projects set oid_serve_1 = 1 where pid = 7;
+
 -- 24号项目代办单位增加 百强世纪城项目协调服务指挥部(39)
 update projects set oid_serve_1 = 39 where pid = 24;
 -- 25号项目责任单位增加 五堰街办(3)
@@ -8,6 +11,9 @@ update projects set oid_1 = 3 where pid = 25;
 
 -- 33号项目代办单位由原 区民政局(21) 更换成 区建设投资管理办公室(74)
 update projects set oid_serve = 74 where pid = 33;
+
+-- 53号项目代办单位增加 区城区改造更新中心(84)
+update projects set oid_serve_1 = 84 where pid = 53;
 
 -- 54号项目代办单位增加 区住建局(6)
 update projects set oid_serve_1 = 6 where pid = 54;
@@ -47,9 +53,11 @@ update projects set oid = 84, oid_serve = 84 where pid = 95;
 update projects set oid_serve = 84 where pid = 96;
 
 
+-- 7号项目 手续办理情况 增加填报权限: 东城开发区
 -- 24号项目 手续办理情况 增加填报权限: 百强世纪城项目协调服务指挥部
 -- 25号项目 项目实施情况 增加填报权限: 五堰街办
 -- 33号项目 代办单位 由原 区民政局 更换成 区建设投资管理办公室
+-- 53号项目 手续办理情况 增加填报权限: 区城区改造更新中心
 -- 54号项目 手续办理情况 增加填报权限: 区住建局
 -- 55号项目 手续办理情况 增加填报权限: 区交通局
 -- 56号项目 手续办理情况 增加填报权限: 区住建局
