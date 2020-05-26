@@ -105,7 +105,7 @@ case 2:
 ?>
 	<tr class="<?= $class ?>" data-oid="<?= $row['oid'] ?>" data-type="<?= $row['type'] ?>">
 				  <th scope="row"><?= $row['pid'] ?></th>
-					  <td><?= $row['pname'] ?></td>
+					  <td class="pname"><?= $row['pname'] ?></td>
 					  <td><?= $row['investment'] ?></td>
 					  <td><?= $row['oname'] ?></td>
 					  <td class="p_incharge"><?= $row['p_incharge'] ?></td>

@@ -213,3 +213,7 @@ td.intro{
 #projects td.p_incharge {
 	width: 5em;
 }
+
+#projects td.pname{
+	width: 12em;
+}
