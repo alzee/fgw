@@ -209,3 +209,7 @@ td.intro{
 #path_table th{
 	width: 4rem;
 }
+
+#projects td.p_incharge {
+	width: 5em;
+}

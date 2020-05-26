@@ -108,7 +108,7 @@ case 2:
 					  <td><?= $row['pname'] ?></td>
 					  <td><?= $row['investment'] ?></td>
 					  <td><?= $row['oname'] ?></td>
-					  <td><?= $row['p_incharge'] ?></td>
+					  <td class="p_incharge"><?= $row['p_incharge'] ?></td>
 					  <td><?= $row['oname_serve'] ?></td>
 				  </tr>
 <?php endforeach; ?>
