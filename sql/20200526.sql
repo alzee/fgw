@@ -94,3 +94,10 @@ insert into users (uname, passwd, oid, rid) values
 ('shuiziyuan', md5(123), 73, 1),
 ('dfyd', md5(123), 78, 1),
 ('zigui', md5(123), 76, 1);
+
+-- 删除项目名称中换行
+update projects set pname = replace(pname, '\n' , '');
+-- 删除包联领导中空格
+update projects set p_incharge = replace(p_incharge, ' ' , '');
+-- 将包联领导中逗号替换为空格
+update projects set p_incharge = replace(p_incharge, '\,' , ' ');
