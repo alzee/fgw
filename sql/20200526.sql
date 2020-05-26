@@ -73,11 +73,12 @@ update organization set oname = '区卫健局' where oid = 9;
 update users set uname = 'weijian' where uname = 'weiji';
 -- 区文体新广局(18) 更名为 区文化和旅游局
 update organization set oname = '区文化和旅游局' where oid = 18;
--- 删除 区水利局(22) (已更名为区水利湖泊局(82))
+-- 删除 区水利局(22) (已更名为区水利湖泊局(82)); 原账号 shuili oid 改为 82
 update organization set oname = '000' where oid = 22;
+update users set oid = 82 where uname = 'shuili';
 -- 区科技局(24) 更名为 区科经局; 账号 keji 修改成 kejing
 update organization set oname = '区科经局' where oid = 24;
-update users set uname = 'keji' where uname = 'kejing';
+update users set uname = 'kejing' where uname = 'keji';
 
 -- 增加账号
 -- tongzhan(区委统战部71)
