@@ -21,7 +21,6 @@ function progressPage(){
 	var pid=this.querySelector('th').innerText.trim();	// why trim(), because fucking qq browser appends a fucking tab to innerText
 	//var href=location.pathname.replace(/\/+$/, '') + "/" + pid;
 	var href="/fgw/project/" + pid;
-	console.log(pid+1);
 	if(parent===window){
 		location.pathname = href;
 	}
