@@ -10,8 +10,8 @@ function post_proxy_status() {
 			if(xhr.status === 200){
 				//console.log(xhr.response);
 				setTimeout(function () {
-					spinner.classList.remove('spinner-grow');
-					spinner.classList.remove('spinner-grow-sm');
+					spinner.classList.remove('spinner-border');
+					spinner.classList.remove('spinner-border-sm');
 				}, 500);
 			}
 		}
@@ -22,8 +22,8 @@ function post_proxy_status() {
 	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 	xhr.send("proxy_status=" + v + "&pid=" + document.getElementById('pid').placeholder);
 	let spinner = document.getElementById('proxy_status_btn_span');
-	spinner.classList.add('spinner-grow');
-	spinner.classList.add('spinner-grow-sm');
+	spinner.classList.add('spinner-border');
+	spinner.classList.add('spinner-border-sm');
 }
 
 // addEvnetListener to projects list
