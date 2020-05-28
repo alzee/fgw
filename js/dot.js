@@ -10,9 +10,9 @@ function post_proxy_status() {
 			if(xhr.status === 200){
 				//console.log(xhr.response);
 				setTimeout(function () {
-					span.classList.remove('spinner-border');
-					span.classList.remove('spinner-border-sm');
-				}, 800);
+					spinner.classList.remove('spinner-grow');
+					spinner.classList.remove('spinner-grow-sm');
+				}, 500);
 			}
 		}
 	};
@@ -21,9 +21,9 @@ function post_proxy_status() {
 	xhr.responseType='text';
 	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 	xhr.send("proxy_status=" + v + "&pid=" + document.getElementById('pid').placeholder);
-	let span = document.getElementById('proxy_status_btn_span');
-	span.classList.add('spinner-border');
-	span.classList.add('spinner-border-sm');
+	let spinner = document.getElementById('proxy_status_btn_span');
+	spinner.classList.add('spinner-grow');
+	spinner.classList.add('spinner-grow-sm');
 }
 
 // addEvnetListener to projects list
@@ -573,10 +573,23 @@ function updateProc(){
 	var code = this.firstElementChild.getAttribute('name');
 	var v = this.firstElementChild.id.replace(code + '-', '');
 	var xhr = new XMLHttpRequest();
-	// xhr.onreadystatechange = updateform;
+	xhr.onreadystatechange = function () {
+		if(xhr.readyState === XMLHttpRequest.DONE){
+			if(xhr.status === 200){
+				//console.log(xhr.response);
+				setTimeout(function () {
+					spinner.classList.remove('spinner-border');
+					spinner.classList.remove('spinner-border-sm');
+				}, 500);
+			}
+		}
+	};
 	xhr.open('POST', '/fgw/ajax/updateproc.php');
 	xhr.responseType='json';
 	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 	xhr.send("v=" + v + "&code=" + code + "&pid=" + document.getElementById('pid').placeholder);
-	// console.log("v=" + v + "&code=" + code + "&pid=" + document.getElementById('pid').placeholder);
+	//console.log(this);
+	let spinner = this.parentElement.lastElementChild;
+	spinner.classList.add('spinner-border');
+	spinner.classList.add('spinner-border-sm');
 }

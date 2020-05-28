@@ -71,7 +71,7 @@ $itemc = count($pra[$v['parent']]['son']);
 			<td class="procname2">
 <?= $v['name'] ?>
 			</td>
-			<td>
+			<td class = "proc-options" >
 <?php
 $check3='';
 $check2='';
@@ -111,6 +111,7 @@ case 0:
 					<input type="radio" id="<?= $v['code'] . '-0' ?>" name="<?= $v['code'] ?>" class="custom-control-input" <?= $check0 . ' ' . $dis ?>>
 					<label class="custom-control-label" for="<?= $v['code'] . '-0' ?>">无办理项</label>
 				</div>
+                <span class="spinner text-primary" role="status" aria-hidden="true"></span>
 			</td>
 		</tr>
 <?php endforeach ?>

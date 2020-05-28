@@ -227,3 +227,12 @@ td.intro{
 	right: 1.5em;
 	bottom: 1.5em;
 }
+
+td.proc-options {
+	position: relative;
+}
+
+td.proc-options > .spinner {
+	position: absolute;
+	right: 3em;
+}
