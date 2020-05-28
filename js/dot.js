@@ -5,10 +5,25 @@ if(proxy_status) proxy_status.addEventListener("blur", post_proxy_status);
 function post_proxy_status() {
 	var v = this.value;
 	var xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function () {
+		if(xhr.readyState === XMLHttpRequest.DONE){
+			if(xhr.status === 200){
+				//console.log(xhr.response);
+				setTimeout(function () {
+					span.classList.remove('spinner-border');
+					span.classList.remove('spinner-border-sm');
+				}, 800);
+			}
+		}
+	};
 	xhr.open('POST', '/fgw/ajax/update_proxy_status.php');
-	xhr.responseType='json';
+	//xhr.responseType='json';
+	xhr.responseType='text';
 	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 	xhr.send("proxy_status=" + v + "&pid=" + document.getElementById('pid').placeholder);
+	let span = document.getElementById('proxy_status_btn_span');
+	span.classList.add('spinner-border');
+	span.classList.add('spinner-border-sm');
 }
 
 // addEvnetListener to projects list

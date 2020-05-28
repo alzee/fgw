@@ -40,4 +40,5 @@ if ($_POST){
         $sql="update progress set proxy_status = '$proxy_status' where pid='$pid' and date like '${month}%'";
         (new Db)->query($sql);
     }
+    echo $sql;
 }

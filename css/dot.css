@@ -217,3 +217,13 @@ td.intro{
 #projects td.pname{
 	width: 16em;
 }
+
+#proxy_status_wrapper {
+	position: relative;
+}
+
+#proxy_status_btn {
+	position: absolute;
+	right: 1.5em;
+	bottom: 1.5em;
+}

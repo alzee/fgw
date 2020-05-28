@@ -48,8 +48,14 @@ else {
 	<tbody>
 <tr>
 <th colspan="2">本月手续代办及服务情况</th>
-<td>
+<td id="proxy_status_wrapper">
 <textarea id="proxy_status" class="form-control" name="proxy_status" placeholder="<?= $pg_rows[0]['proxy_status'] ?>" rows="6" <?= $dis ?>><?= $pg_rows[0]['proxy_status'] ?></textarea>
+<?php if ($ICanSubmitPrecedure): ?>
+<button id ="proxy_status_btn" type="submit" class="btn btn-success" name="submit">
+    <span id = "proxy_status_btn_span" class="" role="status" aria-hidden="true"></span>
+    提 交
+</button>
+<?php endif ?>
 </td>
 </tr>
 <?php foreach ($son as $v): ?>
