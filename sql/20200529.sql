@@ -7,3 +7,5 @@ update organization set oname = '001' where oid = 65;
 -- 108 号项目 责任单位 和 代办单位 由原 区民政局(21) 变更为 区卫健局(9)
 update projects set oid = 9 , oid_serve = 9 where pid = 108;
 
+-- 78 和 79 号项目 代办单位 增加 区卫健局(9)
+update projects set oid_serve_1 = 9 where pid in (78, 79);
