@@ -9,3 +9,9 @@ update projects set oid = 9 , oid_serve = 9 where pid = 108;
 
 -- 78 和 79 号项目 代办单位 增加 区卫健局(9)
 update projects set oid_serve_1 = 9 where pid in (78, 79);
+
+-- 区文化和旅游局(18) 和 区文化旅游局(81) 重复
+-- 清除 (18)，保留 (81)
+-- 原单位为 (18) 的账号 单位变更为 (81)
+update organization set oname = '002' where oid = 18;
+update users set oid = 81 where oid = 18;
