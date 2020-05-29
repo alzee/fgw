@@ -1,6 +1,9 @@
 // addEvnetListener to proxy_status textarea
 var proxy_status=document.querySelector('#progress #proxy_status');
-if(proxy_status) proxy_status.addEventListener("blur", post_proxy_status);
+if(proxy_status) {
+	if(! proxy_status.disabled)
+	proxy_status.addEventListener("blur", post_proxy_status);
+}
 
 function post_proxy_status() {
 	var v = this.value;
