@@ -12,7 +12,7 @@ function post_proxy_status() {
 				setTimeout(function () {
 					spinner.classList.remove('spinner-border');
 					spinner.classList.remove('spinner-border-sm');
-				}, 500);
+				}, 200);
 			}
 		}
 	};
@@ -580,7 +580,7 @@ function updateProc(){
 				setTimeout(function () {
 					spinner.classList.remove('spinner-border');
 					spinner.classList.remove('spinner-border-sm');
-				}, 500);
+				}, 200);
 			}
 		}
 	};
