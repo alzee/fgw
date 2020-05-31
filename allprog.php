@@ -14,11 +14,11 @@ else {
 }
 $prev_month = date('Y-m', strtotime('first day of last month'));
 
-$thead= ['项目编号','项目名称','建设性质','建设内容','总投资','今年计划投资','本月完成投资','今年累计完成投资','计划开工时间','计划竣工时间','包联领导','责任单位','服务单位','项目类型','建设阶段','本月进展','问题和建议'];
+$thead= ['项目编号','项目名称','建设性质','建设内容','总投资','今年计划投资','本月完成投资','今年累计完成投资','计划开工时间','计划竣工时间','包联领导','责任单位','服务单位','项目类型','建设阶段','本月进展','下月计划','困难和问题'];
 
 // $sql ="select j.pid,pname,property,intro,investment,invest_plan,invest_mon,invest_accum,start,finish,p_incharge,o1.oname,o2.oname oname_serve,type,g.phase,progress,problem,j.oid from projects j left join ((select * from progress where date like '$month%') g, organization o1, organization o2) on (j.pid=g.pid and j.oid=o1.oid and j.oid_serve=o2.oid) order by j.pid";
 
-$sql = "select j.pid,pname,property,intro,investment,invest_plan,g.invest_mon,invest_accum,start,finish,p_incharge,oname,oname_serve,type,g.phase,g.progress,g.problem,j.oid
+$sql = "select j.pid,pname,property,intro,investment,invest_plan,g.invest_mon,invest_accum,start,finish,p_incharge,oname,oname_serve,type,g.phase,g.progress,g.next_step,g.problem,j.oid
    	from 
 	(select j.*,o1.oname,o2.oname oname_serve from projects j left join (organization o1, organization o2) on (j.oid=o1.oid and j.oid_serve=o2.oid)) j 
 	left join 
@@ -56,9 +56,9 @@ require $inc . 'report_header.php';
 			  </button>
 			  <div class="dropdown-menu" id="type_menu">
 				<a class="dropdown-item active" href="#">所有类型 <span class="badge badge-danger count_all">0</span></a>
-				<a class="dropdown-item" href="#">工 业 <span class="badge badge-danger count">0</span></a>
-				<a class="dropdown-item" href="#">商 贸 <span class="badge badge-danger count">0</span></a>
-				<a class="dropdown-item" href="#">基 建 <span class="badge badge-danger count">0</span></a>
+				<a class="dropdown-item" href="#">工业制造业 <span class="badge badge-danger count">0</span></a>
+				<a class="dropdown-item" href="#">商贸服务业 <span class="badge badge-danger count">0</span></a>
+				<a class="dropdown-item" href="#">基础设施 <span class="badge badge-danger count">0</span></a>
 				<a class="dropdown-item" href="#">乡村振兴 <span class="badge badge-danger count">0</span></a>
 			  </div>
 			</div>

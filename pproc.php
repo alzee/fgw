@@ -8,6 +8,8 @@ use App\Db;
 $oid = $_SESSION['oid'];
 // prepare data
 
+$month = date('Y-m');
+
 $sql = "select parent,num,code,name from `procedure`";
 $allprocs = (new Db)->query($sql);
 
@@ -30,7 +32,8 @@ foreach ($allprocs as $k => $v){
 // var_dump($pra);
 
 // prepare data
-$sql = "select pproc.*, pname from pproc join projects on pproc.pid=projects.pid";
+// $sql = "select pproc.*, pname from pproc join projects on pproc.pid=projects.pid";
+$sql = "select pproc.pid, pname, proxy_status, pproc.* from pproc join (projects, (select pid, proxy_status from progress where date like '${month}%') p3) on (pproc.pid=projects.pid and p3.pid = pproc.pid) order by pproc.pid";
 $proc = (new Db)->query($sql);
 // var_dump($proc);
 
@@ -55,6 +58,7 @@ require $inc . 'report_header.php';
 				<tr>
 						<th scope="col" rowspan="2">项目编号</th>
 						<th scope="col" rowspan="2">项目名称</th>
+						<th scope="col" rowspan="2">本月手续代办及服务情况</th>
 		<?php foreach ($pra as $v): ?>
 		<th scope="col" colspan="<?= count($v['son']) ?>"><?= $v['name'] ?></th>
 		<?php endforeach ?>
@@ -71,9 +75,11 @@ require $inc . 'report_header.php';
 <?php foreach ($proc as $v): ?>
 				<tr>
 <td><?= $v['pid'] ?></td>
+<?php array_shift($v) ?>
 <td><?= $v['pname'] ?></td>
 <?php array_shift($v) ?>
-<?php array_pop($v) ?>
+<td><?= $v['proxy_status'] ?></td>
+<?php array_shift($v) ?>
 <?php foreach ($v as $vv): ?>
 <td><?= $desc[$vv] ?></td>
 <?php endforeach ?>
