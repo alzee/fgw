@@ -9,6 +9,7 @@ $oid = $_SESSION['oid'];
 // prepare data
 
 $month = date('Y-m');
+$month = '2020-05';
 
 $sql = "select parent,num,code,name from `procedure`";
 $allprocs = (new Db)->query($sql);
