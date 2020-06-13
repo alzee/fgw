@@ -9,7 +9,7 @@ $oid = $_SESSION['oid'];
 // prepare data
 
 $month = date('Y-m');
-$month = '2020-05';
+// $month = '2020-05';
 
 $sql = "select parent,num,code,name from `procedure`";
 $allprocs = (new Db)->query($sql);
@@ -34,7 +34,8 @@ foreach ($allprocs as $k => $v){
 
 // prepare data
 // $sql = "select pproc.*, pname from pproc join projects on pproc.pid=projects.pid";
-$sql = "select pproc.pid, pname, proxy_status, pproc.* from pproc join (projects, (select pid, proxy_status from progress where date like '${month}%') p3) on (pproc.pid=projects.pid and p3.pid = pproc.pid) order by pproc.pid";
+// $sql = "select pproc.pid, pname, proxy_status, pproc.* from pproc join (projects, (select pid, proxy_status from progress where date like '${month}%') p3) on (pproc.pid=projects.pid and p3.pid = pproc.pid) order by pproc.pid";
+$sql = "select p1.pid, pname, proxy_status, p1.* from (select pname, pproc.*  from projects left join pproc on (pproc.pid = projects.pid)) p1 left join (select pid,proxy_status from progress where date like '${month}%') p3  on (p3.pid = p1.pid)";
 $proc = (new Db)->query($sql);
 // var_dump($proc);
 
