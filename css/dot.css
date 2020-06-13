@@ -236,3 +236,7 @@ td.proc-options > .spinner {
 	position: absolute;
 	right: 4.8em;
 }
+
+#proxy_status_btn {
+    transition: all .5s;
+}
