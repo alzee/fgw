@@ -7,16 +7,6 @@ php limit size
 php limit type
 
 search on proj page is still global, need to be limited in type
-proj list page js need to be re-design
-
-sql in ajax.php
-
-date pick bug
-
-js md5
-
-锁定日期
-建设阶段细化
 
 admin modify/add/delete project
 admin delete user?
@@ -25,17 +15,9 @@ the lock alert shouldn't show out if this is not my proj
 
 should I change investment,invest_mon,invest_plan,sum_year to int(11)?
 
-cron to 'update projects set alert=2'
-
 create view in db?
 
-button theme
-
 sql injection
-
-month picker click on allprog
-
-fontawesome new location
 
 pinyin
 
