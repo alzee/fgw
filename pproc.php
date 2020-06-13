@@ -9,7 +9,7 @@ $oid = $_SESSION['oid'];
 // prepare data
 
 $month = date('Y-m');
-// $month = '2020-05';
+$month = '2020-05';
 
 $sql = "select parent,num,code,name from `procedure`";
 $allprocs = (new Db)->query($sql);
@@ -81,6 +81,7 @@ require $inc . 'report_header.php';
 <td><?= $v['pname'] ?></td>
 <?php array_shift($v) ?>
 <?php
+$class = "";
 if (is_null($v['proxy_status'])) {
     $class = "bg-warning";
 }
