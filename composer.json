@@ -1,7 +1,8 @@
 {
     "require": {
         "phpoffice/phpspreadsheet": "^1.6",
-        "symfony/dotenv": "^5.0"
+        "symfony/dotenv": "^5.0",
+        "twig/twig": "^3.0"
     },
 	"autoload": {
 		"psr-4": {
