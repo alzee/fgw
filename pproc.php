@@ -8,8 +8,12 @@ use App\Db;
 $oid = $_SESSION['oid'];
 // prepare data
 
-$month = date('Y-m');
-// $month = '2020-05';
+if (empty($pp)){
+	$month = date('Y-m');
+}
+else {
+	$month = $pp;
+}
 
 $sql = "select parent,num,code,name from `procedure`";
 $allprocs = (new Db)->query($sql);
@@ -46,6 +50,19 @@ require $inc . 'report_header.php';
 ?>
 
 		  <div class="col mt-1 mt-sm-0">
+		  </div>
+
+		  <div class="col-auto">
+			<div class="dropdown" id="dates_report">
+					  <button class="btn btn-info btn-sm dropdown-toggle dropdown-link" id="month" type="button">
+						  <?= $month ?>
+					  </button>
+					  <div class="dropdown-menu">
+<?php for($i=date('n'); date('n') - $i < 12; $i--): ?>
+						<a class="dropdown-item <?php if(date('Y-m', mktime(0,0,0,$i,1)) == $month) echo 'active' ?>" href="<?= "$root/$controller/$method/pproc/" . date('Y-m', mktime(0,0,0,$i,1)) ?>"><?= date('Y-m', mktime(0,0,0,$i,1)) ?></a>
+<?php endfor ?>
+					  </div>
+			</div>
 		  </div>
 
 		  <div class="col-auto mt-1 mt-sm-0">
