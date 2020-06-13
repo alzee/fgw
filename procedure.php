@@ -51,9 +51,9 @@ else {
 <td id="proxy_status_wrapper">
 <textarea id="proxy_status" class="form-control" name="proxy_status" placeholder="<?= $pg_rows[0]['proxy_status'] ?>" rows="6" <?= $dis ?>><?= $pg_rows[0]['proxy_status'] ?></textarea>
 <?php if ($ICanSubmitPrecedure): ?>
-<button id ="proxy_status_btn" type="submit" class="btn btn-success" name="submit">
-    <span id = "proxy_status_btn_spin" class="" role="status" aria-hidden="true"></span>
-    <span id = "proxy_status_btn_text">提 交</span>
+<button id="proxy_status_btn" type="submit" class="btn btn-success" name="submit" disabled>
+    <span id="proxy_status_btn_spin" class="" role="status" aria-hidden="true"></span>
+    <span id="proxy_status_btn_text">提 交</span>
 </button>
 <?php endif ?>
 </td>

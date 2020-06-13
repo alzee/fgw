@@ -2,16 +2,16 @@
 var proxy_status=document.querySelector('#progress #proxy_status');
 if(proxy_status) {
 	if(! proxy_status.disabled)
-	proxy_status.addEventListener("blur", post_proxy_status);
-	proxy_status.addEventListener("focus", enableBtn);
+	proxy_status.addEventListener("change", post_proxy_status);
+	proxy_status.addEventListener("input", enableBtn);
 }
 
 function enableBtn() {
 	let text = document.getElementById('proxy_status_btn_text');
 	let btn = document.getElementById('proxy_status_btn');
     btn.disabled = false;
-	//btn.classList = 'btn btn-success';
     text.innerText = "提 交";
+	proxy_status.removeEventListener("input", enableBtn);
 }
 
 function post_proxy_status() {
@@ -25,8 +25,8 @@ function post_proxy_status() {
                     spinner.classList.remove('spinner-border');
                     spinner.classList.remove('spinner-border-sm');
                     btn.disabled = true;
-					//btn.classList = 'btn btn-secondary';
                     text.innerText = "已保存";
+					proxy_status.addEventListener("input", enableBtn);
                 }, 200);
             }
         }
