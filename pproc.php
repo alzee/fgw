@@ -80,7 +80,12 @@ require $inc . 'report_header.php';
 <?php array_shift($v) ?>
 <td><?= $v['pname'] ?></td>
 <?php array_shift($v) ?>
-<td><?= $v['proxy_status'] ?></td>
+<?php
+if (is_null($v['proxy_status'])) {
+    $class = "bg-warning";
+}
+?>
+<td class="<?= $class ?>"><?= $v['proxy_status'] ?></td>
 <?php array_shift($v) ?>
 <?php foreach ($v as $vv): ?>
 <td><?= $desc[$vv] ?></td>
