@@ -91,7 +91,12 @@ else {
 unset($row['oid']);
 ?>
 <?php foreach($row as $k => $v): ?>
-						<td <?php if ($k == 'intro') echo 'class="intro"' ?>><?= $v ?></td>
+<?php
+$class = "";
+if ($k == 'intro') $class = "intro";
+if (($k == 'progress' || $k == 'next_step' || $k == 'problem') && is_null($v)) $class = "bg-danger";
+?>
+						<td class="<?= $class ?>"><?= $v ?></td>
 <?php endforeach ?>
 					</tr>
 <?php endforeach ?>
