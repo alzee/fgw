@@ -4,6 +4,7 @@ if(proxy_status) {
 	if(! proxy_status.disabled)
 	proxy_status.addEventListener("change", post_proxy_status);
 	proxy_status.addEventListener("input", enableBtn);
+	//proxy_status.addEventListener("input", enableBtn, {once: true});
 }
 
 function enableBtn() {
@@ -27,6 +28,7 @@ function post_proxy_status() {
                     btn.disabled = true;
                     text.innerText = "已保存";
 					proxy_status.addEventListener("input", enableBtn);
+					//proxy_status.addEventListener("input", enableBtn, {once: true});
                 }, 200);
             }
         }
