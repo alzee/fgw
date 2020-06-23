@@ -1,5 +1,5 @@
 // addEvnetListener to proxy_status textarea
-var proxy_status=document.querySelector('#progress #proxy_status');
+var proxy_status=document.querySelector('#proj_detail #proxy_status');
 if(proxy_status) {
 	if(! proxy_status.disabled)
 	proxy_status.addEventListener("change", post_proxy_status);
@@ -556,25 +556,50 @@ function tbl2xlsx(){
 }
 
 // addEvnetListener to #nav-tab .nav-item
-//var navitems = document.getElementsByClassName('nav-item');
-//var tabpanes = document.getElementsByClassName('tab-pane');
-//if(navitems) {
-//for (var i=0;i<navitems.length; i++) navitems[i].addEventListener("click", shownavitem);
-//}
+var navitems = document.getElementsByClassName('nav-item');
+var tabpanes = document.getElementsByClassName('tab-pane');
+if(navitems) {
+    for (var i=0;i<navitems.length; i++){
+        navitems[i].addEventListener("click", shownavitem);
+    }
+}
 
-// bootstrap.js will do this shit
 function shownavitem(){
     //active tab;
     for (var i=0;i<navitems.length; i++){
         navitems[i].classList.remove('active');
+        tabpanes[i].classList.remove('show');
         tabpanes[i].classList.remove('active');
     }
     this.classList.add('active');
+    //location.href += '#' + this.id.replace('-tab', '');
     //active tab pane
-    var tabpane = document.getElementById(this.id.replace('-tab', ''));
+    var tabpane = document.getElementById(this.id.replace('-tab', '-pane'));
     tabpane.classList.add('active');
+    tabpane.classList.add('show');
 }
 
+let detail = document.getElementById('proj_detail');
+if (detail){
+    hash = location.hash.replace('#', '');
+    for (var i=0;i<navitems.length; i++){
+        //navitems[i].setAttribute('onclick', 'return false');
+        if(! hash){
+            hash = 'progress';
+            //location.href += "#" + hash;
+        }
+        if (tabpanes[i].dataset.name != hash) {
+            navitems[i].classList.remove('active');
+            tabpanes[i].classList.remove('show');
+            tabpanes[i].classList.remove('active');
+        }
+        else {
+            navitems[i].classList.add('active');
+            tabpanes[i].classList.add('show');
+            tabpanes[i].classList.add('active');
+        }
+    }
+}
 
 // addEvnetListener to .procradio
 var radioProc = document.getElementsByClassName('procradio');
@@ -612,3 +637,5 @@ function updateProc(){
     spinner.classList.add('spinner-border');
     spinner.classList.add('spinner-border-sm');
 }
+
+let tab

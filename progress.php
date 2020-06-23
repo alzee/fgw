@@ -92,7 +92,7 @@ else{
 }
 ?>
 
-	  <div class="container" id="progress">
+	  <div class="container" id="proj_detail">
 		  <nav aria-label="breadcrumb" class="position-relative">
 				  <ol class="breadcrumb">
 				  <li class="breadcrumb-item"><a href="<?= "$root/home" ?>">首 页</a></li>
@@ -114,16 +114,16 @@ else{
 
 		<!-- tab -->
 			<nav>
-			  <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
-				<a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">项目实施情况</a>
-				<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">手续办理情况</a>
-				<a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">项目路线图</a>
+			  <div class="nav nav-tabs mb-3" id="" role="tablist">
+				<a class="nav-item nav-link active" id="progress-tab" href="#progress" role="tab">项目实施情况</a>
+				<a class="nav-item nav-link" id="procedure-tab" href="#procedure" role="tab">手续办理情况</a>
+				<a class="nav-item nav-link" id="path-tab" href="#path" role="tab">项目路线图</a>
 			  </div>
 			</nav>
 
 		<!-- tab 项目实施情况 -->
 		<div class="tab-content" id="nav-tabContent">
-		 <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+		 <div class="tab-pane fade show active" id="progress-pane" data-name="progress" role="tabpanel">
 		  <div class="alert alert-warning alert-dismissible fade show" role="alert">
 			  默认显示前一次提交的数据，以供参考。内容与上月相同的单元格以黄色背景提醒。
 		 </div>
@@ -383,14 +383,14 @@ if(isset($alert1)){
 		</div>
 
 		<!-- tab 手续办理情况 -->
-		<div class="tab-pane fade show" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+		<div class="tab-pane fade show" id="procedure-pane" data-name="procedure" role="tabpanel">
 <?php
 include('procedure.php');
 ?>
 		</div>
 
 		<!-- tab 项目路线图 -->
-		<div class="tab-pane fade show" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+		<div class="tab-pane fade show" id="path-pane" data-name="path" role="tabpanel">
 <?php include('path.php') ?>
 		</div>
 
@@ -398,93 +398,7 @@ include('procedure.php');
 		</main>
 		</section>
 
-<!-- click and popup image start-->
-			<div id="layer" class="d-none position-fixed w-100 h-100 fade show">
-			</div>
-
-			<div id="popimg" class="w-75 position-fixed d-none fade show">
-			  <img src="" class="rounded">
-			  <button type="button" class="close position-absolute" id="popimgclose" aria-label="Close">
-				  <span aria-hidden="true">&times;</span>
-			  </button>
-			</div>
-<!-- click and popup image end-->
 		  </div>
 	  <script src="<?= $root ?>/js/jquery.min.js"></script>
 	  <script src="<?= $root ?>/js/bootstrap-datepicker.min.js"></script>
 	  <script src="<?= $root ?>/js/bootstrap-datepicker.zh-CN.min.js"></script>
-
-
-
-
-
-
-
-<!-- The template to display files available for upload -->
-<script id="template-upload" type="text/x-tmpl">
-{% for (var i=0, file; file=o.files[i]; i++) { %}
-    <tr class="template-upload fade">
-        <td>
-            <span class="preview"></span>
-        </td>
-        <td>
-            <p class="name">{%=file.name%}</p>
-            <strong class="error text-danger"></strong>
-        </td>
-        <td>
-            <p class="size">Processing...</p>
-            <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="progress-bar progress-bar-success" style="width:0%;"></div></div>
-        </td>
-        <td>
-            {% if (!i && !o.options.autoUpload) { %}
-                <button class="btn btn-primary start" disabled>
-                    <i class="glyphicon glyphicon-upload"></i>
-                    <span>上 传</span>
-                </button>
-            {% } %}
-            {% if (!i) { %}
-                <button class="btn btn-warning cancel">
-                    <i class="glyphicon glyphicon-ban-circle"></i>
-                    <span>取 消</span>
-                </button>
-            {% } %}
-        </td>
-    </tr>
-{% } %}
-</script>
-<!-- The template to display files available for download -->
-<script id="template-download" type="text/x-tmpl">
-{% for (var i=0, file; file=o.files[i]; i++) { %}
-            <span class="preview">
-                {% if (file.thumbnailUrl) { %}
-                    <a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}" data-gallery><img src="{%=file.thumbnailUrl%}"></a>
-                {% } %}
-            </span>
-{% } %}
-</script>
-<!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
-<script src="<?= $root ?>/js/jquery.ui.widget.js"></script>
-<!-- Bootstrap JS is not required, but included for the responsive demo navigation -->
-<script src="<?= $root ?>/js/bootstrap.min.js"></script>
-<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
-<script src="<?= $root ?>/js/jquery.iframe-transport.js"></script>
-<!-- The basic File Upload plugin -->
-<script src="<?= $root ?>/js/jquery.fileupload.js"></script>
-<!-- The File Upload processing plugin -->
-<script src="<?= $root ?>/js/jquery.fileupload-process.js"></script>
-<!-- The File Upload image preview & resize plugin -->
-<script src="<?= $root ?>/js/jquery.fileupload-image.js"></script>
-<!-- The File Upload audio preview plugin -->
-<script src="<?= $root ?>/js/jquery.fileupload-audio.js"></script>
-<!-- The File Upload video preview plugin -->
-<script src="<?= $root ?>/js/jquery.fileupload-video.js"></script>
-<!-- The File Upload validation plugin -->
-<script src="<?= $root ?>/js/jquery.fileupload-validate.js"></script>
-<!-- The File Upload user interface plugin -->
-<script src="<?= $root ?>/js/jquery.fileupload-ui.js"></script>
-<!-- The main application script -->
-<script src="<?= $root ?>/js/main.js"></script>
-<!-- The XDomainRequest Transport is included for cross-domain file deletion for IE 8 and IE 9 -->
-<!--[if (gte IE 8)&(lt IE 10)]>
-<script src="js/cors/jquery.xdr-transport.js"></script>
-<![endif]-->

@@ -103,7 +103,7 @@ tbody th{
 	background-color: #e9ecef;
 	border-radius: .25rem;
 }
-#progress #dates{
+#proj_detail #dates{
 	top: 10px;
 	right: 2%;
 }
@@ -113,27 +113,27 @@ tbody th{
 #admin main .input-group-text{
 	width:100%;
 }
-#progress tbody th{
+#proj_detail tbody th{
 	width:4em;
 }
-#progress td .img-fluid{
+#proj_detail td .img-fluid{
 	width: 55px;
 	max-height: 38px;
 	cursor: pointer;
 }
-#progress #popimg{
+#proj_detail #popimg{
 	top: 50%;
 	left: 50%;
 	z-index: 3;
 }
-#progress #popimg img{
+#proj_detail #popimg img{
 	width: 100%;
 }
-#progress #popimg .close{
+#proj_detail #popimg .close{
 	top: 2%;
 	right: 2%;
 }
-#progress .addpic:hover{
+#proj_detail .addpic:hover{
 	color: #28a745 !important;
 	cursor: pointer;
 }
@@ -185,7 +185,7 @@ tbody th{
 	font-size: 1.75rem;
 }
 @media (max-width: 525px){
-	#progress input.form-control{
+	#proj_detail input.form-control{
 		width: 8rem;
 	}
 }
