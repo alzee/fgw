@@ -19,16 +19,16 @@ $dotenv->load(__DIR__.'/.env');
 class Db{
 	private $host;
 	private $user;
-	private $pass;
+	private $pw;
 	private $db;
 	private $mysqli;
 
 	function __construct(){
 		$this->host=$_ENV['host'];
 		$this->user=$_ENV['user'];
-		$this->pass=$_ENV['pw'];
+		$this->pw=$_ENV['pw'];
 		$this->db=$_ENV['db'];
-		$this->mysqli=new \mysqli($this->host,$this->user, $this->pass, $this->db);
+		$this->mysqli=new \mysqli($this->host,$this->user, $this->pw, $this->db);
 		if($this->mysqli->connect_errno){
 			echo $this->mysqli->connect_errno. "\n";
 			echo $this->mysqli->connect_error. "\n";
