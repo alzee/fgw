@@ -567,26 +567,25 @@ if(navitems) {
 function shownavitem(){
     //active tab;
     for (var i=0;i<navitems.length; i++){
-        navitems[i].classList.remove('active');
-        tabpanes[i].classList.remove('show');
-        tabpanes[i].classList.remove('active');
+		if (navitems[i] === this) {
+			navitems[i].classList.add('active');
+			tabpanes[i].classList.add('show');
+			tabpanes[i].classList.add('active');
+		}
+		else {
+			navitems[i].classList.remove('active');
+			tabpanes[i].classList.remove('show');
+			tabpanes[i].classList.remove('active');
+		}
     }
-    this.classList.add('active');
-    //location.href += '#' + this.id.replace('-tab', '');
-    //active tab pane
-    var tabpane = document.getElementById(this.id.replace('-tab', '-pane'));
-    tabpane.classList.add('active');
-    tabpane.classList.add('show');
 }
 
 let detail = document.getElementById('proj_detail');
 if (detail){
     hash = location.hash.replace('#', '');
     for (var i=0;i<navitems.length; i++){
-        //navitems[i].setAttribute('onclick', 'return false');
         if(! hash){
             hash = 'progress';
-            //location.href += "#" + hash;
         }
         if (tabpanes[i].dataset.name != hash) {
             navitems[i].classList.remove('active');
