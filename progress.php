@@ -123,7 +123,7 @@ else{
 
 		<!-- tab 项目实施情况 -->
 		<div class="tab-content" id="nav-tabContent">
-		 <div class="tab-pane fade show active" id="progress-pane" data-name="progress" role="tabpanel">
+		 <div class="tab-pane fade" id="progress-pane" data-name="progress" role="tabpanel">
 		  <div class="alert alert-warning alert-dismissible fade show" role="alert">
 			  默认显示前一次提交的数据，以供参考。内容与上月相同的单元格以黄色背景提醒。
 		 </div>
@@ -383,14 +383,14 @@ if(isset($alert1)){
 		</div>
 
 		<!-- tab 手续办理情况 -->
-		<div class="tab-pane fade show" id="procedure-pane" data-name="procedure" role="tabpanel">
+		<div class="tab-pane fade" id="procedure-pane" data-name="procedure" role="tabpanel">
 <?php
 include('procedure.php');
 ?>
 		</div>
 
 		<!-- tab 项目路线图 -->
-		<div class="tab-pane fade show" id="path-pane" data-name="path" role="tabpanel">
+		<div class="tab-pane fade" id="path-pane" data-name="path" role="tabpanel">
 <?php include('path.php') ?>
 		</div>
 
