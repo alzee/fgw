@@ -586,6 +586,7 @@ if (detail){
     for (var i=0;i<navitems.length; i++){
         if(! hash){
             hash = 'progress';
+			location.href += '#' + hash;
         }
         if (tabpanes[i].dataset.name != hash) {
             navitems[i].classList.remove('active');
