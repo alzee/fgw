@@ -1,3 +1,6 @@
+<?php
+require $inc . "header.php";
+?>
 <!-- 固定资产投资 -->
 	  <div class="container" id="invest">
 		  <nav aria-label="breadcrumb" class="position-relative">
@@ -95,3 +98,7 @@
 		</tbody>
 	</table>
 	</main>
+</section>
+<?php
+require $inc . 'footer.php';
+?>

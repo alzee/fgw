@@ -6,14 +6,20 @@
  * @todo
  */
 
-namespace App\Twig;
+namespace App;
 
 require_once 'vendor/autoload.php';
 
-$loader = new \Twig\Loader\FilesystemLoader('templates');
-$twig = new \Twig\Environment($loader, [
-    'cache' => 'var/cache',
-]);
+class Twig{
+  function render($template, $data){
+    $loader = new \Twig\Loader\FilesystemLoader('templates');
+    $twig = new \Twig\Environment($loader, [
+      'cache' => 'var/cache',
+      'auto_reload' => true,
+    ]);
+    // print_r($data);
+    return $twig->render($template, $data);
+  }
+}
 
 
-echo $twig->render('i.html');

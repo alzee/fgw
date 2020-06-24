@@ -9,6 +9,7 @@ namespace App;
 
 use App\Db;
 use App\Sign;
+use App\Xlsx2db;
 
 class Route
 {
@@ -27,8 +28,6 @@ class Route
 		$method=$path[1] ?? '';
 		$parameter=$path[2] ?? '';
 		$pp=$path[3] ?? '';
-
-		require $inc . "header.php";
 
 		$login=Sign::check();
 
@@ -73,7 +72,6 @@ class Route
 				}
 				break;
 			case 'admin':
-				require $inc .  'nav.php';
 				if(empty($method) || $method == 'chpwd'){
 					require $inc .  'chpwd.php';
 				}
@@ -100,6 +98,12 @@ class Route
 					require $inc .  '404.php';
 				}
 				break;
+      case 'xlsx2db':
+        Xlsx2db::showTables();
+        break;
+      case 'fields':
+        Xlsx2db::descTable(1);
+        break;
 			default:
 				if(is_readable($inc . "$controller.php")){
 					require $inc .  "$controller.php";
@@ -113,6 +117,8 @@ class Route
 			require $inc . 'login.php';
 		}
 
-		require $inc . 'footer.php';
+		//require $inc . "header.php";
+
+		//require $inc . 'footer.php';
 	}
 }

@@ -1,4 +1,5 @@
 <?php
+require $inc . 'header.php';
 use App\Db;
 $month = date('Y-m');
 $prev_month = date('Y-m', strtotime('first day of last month'));
@@ -402,3 +403,5 @@ include('procedure.php');
 	  <script src="<?= $root ?>/js/jquery.min.js"></script>
 	  <script src="<?= $root ?>/js/bootstrap-datepicker.min.js"></script>
 	  <script src="<?= $root ?>/js/bootstrap-datepicker.zh-CN.min.js"></script>
+<?php
+require $inc . 'footer.php';

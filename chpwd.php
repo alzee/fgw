@@ -1,4 +1,7 @@
 <?php
+require $inc . "header.php";
+require $inc .  'nav.php';
+
 use App\Db;
 // hanlde form submission
 $uid = $_SESSION['uid'];
@@ -78,3 +81,5 @@ if($_POST){
 		  </main>
 		</section>
 		</div>
+<?php
+require $inc . 'footer.php';

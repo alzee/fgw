@@ -1,4 +1,6 @@
 <?php
+require $inc . "header.php";
+require $inc .  'nav.php';
 use App\Db;
 if($_POST){
 	//var_dump($_POST);
@@ -127,3 +129,5 @@ $u_rows=(new Db)->query($sql);
 		  </table>
 		  </main>
 		</div>
+<?php
+require $inc . 'footer.php';
