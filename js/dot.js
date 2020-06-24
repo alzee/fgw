@@ -1,4 +1,42 @@
-// addEvnetListener to proxy_status textarea
+// addEventListener to proxy_status textarea
+let table_select = document.getElementById('select_table_name');
+if(table_select){
+  table_select.addEventListener('change', getFields);
+}
+
+function getFields() {
+  let table = this.value;
+  let xhr = new XMLHttpRequest();
+  let url = '/fgw/fields?table=' + table;
+  xhr.onreadystatechange = function () {
+    if(xhr.readyState === XMLHttpRequest.DONE){
+      if(xhr.status === 200){
+        //console.log(xhr.response);
+        listFields(xhr.response);
+      }
+    }
+  };
+  xhr.open('GET', url);
+  xhr.responseType='json';
+  //xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  xhr.send();
+}
+
+function listFields(fields) {
+  let feild_list = document.getElementById('fields_list');
+  let feild_input = document.importNode(feild_list.firstElementChild, true);
+  feild_list.innerHTML='';
+  for (let i = 0; i < fields.length; i++) {
+    let input = document.importNode(feild_input, true);
+    input.firstElementChild.setAttribute('for', fields[i]);
+    input.firstElementChild.innerText = fields[i];
+    input.firstElementChild.nextElementSibling.id = fields[i];
+    input.firstElementChild.nextElementSibling.name = fields[i];
+    feild_list.appendChild(input);
+  }
+}
+
+// addEventListener to proxy_status textarea
 var proxy_status=document.querySelector('#proj_detail #proxy_status');
 if(proxy_status) {
 	if(! proxy_status.disabled)
@@ -45,7 +83,7 @@ function post_proxy_status() {
     spinner.classList.add('spinner-border-sm');
 }
 
-// addEvnetListener to projects list
+// addEventListener to projects list
 var projects=document.querySelectorAll('#projects tbody tr');
 for(var i=0;i<projects.length;i++){
     projects[i].addEventListener("click", progressPage);
@@ -63,7 +101,7 @@ function progressPage(){
     }
 }
 
-// addEvnetListener to users list
+// addEventListener to users list
 var projects=document.querySelectorAll('#userlist tbody tr');
 for(var i=0;i<projects.length;i++){
     projects[i].addEventListener("click", moduser);
@@ -90,7 +128,7 @@ function passwd(){
     //console.log(user1);
 }
 
-// addEvnetListener to alertclosebtn
+// addEventListener to alertclosebtn
 var alertclosebtn=document.getElementsByClassName('close');
 for(var i=0;i<alertclosebtn.length;i++){
     alertclosebtn[i].addEventListener("click", closealert);
@@ -103,7 +141,7 @@ function closealert(){
     // set sth so this alert won't come out again when refresh
 }
 
-// addEvnetListener to dropdownbtn
+// addEventListener to dropdownbtn
 var dropdownbtn=document.querySelectorAll('.dropdown button');
 for(var i=0;i<dropdownbtn.length;i++){
     dropdownbtn[i].addEventListener("click", dropdown);
@@ -132,7 +170,7 @@ function dropdownHide(){
     this.nextElementSibling.classList.remove('show');
 }
 
-// addEvnetListener to dropdown-item
+// addEventListener to dropdown-item
 var dropdownitem=document.querySelectorAll('.dropdown-menu .dropdown-item');
 for(var i=0;i<dropdownitem.length;i++){
     dropdownitem[i].addEventListener("mousedown", dropdownmenu);
@@ -146,7 +184,7 @@ function dropdownmenu(){
     this.parentElement.previousElementSibling.innerHTML=this.innerHTML;
 }
 
-// addEvnetListener to #dates .dropdown-item
+// addEventListener to #dates .dropdown-item
 var datesDropdownitem=document.querySelectorAll('#dates .dropdown-menu .dropdown-item');
 for(var i=0;i<datesDropdownitem.length;i++){
     datesDropdownitem[i].addEventListener("mousedown", toggleWritable);
@@ -236,7 +274,7 @@ function toggleWritable(){
     }
 }
 
-// addEvnetListener to search
+// addEventListener to search
 var s=document.getElementById('search');
 var c=document.getElementById('clearsearch');
 if(s) s.addEventListener('keyup', search);
@@ -271,7 +309,7 @@ function search(){
     }
 }
 
-// addEvnetListener to clearsearch
+// addEventListener to clearsearch
 if(c) c.addEventListener('click', clearsearch);
 function clearsearch(){
     s.value="";
@@ -279,7 +317,7 @@ function clearsearch(){
     search();
 }
 
-// addEvnetListener to #projects .dropdown-item
+// addEventListener to #projects .dropdown-item
 var pjDropdownitem=document.querySelectorAll('#type_menu .dropdown-item');
 for(var i=0;i<pjDropdownitem.length;i++){
     pjDropdownitem[i].addEventListener("mousedown", searchType);
@@ -339,7 +377,7 @@ if(myProj){
     //count_type_d.innerText = '';
 
     countType();
-    // addEvnetListener to #myproject
+    // addEventListener to #myproject
     myProj.addEventListener('click', toggleMy);
 }
 // toggle my projects
@@ -371,14 +409,14 @@ function toggleMy(){
     }
 }
 
-// addEvnetListener to upload
+// addEventListener to upload
 var u=document.querySelector('#upload input');
 if(u) u.addEventListener('change', chname);
 function chname(){
     u.nextElementSibling.innerText=u.value;
 }
 
-// addEvnetListener to monthpicker
+// addEventListener to monthpicker
 var m=document.getElementsByClassName('pickmonth');
 for(var i=0;i<m.length;i++){
     //m[i].addEventListener("click", pickmonth);
@@ -409,7 +447,7 @@ function pickmonth(i){
     }
 }
 
-// addEvnetListener to login password
+// addEventListener to login password
 var p=document.getElementById('inputPassword');
 if(p) p.addEventListener("keyup", encrytpass);
 function  encrytpass(){
@@ -418,7 +456,7 @@ function  encrytpass(){
     //p.value=(md5(p.value));
 }
 
-// addEvnetListener to img thumbnails
+// addEventListener to img thumbnails
 var thumb=document.getElementsByClassName('img-fluid');
 for(var i=0;i<thumb.length;i++){
     thumb[i].addEventListener("click", showImg);
@@ -433,10 +471,10 @@ function showImg(){
     d.setAttribute('style', 'margin-left: ' + -d.clientWidth/2 +'px; margin-top:' + -d.clientHeight/2 + 'px;');
 }
 
-// addEvnetListener to popimgclose btn
+// addEventListener to popimgclose btn
 var popimgclose=document.getElementById('popimgclose');
 if(popimgclose) popimgclose.addEventListener('click', closelayer);
-// addEvnetListener to layer
+// addEventListener to layer
 var layer=document.getElementById('layer');
 if(layer) layer.addEventListener('click', closelayer);
 // close opacity layer
@@ -474,7 +512,7 @@ function chParentHref(path){
     parent.postMessage(path, '*');
 }
 
-// addEvnetListener to btn in 404
+// addEventListener to btn in 404
 var backbtn = document.querySelector('#notfound button');
 if(backbtn) backbtn.addEventListener("click", function(){history.back()});
 
@@ -495,7 +533,7 @@ function tdToObject(){
         }
     }
 }
-// addEvnetListener to #exportbtn
+// addEventListener to #exportbtn
 var expbtn = document.getElementById('exportbtn');
 if(expbtn) expbtn.addEventListener("click", tbl2xlsx);
 
@@ -559,7 +597,7 @@ function tbl2xlsx(){
     XLSX.writeFile(wb, filename ,{bookType: "xlsx"});
 }
 
-// addEvnetListener to #nav-tab .nav-item
+// addEventListener to #nav-tab .nav-item
 var navitems = document.getElementsByClassName('nav-item');
 var tabpanes = document.getElementsByClassName('tab-pane');
 if(navitems) {
@@ -605,7 +643,7 @@ if (detail){
     }
 }
 
-// addEvnetListener to .procradio
+// addEventListener to .procradio
 var radioProc = document.getElementsByClassName('procradio');
 if(radioProc) {
     for (var i=0;i<radioProc.length; i++) {

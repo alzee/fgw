@@ -102,7 +102,10 @@ class Route
         Xlsx2db::showTables();
         break;
       case 'fields':
-        Xlsx2db::descTable(1);
+        Xlsx2db::descTable();
+        break;
+      case 'updatedb':
+        Xlsx2db::updateDb();
         break;
 			default:
 				if(is_readable($inc . "$controller.php")){

@@ -10,30 +10,91 @@ namespace App;
 
 use App\Db;
 use App\Twig;
+use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Reader\Xls;
+use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 
 require 'vendor/autoload.php';
 
 class Xlsx2db{
+  /*
+   * @Route("xlsx2db", name="xlsx2db")
+   */
   function showTables(){
     $sql = 'show tables';
     $rows = (new Db)->query($sql);
+    $tables = [];
+    foreach ($rows as $v) {
+      $tables[] = $v['Tables_in_fgw'];
+    }
 
     echo Twig::render('xlsx2db.html.twig', 
-      [ 'title' => 'xlsx2db',
-      'rows' => $rows ]
+      [
+        'title' => 'xlsx2db',
+        'tables' => $tables,
+      ]
     );
   }
 
-  function descTable($table){
-    // $table = $_POST['table'];
-    $table = 'projects';
-    $sql = "desc $table";
+  /*
+   * @Route("fields", name="getFields")
+   */
+  function descTable(){
+    $table = $_GET['table'];
+    $sql = "desc `$table`";
     $rows = (new Db)->query($sql);
-
-    $col = [];
+    $cols = [];
     foreach($rows as $v){
-      $col[] = $v['Field'];
+      $cols[] = $v['Field'];
     }
-    echo json_encode($col, JSON_UNESCAPED_UNICODE);
+    echo json_encode($cols, JSON_UNESCAPED_UNICODE);
+  }
+
+  /*
+   * @Route("updateDb", name="updateDb")
+   */
+  function updateDb() {
+    $fields = $_POST;
+    $table = $fields['table'];
+    unset($fields['table']);
+    print_r($fields);
+    $type='Xls';
+    $inputFileName = 'fuck.xls';
+    if (file_exists($inputFileName)) {
+      echo 'yes';
+    }
+    else {
+      echo 'no';
+    }
+    $sheetname = 'fuck';
+    $reader = IOFactory::createReader($type);
+    $reader->setLoadSheetsOnly($sheetname);
+    $spreadsheet = $reader->load($inputFileName);
+    $range = "N1:O100";
+    $sheetData = $spreadsheet->getActiveSheet()->rangeToArray($range, null, true, true, true);
+    // print_r($sheetData);
+
+    $cols = "";
+    foreach ($fields as $k => $v) {
+      if (! empty($v)) {
+        $cols .= $k . ",";
+      }
+    }
+    $cols = rtrim($cols, ',');
+
+    foreach ($sheetData as $k=>$v){
+      $values = "";
+      foreach ($fields as $kk => $vv) {
+        if (! empty($vv)) {
+          echo $vv;
+          $values .= '"' . $sheetData[$k]["$vv"] . '"' . ",";
+        }
+      }
+      $values = rtrim($values, ',');
+      $sql = "insert into $table ($cols) values ($values)";
+      echo $sql;
+      echo PHP_EOL;
+    }
   }
 }
