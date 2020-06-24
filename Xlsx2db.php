@@ -60,7 +60,7 @@ class Xlsx2db{
     unset($fields['table']);
     print_r($fields);
     $type='Xls';
-    $inputFileName = 'fuck.xls';
+    $inputFileName = 'xlsx/fuck.xls';
     if (file_exists($inputFileName)) {
       echo 'yes';
     }

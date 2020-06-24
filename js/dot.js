@@ -1,39 +1,40 @@
 // addEventListener to proxy_status textarea
 let table_select = document.getElementById('select_table_name');
 if(table_select){
-  table_select.addEventListener('change', getFields);
+	table_select.addEventListener('change', getFields);
+	getFields();
 }
 
 function getFields() {
-  let table = this.value;
-  let xhr = new XMLHttpRequest();
-  let url = '/fgw/fields?table=' + table;
-  xhr.onreadystatechange = function () {
-    if(xhr.readyState === XMLHttpRequest.DONE){
-      if(xhr.status === 200){
-        //console.log(xhr.response);
-        listFields(xhr.response);
-      }
-    }
-  };
-  xhr.open('GET', url);
-  xhr.responseType='json';
-  //xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-  xhr.send();
+	let table = table_select.value;
+	let xhr = new XMLHttpRequest();
+	let url = '/fgw/fields?table=' + table;
+	xhr.onreadystatechange = function () {
+		if(xhr.readyState === XMLHttpRequest.DONE){
+			if(xhr.status === 200){
+				//console.log(xhr.response);
+				listFields(xhr.response);
+			}
+		}
+	};
+	xhr.open('GET', url);
+	xhr.responseType='json';
+	//xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	xhr.send();
 }
 
 function listFields(fields) {
-  let feild_list = document.getElementById('fields_list');
-  let feild_input = document.importNode(feild_list.firstElementChild, true);
-  feild_list.innerHTML='';
-  for (let i = 0; i < fields.length; i++) {
-    let input = document.importNode(feild_input, true);
-    input.firstElementChild.setAttribute('for', fields[i]);
-    input.firstElementChild.innerText = fields[i];
-    input.firstElementChild.nextElementSibling.id = fields[i];
-    input.firstElementChild.nextElementSibling.name = fields[i];
-    feild_list.appendChild(input);
-  }
+	let feild_list = document.getElementById('fields_list');
+	let feild_input = document.importNode(feild_list.firstElementChild, true);
+	feild_list.innerHTML='';
+	for (let i = 0; i < fields.length; i++) {
+		let input = document.importNode(feild_input, true);
+		input.firstElementChild.setAttribute('for', fields[i]);
+		input.firstElementChild.innerText = fields[i];
+		input.firstElementChild.nextElementSibling.id = fields[i];
+		input.firstElementChild.nextElementSibling.name = fields[i];
+		feild_list.appendChild(input);
+	}
 }
 
 // addEventListener to proxy_status textarea
