@@ -1,4 +1,5 @@
 <?php
+require $inc . 'header.php';
 /*
  *  统计报表->进度月报
  */
@@ -105,3 +106,5 @@ if (($k == 'progress' || $k == 'next_step' || $k == 'problem') && is_null($v)) $
 		  </main>
 		</div>
 		<script src="<?= $root ?>/js/xlsx.full.min.js"></script>
+<?php
+require $inc . 'footer.php';

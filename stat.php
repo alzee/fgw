@@ -1,4 +1,5 @@
 <?php
+require $inc . 'header.php';
 use App\Db;
 /* 统计报表->统计汇总
  * prepare data
@@ -133,3 +134,5 @@ require $inc . 'report_header.php';
 		  </main>
 		</div>
 		<script src="<?= $root ?>/js/xlsx.full.min.js"></script>
+<?php
+require $inc . 'footer.php';

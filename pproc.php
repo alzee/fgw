@@ -1,4 +1,5 @@
 <?php
+require $inc . 'header.php';
 /*
  * 导出报表 -- 手续代办
  */
@@ -116,3 +117,5 @@ if (is_null($v['proxy_status'])) {
 		  </main>
 		</div>
 		<script src="<?= $root ?>/js/xlsx.full.min.js"></script>
+<?php
+require $inc . 'footer.php';

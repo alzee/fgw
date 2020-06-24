@@ -22,12 +22,5 @@ $sitename = $s_row['value'];
 
     <!-- Custom styles for this template -->
 	<link type="text/css" href="<?= $root ?>/css/dot.css" rel="stylesheet">
-
-<!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
-<link rel="stylesheet" href="<?= $root ?>/css/jquery.fileupload.css">
-<link rel="stylesheet" href="<?= $root ?>/css/jquery.fileupload-ui.css">
-<!-- CSS adjustments for browsers with JavaScript disabled -->
-<noscript><link rel="stylesheet" href="<?= $root ?>/css/jquery.fileupload-noscript.css"></noscript>
-<noscript><link rel="stylesheet" href="<?= $root ?>/css/jquery.fileupload-ui-noscript.css"></noscript>
   </head>
   <body>

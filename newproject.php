@@ -1,4 +1,5 @@
 <?php
+require $inc . 'header.php';
 ?>
 
 	  <div class="container" id="progress">
@@ -147,4 +148,5 @@
 				  <span aria-hidden="true">&times;</span>
 			  </button>
 			</div>
-<!-- click and popup image end-->
+<?php
+require $inc . 'footer.php';
