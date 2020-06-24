@@ -93,8 +93,7 @@ class Xlsx2db{
       }
       $values = rtrim($values, ',');
       $sql = "insert into $table ($cols) values ($values)";
-      echo $sql;
-      echo PHP_EOL;
+      echo $sql . PHP_EOL;
     }
   }
 }
