@@ -1,0 +1,52 @@
+{% extends "base.html.twig" %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block body %}
+<form method="POST" action="/fgw/updatedb">
+  <div>
+  <span>
+  Table you want to put data in. 
+  </span>
+  </div>
+  <select id="select_table_name" name="table">
+{% for table in tables %}
+<option class="table_name_option" value="{{ table }}">{{ table }}</option>
+{% endfor %}
+</select>
+
+  <div>
+  <span>
+  Please check your xlsx file and enter the column letter under corresponding database table's <i id="">({{ tables|first }})</i> field.
+  </span>
+  </div>
+  <div class="form-row" id="fields_list">
+    <div class="form-group col-auto">
+      <label for=""></label>
+      <input type="text" class="form-control" id="" name="">
+    </div>
+  </div>
+
+  <div>
+  <span>
+  Upload xlsx file and import data to database table <i id="">{{ tables|first }}</i>.
+  </span>
+  </div>
+  <div class="custom-file">
+  <input type="file" class="custom-file-input"></input>
+  <label class="custom-file-label" for="">Choose file</label>
+  <input id="" class="btn btn-success" type="submit">Upload</input>
+  </div>
+
+  </form>
+{% endblock %}
+
+{% block page_js%}
+{% endblock %}
+
+{# 
+<!--
+vim:ft=html
+-->
+#}
+

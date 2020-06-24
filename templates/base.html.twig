@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% set root = '/fgw' %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="">
+	<title>{% block title %}{{ sitename }}{% endblock %}</title>
+    <!-- Bootstrap core CSS -->
+	<link type="text/css" href="{{ root }}/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{{ root }}/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="{{ root }}/css/bootstrap-datepicker3.css">
+    <!-- Custom styles for this template -->
+	<link type="text/css" href="{{ root }}/css/dot.css" rel="stylesheet">
+  </head>
+
+  <body>
+	{% block body %}{% endblock %}
+	<header>
+	{% block header %}{% endblock %}
+	</header>
+	<nav>
+	{% block nav %}{% endblock %}
+	</nav>
+  <main>
+    {% block main %}{% endblock %}
+  </main>
+	<footer>
+	{% block footer %}{% endblock %}
+	</footer>
+    {% block page_js %}{% endblock %}
+	  <script src="{{ root }}/js/dot.js"></script>
+	  <noscript></noscript>
+  </body>
+</html>
+
+<!--
+	vim:ft=html
+-->
+
