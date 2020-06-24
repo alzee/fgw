@@ -1,4 +1,5 @@
 <?php
+require $inc . 'header.php';
 use App\Db;
 if(!empty($_POST)){
 	$uname=$_POST['uname'];
@@ -54,3 +55,5 @@ if(!empty($_POST)){
 <!--
   <script src="<?= $root ?>/md5.js"></script>
 -->
+<?php
+require $inc . 'footer.php';

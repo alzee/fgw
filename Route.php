@@ -116,9 +116,5 @@ class Route
 		else{
 			require $inc . 'login.php';
 		}
-
-		//require $inc . "header.php";
-
-		//require $inc . 'footer.php';
 	}
 }
