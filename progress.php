@@ -78,14 +78,18 @@ $pj_row=(new Db)->query($sql);
 $sql = "select * from progress where pid='$pid' order by date DESC LIMIT 2";
 // $sql = "select * from progress where pid='$pid' and date like '2020-07%'";
 $pg_rows=(new Db)->query($sql, 1);
+// print_r($pg_rows);
 
 // don't show last month data anymore
-$pg_rows[0]['fillby'] = '';
-$pg_rows[0]['phone'] = '';
-$pg_rows[0]['progress'] = '';
-$pg_rows[0]['next_step'] = '';
-$pg_rows[0]['problem'] = '';
-$pg_rows[0]['invest_mon'] = '';
+// if the newest date is not this month
+if (strpos($pg_rows[0]['date'], $month) === false) {
+    $pg_rows[0]['fillby'] = '';
+    $pg_rows[0]['phone'] = '';
+    $pg_rows[0]['progress'] = '';
+    $pg_rows[0]['next_step'] = '';
+    $pg_rows[0]['problem'] = '';
+    $pg_rows[0]['invest_mon'] = '';
+}
 $oid=$_SESSION['oid'];
 
 if(($oid == $pj_row['oid'] || $oid == $pj_row['oid_1']) && $date >= 20 && $rid != 2){
