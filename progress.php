@@ -76,7 +76,16 @@ $pj_row=(new Db)->query($sql);
 
 // we need data of last two months for rendering yellow td background purpose
 $sql = "select * from progress where pid='$pid' order by date DESC LIMIT 2";
+// $sql = "select * from progress where pid='$pid' and date like '2020-07%'";
 $pg_rows=(new Db)->query($sql, 1);
+
+// don't show last month data anymore
+$pg_rows[0]['fillby'] = '';
+$pg_rows[0]['phone'] = '';
+$pg_rows[0]['progress'] = '';
+$pg_rows[0]['next_step'] = '';
+$pg_rows[0]['problem'] = '';
+$pg_rows[0]['invest_mon'] = '';
 $oid=$_SESSION['oid'];
 
 if(($oid == $pj_row['oid'] || $oid == $pj_row['oid_1']) && $date >= 20 && $rid != 2){
@@ -125,7 +134,7 @@ else{
 		<!-- tab 项目实施情况 -->
 		<div class="tab-content" id="nav-tabContent">
 		 <div class="tab-pane fade" id="progress-pane" data-name="progress" role="tabpanel">
-		  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+		  <div class="alert alert-warning alert-dismissible fade show d-none" role="alert">
 			  默认显示前一次提交的数据，以供参考。内容与上月相同的单元格以黄色背景提醒。
 		 </div>
 <?php if($dayleft < $remind_days && $date >= 20): ?>
