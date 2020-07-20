@@ -89,6 +89,7 @@ if (strpos($pg_rows[0]['date'], $month) === false) {
     $pg_rows[0]['next_step'] = '';
     $pg_rows[0]['problem'] = '';
     $pg_rows[0]['invest_mon'] = '';
+    $pg_rows[0]['proxy_status'] = '';
 }
 $oid=$_SESSION['oid'];
 
