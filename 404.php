@@ -1,3 +1,6 @@
+<?php
+require $inc . 'header.php';
+?>
 <main class="container px-0" id="notfound">
 <div class="jumbotron">
   <h1 class="display-4">404</h1>
@@ -8,4 +11,5 @@
   </p>
 </div>
 </main>
+</body>
 </html>
