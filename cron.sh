@@ -1,7 +1,7 @@
 #!/bin/bash
 # 5 5 * * * /home/al/w/itove/public/fgw/cron.sh
 
-d=~/w/itove/public/fgw/sql/backup
+d=~/w/fgw/sql/backup
 cd $d
 
 . ../../.env
