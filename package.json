@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/alzee/fgw#readme",
   "dependencies": {
-    "xlsx": "^0.16.0"
+    "xlsx": "^0.16.9"
   }
 }
