@@ -1,7 +1,7 @@
 <?php
 require $inc . 'header.php';
 use App\Db;
-$sql="select pid,p.oid,oid_1,pname,investment,o1.oname,p_incharge,o2.oname oname_serve,alert,type from projects p join (organization o1, organization o2) on (p.oid=o1.oid and p.oid_serve=o2.oid) where p.online=1";
+$sql="select pid,p.oid,oid_1,pname,investment,o1.oname,p_incharge,o2.oname oname_serve,alert,type from projects p join (organization o1, organization o2) on (p.oid=o1.oid and p.oid_serve=o2.oid) where p.online=1 order by pid";
 $p_rows=(new Db)->query($sql);
 
 $oid=$_SESSION['oid'];
