@@ -42,7 +42,7 @@ else{
 				  <span class="badge badge-warning">数据与上月雷同</span>
 				  <span class="badge badge-danger">本月尚未提交</span>
 			  </div>
-<?php if($rid == 3): ?>
+<?php if($rid == 0): ?>
 			  <div class="col-auto col-sm-auto pr-0 mt-1 mt-sm-0">
 				  <a id="newproject" class="btn btn-sm btn-info" href="<?= $root ?>/newproject">新增项目</a>
 			  </div>
