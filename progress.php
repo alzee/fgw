@@ -377,6 +377,12 @@ if(isset($alert1)){
 }
 ?>
 					  <tr class="<?= $tdclass ?>">
+						  <th scope="row">1月至本月进展</th>
+						  <td colspan="6">
+						  <textarea id="progress_from_jan" class="form-control <?= $class ?>" name="progress_from_jan" rows="6" placeholder="<?= $pg_rows[0]['progress_from_jan'] ?>" <?= $readonly ?>><?= $pg_rows[0]['progress_from_jan'] ?></textarea>
+						  </td>
+					  </tr>
+					  <tr class="<?= $tdclass ?>">
 						  <th scope="row">下月计划</th>
 						  <td colspan="6">
 						  <textarea id="next_step" class="form-control <?= $class ?>" name="next_step" rows="6" placeholder="<?= $pg_rows[0]['next_step'] ?>" <?= $readonly ?>><?= $pg_rows[0]['next_step'] ?></textarea>

@@ -247,6 +247,8 @@ function toggleWritable(){
                     document.getElementById('problem').innerText=x.problem;
                     document.getElementById('prog').placeholder=x.progress;
                     document.getElementById('prog').innerText=x.progress;
+                    document.getElementById('progress_from_jan').placeholder=x.progress_from_jan;
+                    document.getElementById('progress_from_jan').innerText=x.progress_from_jan;
                     document.getElementById('next_step').placeholder=x.next_step;
                     document.getElementById('next_step').innerText=x.next_step;
                     // hide alert 'don't have data of selected month'
@@ -266,6 +268,8 @@ function toggleWritable(){
                     document.getElementById('problem').innerText='';
                     document.getElementById('prog').placeholder='';
                     document.getElementById('prog').innerText='';
+                    document.getElementById('progress_from_jan').placeholder='';
+                    document.getElementById('progress_from_jan').innerText='';
                     document.getElementById('next_step').placeholder='';
                     document.getElementById('next_step').innerText='';
                 }
