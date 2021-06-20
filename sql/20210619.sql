@@ -1,4 +1,4 @@
-insert into organization (pid,oname) values
+insert into organization (oid,oname) values
 (102,'区农村经济管理局'),
 (104,'茅箭区城市文明创建中心'),
 (104,'区畜牧兽医服务中心'),
