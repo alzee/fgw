@@ -62,6 +62,7 @@ else{
 			  </button>
 			  <div class="dropdown-menu" id="type_menu">
 				<a class="dropdown-item active" href="#">所有类型 <span class="badge badge-danger count_all">0</span></a>
+				<a class="dropdown-item" href="#">工业项目 <span class="badge badge-danger count">0</span></a>
 				<a class="dropdown-item" href="#">先进制造业 <span class="badge badge-danger count">0</span></a>
 				<a class="dropdown-item" href="#">现代服务业 <span class="badge badge-danger count">0</span></a>
 				<a class="dropdown-item" href="#">基础设施暨社会民生 <span class="badge badge-danger count">0</span></a>
