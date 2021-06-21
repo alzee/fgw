@@ -13,7 +13,7 @@ use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 use App\Db;
 
 $ext = 'Xls';
-$inputFileName = 'xlsx/20210610.xls';
+$inputFileName = 'xlsx/20210621.xls';
 $table = 'projects';
 $reader = IOFactory::createReader($ext);
 
@@ -21,7 +21,7 @@ $sql = 'select * from organization';
 $rows = (new Db)->query($sql);
 
 $sheetname = 'import';
-$range = 'A6:L19';
+$range = 'A6:L7';
 $reader->setLoadSheetsOnly($sheetname);
 $spreadsheet = $reader->load($inputFileName);
 
