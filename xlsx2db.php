@@ -12,6 +12,15 @@ use PhpOffice\PhpSpreadsheet\Reader\Xls;
 use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 use App\Db;
 
+$sql = "truncate table `projects`";
+(new Db)->query($sql);
+$sql = "truncate table `path`";
+(new Db)->query($sql);
+$sql = "truncate table `progress`";
+(new Db)->query($sql);
+$sql = "truncate table `pproc`";
+(new Db)->query($sql);
+
 $ext = 'Xlsx';
 $inputFileName = 'xlsx/20220210.xlsx';
 $table = 'projects';
@@ -83,4 +92,7 @@ foreach ($sheetData as $k=>$v){
         //echo $mysqli->errno;
         //echo $mysqli->error;
     };
+
+    $sql = "insert into pproc values()";
+    (new Db)->query($sql);
 }
