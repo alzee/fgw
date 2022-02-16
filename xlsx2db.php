@@ -12,16 +12,16 @@ use PhpOffice\PhpSpreadsheet\Reader\Xls;
 use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 use App\Db;
 
-$ext = 'Xls';
-$inputFileName = 'xlsx/20210621.xls';
+$ext = 'Xlsx';
+$inputFileName = 'xlsx/20220210.xlsx';
 $table = 'projects';
 $reader = IOFactory::createReader($ext);
 
 $sql = 'select * from organization';
 $rows = (new Db)->query($sql);
 
-$sheetname = 'import';
-$range = 'A6:L7';
+$sheetname = '总表';
+$range = 'A4:L128';
 $reader->setLoadSheetsOnly($sheetname);
 $spreadsheet = $reader->load($inputFileName);
 
@@ -41,9 +41,9 @@ foreach ($sheetData as $k=>$v){
     $finish = $sheetData[$k]['H'];
     $investby = '';
     $level = '一类';
-    $p_incharge = str_replace("\n", ',', $sheetData[$k]['I']);
+    $p_incharge = str_replace("\n", ',', $sheetData[$k]['J']);
     $p_incharge = str_replace(" ", '', $p_incharge);
-    $oname = preg_replace('/\s+/', '', $sheetData[$k]['J']);
+    $oname = preg_replace('/\s+/', '', $sheetData[$k]['I']);
     $oname_serve = preg_replace('/\s+/', '', $sheetData[$k]['K']);
     $type = $sheetData[$k]['L'];
     $oid = 0;
