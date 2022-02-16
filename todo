@@ -27,3 +27,6 @@ pinyin
 mvc
 annotation route
 twig
+
+nav_stat types
+stat.php
