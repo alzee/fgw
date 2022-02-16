@@ -28,5 +28,6 @@ mvc
 annotation route
 twig
 
+stat/* rename
 nav_stat types
 stat.php
