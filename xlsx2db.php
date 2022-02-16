@@ -20,7 +20,6 @@ $sql = "truncate table `progress`";
 (new Db)->query($sql);
 $sql = "truncate table `procedures`";
 (new Db)->query($sql);
-exit;
 
 $ext = 'Xlsx';
 $inputFileName = 'xlsx/20220210.xlsx';
