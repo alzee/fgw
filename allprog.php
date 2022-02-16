@@ -27,7 +27,7 @@ $sql = "select j.pid,pname,property,intro,investment,invest_plan,g.invest_mon,in
 $rows=(new Db)->query($sql);
 
 $a_allp = 'active';
-require $inc . 'report_header.php';
+require $inc . 'nav_stat.php';
 ?>
 		  <div class="col-6 col-sm align-self-center">
 			<span class="badge badge-info">单位：万元</span>
@@ -69,7 +69,7 @@ require $inc . 'report_header.php';
 		  </div>
 		  </div>
 		  <main class="mt-2" id="stat">
-			<table class="table table-responsive table-sm table-striped table-bordered" id="report_table">
+			<table class="table table-responsive table-sm table-striped table-bordered" id="stat_table">
 				<thead class="thead-light">
 					<tr>
 <?php foreach($thead as $v): ?>

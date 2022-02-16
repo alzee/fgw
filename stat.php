@@ -62,7 +62,7 @@ foreach($tables[4][2] as &$v){
 unset($v);
 
 $a_stat = 'active';
-require $inc . 'report_header.php';
+require $inc . 'nav_stat.php';
 ?>
 
 		  <div class="col-auto align-self-center pr-0">
@@ -74,7 +74,7 @@ require $inc . 'report_header.php';
 
 		  <div class="col-auto">
 <!--
-			<div class="dropdown" id="dates_report">
+			<div class="dropdown" id="dates_stat">
 					  <button class="btn btn-info btn-sm dropdown-toggle" type="button">
 						  <?= date('Y-m') ?>
 					  </button>
@@ -96,7 +96,7 @@ require $inc . 'report_header.php';
 	  </div>
 		  <main class="mt-2" id="stat1">
 <?php foreach($tables as $table): ?>
-			<table class="table table-sm table-striped table-bordered" id="report_table">
+			<table class="table table-sm table-striped table-bordered" id="stat_table">
 				<thead class="thead-light">
 					<tr>
 <?php $thead[0] = $table[1]; foreach($thead as $v): ?>

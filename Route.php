@@ -38,36 +38,15 @@ class Route
 			// we put some special case in switch
 			switch ($controller) {
 			case 'project':
-				if (is_numeric($method)) {
+                if (empty($method)) {
+                    require $inc .  'project.php';
+                }
+                else if (is_numeric($method)) {
 					$pid = $method;
 					require $inc .  'progress.php';
 				}
-				else if ($method == 'report') {
-					if (empty($parameter)) {
-						if ($rid == 3) {
-							require $inc . 'stat.php';
-						}
-						else {
-							require $inc . 'allprog.php';
-						}
-					}
-					else if ($parameter == 'stat') {
-						if ($rid == 3) {
-							require $inc . 'stat.php';
-						}
-						else {
-							require $inc . '404.php';
-						}
-					}
-					else if (is_readable($inc . "$parameter.php")) {
-						require $inc .  "$parameter.php";
-					}
-					else {
-						require $inc .  '404.php';
-					}
-				}
 				else {
-					require $inc .  'project.php';
+                    require $inc .  '404.php';
 				}
 				break;
             case 'stat':
@@ -87,8 +66,8 @@ class Route
 							require $inc . '404.php';
 						}
 					}
-					else if (is_readable($inc . "$method .php")) {
-						require $inc .  "$method .php";
+					else if (is_readable($inc . "${method}.php")) {
+						require $inc .  "${method}.php";
 					}
 					else {
 						require $inc .  '404.php';

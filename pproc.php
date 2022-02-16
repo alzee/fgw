@@ -47,14 +47,14 @@ $proc = (new Db)->query($sql);
 $desc = ['无办理项', '未办理', '办理中', '已办结'];
 
 $a_ppro = 'active';
-require $inc . 'report_header.php';
+require $inc . 'nav_stat.php';
 ?>
 
 		  <div class="col mt-1 mt-sm-0">
 		  </div>
 
 		  <div class="col-auto">
-			<div class="dropdown" id="dates_report">
+			<div class="dropdown" id="dates_stat">
 					  <button class="btn btn-info btn-sm dropdown-toggle dropdown-link" id="month" type="button">
 						  <?= $month ?>
 					  </button>
@@ -72,7 +72,7 @@ require $inc . 'report_header.php';
 		  </div>
 		  <main class="mt-2" id="stat">
 
-		<table class="table table-bordered table-responsive" id="report_table">
+		<table class="table table-bordered table-responsive" id="stat_table">
 			<tbody>
 <!-- thead row 1 -->
 				<tr>

@@ -543,8 +543,8 @@ var expbtn = document.getElementById('exportbtn');
 if(expbtn) expbtn.addEventListener("click", tbl2xlsx);
 
 function tbl2xlsx(){
-    var tbl = document.getElementById('report_table');
-    var filename= document.getElementById('reportbtn').getElementsByClassName('active')[0].innerText;
+    var tbl = document.getElementById('stat_table');
+    var filename= document.getElementById('statBtn').getElementsByClassName('active')[0].innerText;
 
     if (filename == '进度月报') {
         tbl = tbl.cloneNode(true);
@@ -579,7 +579,7 @@ function tbl2xlsx(){
 
         while (tbl){
             tbl.id="";
-            tbl = document.getElementById('report_table');
+            tbl = document.getElementById('stat_table');
             if (tbl){
                 // append a sheet to workbook
                 var ws = XLSX.utils.table_to_sheet(tbl);
