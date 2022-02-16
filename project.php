@@ -7,7 +7,7 @@ $sql = "select pid, p.oid, pname, investment, o.oname, p_incharge, o_s.oname ona
     on (p.oid = o.oid and p.oid_serve = o_s.oid and p.oid_1 = o_1.oid and p.oid_2 = o_2.oid and p.oid_serve_1 = o_s_1.oid)
     where p.online=1 order by pid";
  */
-$sql = "select pid, p.oid, pname, investment, o.oname, p_incharge, o_s.oname oname_serve, alert, type
+$sql = "select pid, p.oid, oid_1, pname, investment, o.oname, p_incharge, o_s.oname oname_serve, alert, type
     from projects p join (organization o, organization o_s)
     on (p.oid = o.oid and p.oid_serve = o_s.oid)
     where p.online=1 order by pid";
