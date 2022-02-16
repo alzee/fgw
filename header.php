@@ -15,11 +15,7 @@ $sitename = $s_row['value'];
 
 	<title><?= $sitename ?></title>
 
-    <!-- Bootstrap core CSS -->
-	<link type="text/css" href="<?= $root ?>/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="<?= $root ?>/css/all.min.css">
-
-    <!-- Custom styles for this template -->
 	<link type="text/css" href="<?= $root ?>/css/main.css" rel="stylesheet">
   </head>
   <body>

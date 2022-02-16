@@ -31,3 +31,4 @@ twig
 stat/* rename
 stat.php
 $a_stat $a_allp $a_ppro in nav_stat
+bootstrap 5
