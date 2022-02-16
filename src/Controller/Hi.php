@@ -10,7 +10,7 @@ namespace App\Controller;
 
 // use What;
 
-class Test
+class Hi
 {
     private $a;
     private $b;

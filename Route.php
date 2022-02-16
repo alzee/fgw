@@ -10,7 +10,7 @@ namespace App;
 use App\Db;
 use App\Sign;
 use App\Xlsx2db;
-use App\Controller\Test;
+use App\Controller\Hi;
 
 class Route
 {
@@ -108,8 +108,8 @@ class Route
       case 'updatedb':
         Xlsx2db::updateDb();
         break;
-      case 'test':
-          Test::index();
+      case 'hi':
+          Hi::index();
           break;
 			default:
 				if (is_readable($inc . "$controller.php")) {
