@@ -421,37 +421,6 @@ function chname(){
     u.nextElementSibling.innerText=u.value;
 }
 
-// addEventListener to monthpicker
-var m=document.getElementsByClassName('pickmonth');
-for(var i=0;i<m.length;i++){
-    //m[i].addEventListener("click", pickmonth);
-    //m[i].addEventListener("blur", function(){ pickmonth(1, m[i]); });
-}
-function pickmonth(i){
-    if(i===1){
-        //var m=document.querySelectorAll('.pickmonth');
-        //console.log(this);
-        //console.log(m);
-        //m.nextElementSibling.classList.add('d-none');
-        //var m=document.getElementsByClassName('monthpicker');
-        //for(var i=0; i<m.length; i++)
-        //	m[i].classList.add('d-none');
-        //console.log(this);
-        return;
-    }
-    if(! this.hasAttribute('readonly')){
-        if(! this.nextElementSibling){
-            var html=document.getElementById('monthpicker').cloneNode(true);
-            html.className="position-absolute monthpicker";
-            html.removeAttribute('id');
-            this.parentElement.appendChild(html);
-        }
-        else{
-            this.nextElementSibling.classList.remove('d-none');
-        }
-    }
-}
-
 // addEventListener to login password
 var p=document.getElementById('inputPassword');
 if(p) p.addEventListener("keyup", encrytpass);
@@ -487,16 +456,6 @@ function closelayer(){
     layer.classList.remove('show');
     setTimeout(function(){layer.classList.add('d-none')}, 150);
     popimgclose.click();
-}
-
-// some jquery
-if(m.length > 0){
-    $('.pickmonth').datepicker({
-        format: 'yyyy-mm',
-        minViewMode: 1,
-        language: "zh-CN",
-        autoclose: true
-    });
 }
 
 //var a = document.getElementsByTagName('a');

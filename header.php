@@ -18,7 +18,6 @@ $sitename = $s_row['value'];
     <!-- Bootstrap core CSS -->
 	<link type="text/css" href="<?= $root ?>/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="<?= $root ?>/css/all.min.css">
-	<link rel="stylesheet" type="text/css" href="<?= $root ?>/css/bootstrap-datepicker3.css">
 
     <!-- Custom styles for this template -->
 	<link type="text/css" href="<?= $root ?>/css/dot.css" rel="stylesheet">
