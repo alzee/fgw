@@ -14,7 +14,7 @@ use Symfony\Component\Dotenv\Dotenv;
 require_once 'vendor/autoload.php';
 
 $dotenv = new Dotenv();
-$dotenv->load(__DIR__.'/.env');
+$dotenv->load(__DIR__.'/../.env');
 
 class Db{
 	private $host;
@@ -71,6 +71,3 @@ class Db{
 		$this->mysqli->close();
 	}
 }
-
-//$a=new Db;
-//var_dump($a->query('select * from users'));

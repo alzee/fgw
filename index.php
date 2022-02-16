@@ -9,7 +9,5 @@ use App\Route;
 
 require 'vendor/autoload.php';
 
-// require 'route.php';
-
 Route::go();
 
