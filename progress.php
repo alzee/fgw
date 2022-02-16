@@ -421,6 +421,5 @@ include('procedure.php');
 		</section>
 
 		  </div>
-	  <script src="<?= $root ?>/js/jquery.min.js"></script>
 <?php
 require $inc . 'footer.php';
