@@ -21,7 +21,7 @@ class Xlsx2db{
   /*
    * @Route("xlsx2db", name="xlsx2db")
    */
-  function showTables(){
+  static function showTables(){
     $sql = 'show tables';
     $rows = (new Db)->query($sql);
     $tables = [];
@@ -40,7 +40,7 @@ class Xlsx2db{
   /*
    * @Route("fields", name="getFields")
    */
-  function descTable(){
+  static function descTable(){
     $table = $_GET['table'];
     $sql = "desc `$table`";
     $rows = (new Db)->query($sql);
@@ -60,14 +60,14 @@ class Xlsx2db{
     unset($fields['table']);
     print_r($fields);
     $type='Xls';
-    $inputFileName = 'xlsx/fuck.xls';
+    $inputFileName = 'xlsx/test.xls';
     if (file_exists($inputFileName)) {
       echo 'yes';
     }
     else {
       echo 'no';
     }
-    $sheetname = 'fuck';
+    $sheetname = 'test';
     $reader = IOFactory::createReader($type);
     $reader->setLoadSheetsOnly($sheetname);
     $spreadsheet = $reader->load($inputFileName);

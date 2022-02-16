@@ -8,10 +8,8 @@
 
 namespace App;
 
-require_once 'vendor/autoload.php';
-
 class Twig{
-  function render($template, $data){
+  static function render($template, $data){
     $loader = new \Twig\Loader\FilesystemLoader('templates');
     $twig = new \Twig\Environment($loader, [
       'cache' => 'var/cache',
