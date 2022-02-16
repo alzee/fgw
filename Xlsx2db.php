@@ -54,7 +54,7 @@ class Xlsx2db{
   /*
    * @Route("updateDb", name="updateDb")
    */
-  function updateDb() {
+  static function updateDb() {
     $fields = $_POST;
     $table = $fields['table'];
     unset($fields['table']);
