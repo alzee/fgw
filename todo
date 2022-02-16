@@ -29,7 +29,4 @@ annotation route
 twig
 
 stat/* rename
-table proceduce rename
-table pproc rename
-nav_stat types
 stat.php

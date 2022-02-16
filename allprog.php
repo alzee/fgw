@@ -26,6 +26,9 @@ $sql = "select j.pid,pname,property,intro,investment,invest_plan,g.invest_mon,in
 	(select * from progress where date like '$month%') g on j.pid=g.pid where online = 1 order by j.pid";
 $rows=(new Db)->query($sql);
 
+$sql = "select type,count(*) as count from projects group by type;";
+$types = (new Db)->query($sql);
+
 $a_allp = 'active';
 require $inc . 'nav_stat.php';
 ?>
@@ -57,10 +60,9 @@ require $inc . 'nav_stat.php';
 			  </button>
 			  <div class="dropdown-menu" id="type_menu">
 				<a class="dropdown-item active" href="#">所有类型 <span class="badge badge-danger count_all">0</span></a>
-				<a class="dropdown-item" href="#">工业制造业 <span class="badge badge-danger count">0</span></a>
-				<a class="dropdown-item" href="#">商贸服务业 <span class="badge badge-danger count">0</span></a>
-				<a class="dropdown-item" href="#">基础设施 <span class="badge badge-danger count">0</span></a>
-				<a class="dropdown-item" href="#">乡村振兴 <span class="badge badge-danger count">0</span></a>
+<?php foreach ($types as $type): ?>
+                <a class="dropdown-item" href="#"><?= $type['type'] ?> <span class="badge badge-danger count">0</span></a>
+<?php endforeach; ?>
 			  </div>
 			</div>
 
