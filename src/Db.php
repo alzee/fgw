@@ -10,9 +10,6 @@ namespace App;
 
 use Symfony\Component\Dotenv\Dotenv;
 
-// some file not start from index.php
-require_once 'vendor/autoload.php';
-
 $dotenv = new Dotenv();
 $dotenv->load(__DIR__.'/../.env');
 

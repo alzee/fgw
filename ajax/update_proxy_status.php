@@ -6,9 +6,10 @@
  * @todo
  */
 
-require '../Db.php';
 use App\Db;
 
+// TODO This file not start from index.php
+require '../vendor/autoload.php';
 
 if ($_POST){
     $month = date('Y-m');
