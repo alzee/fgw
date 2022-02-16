@@ -1,17 +1,27 @@
 <?php
 require $inc . 'header.php';
 use App\Db;
-$sql="select pid,p.oid,oid_1,pname,investment,o1.oname,p_incharge,o2.oname oname_serve,alert,type from projects p join (organization o1, organization o2) on (p.oid=o1.oid and p.oid_serve=o2.oid) where p.online=1 order by pid";
-$p_rows=(new Db)->query($sql);
+/*
+$sql = "select pid, p.oid, pname, investment, o.oname, p_incharge, o_s.oname oname_serve, alert, type
+    from projects p left join (organization o, organization o_s, organization o_1, organization o_2, organization o_s_1)
+    on (p.oid = o.oid and p.oid_serve = o_s.oid and p.oid_1 = o_1.oid and p.oid_2 = o_2.oid and p.oid_serve_1 = o_s_1.oid)
+    where p.online=1 order by pid";
+ */
+$sql = "select pid, p.oid, pname, investment, o.oname, p_incharge, o_s.oname oname_serve, alert, type
+    from projects p join (organization o, organization o_s)
+    on (p.oid = o.oid and p.oid_serve = o_s.oid)
+    where p.online=1 order by pid";
+$p_rows = (new Db)->query($sql);
 
 $sql = "select type,count(*) as count from projects group by type;";
 $types = (new Db)->query($sql);
 
-$oid=$_SESSION['oid'];
-if($rid == 3 || $rid == 2){
+$oid = $_SESSION['oid'];
+
+if ($rid == 3 || $rid == 2) {
 	$myproj_btn = 'btn-outline-info';
 }
-else{
+else {
 	$myproj_btn = 'btn-info';
 }
 // $rid == 3 ? $myproj_btn = 'btn-outline-secondary' : $myproj_btn = 'btn-primary';
@@ -45,7 +55,7 @@ else{
 				  <span class="badge badge-warning">数据与上月雷同</span>
 				  <span class="badge badge-danger">本月尚未提交</span>
 			  </div>
-<?php if($rid == 0): ?>
+<?php if ($rid == 0): ?>
 			  <div class="col-auto col-sm-auto pr-0 mt-1 mt-sm-0">
 				  <a id="newproject" class="btn btn-sm btn-info" href="<?= $root ?>/newproject">新增项目</a>
 			  </div>
@@ -65,7 +75,7 @@ else{
 			  </button>
 			  <div class="dropdown-menu" id="type_menu">
 				<a class="dropdown-item active" href="#">所有类型 <span class="badge badge-danger count_all">0</span></a>
-<?php foreach($types as $type): ?>
+<?php foreach ($types as $type): ?>
                 <a class="dropdown-item" href="#"><?= $type['type'] ?> <span class="badge badge-danger count">0</span></a>
 <?php endforeach; ?>
 			  </div>
@@ -88,22 +98,22 @@ else{
 			  </thead>
 			  <tbody>
 
-<?php foreach($p_rows as $row): ?>
+<?php foreach ($p_rows as $row): ?>
 <?php
-if($row['oid'] == $oid || $row['oid_1'] == $oid || $rid == 3 || $rid == 2){
+if ($row['oid'] == $oid || $row['oid_1'] == $oid || $rid == 3 || $rid == 2) {
 	$class="searchable";
 }
-else{
+else {
 	$class="d-none";
 }
 
-switch($row['alert']){
-case 1:
-	$class .=' bg-warning';
-	break;
-case 2:
-	$class .=' bg-danger';
-	break;
+switch ($row['alert']) {
+    case 1:
+        $class .=' bg-warning';
+        break;
+    case 2:
+        $class .=' bg-danger';
+        break;
 }
 ?>
 	<tr class="<?= $class ?>" data-oid="<?= $row['oid'] ?>" data-type="<?= $row['type'] ?>">
