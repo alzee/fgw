@@ -14,87 +14,110 @@ use App\Xlsx2db;
 class Route
 {
 	static function go(){
-		$root="/fgw";
-		$inc="./";
-		$static="./";
-		$sessionname='SID';
+		$root = "/fgw";
+		$inc = "./";
+		$sessionname = 'SID';
 
 		date_default_timezone_set('Asia/Shanghai');
 
-		if (isset($_SERVER['PATH_INFO'])){
+		if (isset($_SERVER['PATH_INFO'])) {
 			$path = explode("/", trim($_SERVER['PATH_INFO'], '/'));
 		}
-		$controller=$path[0] ?? 'project';	// the default page
-		$method=$path[1] ?? '';
-		$parameter=$path[2] ?? '';
-		$pp=$path[3] ?? '';
+		$controller = $path[0] ?? 'project';	// the default page
+		$method = $path[1] ?? '';
+		$parameter = $path[2] ?? '';
+		$pp = $path[3] ?? '';
 
-		$login=Sign::check();
+		$login = Sign::check();
 
-		if($login){
+		if ($login) {
 			session_start(['name'=>'SID']);
-			$rid=$_SESSION['rid'];
+			$rid = $_SESSION['rid'];
 			// var_dump($_SESSION);
 
 			// we put some special case in switch
-			switch($controller){
+			switch ($controller) {
 			case 'project':
-				if(is_numeric($method)){
-					$pid=$method;
+				if (is_numeric($method)) {
+					$pid = $method;
 					require $inc .  'progress.php';
 				}
-				else if($method == 'report'){
-					if(empty($parameter)){
-						if($rid == 3){
+				else if ($method == 'report') {
+					if (empty($parameter)) {
+						if ($rid == 3) {
 							require $inc . 'stat.php';
 						}
-						else{
+						else {
 							require $inc . 'allprog.php';
 						}
 					}
-					else if($parameter == 'stat'){
-						if($rid == 3){
+					else if ($parameter == 'stat') {
+						if ($rid == 3) {
 							require $inc . 'stat.php';
 						}
-						else{
+						else {
 							require $inc . '404.php';
 						}
 					}
-					else if(is_readable($inc . "$parameter.php")){
+					else if (is_readable($inc . "$parameter.php")) {
 						require $inc .  "$parameter.php";
 					}
-					else{
+					else {
 						require $inc .  '404.php';
 					}
 				}
-				else{
+				else {
 					require $inc .  'project.php';
 				}
 				break;
+            case 'stat':
+					if (empty($method)) {
+						if ($rid == 3){
+							require $inc . 'stat.php';
+						}
+						else {
+							require $inc . 'allprog.php';
+						}
+					}
+					else if ($method == 'stat') {
+						if ($rid == 3) {
+							require $inc . 'stat.php';
+						}
+						else {
+							require $inc . '404.php';
+						}
+					}
+					else if (is_readable($inc . "$method .php")) {
+						require $inc .  "$method .php";
+					}
+					else {
+						require $inc .  '404.php';
+					}
+                break;
 			case 'admin':
-				if(empty($method) || $method == 'chpwd'){
+				if (empty($method) || $method == 'chpwd') {
 					require $inc .  'chpwd.php';
 				}
-				else if($rid == 3){
-					switch($method){
+				else if ($rid == 3) {
+					switch ($method) {
 					case 'user':
-						if(empty($parameter)){
+						if (empty($parameter)) {
 							require $inc .  'user.php';
 						}
-						else{
+						else {
 							require $inc .  'moduser.php';
 						}
 						break;
 					default:
-						if(is_readable($inc . "$method.php")){
+						if (is_readable($inc . "$method.php")) {
 							require $inc .  "$method.php";
 						}
-						else{
+						else {
 							require $inc .  '404.php';
 						}
 					}
 				}
-				else{
+				else {
 					require $inc .  '404.php';
 				}
 				break;
@@ -108,15 +131,15 @@ class Route
         Xlsx2db::updateDb();
         break;
 			default:
-				if(is_readable($inc . "$controller.php")){
+				if (is_readable($inc . "$controller.php")) {
 					require $inc .  "$controller.php";
 				}
-				else{
+				else {
 					require $inc .  '404.php';
 				}
 			}
 		}
-		else{
+		else {
 			require $inc . 'login.php';
 		}
 	}
