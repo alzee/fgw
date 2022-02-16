@@ -20,6 +20,6 @@ $sitename = $s_row['value'];
 	<link rel="stylesheet" type="text/css" href="<?= $root ?>/css/all.min.css">
 
     <!-- Custom styles for this template -->
-	<link type="text/css" href="<?= $root ?>/css/dot.css" rel="stylesheet">
+	<link type="text/css" href="<?= $root ?>/css/main.css" rel="stylesheet">
   </head>
   <body>
