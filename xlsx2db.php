@@ -18,8 +18,9 @@ $sql = "truncate table `path`";
 (new Db)->query($sql);
 $sql = "truncate table `progress`";
 (new Db)->query($sql);
-$sql = "truncate table `pproc`";
+$sql = "truncate table `procedures`";
 (new Db)->query($sql);
+exit;
 
 $ext = 'Xlsx';
 $inputFileName = 'xlsx/20220210.xlsx';
@@ -93,6 +94,6 @@ foreach ($sheetData as $k=>$v){
         //echo $mysqli->error;
     };
 
-    $sql = "insert into pproc values()";
+    $sql = "insert into procedures values()";
     (new Db)->query($sql);
 }

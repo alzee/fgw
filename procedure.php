@@ -5,7 +5,7 @@
 
 use App\Db;
 
-$sql = "select parent,num,code,name from `procedure`";
+$sql = "select parent,num,code,name from procedure_name";
 $allprocs = (new Db)->query($sql);
 
 $son = $allprocs;
@@ -27,7 +27,7 @@ foreach ($allprocs as $k => $v){
 
 
 // prepare data
-$sql = "select * from pproc where pid=$pid";
+$sql = "select * from procedures where pid=$pid";
 $proc = (new Db)->query($sql);
 // var_dump($proc);
 

@@ -16,7 +16,7 @@ else {
 	$month = $pp;
 }
 
-$sql = "select parent,num,code,name from `procedure`";
+$sql = "select parent,num,code,name from procedure_name";
 $allprocs = (new Db)->query($sql);
 
 $son = $allprocs;
@@ -38,9 +38,7 @@ foreach ($allprocs as $k => $v){
 // var_dump($pra);
 
 // prepare data
-// $sql = "select pproc.*, pname from pproc join projects on pproc.pid=projects.pid";
-// $sql = "select pproc.pid, pname, proxy_status, pproc.* from pproc join (projects, (select pid, proxy_status from progress where date like '${month}%') p3) on (pproc.pid=projects.pid and p3.pid = pproc.pid) order by pproc.pid";
-$sql = "select p1.pid, pname, proxy_status, p1.* from (select pname, pproc.*  from projects left join pproc on (pproc.pid = projects.pid)) p1 left join (select pid,proxy_status from progress where date like '${month}%') p3  on (p3.pid = p1.pid) order by p1.pid";
+$sql = "select p1.pid, pname, proxy_status, p1.* from (select pname, procedures.*  from projects left join procedures on (procedures.pid = projects.pid)) p1 left join (select pid,proxy_status from progress where date like '${month}%') p3  on (p3.pid = p1.pid) order by p1.pid";
 $proc = (new Db)->query($sql);
 // var_dump($proc);
 
@@ -60,7 +58,7 @@ require $inc . 'nav_stat.php';
 					  </button>
 					  <div class="dropdown-menu">
 <?php for($i=date('n'); date('n') - $i < 12; $i--): ?>
-						<a class="dropdown-item <?php if(date('Y-m', mktime(0,0,0,$i,1)) == $month) echo 'active' ?>" href="<?= "$root/$controller/$method/pproc/" . date('Y-m', mktime(0,0,0,$i,1)) ?>"><?= date('Y-m', mktime(0,0,0,$i,1)) ?></a>
+						<a class="dropdown-item <?php if(date('Y-m', mktime(0,0,0,$i,1)) == $month) echo 'active' ?>" href="<?= "$root/$controller/$method/" . date('Y-m', mktime(0,0,0,$i,1)) ?>"><?= date('Y-m', mktime(0,0,0,$i,1)) ?></a>
 <?php endfor ?>
 					  </div>
 			</div>
