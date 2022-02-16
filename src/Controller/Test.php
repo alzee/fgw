@@ -6,7 +6,7 @@
  * @todo
  */
 
-namespace Zee\Fuck;
+namespace App\Controller;
 
 // use What;
 
@@ -16,6 +16,11 @@ class Test
     private $b;
     private $c;
     
+    static public function index()
+    {
+        echo 'hi';
+    }
+
     public function __construct()
     {
     }
