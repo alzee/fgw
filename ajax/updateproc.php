@@ -14,7 +14,7 @@ if ($_POST){
 	$code = $_POST['code'];
 	$v = $_POST['v'];
 	$pid = $_POST['pid'];
-	$sql = "update pproc set `" . $code . "` = '" . $v . "' where pid = '" . $pid ."'";
+	$sql = "update procedures set `" . $code . "` = '" . $v . "' where pid = '" . $pid ."'";
 	// echo $sql;
 	(new Db)->query($sql);
 }
