@@ -10,6 +10,7 @@ namespace App;
 use App\Db;
 use App\Sign;
 use App\Xlsx2db;
+use App\Controller\Test;
 
 class Route
 {
@@ -107,6 +108,9 @@ class Route
       case 'updatedb':
         Xlsx2db::updateDb();
         break;
+      case 'test':
+          Test::index();
+          break;
 			default:
 				if (is_readable($inc . "$controller.php")) {
 					require $inc .  "$controller.php";
