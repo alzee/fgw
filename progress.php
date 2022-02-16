@@ -8,12 +8,13 @@ $year = date('Y');
 $sql="select value from setting where s_key='lockday' or s_key='remind_days'";
 $s_row=(new Db)->query($sql);
 $lockday=$s_row[0]['value'];
+$openday = 20;
 $remind_days=$s_row[1]['value'];
 $dayleft=$lockday - date('d');
 $date = date('d');
 
 // handle form submission
-if($_POST && $date >= 20){
+if($_POST && $date >= $openday){
 	foreach($_POST as $k => $v){
 		if(!empty($_POST[$k] || $_POST[$k] == '0' || $k == 'actual_start' || $k == 'actual_finish')){
 			$cols .= "$k='$v',";
@@ -93,7 +94,7 @@ if (strpos($pg_rows[0]['date'], $month) === false) {
 }
 $oid=$_SESSION['oid'];
 
-if(($oid == $pj_row['oid'] || $oid == $pj_row['oid_1']) && $date >= 20 && $rid != 2){
+if(($oid == $pj_row['oid'] || $oid == $pj_row['oid_1']) && $date >= $openday && $date <= $lockday && $rid != 2){
 	$disabled = '';
 	$readonly = '';
 	$class='writable';
@@ -142,7 +143,7 @@ else{
 		  <div class="alert alert-warning alert-dismissible fade show d-none" role="alert">
 			  默认显示前一次提交的数据，以供参考。内容与上月相同的单元格以黄色背景提醒。
 		 </div>
-<?php if($dayleft < $remind_days && $date >= 20): ?>
+<?php if($dayleft < $remind_days && $date >= $openday && $date <= $lockday): ?>
 		  <div class="alert alert-danger alert-dismissible fade show" role="alert">
 		  <strong>即将锁定！</strong> 请及时完善本月数据！每月月底锁定，数据将无法再修改。
 			  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
