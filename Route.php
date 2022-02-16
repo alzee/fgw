@@ -52,26 +52,24 @@ class Route
             case 'stat':
 					if (empty($method)) {
 						if ($rid == 3){
-							require $inc . 'stat.php';
+                            $method = 'stat';
 						}
 						else {
-							require $inc . 'allprog.php';
+                            $method = 'allprog';
 						}
 					}
 					else if ($method == 'stat') {
 						if ($rid == 3) {
-							require $inc . 'stat.php';
+                            $method = 'stat';
 						}
 						else {
-							require $inc . '404.php';
+                            $method = '404';
 						}
 					}
-					else if (is_readable($inc . "${method}.php")) {
-						require $inc .  "${method}.php";
+					else if (!is_readable($inc . "${method}.php")) {
+                        $method = '404';
 					}
-					else {
-						require $inc .  '404.php';
-					}
+                    require $inc .  "${method}.php";
                 break;
 			case 'admin':
 				if (empty($method) || $method == 'chpwd') {
