@@ -4,6 +4,9 @@ use App\Db;
 $sql="select pid,p.oid,oid_1,pname,investment,o1.oname,p_incharge,o2.oname oname_serve,alert,type from projects p join (organization o1, organization o2) on (p.oid=o1.oid and p.oid_serve=o2.oid) where p.online=1 order by pid";
 $p_rows=(new Db)->query($sql);
 
+$sql = "select type,count(*) as count from projects group by type;";
+$types = (new Db)->query($sql);
+
 $oid=$_SESSION['oid'];
 if($rid == 3 || $rid == 2){
 	$myproj_btn = 'btn-outline-info';
@@ -62,11 +65,9 @@ else{
 			  </button>
 			  <div class="dropdown-menu" id="type_menu">
 				<a class="dropdown-item active" href="#">所有类型 <span class="badge badge-danger count_all">0</span></a>
-				<a class="dropdown-item" href="#">工业项目 <span class="badge badge-danger count">0</span></a>
-				<a class="dropdown-item" href="#">先进制造业 <span class="badge badge-danger count">0</span></a>
-				<a class="dropdown-item" href="#">现代服务业 <span class="badge badge-danger count">0</span></a>
-				<a class="dropdown-item" href="#">基础设施暨社会民生 <span class="badge badge-danger count">0</span></a>
-				<a class="dropdown-item" href="#">乡村振兴 <span class="badge badge-danger count">0</span></a>
+<?php foreach($types as $type): ?>
+                <a class="dropdown-item" href="#"><?= $type['type'] ?> <span class="badge badge-danger count">0</span></a>
+<?php endforeach; ?>
 			  </div>
 			</div>
 			  <div class="col-sm-3 mt-1 mt-sm-0">
