@@ -94,7 +94,7 @@ if (strpos($pg_rows[0]['date'], $month) === false) {
 }
 $oid=$_SESSION['oid'];
 
-$who_can_write = [
+$who_can_write_progress = [
     $pj_row['oid'],
     $pj_row['oid_1'],
     $pj_row['oid_2'],
@@ -102,7 +102,7 @@ $who_can_write = [
     $pj_row['oid_11']
 ];
 
-if(in_array($oid, $who_can_write) && $date >= $openday && $date <= $lockday && $rid != 2){
+if(in_array($oid, $who_can_write_progress) && $date >= $openday && $date <= $lockday && $rid != 2){
 	$disabled = '';
 	$readonly = '';
 	$class='writable';

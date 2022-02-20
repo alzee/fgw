@@ -31,14 +31,18 @@ $sql = "select * from procedures where pid=$pid";
 $proc = (new Db)->query($sql);
 // var_dump($proc);
 
-// if i'm not o_serve, disable all radios
-if ($oid != $pj_row['oid_serve'] && $oid != $pj_row['oid_serve_1']) {
-	$dis = 'disabled';
-    $ICanSubmitPrecedure = false;
-}
-else {
+$who_can_write_procedure = [
+    $pj_row['oid_serve'],
+    $pj_row['oid_serve_1']
+];
+
+if (in_array($oid, $who_can_write_procedure)) {
     $dis = '';
     $ICanSubmitPrecedure = true;
+}
+else {
+	$dis = 'disabled';
+    $ICanSubmitPrecedure = false;
 }
 
 
