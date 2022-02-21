@@ -18,13 +18,6 @@ $types = (new Db)->query($sql);
 
 $oid = $_SESSION['oid'];
 
-if ($rid == 3 || $rid == 2) {
-	$myproj_btn = 'btn-outline-info';
-}
-else {
-	$myproj_btn = 'btn-info';
-}
-// $rid == 3 ? $myproj_btn = 'btn-outline-secondary' : $myproj_btn = 'btn-primary';
 ?>
 
 	  <div class="container" id="projects">
@@ -65,8 +58,11 @@ else {
 			  </div>
 
 			  <div class="col-auto col-sm-auto pr-0 mt-1 mt-sm-0">
-				  <button id="myproject" type="button" class="btn btn-sm <?= $myproj_btn ?>" data-oid="<?= $oid ?>">
-					我的项目 <span class="badge badge-danger" id="count_my"></span>
+				  <button id="myproject" type="button" class="btn btn-sm btn-outline-info" data-oid="<?= $oid ?>">
+					我的进度 <span class="badge badge-danger" id="count_my"></span>
+				  </button>
+				  <button id="myserve" type="button" class="btn btn-sm btn-outline-info" data-oid="<?= $oid ?>">
+					我的代办 <span class="badge badge-danger" id="count_my_serve"></span>
 				  </button>
 			  </div>
 
@@ -104,7 +100,7 @@ if ($row['oid'] == $oid || $row['oid_1'] == $oid || $rid == 3 || $rid == 2) {
 	$class="searchable";
 }
 else {
-	$class="d-none";
+	// $class="d-none";
 }
 
 switch ($row['alert']) {
