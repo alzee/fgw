@@ -45,10 +45,6 @@ if(!empty($_POST)){
 		<input type="text" id="inputUsername" class="form-control mb-3" placeholder="用户名" name="uname" value="<?= $_COOKIE['user'] ?>" required autofocus>
         <label for="inputPassword" class="sr-only">passwd</label>
         <input type="password" id="inputPassword" class="form-control mb-3" placeholder="密  码" name="passwd" required>
-		<div class="custom-control custom-checkbox">
-			<input type="checkbox" class="custom-control-input" name="remember" id="customCheck1" checked>
-			<label class="custom-control-label" for="customCheck1">记住密码</label>
-		</div>
 		<button class="btn btn-lg btn-primary btn-block" type="submit">登 录</button>
 	  </form>
 	</div>
