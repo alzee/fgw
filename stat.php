@@ -13,13 +13,16 @@ $tables =[
 	['type','项目类型'],
 	['property','建设性质'],
 	['oname','责任单位'],
-	['investby','投资主体'],
+	// ['investby','投资主体'],
 ];
 
 foreach($tables as &$table){
 	// get count, sum_invest_plan, accumulate group by $table[0]
 	$sql = "select $table[0],count(pid) count,sum(invest_plan) sum_plan, sum(invest_accum) sum_accum from projects j left join organization o on o.oid=j.oid where level in($level) and online = 1 group by $table[0]";
-	$table[2]=(new Db)->query($sql);
+    // TODO: If only have one row, Db->query() returns a one dimension array
+    // which will cause error in sql in next nested foreach
+	$table[2]=(new Db)->query($sql); 
+    // var_dump($table[2]);
 	foreach($table[2] as &$v){
 		// count for WIP projs and assign to the array
 		$sql = "select count(j.pid) count_wip from projects j left join organization o on j.oid=o.oid where online = 1 and level in($level) and $table[0]='{$v["$table[0]"]}' and phase='开工'";
