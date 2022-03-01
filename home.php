@@ -24,7 +24,7 @@ require $inc . "header.php";
 				  <div class="card-header"><i class="far fa-bell" aria-hidden="true"></i></div>
 				  <div class="card-body">
 					  <h5 class="card-title">公告通知</h5>
-					  <p class="card-text">默认显示前一次提交的数据，以供参考。内容与上月相同的单元格以黄色背景提醒。</p>
+					  <p class="card-text">公告通知发布管理</p>
 				  </div>
 				  <div class="card-footer"><a class="btn btn-outline-light btn-block" href="">查看通知</a></div>
 			  </div>
@@ -34,7 +34,7 @@ require $inc . "header.php";
 				  <div class="card-header"><i class="far fa-sun" aria-hidden="true"></i></div>
 				  <div class="card-body">
 					  <h5 class="card-title">固定资产投资</h5>
-					  <p class="card-text">默认显示前一次提交的数据，以供参考。内容与上月相同的单元格以黄色背景提醒。</p>
+					  <p class="card-text">固定资产投资完成情况</p>
 				  </div>
 				  <div class="card-footer"><a class="btn btn-outline-light btn-block" href="invest">查看进展</a></div>
 			  </div>
@@ -57,7 +57,7 @@ require $inc . "header.php";
 				  <div class="card-header"><i class="fas fa-cube"></i></div>
 				  <div class="card-body">
 					  <h5 class="card-title">项目两库建设</h5>
-					  <p class="card-text">默认显示前一次提交的数据，以供参考。内容与上月相同的单元格以黄色背景提醒。</p>
+					  <p class="card-text">项目两库建设</p>
 				  </div>
 				  <div class="card-footer"><a class="btn btn-outline-light btn-block" href="">去更新进度</a></div>
 			  </div>
@@ -81,7 +81,7 @@ require $inc . "header.php";
 	</div>
 
 	  <footer class="footer container">
-		  <p>&copy; ITOVE 2020</p>
+		  <p>&copy; ITOVE 2022</p>
 	  </footer>
 <?php
 require $inc . 'footer.php';
