@@ -13,5 +13,5 @@ fi
 
 mysqldump --skip-extended-insert -u$user -p$pw -h $host $db > fgw.sql
 git add .
-git commit -m "mysqldump"
+git commit -m "mysqldump" --no-gpg-sign
 git push &> /dev/null
