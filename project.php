@@ -18,13 +18,7 @@ $types = (new Db)->query($sql);
 
 $oid = $_SESSION['oid'];
 
-if ($rid == 3 || $rid == 2) {
-	$myproj_btn = 'btn-outline-info';
-}
-else {
-	$myproj_btn = 'btn-info';
-}
-// $rid == 3 ? $myproj_btn = 'btn-outline-secondary' : $myproj_btn = 'btn-primary';
+$myproj_btn = 'btn-outline-info';
 ?>
 
 	  <div class="container" id="projects">
@@ -100,12 +94,7 @@ else {
 
 <?php foreach ($p_rows as $row): ?>
 <?php
-if ($row['oid'] == $oid || $row['oid_1'] == $oid || $rid == 3 || $rid == 2) {
-	$class="searchable";
-}
-else {
-	$class="d-none";
-}
+$class="searchable";
 
 switch ($row['alert']) {
     case 1:
