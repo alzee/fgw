@@ -12,25 +12,25 @@ use PhpOffice\PhpSpreadsheet\Reader\Xls;
 use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 use App\Db;
 
-$sql = "truncate table `projects`";
-(new Db)->query($sql);
-$sql = "truncate table `path`";
-(new Db)->query($sql);
-$sql = "truncate table `progress`";
-(new Db)->query($sql);
-$sql = "truncate table `procedures`";
-(new Db)->query($sql);
+// $sql = "truncate table `projects`";
+// (new Db)->query($sql);
+// $sql = "truncate table `path`";
+// (new Db)->query($sql);
+// $sql = "truncate table `progress`";
+// (new Db)->query($sql);
+// $sql = "truncate table `procedures`";
+// (new Db)->query($sql);
 
 $ext = 'Xlsx';
-$inputFileName = 'xlsx/20220210.xlsx';
+$inputFileName = 'xlsx/import.xlsx';
 $table = 'projects';
 $reader = IOFactory::createReader($ext);
 
 $sql = 'select * from organization';
 $rows = (new Db)->query($sql);
 
-$sheetname = '总表';
-$range = 'A4:L128';
+$sheetname = 'Sheet1';
+$range = 'A5:L12';
 $reader->setLoadSheetsOnly($sheetname);
 $spreadsheet = $reader->load($inputFileName);
 
@@ -39,7 +39,7 @@ $sheetData = $spreadsheet->getActiveSheet()->rangeToArray($range, null, true, tr
 //echo $spreadsheet->getSheetCount();
 $loadedSheetNames = $spreadsheet->getSheetNames();
 
-foreach ($sheetData as $k=>$v){
+foreach ($sheetData as $k => $v){
     $pid = $sheetData[$k]['A'];
     $pname = $sheetData[$k]['B'];
     $property = $sheetData[$k]['C'];
