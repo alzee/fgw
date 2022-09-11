@@ -28,7 +28,7 @@ if($_POST){
 				$sql="insert into users (uname, passwd, oid, rid) values('$newuser', '$newpass', '${_POST['oid']}', '${_POST['rid']}')";
 				//echo $sql;
 				(new Db)->query($sql);
-				//header('Location: /fgw/admin/users');
+				//header('Location: /admin/users');
 				header("Location: $root/$controller/$method");
 				exit;
 			}

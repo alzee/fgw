@@ -10,7 +10,7 @@ if(!empty($_POST)){
 			$sql.="'". $v . "'" . " where s_key='" . $k . "'";
 			//echo $sql . "\n";
 			(new Db)->query($sql);
-			//header('Location: /fgw/admin/misc');
+			//header('Location: /admin/misc');
 			header("Location: $root/$controller/$method");
 			exit;
 		}
