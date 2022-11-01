@@ -16,7 +16,7 @@ class Route
 {
 	static function go(){
 		$root = "/fgw";
-		$inc = "./";
+		$inc = "../src/";
 		$sessionname = 'SID';
 
 		date_default_timezone_set('Asia/Shanghai');
