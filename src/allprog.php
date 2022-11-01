@@ -107,6 +107,6 @@ if (($k == 'progress' || $k == 'next_step' || $k == 'problem') && is_null($v)) $
 			</table>
 		  </main>
 		</div>
-		<script src="js/xlsx.full.min.js"></script>
+		<script src="/js/xlsx.full.min.js"></script>
 <?php
 require $inc . 'footer.php';

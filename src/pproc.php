@@ -114,6 +114,6 @@ if (is_null($v['proxy_status'])) {
 
 		  </main>
 		</div>
-		<script src="js/xlsx.full.min.js"></script>
+		<script src="/js/xlsx.full.min.js"></script>
 <?php
 require $inc . 'footer.php';
