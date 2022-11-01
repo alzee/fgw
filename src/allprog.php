@@ -43,7 +43,7 @@ require $inc . 'nav_stat.php';
 					  </button>
 					  <div class="dropdown-menu">
 <?php for($i=date('n'); date('n') - $i < 12; $i--): ?>
-						<a class="dropdown-item <?php if(date('Y-m', mktime(0,0,0,$i,1)) == $month) echo 'active' ?>" href="<?= "$controller/$method/" . date('Y-m', mktime(0,0,0,$i,1)) ?>"><?= date('Y-m', mktime(0,0,0,$i,1)) ?></a>
+						<a class="dropdown-item <?php if(date('Y-m', mktime(0,0,0,$i,1)) == $month) echo 'active' ?>" href="<?= "/$controller/$method/" . date('Y-m', mktime(0,0,0,$i,1)) ?>"><?= date('Y-m', mktime(0,0,0,$i,1)) ?></a>
 <?php endfor ?>
 					  </div>
 			</div>

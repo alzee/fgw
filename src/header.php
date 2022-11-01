@@ -15,6 +15,6 @@ $sitename = $s_row['value'];
 
 	<title><?= $sitename ?></title>
 
-	<link type="text/css" href="css/main.css" rel="stylesheet">
+	<link type="text/css" href="/css/main.css" rel="stylesheet">
   </head>
   <body>

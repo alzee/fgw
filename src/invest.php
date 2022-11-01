@@ -5,7 +5,7 @@ require $inc . "header.php";
 	  <div class="container" id="invest">
 		  <nav aria-label="breadcrumb" class="position-relative">
 				  <ol class="breadcrumb">
-				  <li class="breadcrumb-item"><a href="home">首 页</a></li>
+				  <li class="breadcrumb-item"><a href="/home">首 页</a></li>
 				  <li class="breadcrumb-item active">固定资产投资</li>
 				  </ol>
 		  </nav>
@@ -13,9 +13,9 @@ require $inc . "header.php";
 			<aside class="col-md-auto">
 				<div class="list-group">
 				  <a href="#" class="list-group-item list-group-item-action">公告通知</a>
-				  <a href="invest" class="list-group-item list-group-item-action active">固定资产投资</a>
-				  <a href="project" class="list-group-item list-group-item-action">重点项目进展</a>
-				  <a href="admin/chpwd" class="list-group-item list-group-item-action">设置</a>
+				  <a href="/invest" class="list-group-item list-group-item-action active">固定资产投资</a>
+				  <a href="/project" class="list-group-item list-group-item-action">重点项目进展</a>
+				  <a href="/admin/chpwd" class="list-group-item list-group-item-action">设置</a>
 				</div>
 			</aside>
 

@@ -10,7 +10,7 @@ require $inc . "header.php";
 				<a class="nav-link">你好，<?= $uname ?></a>
             </li>
             <li class="nav-item">
-				<a class="nav-link text-muted" href="logout">退 出</a>
+				<a class="nav-link text-muted" href="/logout">退 出</a>
             </li>
           </ul>
 		  </nav>
@@ -36,7 +36,7 @@ require $inc . "header.php";
 					  <h5 class="card-title">固定资产投资</h5>
 					  <p class="card-text">固定资产投资完成情况</p>
 				  </div>
-				  <div class="card-footer"><a class="btn btn-outline-light btn-block" href="invest">查看进展</a></div>
+				  <div class="card-footer"><a class="btn btn-outline-light btn-block" href="/invest">查看进展</a></div>
 			  </div>
 		  </div>
 	  </div>
@@ -49,7 +49,7 @@ require $inc . "header.php";
 					  <h5 class="card-title">重点项目进度</h5>
 					  <p class="card-text">默认显示前一次提交的数据，以供参考。内容与上月相同的单元格以黄色背景提醒。</p>
 				  </div>
-				  <div class="card-footer"><a class="btn btn-outline-light btn-block" href="project">去更新进度</a></div>
+				  <div class="card-footer"><a class="btn btn-outline-light btn-block" href="/project">去更新进度</a></div>
 			  </div>
 		  </div>
 		  <div class="col-sm-6">
@@ -73,7 +73,7 @@ require $inc . "header.php";
 					  <p class="card-text">修改密码、添加用户、统计报表、网站相关设置...</p>
 </div>
 				  </div>
-				  <div class="card-footer"><a class="btn btn-outline-dark btn-block" href="admin/chpwd">修改设置</a></div>
+				  <div class="card-footer"><a class="btn btn-outline-dark btn-block" href="/admin/chpwd">修改设置</a></div>
 			  </div>
 		  </div>
 	  </div>
