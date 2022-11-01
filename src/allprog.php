@@ -7,11 +7,11 @@ use App\Db;
 
 $oid = $_SESSION['oid'];
 // prepare data
-if (empty($pp)){
+if (empty($parameter)){
 	$month = date('Y-m');
 }
 else {
-	$month = $pp;
+	$month = $parameter;
 }
 $prev_month = date('Y-m', strtotime('first day of last month'));
 

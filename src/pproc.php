@@ -9,11 +9,11 @@ use App\Db;
 $oid = $_SESSION['oid'];
 // prepare data
 
-if (empty($pp)){
+if (empty($parameter)){
 	$month = date('Y-m');
 }
 else {
-	$month = $pp;
+	$month = $parameter;
 }
 
 $sql = "select parent,num,code,name from procedure_name";
