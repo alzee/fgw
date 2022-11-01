@@ -29,6 +29,12 @@ if(!empty($_POST)){
 		$wrong=1;
 	}
 }
+
+if (isset($_COOKIE['user'])) {
+    $user = $_COOKIE['user'];
+} else {
+    $user = '';
+}
 ?>
     <div class="container">
       <form class="form-signin" method="post">
@@ -42,7 +48,7 @@ if(!empty($_POST)){
 		</div>
 <?php endif ?>
         <label for="inputUsername" class="sr-only">uname</label>
-		<input type="text" id="inputUsername" class="form-control mb-3" placeholder="用户名" name="uname" value="<?= $_COOKIE['user'] ?>" required autofocus>
+		<input type="text" id="inputUsername" class="form-control mb-3" placeholder="用户名" name="uname" value="<?= $user ?>" required autofocus>
         <label for="inputPassword" class="sr-only">passwd</label>
         <input type="password" id="inputPassword" class="form-control mb-3" placeholder="密  码" name="passwd" required>
 		<button class="btn btn-lg btn-primary btn-block" type="submit">登 录</button>
