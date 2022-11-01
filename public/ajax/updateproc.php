@@ -8,7 +8,7 @@
 use App\Db;
 
 // TODO This file not start from index.php
-require '../vendor/autoload.php';
+require '../../vendor/autoload.php';
 
 if ($_POST){
 	$code = $_POST['code'];

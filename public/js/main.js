@@ -72,7 +72,7 @@ function post_proxy_status() {
             }
         }
     };
-    xhr.open('POST', '/fgw/ajax/update_proxy_status.php');
+    xhr.open('POST', '/ajax/update_proxy_status.php');
     //xhr.responseType='json';
     xhr.responseType='text';
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -93,7 +93,7 @@ for(var i=0;i<projects.length;i++){
 function progressPage(){
     var pid=this.querySelector('th').innerText.trim();	// why trim(), because fucking qq browser appends a fucking tab to innerText
     //var href=location.pathname.replace(/\/+$/, '') + "/" + pid;
-    var href="/fgw/project/" + pid;
+    var href="/project/" + pid;
     if(parent===window){
         location.pathname = href;
     }
@@ -110,7 +110,7 @@ for(var i=0;i<projects.length;i++){
 // click on users entries to moduser page
 function moduser(){
     var user=this.querySelector('td').innerText;
-    var href = '/fgw/admin/user/' + user;
+    var href = '/admin/user/' + user;
     location.pathname = href;
 }
 
@@ -228,7 +228,7 @@ function toggleWritable(){
     // ajax data of selected month
     var xhr =new XMLHttpRequest();
     xhr.onreadystatechange = updateform;
-    xhr.open('POST', '/fgw/ajax/getform.php');
+    xhr.open('POST', '/ajax/getform.php');
     xhr.responseType='json';
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.send("month=" + this.innerText + "&pid=" + document.getElementById('pid').placeholder);
@@ -634,7 +634,7 @@ function updateProc(){
             }
         }
     };
-    xhr.open('POST', '/fgw/ajax/updateproc.php');
+    xhr.open('POST', '/ajax/updateproc.php');
     xhr.responseType='json';
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.send("v=" + v + "&code=" + code + "&pid=" + document.getElementById('pid').placeholder);
