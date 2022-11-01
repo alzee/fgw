@@ -93,7 +93,7 @@ for(var i=0;i<projects.length;i++){
 function progressPage(){
     var pid=this.querySelector('th').innerText.trim();	// why trim(), because fucking qq browser appends a fucking tab to innerText
     //var href=location.pathname.replace(/\/+$/, '') + "/" + pid;
-    var href="/project/" + pid;
+    var href="project/" + pid;
     if(parent===window){
         location.pathname = href;
     }
