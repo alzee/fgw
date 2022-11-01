@@ -18,7 +18,7 @@ class Sign{
 	}
 
 	static function check(){
-		if(is_readable(session_save_path() . '/sess_' . $_COOKIE['SID'])){
+		if(isset($_COOKIE['SID']) && is_readable(session_save_path() . '/sess_' . $_COOKIE['SID'])){
 			return 1;
 		}
 		else{
