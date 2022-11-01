@@ -11,7 +11,7 @@ if(!empty($_POST)){
 			//echo $sql . "\n";
 			(new Db)->query($sql);
 			//header('Location: /fgw/admin/misc');
-			header("Location: $controller/$method");
+			header("Location: /$controller/$method");
 			exit;
 		}
 	}

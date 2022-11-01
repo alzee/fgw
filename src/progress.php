@@ -64,7 +64,7 @@ if($_POST && $date >= $openday){
 		$sql="update projects set alert='0' where pid='$pid'";
 		(new Db)->query($sql);
 		
-		header("Location: $controller/$method");
+		header("Location: /$controller/$method");
 		exit;
 	}
 	

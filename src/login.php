@@ -22,7 +22,7 @@ if(!empty($_POST)){
 
 		//require 'home.php';
 		//require 'footer.php';
-		header("Location: $controller");
+		header("Location: /$controller");
 		exit;
 	}
 	else{

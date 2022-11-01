@@ -29,7 +29,7 @@ if($_POST){
 			(new Db)->query($sql);
 		}
 
-		header("Location: $controller/$method/$parameter");
+		header("Location: /$controller/$method/$parameter");
 		exit;
 	}
 	else{

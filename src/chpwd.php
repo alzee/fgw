@@ -17,7 +17,7 @@ if($_POST){
 			$sql = "update users set passwd='" . md5($_POST['newpw1']) . "' where uid=$uid";
 			(new Db)->query($sql);
 
-			header("Location: $controller/$method");
+			header("Location: /$controller/$method");
 			exit;
 		}
 		else{
