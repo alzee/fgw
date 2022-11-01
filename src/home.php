@@ -73,7 +73,7 @@ require $inc . "header.php";
 					  <p class="card-text">修改密码、添加用户、统计报表、网站相关设置...</p>
 </div>
 				  </div>
-				  <div class="card-footer"><a class="btn btn-outline-dark btn-block" href="<?= $root ?>/admin/chpwd">修改设置</a></div>
+				  <div class="card-footer"><a class="btn btn-outline-dark btn-block" href="admin/chpwd">修改设置</a></div>
 			  </div>
 		  </div>
 	  </div>

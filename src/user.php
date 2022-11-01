@@ -29,19 +29,19 @@ if($_POST){
 				//echo $sql;
 				(new Db)->query($sql);
 				//header('Location: /fgw/admin/users');
-				header("Location: $root/$controller/$method");
+				header("Location: $controller/$method");
 				exit;
 			}
 			else{
 				$_SESSION['alert'] = 2;
 				$_SESSION['newuser'] = $newuser;
-				header("Location: $root/$controller/$method");
+				header("Location: $controller/$method");
 				exit;
 			}
 		}
 		else{
 			$_SESSION['alert'] = 1;
-			header("Location: $root/$controller/$method");
+			header("Location: $controller/$method");
 			exit;
 		}
 	}

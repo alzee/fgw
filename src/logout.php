@@ -9,5 +9,5 @@
 session_unset();
 session_destroy();
 
-header("Location: $root");
+header("Location: .");
 exit;

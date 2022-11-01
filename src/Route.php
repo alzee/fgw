@@ -15,7 +15,6 @@ use App\Controller\Hi;
 class Route
 {
 	static function go(){
-		$root = "";
 		$inc = "../src/";
 		$sessionname = 'SID';
 

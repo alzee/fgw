@@ -17,7 +17,7 @@ if($_POST){
 			$sql = "update users set passwd='" . md5($_POST['newpw1']) . "' where uid=$uid";
 			(new Db)->query($sql);
 
-			header("Location: $root/$controller/$method");
+			header("Location: $controller/$method");
 			exit;
 		}
 		else{
@@ -35,9 +35,9 @@ if($_POST){
 			<aside class="col-md-auto">
 				<div class="list-group">
 				  <a href="#" class="list-group-item list-group-item-action">公告通知</a>
-				  <a href="<?= "$root/invest" ?>" class="list-group-item list-group-item-action">固定资产投资</a>
-				  <a href="<?= "$root/project" ?>" class="list-group-item list-group-item-action">重点项目进展</a>
-				  <a href="<?= "$root/admin/chpwd" ?>" class="list-group-item list-group-item-action active">设置</a>
+				  <a href="invest" class="list-group-item list-group-item-action">固定资产投资</a>
+				  <a href="project" class="list-group-item list-group-item-action">重点项目进展</a>
+				  <a href="admin/chpwd" class="list-group-item list-group-item-action active">设置</a>
 				</div>
 			</aside>
 

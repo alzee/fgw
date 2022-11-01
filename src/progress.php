@@ -64,7 +64,7 @@ if($_POST && $date >= $openday){
 		$sql="update projects set alert='0' where pid='$pid'";
 		(new Db)->query($sql);
 		
-		header("Location: $root/$controller/$method");
+		header("Location: $controller/$method");
 		exit;
 	}
 	
@@ -119,8 +119,8 @@ else{
 	  <div class="container" id="proj_detail">
 		  <nav aria-label="breadcrumb" class="position-relative">
 				  <ol class="breadcrumb">
-				  <li class="breadcrumb-item"><a href="<?= "$root/home" ?>">首 页</a></li>
-				  <li class="breadcrumb-item"><a href="<?= $root . "/project" ?>">重点项目</a></li>
+				  <li class="breadcrumb-item"><a href="home">首 页</a></li>
+				  <li class="breadcrumb-item"><a href="project">重点项目</a></li>
 					  <li class="breadcrumb-item active" aria-current="page"><?= $pj_row['pname'] ?></li>
 				  </ol>
 		  </nav>
@@ -128,9 +128,9 @@ else{
 			<aside class="col-md-auto">
 				<div class="list-group">
 				  <a href="#" class="list-group-item list-group-item-action">公告通知</a>
-				  <a href="<?= "$root/invest" ?>" class="list-group-item list-group-item-action">固定资产投资</a>
-				  <a href="<?= "$root/project" ?>" class="list-group-item list-group-item-action active">重点项目进展</a>
-				  <a href="<?= "$root/admin/chpwd" ?>" class="list-group-item list-group-item-action">设置</a>
+				  <a href="invest" class="list-group-item list-group-item-action">固定资产投资</a>
+				  <a href="project" class="list-group-item list-group-item-action active">重点项目进展</a>
+				  <a href="admin/chpwd" class="list-group-item list-group-item-action">设置</a>
 				</div>
 			</aside>
 
@@ -273,7 +273,7 @@ if (is_dir($imgdir)){
 	unset($imgs[0], $imgs[1]); // remove . and ..
 	foreach($imgs as $img){
 ?>
-							<img src="<?= "$root/$imgdir/$img" ?>" class="img-fluid rounded float-left mr-1" alt="...">
+							<img src="<?= "$imgdir/$img" ?>" class="img-fluid rounded float-left mr-1" alt="...">
 <?php
 	}
 }

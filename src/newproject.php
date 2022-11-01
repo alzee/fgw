@@ -5,8 +5,8 @@ require $inc . 'header.php';
 	  <div class="container" id="progress">
 		  <nav aria-label="breadcrumb" class="position-relative">
 				  <ol class="breadcrumb">
-				  <li class="breadcrumb-item"><a href="<?= "$root/home" ?>">首 页</a></li>
-				  <li class="breadcrumb-item"><a href="<?= $root . "/project" ?>">重点项目</a></li>
+				  <li class="breadcrumb-item"><a href="home">首 页</a></li>
+				  <li class="breadcrumb-item"><a href="/project">重点项目</a></li>
 					  <li class="breadcrumb-item active" aria-current="page">新增项目</li>
 				  </ol>
 		  </nav>
@@ -15,8 +15,8 @@ require $inc . 'header.php';
 				<div class="list-group">
 				  <a href="#" class="list-group-item list-group-item-action">公告通知</a>
 				  <a href="#" class="list-group-item list-group-item-action">固定资产投资</a>
-				  <a href="<?= "$root/project" ?>" class="list-group-item list-group-item-action active">重点项目进展</a>
-				  <a href="<?= "$root/admin/chpwd" ?>" class="list-group-item list-group-item-action">设置</a>
+				  <a href="project" class="list-group-item list-group-item-action active">重点项目进展</a>
+				  <a href="admin/chpwd" class="list-group-item list-group-item-action">设置</a>
 				</div>
 			</aside>
 

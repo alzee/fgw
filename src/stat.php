@@ -136,6 +136,6 @@ require $inc . 'nav_stat.php';
 
 		  </main>
 		</div>
-		<script src="<?= $root ?>/js/xlsx.full.min.js"></script>
+		<script src="js/xlsx.full.min.js"></script>
 <?php
 require $inc . 'footer.php';

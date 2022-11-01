@@ -11,7 +11,7 @@ if(!empty($_POST)){
 	if($user_row){
 		// session 
 		#session_id(session_create_id());
-		session_start(['name' => 'SID', 'cookie_lifetime' => $cookielife, 'cookie_path' => $root]);
+		session_start(['name' => 'SID', 'cookie_lifetime' => $cookielife, 'cookie_path' => 'fgw/']);
 		// register to $_SESSION elements;
 		foreach($user_row as $k => $v){
 			$_SESSION[$k] = $v;
@@ -22,7 +22,7 @@ if(!empty($_POST)){
 
 		//require 'home.php';
 		//require 'footer.php';
-		header("Location: $root/$controller");
+		header("Location: $controller");
 		exit;
 	}
 	else{
@@ -49,7 +49,7 @@ if(!empty($_POST)){
 	  </form>
 	</div>
 <!--
-  <script src="<?= $root ?>/md5.js"></script>
+  <script src="md5.js"></script>
 -->
 <?php
 require $inc . 'footer.php';
