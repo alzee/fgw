@@ -1,4 +1,4 @@
-	  <div class="container" id="<?= /$controller ?>">
+	  <div class="container" id="<?= "/$controller" ?>">
 		  <nav class="mx-0 mb-3 row justify-content-between" id="nav">
 			  <ol class="breadcrumb mb-0">
 			  <li class="breadcrumb-item"><a href="/home">首 页</a></li>
