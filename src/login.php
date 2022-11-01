@@ -11,7 +11,7 @@ if(!empty($_POST)){
 	if($user_row){
 		// session 
 		#session_id(session_create_id());
-		session_start(['name' => 'SID', 'cookie_lifetime' => $cookielife, 'cookie_path' => 'fgw/']);
+		session_start(['name' => 'SID', 'cookie_lifetime' => $cookielife, 'cookie_path' => '']);
 		// register to $_SESSION elements;
 		foreach($user_row as $k => $v){
 			$_SESSION[$k] = $v;
@@ -22,7 +22,7 @@ if(!empty($_POST)){
 
 		//require 'home.php';
 		//require 'footer.php';
-		header("Location: /$controller");
+		header("Location: /project");
 		exit;
 	}
 	else{
