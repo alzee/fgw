@@ -1,4 +1,4 @@
-	  <script src="<?= $root ?>/js/main.js"></script>
+	  <script src="js/main.js"></script>
 	  <noscript></noscript>
   </body>
 </html>
