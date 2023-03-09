@@ -56,9 +56,17 @@ foreach($tables[4][2] as &$v){
 	$a = (new Db)->query($sql);
 	$v['count_wip'] = $a['count_wip'];
 	// calaculate wip ratio and assign to the array
-	$v['r_wip'] = round($v['count_wip'] / $v['count'] * 100) . '%';
+    if ($v['count'] == 0) {
+        $v['r_wip'] = '0%';
+    } else {
+        $v['r_wip'] = round($v['count_wip'] / $v['count'] * 100) . '%';
+    }
 	// calaculate invest ratio and assign to the array
-	$v['r_invest'] = round($v['sum_accum'] / $v['sum_plan'] * 100) . '%';
+    if ($v['sum_plan'] == 0) {
+        $v['r_invest'] = '0%';
+    } else {
+        $v['r_invest'] = round($v['sum_accum'] / $v['sum_plan'] * 100) . '%';
+    }
 	// clear talbe[4][2][i][0] since they are not useful after 'where investment between' clause;
 	unset($v[0]);
 }
@@ -123,8 +131,8 @@ require $inc . 'nav_stat.php';
 						<td><?= $v['r_invest'] ?></td>
 					</tr>
 <?php endforeach ?>
-<?php $count[3] = round($count[2] / $count[1] * 100) . '%' ?>
-<?php $count[6] = round($count[5] / $count[4] * 100) . '%' ?>
+<?php $count[3] = $count[1] == 0 ? '0%' : round($count[2] / $count[1] * 100) . '%' ?>
+<?php $count[6] = $count[4] == 0 ? '0%' : round($count[5] / $count[4] * 100) . '%' ?>
 					<tr class="font-weight-bold">
 <?php foreach($count as $v): ?>
 						<td><?= $v ?></td>
