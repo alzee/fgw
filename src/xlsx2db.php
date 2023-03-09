@@ -12,14 +12,14 @@ use PhpOffice\PhpSpreadsheet\Reader\Xls;
 use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 use App\Db;
 
-// $sql = "truncate table `projects`";
-// (new Db)->query($sql);
-// $sql = "truncate table `path`";
-// (new Db)->query($sql);
-// $sql = "truncate table `progress`";
-// (new Db)->query($sql);
-// $sql = "truncate table `procedures`";
-// (new Db)->query($sql);
+$sql = "truncate table `projects`";
+(new Db)->query($sql);
+$sql = "truncate table `path`";
+(new Db)->query($sql);
+$sql = "truncate table `progress`";
+(new Db)->query($sql);
+$sql = "truncate table `procedures`";
+(new Db)->query($sql);
 
 $ext = 'Xlsx';
 $inputFileName = 'xlsx/import.xlsx';
@@ -27,10 +27,10 @@ $table = 'projects';
 $reader = IOFactory::createReader($ext);
 
 $sql = 'select * from organization';
-$rows = (new Db)->query($sql);
+$orgs = (new Db)->query($sql);
 
-$sheetname = 'Sheet1';
-$range = 'A5:L12';
+$sheetname = 'all';
+$range = 'A2:N131';
 $reader->setLoadSheetsOnly($sheetname);
 $spreadsheet = $reader->load($inputFileName);
 
@@ -49,21 +49,22 @@ foreach ($sheetData as $k => $v){
     $start = $sheetData[$k]['G'];
     $finish = $sheetData[$k]['H'];
     $investby = '';
-    $level = '一类';
-    $p_incharge = str_replace("\n", ',', $sheetData[$k]['J']);
+    $p_incharge = str_replace("\n", ',', $sheetData[$k]['I']);
     $p_incharge = str_replace(" ", '', $p_incharge);
-    $oname = preg_replace('/\s+/', '', $sheetData[$k]['I']);
+    $oname = preg_replace('/\s+/', '', $sheetData[$k]['J']);
     $oname_serve = preg_replace('/\s+/', '', $sheetData[$k]['K']);
-    $type = $sheetData[$k]['L'];
+    $notes = $sheetData[$k]['L'];
+    $type = $sheetData[$k]['M'];
+    $level = $sheetData[$k]['N'];
     $oid = 0;
     $oid_serve = 0;
-    foreach ($rows as $vv) {
+    foreach ($orgs as $org) {
         // what if not found?
-        if ($oname == $vv['oname']) {
-            $oid = $vv['oid'];
+        if (str_starts_with($oname, $org['oname'])) {
+            $oid = $org['oid'];
         }
-        if ($oname_serve == $vv['oname']) {
-            $oid_serve = $vv['oid'];
+        if (str_starts_with($oname_serve, $org['oname'])) {
+            $oid_serve = $org['oid'];
         }
     }
     //echo $p_incharge;
@@ -72,7 +73,7 @@ foreach ($sheetData as $k => $v){
     //echo ' | ';
     //echo $oname_serve . ' ' . $oid_serve;
     //echo PHP_EOL;
-    $sql="insert into $table (pid,pname,property,intro,investment,invest_plan,start,finish,investby,type,level,p_incharge,oid,oid_serve) values(
+    $sql="insert into $table (pid,pname,property,intro,investment,invest_plan,start,finish,investby,type,level,p_incharge,oid,oid_serve,notes) values(
         '" .  $pid ."',
         '" .  $pname ."',
         '" .  $property ."',
@@ -86,7 +87,8 @@ foreach ($sheetData as $k => $v){
         '" .  $level ."',
         '" .  $p_incharge ."',
         '" .  $oid ."',
-        '" .  $oid_serve ."')";
+        '" .  $oid_serve ."',
+        '" .  $notes ."')";
     // echo $sql;
     if(! (new Db)->query($sql)){
         //echo $mysqli->errno;
