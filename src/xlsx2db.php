@@ -58,6 +58,14 @@ foreach ($sheetData as $k => $v){
     $level = $sheetData[$k]['N'];
     $oid = 0;
     $oid_serve = 0;
+    
+    // $onames = explode(',', $oname);
+    // $oname_serves = explode(',', $oname_serve);
+    // for ($i = 0; count($onames); $i++) {
+    //     $sql = "select oid from organization where oname like '{$onames[$i]}%'";
+    //     $oid = (new Db)->query($sql);
+    // }
+    
     foreach ($orgs as $org) {
         // what if not found?
         if (str_starts_with($oname, $org['oname'])) {
